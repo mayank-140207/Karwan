@@ -1,0 +1,502 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan - Traveler Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-fixed-dim": "#afc8f0",
+                "on-surface": "#191c1e",
+                "error-container": "#ffdad6",
+                "primary-container": "#10233f",
+                "secondary-container": "#adf2c3",
+                "surface-container": "#edeef0",
+                "background": "#f8f9fb",
+                "surface-container-low": "#f2f4f6",
+                "on-secondary-fixed": "#002110",
+                "on-secondary-fixed-variant": "#065230",
+                "inverse-primary": "#b5c7eb",
+                "on-tertiary-fixed": "#001c39",
+                "on-tertiary-fixed-variant": "#2e4869",
+                "on-primary": "#ffffff",
+                "error": "#ba1a1a",
+                "on-background": "#191c1e",
+                "pure-white": "#FFFFFF",
+                "primary-fixed": "#d6e3ff",
+                "secondary-fixed": "#adf2c3",
+                "on-surface-variant": "#44474d",
+                "secondary-fixed-dim": "#92d5a8",
+                "on-secondary": "#ffffff",
+                "surface-container-high": "#e7e8ea",
+                "tertiary": "#000e21",
+                "on-error": "#ffffff",
+                "surface-tint": "#4d5f7e",
+                "outline": "#75777e",
+                "primary-fixed-dim": "#b5c7eb",
+                "primary": "#000d23",
+                "outline-variant": "#c5c6ce",
+                "surface-variant": "#e1e2e4",
+                "secondary": "#286a46",
+                "surface": "#f8f9fb",
+                "inverse-on-surface": "#f0f1f3",
+                "surface-bright": "#f8f9fb",
+                "on-secondary-container": "#2f704b",
+                "inverse-surface": "#2e3132",
+                "on-primary-fixed": "#071b37",
+                "text-gray": "#5A6472",
+                "surface-dim": "#d9dadc",
+                "success-green": "#2C6E49",
+                "on-tertiary-container": "#738cb1",
+                "tertiary-fixed": "#d4e3ff",
+                "tertiary-container": "#052443",
+                "on-tertiary": "#ffffff",
+                "on-error-container": "#93000a",
+                "surface-container-highest": "#e1e2e4",
+                "on-primary-fixed-variant": "#364765",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-container": "#798bac"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "64px",
+                "stack-lg": "24px",
+                "margin-mobile": "20px",
+                "container-max": "1280px",
+                "stack-md": "16px",
+                "gutter": "24px",
+                "stack-sm": "8px",
+                "section-gap": "80px"
+        },
+        "fontFamily": {
+                "display-lg": [
+                        "Noto Serif"
+                ],
+                "headline-lg": [
+                        "Noto Serif"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Noto Serif"
+                ],
+                "headline-md": [
+                        "Noto Serif"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "display-lg": [
+                        "56px",
+                        {
+                                "lineHeight": "64px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg": [
+                        "40px",
+                        {
+                                "lineHeight": "48px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+  body {
+    background-color: #f8f9fb; /* Match tailwind surface */
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden">
+<div class="flex h-screen overflow-hidden">
+<!-- Persistent Sidebar -->
+<aside class="w-64 bg-primary dark:bg-primary-container shadow-md hidden md:flex flex-col h-full p-stack-lg shrink-0 justify-between h-screen">
+<div>
+<!-- Brand -->
+<div class="mb-section-gap flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa_arS8eCc5yfmU8c1cBBpx0jRmi6ftFP7vVbXAu-xRlXRsSxDYNVtUJOlaEmhSqvnTy4KiCC5LtZDwVasTatixT-FfgitesnM-scGWp50v5vqVIatzIBKBfl9ceu4RulLKSqGzGINX5HgoZEmZaqRqdoA9EGwtedETPX7mL7bnEGI43WTDXPnLpWyTOvZ7UgquTEfTwzGdR-sx1TDHtMqp0nmfh5p-cTZWmJ4noW6i8ONCgQSv4VZ9hK2-yHEyBfSPn8" alt="Karwan Logo" class="w-full h-full rounded-full object-cover">
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-pure-white">Karwan</h1>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim">Traveler Dashboard</p>
+</div>
+</div>
+<!-- Navigation -->
+<nav class="space-y-2 font-body-md text-body-md">
+<a class="flex items-center space-x-3 p-3 text-pure-white bg-on-primary-fixed-variant rounded-lg font-bold scale-95 transition-transform duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="">Home</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="">LiveTrail</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="">TrustRadar</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="rebase_edit">rebase_edit</span>
+<span class="">Auto-heal</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="">Ground Truth</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="">Profile</span>
+</a>
+</nav>
+</div>
+<!-- Bottom Profile -->
+<div class="mt-auto pt-4 border-t border-on-primary-fixed-variant">
+<div class="flex items-center space-x-3 p-2 rounded-lg hover:bg-on-primary-fixed-variant/50 transition-colors cursor-pointer">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A small circular avatar portrait of a young professional Indian man named Arjun, smiling warmly in a bright, modern setting. The aesthetic is clean and corporate. 50-100 words." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFtTv-mYCVubrf3uVJnY-4KL9dfCP1foOAQ8MolVXUgY-yKoRCaohMd_JKCwv6syw-bhzy1H_LcLvWULerk1g-vKAqjuWIq6sCzOA-jetSgX5GncOC72CFHF_FJJ38reDjdhCnJMJ-m4Ur2W5SRvOTeev7WM43ju6_adwYXhG9qNxGJ1UpnF2CCUm_EflNcQwGuHqaLUsnRwlfgVgYSsYXLyhKM2K-pyrrbGpKjIZvsowcvb6-1l49BUBlbI-FGedoKig">
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold text-pure-white truncate">Arjun</p>
+<p class="text-xs text-primary-fixed-dim truncate">View Profile</p>
+</div>
+<span class="material-symbols-outlined text-primary-fixed-dim hover:text-pure-white">logout</span>
+</div>
+<button class="mt-4 w-full py-3 bg-secondary hover:bg-secondary/90 text-pure-white rounded-full font-bold transition-colors">
+                Plan New Trip
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col h-screen overflow-hidden">
+<!-- Top Header -->
+<header class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-md shadow-sm shrink-0 flex justify-between items-center w-full px-margin-desktop py-stack-md z-10 sticky top-0">
+<div>
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">Good morning, Arjun</h2>
+<p class="text-text-gray font-body-md text-body-md">Here is your travel overview for today.</p>
+</div>
+<div class="flex items-center space-x-6">
+<!-- Search Bar -->
+<div class="relative hidden lg:block w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-low border border-outline-variant rounded-full text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors" placeholder="Search places, trips..." type="text">
+</div>
+<!-- Actions -->
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-80 active:opacity-100 relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img class="w-10 h-10 rounded-full object-cover border-2 border-surface-container-high hidden md:block" data-alt="A small circular avatar portrait of a young professional Indian man named Arjun, smiling warmly in a bright, modern setting. The aesthetic is clean and corporate. 50-100 words." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaDK6ADn5rRpuY6ux0_Zw-QNc7M1owd0XSz23vfSltODaeCNpvAkyBmna-6Rc3k7RKrDkCSv7MZ2h2juHApQqkfKSIvzl7C4SbJQsgiMJEqGhHrqY4aP8XlThXyEkHjpWVMPIDgf4xJ5dp9ufBqu9ly3iRcQnYEA8h3vrJkcftS9SoJRwWNADjCjdEdx9rttHLoFa46mJ35ELRok0GDoxbxhkJayHdJrXp_UNM5fdWA7DKhFRHFoUjbw">
+</div>
+</header>
+<!-- Scrollable Canvas -->
+<div class="flex-1 overflow-y-auto p-margin-desktop bg-background">
+<div class="max-w-[1200px] mx-auto space-y-gutter pb-section-gap">
+<!-- Active Trip Card -->
+<section class="bg-pure-white rounded-[20px] shadow-[0_4px_24px_rgba(16,35,63,0.06)] overflow-hidden relative group">
+<!-- Gradient Border Top -->
+<div class="h-2 w-full bg-gradient-to-r from-primary to-success-green absolute top-0 left-0"></div>
+<div class="p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 relative z-10">
+<div class="flex-1 space-y-4">
+<div class="flex items-center space-x-3 mb-2">
+<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container rounded-full text-xs font-bold tracking-wide uppercase">Active Trip</span>
+<span class="text-text-gray text-sm flex items-center"><span class="material-symbols-outlined text-[16px] mr-1">calendar_today</span> Day 3 of 5</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-primary font-bold">Exploring Jaipur</h3>
+<!-- Auto-heal Alert -->
+<div class="flex items-start space-x-3 p-4 bg-primary-fixed/30 rounded-xl border border-primary-fixed">
+<span class="material-symbols-outlined text-primary mt-0.5">rebase_edit</span>
+<div>
+<p class="font-label-md text-label-md text-primary font-bold">Auto-heal Active</p>
+<p class="text-sm text-on-surface-variant">Route updated — Fort closes early today. Adjusted itinerary to visit City Palace first.</p>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="space-y-2 mt-4 max-w-md">
+<div class="flex justify-between text-sm text-text-gray font-medium">
+<span class="">Trip Progress</span>
+<span class="">65%</span>
+</div>
+<div class="h-2 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-success-green rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+</div>
+<div class="flex-shrink-0 relative w-full md:w-64 h-48 rounded-[16px] overflow-hidden shadow-sm">
+<div class="bg-cover bg-center w-full h-full" data-alt="A beautiful, vibrant photo of the Hawa Mahal in Jaipur during early morning light. The intricate pink sandstone architecture glows warmly. Shot in a premium, modern travel editorial style with high clarity. 50-100 words." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDebp40oia3iZO_HVFnHNF7AFytbsFlFrwBvQ82eZZGbonxvWgYpKa3jHZ9CIF-lVIpe10aZDtjuMKsUp3OGM2Bxj1AV8Hs4WkDV_qcyZM2BNDY8joUNXdvWwj0PvfignRduZ_OY2wDFFYP_6T28_SJn2PrU5ZwwDSKurMtHteG5qn_SdzwkJWrH753is_gYDBY_E7oP8StXI0cwugEWP0E4R7PCt4mT8XqNP-SUN9Zowe22pqQQg0pew&quot;);"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end p-4">
+<button class="w-full py-2.5 bg-pure-white text-primary rounded-[12px] font-label-md text-label-md hover:bg-surface-container-low transition-colors shadow-sm">
+                                    View Itinerary
+                                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Module Row (4 Columns) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- LiveTrail -->
+<div class="bg-pure-white p-6 rounded-[20px] shadow-[0_2px_12px_rgba(16,35,63,0.04)] hover:shadow-[0_8px_24px_rgba(16,35,63,0.08)] transition-shadow border border-surface-container">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 flex items-center justify-center text-success-green">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">insights</span>
+</div>
+<span class="px-2.5 py-1 bg-success-green/10 text-success-green rounded-full text-xs font-bold">Live</span>
+</div>
+<h4 class="font-label-md text-label-md text-text-gray mb-1">LiveTrail</h4>
+<p class="font-body-lg text-body-lg text-primary font-semibold mb-3">Check live fares</p>
+<div class="p-3 bg-surface rounded-lg border border-surface-variant">
+<p class="text-sm font-medium text-on-surface">Fort Gate auto — ₹80</p>
+<p class="text-xs text-text-gray mt-1 flex items-center"><span class="w-2 h-2 rounded-full bg-success-green mr-1.5 animate-pulse"></span> Verified 2m ago</p>
+</div>
+</div>
+<!-- TrustRadar -->
+<div class="bg-pure-white p-6 rounded-[20px] shadow-[0_2px_12px_rgba(16,35,63,0.04)] hover:shadow-[0_8px_24px_rgba(16,35,63,0.08)] transition-shadow border border-surface-container">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">verified_user</span>
+</div>
+</div>
+<h4 class="font-label-md text-label-md text-text-gray mb-1">TrustRadar</h4>
+<p class="font-body-lg text-body-lg text-primary font-semibold mb-3">Nearby trust scores</p>
+<div class="p-3 bg-surface rounded-lg border border-surface-variant flex items-center justify-between">
+<div>
+<p class="text-sm font-medium text-on-surface">City Palace</p>
+<p class="text-xs text-text-gray mt-1">Cultural Site</p>
+</div>
+<div class="text-right">
+<span class="text-lg font-bold text-success-green">9.2</span>
+<span class="text-xs text-text-gray block">/10</span>
+</div>
+</div>
+</div>
+<!-- Auto-heal -->
+<div class="bg-pure-white p-6 rounded-[20px] shadow-[0_2px_12px_rgba(16,35,63,0.04)] hover:shadow-[0_8px_24px_rgba(16,35,63,0.08)] transition-shadow border border-surface-container">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/20 flex items-center justify-center text-success-green">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">rebase_edit</span>
+</div>
+<span class="px-2.5 py-1 bg-primary/10 text-primary rounded-full text-xs font-bold">Active</span>
+</div>
+<h4 class="font-label-md text-label-md text-text-gray mb-1">Auto-heal</h4>
+<p class="font-body-lg text-body-lg text-primary font-semibold mb-3">Your adaptive plan</p>
+<div class="p-3 bg-surface rounded-lg border border-surface-variant flex items-center space-x-3">
+<span class="material-symbols-outlined text-text-gray text-[20px]">schedule</span>
+<div>
+<p class="text-sm font-medium text-on-surface">Next check in 15m</p>
+<p class="text-xs text-text-gray mt-1">Monitoring traffic</p>
+</div>
+</div>
+</div>
+<!-- Ground Truth -->
+<div class="bg-pure-white p-6 rounded-[20px] shadow-[0_2px_12px_rgba(16,35,63,0.04)] hover:shadow-[0_8px_24px_rgba(16,35,63,0.08)] transition-shadow border border-surface-container">
+<div class="flex justify-between items-start mb-4">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">fact_check</span>
+</div>
+</div>
+<h4 class="font-label-md text-label-md text-text-gray mb-1">Ground Truth</h4>
+<p class="font-body-lg text-body-lg text-primary font-semibold mb-3">Verified stays nearby</p>
+<div class="p-3 bg-surface rounded-lg border border-surface-variant flex items-center space-x-3">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-pure-white" data-alt="A tiny thumbnail of a premium hotel facade in Jaipur, clean modern style. 50-100 words." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnGabNv3BbhjSNiEdZ_1WvE82nQ1uxKULS9_alUBb1FGhK9dfKEnfEuXZDFOP77RNivrCBJE32h2rdsNoT8IwEUCI2OuTlmMOsSXKZMoeB0BH9qgc_ODYH0yzznhcsHJMXRugQpanxjYgPi3CKr5gwkl3XE-6sywPw_8NQs-2Vn_tcytOpTBzA108nfESzUhAIkv7tKGZmCz9VX6dnlwOQUvm0DTg6HESioXzljipcKtPO0A6ArBxlrA">
+<img class="w-8 h-8 rounded-full border-2 border-pure-white" data-alt="A tiny thumbnail of a boutique guesthouse courtyard in Jaipur, clean modern style. 50-100 words." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7hJ06GD703HXuLUkooPxZTa_xVjYevOXy56wL8HxbkNuKalnmvlMFXt1OzNfF42awzGUAslf-KOBUQJn20RpsN-yvEn_ptpuTcKMhSaH7xrvJBKGKYNb_2skMqXJql1YPamu4mWcZYM68xEKEFjqozUoaagfOvErepqwgUdEu8kKJMCI8d13rbrr_zxJ0RN6sLMykVkxgP73qYpsg_5kQ3uP_LtsmY1FMJBAz8GD0bLgg0AW9NLQLFw">
+<div class="w-8 h-8 rounded-full border-2 border-pure-white bg-surface-container-high flex items-center justify-center text-[10px] font-bold text-text-gray">+2</div>
+</div>
+<div>
+<p class="text-sm font-medium text-on-surface">4 safe stays</p>
+<p class="text-xs text-text-gray mt-1">Within 2km radius</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Two-Column Bottom Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Column (60%) -->
+<div class="lg:col-span-7 bg-pure-white p-8 rounded-[20px] shadow-[0_2px_12px_rgba(16,35,63,0.04)] border border-surface-container">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">Trust Alerts Near You</h3>
+<p class="text-text-gray font-body-md mt-1">Community verified updates in real-time</p>
+</div>
+<button class="text-sm font-semibold text-primary hover:text-secondary transition-colors">View All</button>
+</div>
+<div class="space-y-4">
+<!-- Alert Item 1 -->
+<div class="group flex items-start space-x-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors border border-transparent hover:border-surface-variant">
+<div class="w-10 h-10 rounded-full bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">trending_up</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Fare spike reported</h4>
+<span class="text-xs text-text-gray whitespace-nowrap">12m ago</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2 truncate">Auto rickshaw fares elevated near Johari Bazaar due to festival crowd.</p>
+<div class="flex items-center text-xs text-text-gray space-x-3">
+<span class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">location_on</span> Johari Bazaar</span>
+<span class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">group</span> Verified by 8 travelers</span>
+</div>
+</div>
+</div>
+<hr class="border-surface-variant">
+<!-- Alert Item 2 -->
+<div class="group flex items-start space-x-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors border border-transparent hover:border-surface-variant">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Safe zone confirmed</h4>
+<span class="text-xs text-text-gray whitespace-nowrap">1h ago</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2 truncate">Well-lit pathways and active security presence noted.</p>
+<div class="flex items-center text-xs text-text-gray space-x-3">
+<span class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">location_on</span> Albert Hall Museum</span>
+<span class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">group</span> Verified by Ground Truth</span>
+</div>
+</div>
+</div>
+<hr class="border-surface-variant">
+<!-- Alert Item 3 -->
+<div class="group flex items-start space-x-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors border border-transparent hover:border-surface-variant">
+<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">info</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h4 class="font-label-md text-label-md font-bold text-on-surface">Route diversion</h4>
+<span class="text-xs text-text-gray whitespace-nowrap">2h ago</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-2 truncate">Main approach to Amer Fort congested. Auto-heal suggests alternative route.</p>
+<div class="flex items-center text-xs text-text-gray space-x-3">
+<span class="flex items-center"><span class="material-symbols-outlined text-[14px] mr-1">location_on</span> Amer Fort</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (40%) -->
+<div class="lg:col-span-5 bg-pure-white p-8 rounded-[20px] shadow-[0_2px_12px_rgba(16,35,63,0.04)] border border-surface-container flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary font-bold mb-1">Nearby Safety Map</h3>
+<p class="text-text-gray font-body-md mb-6">Jaipur contextual overview</p>
+<div class="flex-1 w-full bg-surface-container-low rounded-2xl overflow-hidden relative min-h-[300px] border border-surface-variant">
+<!-- Map Placeholder Image -->
+<div class="w-full h-full bg-cover bg-center absolute inset-0 opacity-80" data-alt="A stylized, clean, minimalist digital map of Jaipur city center. It uses a light color palette with soft greys and off-whites, featuring subtle blue and green highlights indicating safe zones and major landmarks. The aesthetic is highly polished and professional, resembling a premium corporate travel app interface. 50-100 words." data-location="Jaipur" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuDlHN1s0MUfhn7IGKJZZO7zwC1sjo-VIS8sXt8xYmyQ3J4Wyf_oGaAXROX8MSZaxDQokoIVQp5XSPypUV37RmGax8v_qhOPcxaS6rVUC90AXKeTYrH60nEUUy3jhK1E0YioKq0i5nn_AtxUUnbj8BvmgUHR86ysMXdPZyoW_pyyov5pdKPj18wzbDRgS3YbOieNPHrcX4OC6Hai_z1qw11KYoNRpgrC-PkUMd6B5Gg9f_JMdLCH67JKEw&quot;);"></div>
+<!-- Overlay UI elements on Map -->
+<div class="absolute inset-0 p-4 flex flex-col justify-between pointer-events-none">
+<div class="flex justify-end">
+<div class="bg-pure-white/90 backdrop-blur-sm p-2 rounded-lg shadow-sm border border-surface pointer-events-auto">
+<div class="flex items-center space-x-2 text-xs font-semibold">
+<span class="w-3 h-3 rounded-full bg-success-green"></span>
+<span class="">High Trust</span>
+</div>
+<div class="flex items-center space-x-2 text-xs font-semibold mt-1">
+<span class="w-3 h-3 rounded-full bg-error"></span>
+<span class="">Alerts</span>
+</div>
+</div>
+</div>
+<div class="flex justify-center pointer-events-auto">
+<button class="px-6 py-2 bg-primary text-pure-white rounded-full font-label-md text-label-md shadow-md hover:bg-primary/90 transition-colors flex items-center space-x-2">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+<span class="">Open Full Map</span>
+</button>
+</div>
+</div>
+<!-- Mock Pins (CSS positioned over background) -->
+<div class="absolute top-[30%] left-[40%] w-8 h-8 pointer-events-auto group">
+<div class="w-8 h-8 bg-success-green text-pure-white rounded-full flex items-center justify-center shadow-lg transform -translate-x-1/2 -translate-y-1/2 border-2 border-pure-white z-10 relative">
+<span class="material-symbols-outlined text-[16px]">verified_user</span>
+</div>
+<div class="hidden group-hover:block absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-32 bg-pure-white p-2 rounded shadow-lg text-xs z-20 text-center border border-surface-variant">
+<p class="font-bold text-primary">City Palace</p>
+<p class="text-text-gray">Score: 9.2</p>
+</div>
+</div>
+<div class="absolute top-[60%] left-[70%] w-8 h-8 pointer-events-auto group">
+<div class="w-8 h-8 bg-error text-pure-white rounded-full flex items-center justify-center shadow-lg transform -translate-x-1/2 -translate-y-1/2 border-2 border-pure-white z-10 relative animate-bounce">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+
+
+
+
+</body></html>

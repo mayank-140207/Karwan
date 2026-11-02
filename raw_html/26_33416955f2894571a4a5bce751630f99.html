@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#adf2c3",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed": "#adf2c3",
+                        "background": "#f8f9fb",
+                        "surface-container-low": "#f2f4f6",
+                        "on-primary-container": "#798bac",
+                        "text-gray": "#5A6472",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#edeef0",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "outline": "#75777e",
+                        "on-secondary": "#ffffff",
+                        "surface-container-highest": "#e1e2e4",
+                        "tertiary": "#000e21",
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "surface-variant": "#e1e2e4",
+                        "tertiary-fixed": "#d4e3ff",
+                        "on-tertiary-fixed-variant": "#2e4869",
+                        "pure-white": "#FFFFFF",
+                        "primary": "#000d23",
+                        "on-secondary-fixed-variant": "#065230",
+                        "primary-container": "#10233f",
+                        "on-surface": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8f9fb",
+                        "surface": "#f8f9fb",
+                        "secondary": "#286a46",
+                        "on-tertiary-container": "#738cb1",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-secondary-container": "#2f704b",
+                        "primary-fixed": "#d6e3ff",
+                        "on-secondary-fixed": "#002110",
+                        "tertiary-container": "#052443",
+                        "error": "#ba1a1a",
+                        "success-green": "#2C6E49",
+                        "primary-fixed-dim": "#b5c7eb",
+                        "surface-dim": "#d9dadc",
+                        "on-background": "#191c1e",
+                        "on-primary-fixed": "#071b37",
+                        "surface-tint": "#4d5f7e",
+                        "outline-variant": "#c5c6ce",
+                        "inverse-primary": "#b5c7eb",
+                        "surface-container-high": "#e7e8ea",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#364765",
+                        "on-surface-variant": "#44474d",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed-dim": "#92d5a8",
+                        "on-tertiary-fixed": "#001c39"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px",
+                        "container-max": "1280px",
+                        "stack-md": "16px",
+                        "section-gap": "80px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"],
+                        "headline-lg": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen w-64 bg-primary text-primary-fixed fixed left-0 top-0 p-stack-lg shadow-md z-50 min-h-screen h-full">
+<div class="mb-section-gap"><div class="flex items-center gap-stack-md">
+    <div class="w-10 h-10 flex-shrink-0">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfgjv6u6hlXai6Gn7QCOienwILO2N1BQuj4eKALVZyLT_nzPCge2JvnvNtoRkHbNMLzDdCBryfPiMd8RrmeXuRkWENkXeEGd4gTCLjvAqrOHm2ZRU5ubOQWqm8RGa57fLD31S3qtdBYaW51m6efMgrHGeZjYmpT6SfgM21Ip80s04qghpB_QMr683zmGmsJQ-0RaexJ6mGhsI_1AGcAo5R9gVOnMssDHCl5GnQTwjX2MLGxtzEidjIAzyE1MiXab1JFxQ" alt="Karwan Logo" class="w-full h-full object-contain rounded-lg">
+    </div>
+    <div>
+        <h1 class="font-headline-md text-headline-md font-bold text-pure-white leading-none">Karwan</h1>
+        <p class="font-label-sm text-label-sm text-primary-fixed-dim mt-1">Traveler Dashboard</p>
+    </div>
+</div></div>
+<ul class="flex-1 space-y-stack-sm flex flex-col font-body-md text-body-md">
+<li class="">
+<a class="flex items-center gap-stack-md px-stack-md py-stack-sm text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">home</span>
+                    Home
+                </a>
+</li>
+<li class="">
+<a class="flex items-center gap-stack-md px-stack-md py-stack-sm text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">insights</span>
+                    LiveTrail
+                </a>
+</li>
+<li class="">
+<a class="flex items-center gap-stack-md px-stack-md py-stack-sm text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">verified_user</span>
+                    TrustRadar
+                </a>
+</li>
+<li class="">
+<a class="flex items-center gap-stack-md px-stack-md py-stack-sm text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">rebase_edit</span>
+                    Auto-heal
+                </a>
+</li>
+<li class="">
+<a class="flex items-center gap-stack-md px-stack-md py-stack-sm text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">fact_check</span>
+                    Ground Truth
+                </a>
+</li>
+<li class="">
+<a class="flex items-center gap-stack-md px-stack-md py-stack-sm text-pure-white bg-on-primary-fixed-variant rounded-lg font-bold scale-95 transition-transform duration-150 border-l-4 border-success-green" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">person</span>
+                    Profile
+                </a>
+</li>
+</ul>
+<div class="mt-auto">
+<button class="w-full bg-success-green hover:bg-secondary text-pure-white py-stack-md rounded-[20px] font-label-md text-label-md transition-colors shadow-md flex items-center justify-center gap-stack-sm">
+<span class="material-symbols-outlined">add</span>
+                Plan New Trip
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="md:ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 bg-surface/80 backdrop-blur-md shadow-sm flex justify-between items-center w-full px-margin-desktop py-stack-md">
+<div class="flex-1 flex items-center">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-stack-md top-1/2 -translate-y-1/2 text-text-gray">search</span>
+<input class="w-full bg-surface-container-low border border-text-gray/20 rounded-[20px] pl-12 pr-4 py-2 focus:border-primary focus:ring-0 text-on-surface font-body-md transition-colors" placeholder="Search..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-stack-lg">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-primary border-b-2 border-primary pb-1 transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border-2 border-primary-fixed">
+<img alt="Traveler Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a traveler against a blurred airport background, cinematic lighting, modern corporate style, conveying reliability and adventure." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgdwyLosUR97muVRbHqKQLSTjEy0IttBtCq41k8rmXWlc1iztI2Q7i-GxwRQhaIjT9cR6zK0Vo-MFEyfFaI43I81ZeYPe6cFsSEBLV2zq-DUCEcObi5nmvGP3sICGLpodMI1ECvZJXwsmEBDQJ1Joz8f0HZxXDqpUrhKK4lsOs7Tk8BeeXZKKQhoSTVdJre3MeGNGu9KU4P-efQfeO6OvUeVuUtnsHNoQnTfnsEDWSrjJKJscOErabwg">
+</div>
+</div>
+</header>
+<!-- Settings Content -->
+<main class="flex-1 p-margin-mobile md:p-margin-desktop">
+<div class="max-w-[1000px] mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-section-gap">Settings</h2>
+<div class="flex flex-col lg:flex-row gap-gutter">
+<!-- Sub-navigation -->
+<aside class="w-full lg:w-64 flex-shrink-0">
+<nav class="flex flex-col gap-stack-sm font-label-md text-label-md">
+<a class="px-stack-md py-stack-sm rounded-lg bg-surface-container-high text-primary font-bold shadow-sm flex items-center justify-between" href="#">
+                                Account
+                                <span class="material-symbols-outlined text-success-green">chevron_right</span>
+</a>
+<a class="px-stack-md py-stack-sm rounded-lg text-text-gray hover:bg-surface-container hover:text-primary transition-colors flex items-center" href="#">
+                                Notifications
+                            </a>
+<a class="px-stack-md py-stack-sm rounded-lg text-text-gray hover:bg-surface-container hover:text-primary transition-colors flex items-center" href="#">
+                                Privacy &amp; Verification
+                            </a>
+<a class="px-stack-md py-stack-sm rounded-lg text-text-gray hover:bg-surface-container hover:text-primary transition-colors flex items-center" href="#">
+                                Payment
+                            </a>
+<a class="px-stack-md py-stack-sm rounded-lg text-text-gray hover:bg-surface-container hover:text-primary transition-colors flex items-center" href="#">
+                                Help &amp; Support
+                            </a>
+</nav>
+</aside>
+<!-- Main Panel (Account) -->
+<div class="flex-1">
+<div class="bg-pure-white rounded-[20px] shadow-[0_2px_8px_rgba(0,13,35,0.04)] p-stack-lg md:p-margin-desktop">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-lg border-b border-surface-container-high pb-stack-sm">Account Information</h3>
+<form class="space-y-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-sm text-label-sm text-text-gray uppercase tracking-wider" for="fullName">Full Name</label>
+<input class="bg-surface-container-lowest border border-text-gray/30 rounded-lg px-4 py-3 focus:border-primary focus:ring-0 text-on-surface font-body-md transition-colors shadow-sm" id="fullName" type="text" value="Arjun Singh">
+</div>
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-sm text-label-sm text-text-gray uppercase tracking-wider" for="email">Email Address</label>
+<input class="bg-surface-container-lowest border border-text-gray/30 rounded-lg px-4 py-3 focus:border-primary focus:ring-0 text-on-surface font-body-md transition-colors shadow-sm" id="email" type="email" value="arjun.s@example.com">
+</div>
+</div>
+<div class="flex flex-col gap-stack-sm max-w-md">
+<label class="font-label-sm text-label-sm text-text-gray uppercase tracking-wider" for="phone">Phone Number</label>
+<input class="bg-surface-container-lowest border border-text-gray/30 rounded-lg px-4 py-3 focus:border-primary focus:ring-0 text-on-surface font-body-md transition-colors shadow-sm" id="phone" type="tel" value="+91 98765 43210">
+</div>
+<div class="pt-stack-md">
+<button class="border-2 border-primary text-primary hover:bg-surface-container-low px-6 py-2 rounded-[20px] font-label-md text-label-md transition-colors px-8 whitespace-nowrap" type="button">
+                                        Change Password
+                                    </button>
+</div>
+<div class="border-t border-surface-container-high pt-stack-lg mt-section-gap flex items-center justify-between">
+<div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Switch to Partner Mode</h4>
+<p class="font-body-md text-body-md text-text-gray">Add a Service Provider role to your KARWAN ID</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value="">
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-success-green"></div>
+</label>
+</div>
+<div class="border-t border-surface-container-high pt-stack-lg mt-section-gap">
+<h4 class="font-headline-sm text-headline-sm text-error mb-stack-md">Danger Zone</h4>
+<div class="flex items-center gap-stack-md">
+<button class="border border-error text-error hover:bg-error-container px-6 py-2 rounded-[20px] font-label-md text-label-md transition-colors px-8 whitespace-nowrap" type="button">
+                                            Delete Account
+                                        </button>
+<p class="font-label-sm text-label-sm text-error/70">This action is permanent and cannot be undone.</p>
+</div>
+</div>
+<div class="pt-section-gap flex justify-end">
+<button class="bg-success-green hover:bg-secondary text-pure-white px-8 py-3 rounded-[20px] font-label-md text-label-md transition-colors shadow-md" type="button">
+                                        Save Changes
+                                    </button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

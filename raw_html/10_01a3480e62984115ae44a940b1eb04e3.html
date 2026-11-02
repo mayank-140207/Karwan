@@ -1,0 +1,306 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Plan a New Trip - Karwan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d9dadc",
+                        "background": "#f8f9fb",
+                        "surface-variant": "#e1e2e4",
+                        "tertiary-container": "#052443",
+                        "on-tertiary-fixed-variant": "#2e4869",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed-dim": "#92d5a8",
+                        "inverse-surface": "#2e3132",
+                        "primary-fixed": "#d6e3ff",
+                        "success-green": "#2C6E49",
+                        "on-secondary-fixed-variant": "#065230",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#edeef0",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-container-high": "#e7e8ea",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#000e21",
+                        "on-primary-container": "#798bac",
+                        "text-gray": "#5A6472",
+                        "on-tertiary-fixed": "#001c39",
+                        "primary-container": "#10233f",
+                        "on-secondary-fixed": "#002110",
+                        "on-secondary-container": "#2f704b",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b5c7eb",
+                        "inverse-primary": "#b5c7eb",
+                        "pure-white": "#FFFFFF",
+                        "outline": "#75777e",
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#071b37",
+                        "error": "#ba1a1a",
+                        "secondary": "#286a46",
+                        "outline-variant": "#c5c6ce",
+                        "surface-bright": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "surface-container-highest": "#e1e2e4",
+                        "primary": "#000d23",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#4d5f7e",
+                        "on-primary-fixed-variant": "#364765",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#adf2c3",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-container": "#adf2c3",
+                        "on-surface-variant": "#44474d",
+                        "tertiary-fixed": "#d4e3ff",
+                        "on-tertiary-container": "#738cb1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px",
+                        "card": "20px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "section-gap": "80px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "stack-lg": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Noto Serif"],
+                        "display-lg": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .shadow-ambient { box-shadow: 0 2px 8px rgba(0, 13, 35, 0.04); }
+        .shadow-floating { box-shadow: 0 12px 24px rgba(0, 13, 35, 0.08); }
+        .glass-header { backdrop-filter: blur(12px); background-color: rgba(248, 249, 251, 0.8); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex text-body-md">
+<!-- SideNavBar (from JSON) -->
+<nav class="bg-primary text-primary-fixed font-body-md text-body-md docked left-0 h-screen w-64 shadow-md flex flex-col p-stack-lg fixed z-20 hidden md:flex min-h-screen h-full">
+<div class="mb-section-gap flex flex-col"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNj_fOgyyGsRByM8jLSg0hoHM4I4O_sDb1A17LMEdBCO1tn4zmaol6zXIZwnOM3-VCHHdk7NbruyQzODgmQfv7OYCRkemx6dScQfp4omtLS0XEIXCFFAxcVvvIrRKD2WGruX4yTAGVWkeyqpFt3l_SPLil4j3GCAPvQ5kRSO6xFvFUb8mnyFQs5ifzz8V2Kw1RWI0_KRPoMfwBhcYSSZQsefMo7hBALTCWbAGGbNhjjnT0RcEPO1YjIIHtinNS79AlXV0" alt="Karwan Logo" class="w-full h-full object-contain"></div><h1 class="font-headline-md text-headline-md font-bold text-pure-white">Karwan</h1></div><p class="font-label-sm text-label-sm text-primary-fixed mt-1 opacity-80">Traveler Dashboard</p></div>
+<div class="flex-1 space-y-2">
+<!-- Active: Home -->
+<a class="flex items-center gap-3 p-3 text-pure-white bg-on-primary-fixed-variant rounded-lg font-bold scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">home</span>
+<span class="">Home</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="">LiveTrail</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="">TrustRadar</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">rebase_edit</span>
+<span class="">Auto-heal</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="">Ground Truth</span>
+</a>
+<a class="flex items-center gap-3 p-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="">Profile</span>
+</a>
+</div>
+<div class="mt-auto">
+<button class="w-full bg-success-green hover:bg-on-secondary-fixed-variant text-pure-white py-3 rounded-[20px] font-label-md text-label-md transition-colors shadow-ambient">
+                Plan New Trip
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar (from JSON) -->
+<header class="glass-header text-on-surface font-label-md text-label-md shadow-sm flex justify-between items-center w-full px-margin-desktop py-stack-md sticky top-0 z-10 transition-colors">
+<div class="flex items-center gap-4">
+<div class="md:hidden font-headline-md text-headline-md font-bold text-primary">Karwan</div>
+<!-- Search bar on left logic per JSON, but leaving standard heading area for mobile -->
+<div class="relative hidden md:block w-64 ml-4"><span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span><input type="text" placeholder="Search destinations..." class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-label-md focus:ring-2 focus:ring-primary/20 transition-colors"></div></div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-dim overflow-hidden ml-2 shadow-ambient">
+<img alt="Traveler Profile" class="w-full h-full object-cover" data-alt="A small circular avatar image showing a professional traveler portrait against a light blurred background, conveying a premium and trustworthy vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBT2wmDr1TyXokpsyxMqKOPxYzhXlfpahXTlmd5gQbkBp9V1t35e48yKSKpAS_BWCqN6vSzzA8ZVTGIZ8wsMCOdSQs7iiBRLz6dBIFacnIhW5k7dg51dRM88GtVrYSmM-xwb-5MyU6rz5OpFIS48-hjtgyFWJ__qpR2xr21oCF09hWBN3kp_fqqzvuO6gBfMFouoxHUAelX_kaJTAt7FF7cEFGsNeG3mwHnDML1vFP4R3aLcPblgiLXlw">
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-1 px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto w-full">
+<div class="mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6 hidden md:block">Plan a New Trip</h2>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-6 md:hidden">Plan a New Trip</h2>
+<!-- Step Indicator -->
+<div class="flex items-center gap-2 md:gap-4 mb-stack-lg overflow-x-auto pb-2">
+<div class="flex items-center gap-2 px-4 py-2 bg-primary text-pure-white rounded-full font-label-md text-label-md shrink-0 shadow-ambient">
+<span class="material-symbols-outlined text-sm">route</span>
+<span class="">1. Route</span>
+</div>
+<div class="h-px w-8 bg-surface-variant shrink-0"></div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container text-on-surface-variant rounded-full font-label-md text-label-md shrink-0">
+<span class="">2. Preferences</span>
+</div>
+<div class="h-px w-8 bg-surface-variant shrink-0"></div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container text-on-surface-variant rounded-full font-label-md text-label-md shrink-0">
+<span class="">3. Review</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Main Form Form -->
+<div class="lg:col-span-7 space-y-gutter">
+<div class="bg-pure-white rounded-card p-stack-lg shadow-ambient">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-md text-xl">Journey Details</h3>
+<div class="space-y-6">
+<!-- Locations -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm text-text-gray mb-1">From</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-gray">flight_takeoff</span>
+<input class="w-full bg-background border border-surface-variant rounded-lg py-3 pl-12 pr-10 font-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors" placeholder="Departure City" type="text">
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-text-gray cursor-pointer">arrow_drop_down</span>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-text-gray mb-1">To</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-gray">flight_land</span>
+<input class="w-full bg-background border border-surface-variant rounded-lg py-3 pl-12 pr-10 font-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors" placeholder="Destination City" type="text">
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-text-gray cursor-pointer">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Dates -->
+<div>
+<label class="block font-label-sm text-label-sm text-text-gray mb-1">Travel Dates</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-gray">calendar_month</span>
+<input class="w-full bg-background border border-surface-variant rounded-lg py-3 pl-12 pr-4 font-body-md text-on-surface focus:border-primary focus:ring-0 transition-colors" placeholder="Select date range" type="text">
+</div>
+</div>
+<!-- Budget -->
+<div>
+<div class="flex justify-between items-end mb-2">
+<label class="block font-label-sm text-label-sm text-text-gray">Estimated Budget</label>
+<span class="font-label-md text-label-md text-primary">₹2,500</span>
+</div>
+<input class="w-full accent-primary h-2 bg-surface-variant rounded-lg appearance-none cursor-pointer" max="10000" min="500" type="range" value="2500">
+<div class="flex justify-between mt-2 font-label-sm text-label-sm text-text-gray">
+<span class="">₹500</span>
+<span class="">₹10,000+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Suggested Stops Sidebar -->
+<div class="lg:col-span-5 space-y-gutter">
+<div class="bg-pure-white rounded-card p-stack-lg shadow-ambient h-full flex flex-col">
+<div class="flex justify-between items-center mb-stack-md">
+<h3 class="font-headline-md text-headline-md text-primary text-xl">Suggested Stops</h3>
+<span class="px-3 py-1 bg-primary-fixed rounded-full text-primary font-label-sm text-label-sm">Golden Triangle</span>
+</div>
+<p class="text-text-gray font-body-md text-body-md mb-6 text-sm">Enhance your route with these curated historical landmarks.</p>
+<div class="space-y-4 flex-1">
+<!-- Card 1 -->
+<label class="flex items-start gap-4 p-4 border border-surface-variant rounded-xl cursor-pointer hover:border-primary transition-colors hover:shadow-ambient bg-background group">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img alt="Amber Fort" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1WgysdtFkSsresDI-cfTy2xSinQ88kn107rPBo8qpA8utW-tm-GV96E8GNzwL7NWkzbhHfRoKUO-xhcPnBfYDYloKU6HYHOOGZuwEhY8bg0Y1H5Mb8m0WBM2WmT0YeevcYA_duwcSR35JZehb3LMBEEYnfgbD56UxDJ_deL19Izz6BRMbybah82_MJy3-RFScxtDxeRkOcOZjd2R5nbrdg7D4EeQDudAvy_b8MUUroSnHPNQEHlwbwNMEgd">
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Amber Fort</h4>
+<p class="font-label-sm text-label-sm text-text-gray">Majestic hilltop fort with intricate carvings.</p>
+</div>
+<div class="pt-1">
+<input class="w-5 h-5 text-success-green border-surface-variant rounded focus:ring-success-green focus:ring-offset-0" type="checkbox">
+</div>
+</label>
+<!-- Card 2 -->
+<label class="flex items-start gap-4 p-4 border border-surface-variant rounded-xl cursor-pointer hover:border-primary transition-colors hover:shadow-ambient bg-background group">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img alt="Taj Mahal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1Vqde5AMzgzPihSyZuOUSuoe_XZD9YZ6YorBRTBFb4OdJ16HFUqChOnQQyE1UEG5i5uxRKCJGO-6s0JO4BsTbXLYG6LufQlTlmlx9kM76juf5Tlc7Uh405VrWVImzWXD8jJrRMhCZsw4d9He3cWyf8iBfnA9jyN0kLBkqHPrz29jh-1scJV7i0rdgIyTXUehGS2s7cGtUhqRH0KKOCdTKnAOeyryYQK8lzyVK0rrR2GbVxPQk1dCx6FD93b">
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Taj Mahal</h4>
+<p class="font-label-sm text-label-sm text-text-gray">Iconic sunrise view of the ivory-white marble mausoleum.</p>
+</div>
+<div class="pt-1">
+<input checked="" class="w-5 h-5 text-success-green border-surface-variant rounded focus:ring-success-green focus:ring-offset-0" type="checkbox">
+</div>
+</label>
+<!-- Card 3 -->
+<label class="flex items-start gap-4 p-4 border border-surface-variant rounded-xl cursor-pointer hover:border-primary transition-colors hover:shadow-ambient bg-background group">
+<div class="w-20 h-20 rounded-lg overflow-hidden shrink-0">
+<img alt="Hawa Mahal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A vibrant wide shot of Hawa Mahal in Jaipur at dusk, featuring glowing pink sandstone and intricate lattice windows, capturing an authentic heritage travel atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTNaCePV9MO_A5CszpVwizFZHfM-7O5c6oJl9SUThk0tyEjTjA6JgU8j8QvNY26p5yp3u0K_UeBhOTIIlenjrrlvYMnQPQkzDRevuE3NWUf69J2ie8Xv-yv9K_TZdKm6sLc4r3o-dU0psXuUROvYk-fRGYvtCn2-PHVwddA516tJER_WxFU5dJn-pIQFnAL5HcUglujpMUT3Nce-KB2biHhR9OY9LHXGIjk6a3nlBzRNxvUZDmtdELsQ">
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Hawa Mahal</h4>
+<p class="font-label-sm text-label-sm text-text-gray">Palace of Winds with its unique honeycomb facade.</p>
+</div>
+<div class="pt-1">
+<input class="w-5 h-5 text-success-green border-surface-variant rounded focus:ring-success-green focus:ring-offset-0" type="checkbox">
+</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Action -->
+<div class="mt-section-gap flex justify-end">
+<button class="bg-success-green hover:bg-on-secondary-fixed-variant text-pure-white px-8 py-3 rounded-card font-label-md text-label-md transition-colors shadow-floating flex items-center gap-2 group">
+<span class="">Next: Preferences</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</main>
+</div>
+
+
+
+
+
+
+</body></html>

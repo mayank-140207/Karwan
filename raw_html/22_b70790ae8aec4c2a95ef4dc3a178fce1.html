@@ -1,0 +1,417 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan - TrustRadar Vendor Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-fixed-dim": "#b5c7eb",
+                      "secondary-fixed-dim": "#92d5a8",
+                      "on-surface": "#191c1e",
+                      "on-secondary-fixed-variant": "#065230",
+                      "on-error": "#ffffff",
+                      "surface-container-highest": "#e1e2e4",
+                      "inverse-on-surface": "#f0f1f3",
+                      "on-primary": "#ffffff",
+                      "tertiary-fixed-dim": "#afc8f0",
+                      "on-tertiary": "#ffffff",
+                      "on-primary-container": "#798bac",
+                      "on-primary-fixed": "#071b37",
+                      "error": "#ba1a1a",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary": "#286a46",
+                      "on-secondary-container": "#2f704b",
+                      "outline-variant": "#c5c6ce",
+                      "on-primary-fixed-variant": "#364765",
+                      "surface-tint": "#4d5f7e",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e7e8ea",
+                      "surface": "#f8f9fb",
+                      "tertiary-fixed": "#d4e3ff",
+                      "on-surface-variant": "#44474d",
+                      "inverse-surface": "#2e3132",
+                      "primary-container": "#10233f",
+                      "on-tertiary-fixed": "#001c39",
+                      "on-secondary": "#ffffff",
+                      "primary-fixed": "#d6e3ff",
+                      "pure-white": "#FFFFFF",
+                      "surface-dim": "#d9dadc",
+                      "on-tertiary-fixed-variant": "#2e4869",
+                      "on-tertiary-container": "#738cb1",
+                      "surface-variant": "#e1e2e4",
+                      "outline": "#75777e",
+                      "primary": "#000d23",
+                      "text-gray": "#5A6472",
+                      "on-background": "#191c1e",
+                      "inverse-primary": "#b5c7eb",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-container": "#adf2c3",
+                      "tertiary-container": "#052443",
+                      "surface-container": "#edeef0",
+                      "surface-bright": "#f8f9fb",
+                      "background": "#f8f9fb",
+                      "secondary-fixed": "#adf2c3",
+                      "on-secondary-fixed": "#002110",
+                      "on-error-container": "#93000a",
+                      "success-green": "#2C6E49",
+                      "tertiary": "#000e21"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "stack-lg": "24px",
+                      "stack-sm": "8px",
+                      "section-gap": "80px",
+                      "gutter": "24px",
+                      "stack-md": "16px",
+                      "margin-desktop": "64px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Noto Serif"
+                      ],
+                      "headline-lg": [
+                              "Noto Serif"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Noto Serif"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Noto Serif"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "56px",
+                              {
+                                      "lineHeight": "64px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen antialiased flex flex-col md:flex-row">
+<!-- SideNavBar (Web Only) -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-primary dark:bg-primary-container text-primary-fixed dark:text-primary-fixed-dim font-body-md shadow-md p-stack-lg z-50 min-h-screen h-full">
+<div class="mb-section-gap flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center overflow-hidden">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmZ9SLXjEv6YvnuxRrqIMU26u7JuRgvCKDDpoGP3RGKAZFNkah_LN2FUK9zt2M7lPRo0tqMWwKsJneeL9Z5k9vPjwcbRaFUaNEc0OlFfvrOrmUawc3xEQR6IdYR_9KkrXOh-izX5nWkNf-DmYPvZYrAiqjUSeh86rnYTRyvgjEHpLiZ7DVAhkvxhTSPo1ns_rw2uuddC72_2T5KLdrHbl_N0fw0rRFeE0Gp5RUktQSZo6FIlGQBu9sxRLVrmUzJmnXai0" alt="Karwan Logo" class="w-full h-full object-cover">
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-pure-white">Karwan</h1>
+<p class="text-label-sm font-label-sm opacity-80">Traveler Dashboard</p>
+</div>
+</div>
+<div class="flex-1 space-y-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 hover:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 hover:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md text-label-md">LiveTrail</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-pure-white bg-on-primary-fixed-variant rounded-lg font-bold scale-95 hover:scale-100 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-md text-label-md">TrustRadar</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 hover:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">rebase_edit</span>
+<span class="font-label-md text-label-md">Auto-heal</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 hover:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-md text-label-md">Ground Truth</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 hover:scale-100 duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</div>
+<button class="mt-auto w-full bg-success-green hover:bg-success-green/90 text-pure-white font-label-md text-label-md py-3 rounded-[20px] transition-colors shadow-sm">
+            Plan New Trip
+        </button>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 flex flex-col min-h-screen pb-24 md:pb-0">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-40 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-md shadow-sm w-full flex justify-between items-center px-margin-mobile md:px-margin-desktop py-stack-md">
+<div class="flex items-center gap-4">
+<div class="relative w-64 hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant focus:border-primary rounded-full py-2 pl-10 pr-4 text-label-md font-label-md focus:ring-0 transition-colors outline-none" placeholder="Search TrustRadar..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-80 active:opacity-100 p-2">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-80 active:opacity-100 p-2 hidden sm:block">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-container overflow-hidden cursor-pointer">
+<img alt="Traveler Profile" class="w-full h-full object-cover" data-alt="A professional close up studio portrait of a confident female traveler in her late 20s. She is wearing a light, stylish travel scarf over a simple neutral tone blouse. The lighting is soft and flattering, creating a premium light-mode aesthetic with clean white backgrounds and soft shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIp83xpEKYo-CBXMt5VFiSIlVgy7tDR78UodD0KFwagSON760NlDCMSkKtXisYEgP6dg_9ONbrxK3XcsE5H6Gb5mQcokeG8wdmapk5vGUxQpL8Qf7RR8E56SrWQ759dpnPo76-1BMu2FTcBPm1E6ICuD6w0WsDhRDeQI8S1WOS_2J4_1FT2CwcmJhgj9IFOtt0vw_JNM5NmPlZZaNxm24JTA9lSY5QVvoAAvFBN24j6uQiCmMX-6dnbw">
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="flex-1 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full pt-8">
+<!-- Top Section: Vendor Profile -->
+<section class="mb-section-gap bg-pure-white rounded-[20px] shadow-sm border border-surface-variant overflow-hidden">
+<div class="flex flex-col md:flex-row">
+<!-- Vendor Image -->
+<div class="w-full md:w-1/3 h-64 md:h-auto relative">
+<img alt="City Palace Auto Stand" class="w-full h-full object-cover" data-alt="A high quality, vibrant daytime photograph of an auto-rickshaw stand in Jaipur, India. The main focus is a well-maintained, brightly colored yellow and green auto-rickshaw. The driver, a middle-aged local Indian man, is standing proudly next to it, wearing a neat uniform. The background shows glimpses of historic pink sandstone architecture typical of Jaipur, with bright clear skies. The overall mood is authentic, reliable, and culturally rich, fitting a premium travel platform aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwshjuDe4Yc088Xfjc_67eooanVMlgifnwEX6YeXaEKYLBzY2HNYSp6vOIURdRxq_f5WZkltvSFiBJKeY9wuEd44FBgNZ-IxrZ92j4Vzomdt8fNYqa7lfe0oEaSp6i-39_DbER19f-QMVNPXl6e1j2u0rfexq2m9FtQBV62d5WR8Z9rjRgugeovej26SyGIZFwPMvhb02-W3Y1Uczq6LPTPL9WnFMN2CNn2AaaYQEvXFGQK2_Y_yPD_w">
+</div>
+<!-- Vendor Details -->
+<div class="p-stack-lg flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-start justify-between mb-2">
+<div>
+<div class="flex items-center gap-2 mb-2">
+<span class="px-3 py-1 bg-secondary/10 text-secondary-container font-label-sm text-label-sm rounded-full">Transit</span>
+<span class="flex items-center gap-1 text-success-green font-label-sm text-label-sm bg-success-green/10 px-2 py-1 rounded-full">
+<span class="material-symbols-outlined fill text-[14px]">verified</span> Verified
+                                        </span>
+</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">City Palace Auto Stand</h2>
+<p class="text-text-gray font-body-md mt-1">Jaipur, Rajasthan, India</p>
+</div>
+<!-- Trust Score -->
+<div class="flex flex-col items-center">
+<div class="relative w-16 h-16 flex items-center justify-center rounded-full border-4 border-success-green/20">
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+<circle class="text-success-green" cx="50" cy="50" fill="none" r="46" stroke="currentColor" stroke-dasharray="289" stroke-dashoffset="10" stroke-width="8"></circle>
+</svg>
+<span class="font-headline-md text-headline-md text-primary font-bold">4.8</span>
+</div>
+<span class="text-label-sm font-label-sm text-text-gray mt-1">Trust Score</span>
+</div>
+</div>
+</div>
+<!-- Stats Row -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-surface-variant">
+<div>
+<p class="text-label-sm font-label-sm text-text-gray">Total Interactions</p>
+<p class="font-label-md text-label-md text-on-surface mt-1">1,240</p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-text-gray">Incidents Resolved</p>
+<p class="font-label-md text-label-md text-success-green mt-1">32 Verified</p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-text-gray">Open Reports</p>
+<p class="font-label-md text-label-md text-on-surface mt-1">0</p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-text-gray">Member Since</p>
+<p class="font-label-md text-label-md text-on-surface mt-1">Jan 2024</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content (Two Columns) -->
+<div class="flex flex-col lg:flex-row gap-gutter mb-section-gap">
+<!-- Left Column (65%): Incident History -->
+<div class="lg:w-[65%]">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Incident History</h3>
+<div class="space-y-4">
+<!-- Card 1 -->
+<div class="bg-pure-white rounded-[16px] p-stack-md shadow-sm border border-surface-variant flex gap-4 items-start hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-full bg-success-green/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-success-green fill">check_circle</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="font-label-md text-label-md text-on-surface">Resolved</span>
+<span class="text-label-sm font-label-sm text-text-gray">•</span>
+<span class="text-label-sm font-label-sm text-text-gray">Oct 12, 2024</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Overcharging report investigated and resolved with fare adjustment.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-pure-white rounded-[16px] p-stack-md shadow-sm border border-surface-variant flex gap-4 items-start hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary-container">shield_with_heart</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="font-label-md text-label-md text-on-surface">Verified Transaction</span>
+<span class="text-label-sm font-label-sm text-text-gray">•</span>
+<span class="text-label-sm font-label-sm text-text-gray">Sep 28, 2024</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Fair fare transaction verified by 5 independent travelers.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-pure-white rounded-[16px] p-stack-md shadow-sm border border-surface-variant flex gap-4 items-start hover:shadow-md transition-shadow">
+<div class="w-10 h-10 rounded-full bg-success-green/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-success-green fill">check_circle</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-1">
+<span class="font-label-md text-label-md text-on-surface">Resolved</span>
+<span class="text-label-sm font-label-sm text-text-gray">•</span>
+<span class="text-label-sm font-label-sm text-text-gray">Aug 15, 2024</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Route confusion clarified; traveler assisted with correct destination without extra charge.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column (35%): Vendor Location -->
+<div class="lg:w-[35%]">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Location</h3>
+<div class="bg-pure-white rounded-[20px] shadow-sm border border-surface-variant overflow-hidden h-[300px] relative">
+<!-- Map Image Placeholder using data-location -->
+<img alt="Map of Jaipur" class="w-full h-full object-cover" data-location="Jaipur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtPVZyfKM1MMY4FKibsoGID6vsbymBIX4wOrvoh0fZ1r7DsqBpVUpyE3YJiXKE4zM-KmWhdCqrg7w4JWgWax6lEnaXPzu5hIwKOuX3XEzb45TaRcexqKOJVoB2K_ORUVbYHPwMUi3Q-qmaHNEAyo2DSpxBqcve1KSXYeLC_tA-NJOavprCO9IQzyPT6pQnAVQPEhwu0L_9hDgUVgtvBrJ8VHAy0BaJit9087K8_KZIolgqXd2jWQcieA">
+<!-- Map Overlay Gradient for slight depth -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/20 to-transparent pointer-events-none"></div>
+<!-- Location Detail overlay -->
+<div class="absolute bottom-4 left-4 right-4 bg-pure-white/95 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-surface-variant/50">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Near City Palace</p>
+<p class="text-label-sm font-label-sm text-text-gray">Jaleb Chowk, Jaipur, 302002</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section: Report Banner -->
+<section class="bg-primary rounded-[20px] p-stack-lg shadow-lg relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 py-8">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-success-green/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-pure-white mb-2">See something that needs flagging?</h3>
+<p class="font-body-md text-body-md text-inverse-primary/80">Help keep the Karwan community safe by reporting suspicious activity or verifying good experiences with this vendor.</p>
+</div>
+<button class="relative z-10 shrink-0 bg-pure-white text-primary font-label-md text-label-md py-3 px-8 rounded-[20px] hover:bg-surface-variant transition-colors shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined">flag</span>
+                    Report Now
+                </button>
+</section>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface border-t border-surface-variant flex justify-around items-center py-3 px-4 z-50 shadow-[0_-4px_24px_rgba(0,0,0,0.05)]">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-sm text-[10px]">LiveTrail</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<div class="bg-primary-container/20 px-4 py-1 rounded-full flex flex-col items-center">
+<span class="material-symbols-outlined fill">verified_user</span>
+</div>
+<span class="font-label-sm text-[10px] font-bold mt-1">TrustRadar</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-[10px]">Profile</span>
+</a>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>

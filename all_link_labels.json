@@ -1,0 +1,700 @@
+[
+  {
+    "label": "home Home",
+    "count": 19,
+    "screens": [
+      "24_e35e541363594a70aa6aab20948b9ba7.html",
+      "17_4bcc0b9838fe40aca61092b819e5270d.html",
+      "26_33416955f2894571a4a5bce751630f99.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "verified_user TrustRadar",
+    "count": 19,
+    "screens": [
+      "24_e35e541363594a70aa6aab20948b9ba7.html",
+      "17_4bcc0b9838fe40aca61092b819e5270d.html",
+      "26_33416955f2894571a4a5bce751630f99.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "person Profile",
+    "count": 19,
+    "screens": [
+      "24_e35e541363594a70aa6aab20948b9ba7.html",
+      "17_4bcc0b9838fe40aca61092b819e5270d.html",
+      "26_33416955f2894571a4a5bce751630f99.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "insights LiveTrail",
+    "count": 11,
+    "screens": [
+      "24_e35e541363594a70aa6aab20948b9ba7.html",
+      "26_33416955f2894571a4a5bce751630f99.html",
+      "14_daca15712ca1471aa72a5b5bea1e1ab6.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "rebase_edit Auto-heal",
+    "count": 11,
+    "screens": [
+      "24_e35e541363594a70aa6aab20948b9ba7.html",
+      "26_33416955f2894571a4a5bce751630f99.html",
+      "14_daca15712ca1471aa72a5b5bea1e1ab6.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "fact_check Ground Truth",
+    "count": 11,
+    "screens": [
+      "24_e35e541363594a70aa6aab20948b9ba7.html",
+      "26_33416955f2894571a4a5bce751630f99.html",
+      "14_daca15712ca1471aa72a5b5bea1e1ab6.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "explore LiveTrail",
+    "count": 8,
+    "screens": [
+      "17_4bcc0b9838fe40aca61092b819e5270d.html",
+      "35_ac4a42c1433c4884983bb0b09a49e3dc.html",
+      "27_f918d220469043beabf3c3c4acc54313.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "healing Auto-heal",
+    "count": 7,
+    "screens": [
+      "17_4bcc0b9838fe40aca61092b819e5270d.html",
+      "35_ac4a42c1433c4884983bb0b09a49e3dc.html",
+      "27_f918d220469043beabf3c3c4acc54313.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "visibility Ground Truth",
+    "count": 7,
+    "screens": [
+      "17_4bcc0b9838fe40aca61092b819e5270d.html",
+      "35_ac4a42c1433c4884983bb0b09a49e3dc.html",
+      "27_f918d220469043beabf3c3c4acc54313.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "See it in action arrow_forward",
+    "count": 4,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Ground Truth",
+    "count": 4,
+    "screens": [
+      "20_a968a791bff24660b8c5b5a48006ecc9.html",
+      "19_e9b1da3269654a3388bc6621e3d2f28b.html",
+      "18_da59b22755b64c218ad1d0e2575cfe0f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Home",
+    "count": 3,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html",
+      "23_87a59c96cb384cb691e48397808dbd83.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "View Details arrow_forward",
+    "count": 3,
+    "screens": [
+      "15_4c44889ddbd54d60b444fd645a9e9bbf.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "View Live Telemetry arrow_forward",
+    "count": 3,
+    "screens": [
+      "17_4bcc0b9838fe40aca61092b819e5270d.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Overview",
+    "count": 3,
+    "screens": [
+      "20_a968a791bff24660b8c5b5a48006ecc9.html",
+      "19_e9b1da3269654a3388bc6621e3d2f28b.html",
+      "18_da59b22755b64c218ad1d0e2575cfe0f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Telemetry Map",
+    "count": 3,
+    "screens": [
+      "20_a968a791bff24660b8c5b5a48006ecc9.html",
+      "19_e9b1da3269654a3388bc6621e3d2f28b.html",
+      "18_da59b22755b64c218ad1d0e2575cfe0f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "My Itineraries",
+    "count": 3,
+    "screens": [
+      "20_a968a791bff24660b8c5b5a48006ecc9.html",
+      "19_e9b1da3269654a3388bc6621e3d2f28b.html",
+      "18_da59b22755b64c218ad1d0e2575cfe0f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Karma Rewards +420",
+    "count": 3,
+    "screens": [
+      "20_a968a791bff24660b8c5b5a48006ecc9.html",
+      "19_e9b1da3269654a3388bc6621e3d2f28b.html",
+      "18_da59b22755b64c218ad1d0e2575cfe0f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Ground Truth Directory",
+    "count": 3,
+    "screens": [
+      "20_a968a791bff24660b8c5b5a48006ecc9.html",
+      "19_e9b1da3269654a3388bc6621e3d2f28b.html",
+      "18_da59b22755b64c218ad1d0e2575cfe0f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Privacy Policy",
+    "count": 2,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html",
+      "8_dabed8bb75404028992277b550a0c261.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Forgot password?",
+    "count": 2,
+    "screens": [
+      "5_af66b242359048bb9fd5aeaded794b96.html",
+      "4_8091dcc7723045cf8985961abf95bee9.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Sign up",
+    "count": 2,
+    "screens": [
+      "5_af66b242359048bb9fd5aeaded794b96.html",
+      "4_8091dcc7723045cf8985961abf95bee9.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Notifications",
+    "count": 2,
+    "screens": [
+      "26_33416955f2894571a4a5bce751630f99.html",
+      "27_f918d220469043beabf3c3c4acc54313.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Privacy &amp; Verification",
+    "count": 2,
+    "screens": [
+      "26_33416955f2894571a4a5bce751630f99.html",
+      "27_f918d220469043beabf3c3c4acc54313.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Help &amp; Support",
+    "count": 2,
+    "screens": [
+      "26_33416955f2894571a4a5bce751630f99.html",
+      "29_f2997b91c3554c2e9f15a94de604b56b.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Preferences",
+    "count": 2,
+    "screens": [
+      "29_f2997b91c3554c2e9f15a94de604b56b.html",
+      "27_f918d220469043beabf3c3c4acc54313.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "How It Works",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Modules",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "For Travellers",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "For Partners",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "public",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "photo_camera",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "chat",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Features",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "About Us",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Pricing",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Blog",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Contact",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Style Guide",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "404 Page",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Change Log",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Terms &amp; Conditions",
+    "count": 1,
+    "screens": [
+      "1_931ebb8140734d9482fbbce7e998f71f.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Back to Home",
+    "count": 1,
+    "screens": [
+      "3_2d48569aeeab4112a5da7ba083b68176.html"
+    ],
+    "original_hrefs": [
+      "/"
+    ]
+  },
+  {
+    "label": "Log in",
+    "count": 1,
+    "screens": [
+      "7_5ce3b5f8511143d98eb415cd8a0fc895.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Terms of Service",
+    "count": 1,
+    "screens": [
+      "8_dabed8bb75404028992277b550a0c261.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "arrow_back Back to step 1",
+    "count": 1,
+    "screens": [
+      "8_dabed8bb75404028992277b550a0c261.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "arrow_back Change Phone Number",
+    "count": 1,
+    "screens": [
+      "9_ec9df051594f4caa9ee5b9396706f794.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Why did this change? arrow_forward",
+    "count": 1,
+    "screens": [
+      "13_2b83e6d2d7d54ef897b22ba1acefd1ff.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "arrow_back TrustRadar Directory",
+    "count": 1,
+    "screens": [
+      "21_35705193b2f6425c8f4f93bd3a918771.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "LiveTrail",
+    "count": 1,
+    "screens": [
+      "23_87a59c96cb384cb691e48397808dbd83.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "TrustRadar",
+    "count": 1,
+    "screens": [
+      "23_87a59c96cb384cb691e48397808dbd83.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Auto-heal",
+    "count": 1,
+    "screens": [
+      "23_87a59c96cb384cb691e48397808dbd83.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Profile",
+    "count": 1,
+    "screens": [
+      "23_87a59c96cb384cb691e48397808dbd83.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "TrustRadar Directory",
+    "count": 1,
+    "screens": [
+      "23_87a59c96cb384cb691e48397808dbd83.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Account chevron_right",
+    "count": 1,
+    "screens": [
+      "26_33416955f2894571a4a5bce751630f99.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Payment",
+    "count": 1,
+    "screens": [
+      "26_33416955f2894571a4a5bce751630f99.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Personal Info",
+    "count": 1,
+    "screens": [
+      "27_f918d220469043beabf3c3c4acc54313.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "manage_accounts Account",
+    "count": 1,
+    "screens": [
+      "28_f483a67e4c9240a2a317264c27602993.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "notifications_active Notifications",
+    "count": 1,
+    "screens": [
+      "28_f483a67e4c9240a2a317264c27602993.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "shield_lock Privacy &amp; Verification",
+    "count": 1,
+    "screens": [
+      "28_f483a67e4c9240a2a317264c27602993.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "help Help &amp; Support",
+    "count": 1,
+    "screens": [
+      "28_f483a67e4c9240a2a317264c27602993.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "Account",
+    "count": 1,
+    "screens": [
+      "29_f2997b91c3554c2e9f15a94de604b56b.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "receipt_long Fare Disputes Issues with a recent charge or requesting a refund for a trip.",
+    "count": 1,
+    "screens": [
+      "29_f2997b91c3554c2e9f15a94de604b56b.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "manage_accounts Account &amp; Verification Updating your profile, document verification, and login issues.",
+    "count": 1,
+    "screens": [
+      "29_f2997b91c3554c2e9f15a94de604b56b.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "military_tech Trust Scores Explained Learn how TrustRadar scores are calculated and how to improve yours.",
+    "count": 1,
+    "screens": [
+      "29_f2997b91c3554c2e9f15a94de604b56b.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  },
+  {
+    "label": "security Safety Reporting Report an incident during a trip or learn about our safety protocols.",
+    "count": 1,
+    "screens": [
+      "29_f2997b91c3554c2e9f15a94de604b56b.html"
+    ],
+    "original_hrefs": [
+      "#"
+    ]
+  }
+]

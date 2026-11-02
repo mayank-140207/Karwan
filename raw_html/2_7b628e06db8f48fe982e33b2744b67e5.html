@@ -1,0 +1,275 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan - Traveler Home (Empty State)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#002110",
+                        "surface-container-high": "#e7e8ea",
+                        "on-primary-fixed": "#071b37",
+                        "tertiary-fixed": "#d4e3ff",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-secondary-fixed-variant": "#065230",
+                        "on-background": "#191c1e",
+                        "secondary-fixed": "#adf2c3",
+                        "on-primary-fixed-variant": "#364765",
+                        "secondary-fixed-dim": "#92d5a8",
+                        "on-tertiary-fixed-variant": "#2e4869",
+                        "on-primary-container": "#798bac",
+                        "surface": "#f8f9fb",
+                        "tertiary": "#000e21",
+                        "on-error": "#ffffff",
+                        "pure-white": "#FFFFFF",
+                        "surface-variant": "#e1e2e4",
+                        "secondary-container": "#adf2c3",
+                        "success-green": "#2C6E49",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#4d5f7e",
+                        "surface-container": "#edeef0",
+                        "text-gray": "#5A6472",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#b5c7eb",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#b5c7eb",
+                        "on-secondary-container": "#2f704b",
+                        "outline": "#75777e",
+                        "surface-container-low": "#f2f4f6",
+                        "primary": "#000d23",
+                        "on-surface": "#191c1e",
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "primary-fixed": "#d6e3ff",
+                        "tertiary-container": "#052443",
+                        "secondary": "#286a46",
+                        "outline-variant": "#c5c6ce",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2e3132",
+                        "on-tertiary-container": "#738cb1",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#10233f",
+                        "surface-bright": "#f8f9fb",
+                        "background": "#F7F8FA",
+                        "on-surface-variant": "#44474d",
+                        "surface-dim": "#d9dadc",
+                        "on-tertiary-fixed": "#001c39",
+                        "inverse-on-surface": "#f0f1f3"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.25rem", // Changed from 0.75rem to match 20px requested
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "section-gap": "80px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "20px",
+                        "stack-lg": "24px",
+                        "stack-md": "16px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "display-lg": ["Noto Serif"],
+                        "headline-lg": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Noto Serif"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F7F8FA; }
+        .glass-header {
+            background-color: rgba(248, 249, 251, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .card-shadow {
+            box-shadow: 0 2px 8px rgba(0, 13, 35, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md text-body-md overflow-x-hidden min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-primary dark:bg-primary-container shadow-md z-50 p-stack-lg min-h-screen">
+<div class="flex items-center gap-4 mb-section-gap">
+<div class="w-12 h-12 rounded-full overflow-hidden shrink-0 border border-on-primary-fixed-variant">
+<img alt="Karwan Logo" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYiSPM0_44JrvY0N0ittukbWM1TeThQudx6SBdQrXFmXAEbMaB_z3-fOyTwzlPebDzxxfSJPffjemhRAlYK6-57LceBq_draU7JRZLC4pcLLTLmIWh2PaGqPCq3L3YoAHhvBcDNYrUkDmn5rCDNdkNoBOMpAlfo1YkENtGHsOSccx3fMuDr2LAKalvjaaFSQo8eWG0ePHhsaiKKYZEUyl4pTtQ3FE83cDTiiysMezOt1eGNpO-dc-Fhd-1Cp3asH_1PRE">
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-pure-white">Karwan</h1>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim mt-1">Traveler Dashboard</p>
+</div>
+</div>
+<ul class="flex flex-col gap-2 flex-grow">
+<li class="">
+<a class="flex items-center gap-4 px-4 py-3 text-pure-white bg-on-primary-fixed-variant rounded-lg font-bold scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="home" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">home</span>
+<span class="">Home</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-4 px-4 py-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="">LiveTrail</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-4 px-4 py-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="">TrustRadar</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-4 px-4 py-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="rebase_edit">rebase_edit</span>
+<span class="">Auto-heal</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-4 px-4 py-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="fact_check">fact_check</span>
+<span class="">Ground Truth</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-4 px-4 py-3 text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors rounded-lg scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="">Profile</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto">
+<button class="w-full bg-success-green hover:bg-secondary text-pure-white font-label-md text-label-md py-3 px-4 rounded-xl transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span>
+                Plan New Trip
+            </button>
+</div>
+</nav>
+<!-- Main Content Area Wrapper -->
+<div class="flex-grow md:ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="glass-header text-on-surface dark:text-on-surface-variant font-label-md text-label-md shadow-sm docked top-0 w-full flex justify-between items-center px-margin-desktop py-stack-md z-40 sticky">
+<div class="flex-1 flex items-center gap-4">
+<!-- Search Bar -->
+<div class="relative max-w-md w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-gray">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-pure-white border border-outline-variant focus:border-primary rounded-xl outline-none transition-colors font-body-md text-body-md" placeholder="Search destinations, itineraries..." type="text">
+</div>
+</div>
+<div class="flex-shrink-0 flex items-center gap-6">
+<button class="text-on-surface-variant dark:text-on-surface-variant/70 hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant dark:text-on-surface-variant/70 hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-surface-container-high cursor-pointer">
+<img alt="Traveler Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a traveler in modern smart-casual attire, brightly lit with a clean, light-mode background, fitting a premium corporate travel app aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKIHrx2Lvw8-lds8mrukBvvgk-oQUCEVo9QgZEYe1j2dejDz-qO95GZwgwZ0VVNM2dLZGXsBZgJSw8W07e9LbDAi9vF3ApA-q0dL1OI_2hGa5w4mg9QQMT9H_LWwYefXPBOq66SAzBuvz1UUNqacYaxLJdT_MbQkz4sDawXeKuBqKp0r7dFIyvqNPEWxS6DdgrKXSZ-1GEfv26akK320T-elwVfOSpQVIaKyzP0tWrqOsS1GXLfwMDxA">
+</div>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-grow p-gutter md:p-margin-desktop max-w-container-max mx-auto w-full">
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary">Welcome Back.</h2>
+<p class="font-body-lg text-body-lg text-text-gray mt-2">Ready for your next journey?</p>
+</div>
+<!-- Bento Grid Layout for Empty State -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mt-section-gap">
+<!-- Main Empty State Card (Span 2 cols) -->
+<div class="lg:col-span-2 bg-pure-white rounded-xl card-shadow p-8 md:p-12 flex flex-col items-center justify-center text-center min-h-[400px]">
+<!-- Illustration -->
+<div class="w-32 h-32 mb-8 relative">
+<!-- Abstract Line Art Map/Route (Simulated with simple CSS shapes and icons for pure code approach, avoiding complex inline SVGs per instructions) -->
+<div class="absolute inset-0 bg-surface rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[64px] text-primary">map</span>
+</div>
+<div class="absolute -top-2 -right-2 bg-success-green/10 p-2 rounded-full">
+<span class="material-symbols-outlined text-success-green">location_on</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">No Active Trip Yet</h3>
+<p class="font-body-md text-body-md text-text-gray max-w-md mx-auto mb-8">
+                        Plan your first trip and Karwan will guide you with live fares, trust scores, and an itinerary that adapts as you go.
+                    </p>
+<button class="bg-success-green hover:bg-secondary text-pure-white font-label-md text-label-md py-3 px-8 rounded-xl transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">explore</span>
+                        Plan New Trip
+                    </button>
+</div>
+<!-- Secondary Info Column -->
+<div class="flex flex-col gap-gutter">
+<!-- Wallet / Balance Card -->
+<div class="bg-pure-white rounded-xl card-shadow p-stack-lg">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-label-md text-label-md text-text-gray uppercase tracking-wider">Karwan Wallet</h4>
+<span class="material-symbols-outlined text-text-gray text-sm">account_balance_wallet</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-primary">
+                            ₹0<span class="font-body-md text-body-md text-text-gray">.00</span>
+</div>
+<div class="mt-4 flex gap-2">
+<button class="flex-1 py-2 border border-primary text-primary font-label-sm text-label-sm rounded-lg hover:bg-surface transition-colors">Add Funds</button>
+</div>
+</div>
+<!-- Trending Destinations Placeholder -->
+<div class="bg-pure-white rounded-xl card-shadow p-stack-lg flex-grow">
+<h4 class="font-label-md text-label-md text-text-gray uppercase tracking-wider mb-4">Explore Destinations</h4>
+<div class="flex flex-col gap-4">
+<!-- Destination 1 -->
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A stunning, bright landscape photograph of a serene mountain lake at sunrise, with crisp reflections and soft natural lighting, conveying a premium travel destination in a light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnYcINW7lplK_ChNgpe6zeLhwlDuYyXQMPMjzLNF8299t-qRiwVFL_8AbWq5svCdOSxH92RQkMr9XCD7fuPQGqfma7GQop_ZHDVRax7sI6TjHqri4uEs5sI2cMtNuUBjR__XQOhyhiXsvH_XOFbVJ-fTvwuRRr2rOGJZO3nlbRpXduUj4UW99_guSZaNuMDAvS4aY-wq1FeHmt3_h8cWSDBZJvWUS5gmOUKJ-n3DFqKQ4qKhdhTSBrHA">
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Himalayan Retreat</p>
+<p class="font-label-sm text-label-sm text-text-gray">From ₹15,000</p>
+</div>
+</div>
+<!-- Destination 2 -->
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A high-quality image of a modern, bustling cityscape at golden hour, featuring sleek architecture and warm lighting, fitting a corporate travel context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtW8btdC1TE22Ta5ZO_CV3l28wwXH32Zzj0U0CRAM13IXJpnI_Dzm603m2anK6xSJ2Z6w3QieejcA5rFPn-DGRRgKYbNmXyYQOzXcmatlYJZbCVznRzviYieFPcBrtoizaq1gZncRHk8c4pXK78neeR5ufFxlLK6PRxnaqXju_ooi2c-ARQpnxC-Xhbkc6J-VWtydHNP6tWSba_cygw5B_bu8Zz72zKWcTHBVP_4JgH5LO8wJFa1g3Xg">
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Urban Business Hub</p>
+<p class="font-label-sm text-label-sm text-text-gray">From ₹8,500</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+
+
+</body></html>

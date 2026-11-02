@@ -1,0 +1,253 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan - Verify OTP</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#d9dadc",
+                        "background": "#f8f9fb",
+                        "surface-variant": "#e1e2e4",
+                        "tertiary-container": "#052443",
+                        "on-tertiary-fixed-variant": "#2e4869",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed-dim": "#92d5a8",
+                        "inverse-surface": "#2e3132",
+                        "primary-fixed": "#d6e3ff",
+                        "success-green": "#2C6E49",
+                        "on-secondary-fixed-variant": "#065230",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#edeef0",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-container-high": "#e7e8ea",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#000e21",
+                        "on-primary-container": "#798bac",
+                        "text-gray": "#5A6472",
+                        "on-tertiary-fixed": "#001c39",
+                        "primary-container": "#10233f",
+                        "on-secondary-fixed": "#002110",
+                        "on-secondary-container": "#2f704b",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#b5c7eb",
+                        "inverse-primary": "#b5c7eb",
+                        "pure-white": "#FFFFFF",
+                        "outline": "#75777e",
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#071b37",
+                        "error": "#ba1a1a",
+                        "secondary": "#286a46",
+                        "outline-variant": "#c5c6ce",
+                        "surface-bright": "#f8f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "surface-container-highest": "#e1e2e4",
+                        "primary": "#000d23",
+                        "on-background": "#191c1e",
+                        "surface-tint": "#4d5f7e",
+                        "on-primary-fixed-variant": "#364765",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#adf2c3",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary-container": "#adf2c3",
+                        "on-surface-variant": "#44474d",
+                        "tertiary-fixed": "#d4e3ff",
+                        "on-tertiary-container": "#738cb1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "section-gap": "80px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "stack-lg": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-lg": ["Noto Serif"],
+                        "display-lg": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background font-body-md text-on-background antialiased min-h-screen flex flex-col">
+<!-- Suppressed TopNavBar due to transactional intent (OTP Verification) -->
+<main class="flex-grow flex flex-col md:flex-row min-h-screen w-full">
+<!-- Left Panel: Heritage Image & Branding -->
+<section class="hidden md:flex flex-col w-1/2 bg-primary-container text-on-primary-container relative overflow-hidden p-margin-desktop justify-end gap-stack-md">
+<div class="z-10 relative">
+<a class="inline-flex items-center gap-2 mb-12 hover:opacity-80 transition-opacity" href="/">
+
+</a>
+<h1 class="font-display-lg text-display-lg text-pure-white max-w-lg leading-tight">
+                    Embark on your journey with Karwan.
+                </h1>
+</div>
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-primary-container/40 z-10 mix-blend-multiply"></div>
+<img alt="Heritage traveler" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1U8n8_nGe3_PFAs1cgnpHqqgjXmfHpM9HS_mUckOZbHM5TnIeb2aiEzJNADMCg2kX6t4bl_MZ0OQVRXfrFssefOuwBcVL2t8alRlQQKOAvxQZxUn68i8EfrAqRcX1LVUyKZq0r4wrUxfZn1jc5wu8w2PSjACp9auvhX-Z5kL3jzRCitdvSWUkgIw87UbqiNEE8TedzLfc5MdRSGdUvuZWXZ2FolGoGefzQS2hAN_813LOuu89t_aQAbXkS7">
+</div>
+<div class="z-10 relative">
+<p class="font-body-md text-body-md text-pure-white/80 max-w-md">
+                    Experience seamless travel planning with verified heritage partners and curated experiences across the subcontinent.
+                </p>
+</div>
+</section>
+<!-- Right Panel: OTP Verification Form -->
+<section class="w-full md:w-1/2 bg-pure-white flex flex-col justify-center px-margin-mobile py-section-gap md:px-margin-desktop relative overflow-y-auto">
+<!-- Mobile Header (Hidden on Desktop) -->
+<div class="md:hidden w-full flex justify-center mb-12">
+<span class="font-headline-md text-headline-md font-bold text-primary">Karwan</span>
+</div>
+<div class="max-w-md w-full mx-auto space-y-stack-lg">
+<!-- Header -->
+<div class="space-y-stack-sm text-center md:text-left">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Verify Your KARWAN ID.</h2>
+<p class="font-body-md text-body-md text-text-gray">
+                        We've sent a 6-digit code to <span class="font-label-md text-label-md text-primary">+91 98765 43210</span>.
+                    </p>
+</div>
+<!-- OTP Form -->
+<form class="space-y-stack-lg" onsubmit="event.preventDefault(); window.location.href='/dashboard';">
+<!-- OTP Inputs -->
+<div class="flex justify-between gap-2 sm:gap-4 mt-8" id="otp-container">
+<input autofocus="" class="w-12 h-14 sm:w-14 sm:h-16 text-center font-headline-md text-headline-md text-primary bg-background border border-text-gray/30 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" maxlength="1" type="text">
+<input class="w-12 h-14 sm:w-14 sm:h-16 text-center font-headline-md text-headline-md text-primary bg-background border border-text-gray/30 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" maxlength="1" type="text">
+<input class="w-12 h-14 sm:w-14 sm:h-16 text-center font-headline-md text-headline-md text-primary bg-background border border-text-gray/30 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" maxlength="1" type="text">
+<input class="w-12 h-14 sm:w-14 sm:h-16 text-center font-headline-md text-headline-md text-primary bg-background border border-text-gray/30 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" maxlength="1" type="text">
+<input class="w-12 h-14 sm:w-14 sm:h-16 text-center font-headline-md text-headline-md text-primary bg-background border border-text-gray/30 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" maxlength="1" type="text">
+<input class="w-12 h-14 sm:w-14 sm:h-16 text-center font-headline-md text-headline-md text-primary bg-background border border-text-gray/30 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" maxlength="1" type="text">
+</div>
+<!-- Resend Timer -->
+<div class="text-center md:text-left mt-stack-md">
+<p class="font-label-md text-label-md text-text-gray">
+                            Didn't receive it? <span class="text-success-green hover:underline cursor-pointer font-bold" id="resend-text">Resend code now</span>
+</p>
+</div>
+<!-- Submit Button -->
+<button class="w-full bg-success-green hover:bg-success-green/90 text-pure-white font-label-md text-label-md py-4 rounded-[20px] transition-colors shadow-sm mt-8 flex items-center justify-center gap-2" type="submit">
+                        Verify
+                        <span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative py-stack-md">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-surface-variant"></div>
+</div>
+<div class="relative flex justify-center text-sm">
+<span class="px-2 bg-pure-white text-text-gray font-label-sm text-label-sm">or</span>
+</div>
+</div>
+<!-- DigiLocker Banner -->
+<div class="bg-surface-container-low rounded-xl p-stack-md border border-surface-variant flex flex-col sm:flex-row items-center justify-between gap-stack-md">
+<div class="flex items-center gap-stack-md">
+<div class="w-10 h-10 bg-pure-white rounded-full flex items-center justify-center shadow-sm text-primary">
+<span class="material-symbols-outlined">security</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface text-center sm:text-left">
+                            Want faster, stronger verification?<br>
+<span class="font-label-md text-label-md text-primary">Link DigiLocker</span>
+</p>
+</div>
+<button class="whitespace-nowrap px-6 py-2 border-2 border-success-green text-success-green font-label-md text-label-md rounded-[20px] hover:bg-success-green/5 transition-colors w-full sm:w-auto" type="button">
+                        Connect
+                    </button>
+</div>
+<div class="text-center mt-stack-lg">
+<a class="font-label-sm text-label-sm text-text-gray hover:text-primary transition-colors flex items-center justify-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">arrow_back</span>
+                         Change Phone Number
+                     </a>
+</div>
+</div>
+</section>
+</main>
+<script>
+        // OTP Input Logic
+        const otpInputs = document.querySelectorAll('#otp-container input');
+        
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length > 1) {
+                    e.target.value = e.target.value.slice(0, 1);
+                }
+                if (e.target.value.length === 1 && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    otpInputs[index - 1].focus();
+                }
+            });
+            
+            // Handle paste
+            input.addEventListener('paste', (e) => {
+                e.preventDefault();
+                const pastedData = e.clipboardData.getData('text').slice(0, 6).replace(/\D/g, '');
+                if(pastedData) {
+                    [...pastedData].forEach((char, i) => {
+                        if(i < otpInputs.length) {
+                            otpInputs[i].value = char;
+                            if(i < otpInputs.length -1) otpInputs[i+1].focus();
+                            else otpInputs[i].focus();
+                        }
+                    });
+                }
+            });
+        });
+
+        // Simple Countdown Timer simulation
+        let timeLeft = 45;
+        const resendText = document.getElementById('resend-text');
+        
+        const timerId = setInterval(() => {
+            timeLeft--;
+            if (timeLeft <= 0) {
+                clearInterval(timerId);
+                resendText.textContent = "Resend code now";
+                resendText.classList.add('font-bold');
+            } else {
+                resendText.textContent = `Resend code in 0:${timeLeft.toString().padStart(2, '0')}`;
+            }
+        }, 1000);
+    </script>
+
+
+</body></html>

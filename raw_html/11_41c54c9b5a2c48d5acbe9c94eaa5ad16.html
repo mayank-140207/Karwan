@@ -1,0 +1,404 @@
+<!DOCTYPE html><html class="h-full" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan - Trip Preferences</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:wght@600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed": "#002110",
+                      "surface-container-high": "#e7e8ea",
+                      "on-primary-fixed": "#071b37",
+                      "tertiary-fixed": "#d4e3ff",
+                      "surface-container-highest": "#e1e2e4",
+                      "on-secondary-fixed-variant": "#065230",
+                      "on-background": "#191c1e",
+                      "secondary-fixed": "#adf2c3",
+                      "on-primary-fixed-variant": "#364765",
+                      "secondary-fixed-dim": "#92d5a8",
+                      "on-tertiary-fixed-variant": "#2e4869",
+                      "on-primary-container": "#798bac",
+                      "surface": "#f8f9fb",
+                      "tertiary": "#000e21",
+                      "on-error": "#ffffff",
+                      "pure-white": "#FFFFFF",
+                      "surface-variant": "#e1e2e4",
+                      "secondary-container": "#adf2c3",
+                      "success-green": "#2C6E49",
+                      "on-error-container": "#93000a",
+                      "surface-tint": "#4d5f7e",
+                      "surface-container": "#edeef0",
+                      "text-gray": "#5A6472",
+                      "on-primary": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "primary-fixed-dim": "#b5c7eb",
+                      "error": "#ba1a1a",
+                      "surface-container-lowest": "#ffffff",
+                      "inverse-primary": "#b5c7eb",
+                      "on-secondary-container": "#2f704b",
+                      "outline": "#75777e",
+                      "surface-container-low": "#f2f4f6",
+                      "primary": "#000d23",
+                      "on-surface": "#191c1e",
+                      "tertiary-fixed-dim": "#afc8f0",
+                      "primary-fixed": "#d6e3ff",
+                      "tertiary-container": "#052443",
+                      "secondary": "#286a46",
+                      "outline-variant": "#c5c6ce",
+                      "on-tertiary": "#ffffff",
+                      "inverse-surface": "#2e3132",
+                      "on-tertiary-container": "#738cb1",
+                      "on-secondary": "#ffffff",
+                      "primary-container": "#10233f",
+                      "surface-bright": "#f8f9fb",
+                      "background": "#f8f9fb",
+                      "on-surface-variant": "#44474d",
+                      "surface-dim": "#d9dadc",
+                      "on-tertiary-fixed": "#001c39",
+                      "inverse-on-surface": "#f0f1f3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "section-gap": "80px",
+                      "gutter": "24px",
+                      "margin-desktop": "64px",
+                      "stack-sm": "8px",
+                      "margin-mobile": "20px",
+                      "stack-lg": "24px",
+                      "stack-md": "16px"
+              },
+              "fontFamily": {
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Noto Serif"
+                      ],
+                      "headline-lg": [
+                              "Noto Serif"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Noto Serif"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Noto Serif"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "56px",
+                              {
+                                      "lineHeight": "64px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-md": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-full flex antialiased selection:bg-success-green selection:text-pure-white">
+<!-- SideNavBar (Docked Left) -->
+<nav class="bg-primary dark:bg-primary-container text-primary-fixed dark:text-primary-fixed-dim font-body-md text-body-md fixed left-0 h-screen w-64 shadow-md z-40 flex flex-col h-full p-stack-lg hidden md:flex min-h-screen">
+<div class="flex items-center gap-4 mb-section-gap">
+<div class="w-10 h-10 rounded-full bg-pure-white flex items-center justify-center shadow-sm overflow-hidden shrink-0">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMFuEZCXFJGlCl4zKOPzIHirWRLFVdiuKReljSZR3DFflNBLpAl-TsW5QS0Du_xWGvL1a9HystcvpvH-S24h_JfXNpfbrvF31gxfH-yoL84z8YTGUZIllPuoY8j4xIX6-07p4avHbOvnsZNwMHfW8cD-_AFgG_GokBA3_5qsHO4O0Qy9P_sH-0IcY1swz1OjNdjbdxWxF-HMm8LWezaV--fFQCQ-shvvyA_RnE24j-Xe9oQiSxYyqf7xaKaPOCFAfI_4o" alt="Karwan Logo" class="w-full h-full object-contain">
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-pure-white tracking-tight">Karwan</h1>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim">Traveler Dashboard</p>
+</div>
+</div>
+<div class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">insights</span>
+<span class="font-label-md text-label-md">LiveTrail</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">verified_user</span>
+<span class="font-label-md text-label-md">TrustRadar</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">rebase_edit</span>
+<span class="font-label-md text-label-md">Auto-heal</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">fact_check</span>
+<span class="font-label-md text-label-md">Ground Truth</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150 group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</div>
+<div class="mt-auto pt-8">
+<button class="w-full bg-success-green hover:bg-secondary text-pure-white font-label-md text-label-md py-3 px-4 rounded-[20px] transition-colors shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                Plan New Trip
+            </button>
+</div>
+</nav>
+<!-- Main Content Area Wrapper -->
+<div class="flex-1 flex flex-col md:ml-64 min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-md text-on-surface dark:text-on-surface-variant font-label-md text-label-md fixed top-0 w-full md:w-[calc(100%-16rem)] shadow-sm z-30 flex justify-between items-center px-margin-desktop py-stack-md transition-all">
+<div class="flex-1 max-w-md hidden md:block">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-gray group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-low border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary rounded-full pl-10 pr-4 py-2 font-body-md text-body-md text-on-surface transition-all outline-none" placeholder="Search destinations, trips, or settings..." type="text">
+</div>
+</div>
+<div class="flex-1 md:hidden">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed tracking-tight">Karwan</h2>
+</div>
+<div class="flex items-center gap-6 justify-end flex-1">
+<button class="text-on-surface-variant hover:text-primary transition-colors relative group opacity-80 active:opacity-100">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full ring-2 ring-surface border-none"></span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined text-[24px]">settings</span>
+</button>
+<div class="h-8 w-px bg-outline-variant/30 hidden md:block"></div>
+<button class="flex items-center gap-2 group">
+<img alt="Traveler Profile" class="w-8 h-8 rounded-full object-cover border border-outline-variant group-hover:border-primary transition-colors" data-alt="A small, circular profile picture of a traveler wearing a modern backpack, looking at a scenic mountain view during golden hour. Professional corporate style photography, bright and airy lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLg5GrFAboOCPuSt2dppGmxVpN8Z6aQUMk_sFBdlkg5DxkN4wUPffBs_6NibSJDW2XguyHxJImJAUEyvMUigFkgzg-2nWqpmKc7BU4ZJZlFPa1nXbfiW4sDCpADrOu0tdmkfIfJAVr6G0nYy2jwwslrdtODN9CSa--Jvew0v97ttS6v_QLHZmKsqe1c6b3pbQqmc-jXOat5IBlDoJQvsvjeGxb5jzQo7IRhhdKUL8ZEKAYUJpNGsW3nA">
+<span class="material-symbols-outlined text-text-gray group-hover:text-primary transition-colors text-[20px] hidden md:block">expand_more</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-section-gap flex flex-col">
+<!-- Step Indicator -->
+<div class="flex items-center justify-center gap-4 mb-stack-lg text-text-gray font-label-md text-label-md w-full max-w-3xl mx-auto">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-xs">1</span>
+<span class="">Route</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">arrow_forward</span>
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="w-6 h-6 rounded-full bg-primary text-pure-white flex items-center justify-center text-xs">2</span>
+<span class="">Preferences</span>
+</div>
+<span class="material-symbols-outlined text-[16px] text-outline-variant">arrow_forward</span>
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-xs">3</span>
+<span class="">Review</span>
+</div>
+</div>
+<!-- Header -->
+<div class="text-center mb-section-gap w-full max-w-3xl mx-auto">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tight mb-stack-sm">Trip Preferences</h1>
+<p class="font-body-lg text-body-lg text-text-gray">Tailor your journey to match your style and priorities.</p>
+</div>
+<div class="w-full max-w-4xl mx-auto space-y-section-gap flex-1">
+<!-- Travel Style Bento Section -->
+<section>
+<div class="flex items-center gap-2 mb-stack-lg">
+<span class="material-symbols-outlined text-primary text-[24px]">explore</span>
+<h3 class="font-headline-md text-headline-md text-primary">Travel Style</h3>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Relaxed Card -->
+<div class="bg-pure-white rounded-xl p-stack-lg shadow-sm border border-outline-variant/30 hover:border-primary/50 hover:shadow-md transition-all cursor-pointer group flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-low text-text-gray flex items-center justify-center mb-stack-md group-hover:bg-primary/5 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">coffee</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Relaxed</h4>
+<p class="font-body-md text-body-md text-text-gray text-sm leading-tight">Slow pace, more downtime</p>
+</div>
+<!-- Balanced Card (Selected Example) -->
+<div class="bg-pure-white rounded-xl p-stack-lg shadow-sm border-2 border-primary hover:shadow-md transition-all cursor-pointer group flex flex-col items-center text-center relative overflow-hidden">
+<div class="absolute top-3 right-3 text-primary">
+<span class="material-symbols-outlined filled text-[20px]">check_circle</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-primary/10 text-primary flex items-center justify-center mb-stack-md">
+<span class="material-symbols-outlined text-[28px]">balance</span>
+</div>
+<h4 class="font-label-md text-label-md text-primary mb-1">Balanced</h4>
+<p class="font-body-md text-body-md text-text-gray text-sm leading-tight">Mix of activity and rest</p>
+</div>
+<!-- Packed Card -->
+<div class="bg-pure-white rounded-xl p-stack-lg shadow-sm border border-outline-variant/30 hover:border-primary/50 hover:shadow-md transition-all cursor-pointer group flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-low text-text-gray flex items-center justify-center mb-stack-md group-hover:bg-primary/5 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">speed</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Packed</h4>
+<p class="font-body-md text-body-md text-text-gray text-sm leading-tight">See as much as possible</p>
+</div>
+<!-- Adventure Card -->
+<div class="bg-pure-white rounded-xl p-stack-lg shadow-sm border border-outline-variant/30 hover:border-primary/50 hover:shadow-md transition-all cursor-pointer group flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-low text-text-gray flex items-center justify-center mb-stack-md group-hover:bg-primary/5 group-hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[28px]">terrain</span>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface mb-1">Adventure</h4>
+<p class="font-body-md text-body-md text-text-gray text-sm leading-tight">Offbeat trails and hiking</p>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Priorities Section -->
+<section class="bg-pure-white rounded-[20px] p-stack-lg shadow-sm border border-outline-variant/20 h-full flex flex-col">
+<div class="flex items-center gap-2 mb-stack-lg">
+<span class="material-symbols-outlined text-primary text-[24px]">tune</span>
+<h3 class="font-headline-md text-headline-md text-primary">Priorities</h3>
+</div>
+<div class="space-y-4 flex-1">
+<!-- Toggle 1 (On) -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low transition-colors">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Prioritize verified stays</h4>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-outline-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-success-green"></div>
+</label>
+</div>
+<!-- Toggle 2 (Off) -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low transition-colors">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Prefer lower-crowding routes</h4>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-outline-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-success-green"></div>
+</label>
+</div>
+<!-- Toggle 3 (On) -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low transition-colors">
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Alert me on any fare changes</h4>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-11 h-6 bg-outline-variant rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-success-green"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Group Size Section -->
+<section class="bg-pure-white rounded-[20px] p-stack-lg shadow-sm border border-outline-variant/20 h-full flex flex-col">
+<div class="flex items-center gap-2 mb-stack-lg">
+<span class="material-symbols-outlined text-primary text-[24px]">group</span>
+<h3 class="font-headline-md text-headline-md text-primary">Group Size</h3>
+</div>
+<div class="flex-1 flex flex-col items-center justify-center py-stack-lg">
+<p class="font-body-md text-body-md text-text-gray mb-6 text-center">How many travelers are joining?</p>
+<div class="flex items-center justify-center gap-6">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-text-gray hover:text-primary hover:border-primary hover:bg-surface transition-all active:scale-95">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="w-20 text-center">
+<span class="font-headline-lg text-headline-lg text-primary block leading-none">2</span>
+</div>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-text-gray hover:text-primary hover:border-primary hover:bg-surface transition-all active:scale-95">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Bottom Navigation Actions -->
+<div class="w-full max-w-4xl mx-auto mt-16 pt-8 border-t border-outline-variant/20 flex justify-end gap-4 pb-8">
+<button class="px-6 py-3 rounded-[20px] border border-primary text-primary font-label-md text-label-md hover:bg-primary/5 transition-colors flex items-center gap-2">
+                    Back
+                </button>
+<button class="px-8 py-3 rounded-[20px] bg-success-green hover:bg-secondary text-pure-white font-label-md text-label-md shadow-sm transition-colors flex items-center gap-2">
+                    Next: Review
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</main>
+</div>
+
+
+
+
+</body></html>

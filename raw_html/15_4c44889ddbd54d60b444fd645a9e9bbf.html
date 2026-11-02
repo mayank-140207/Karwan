@@ -1,0 +1,318 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TrustRadar - Karwan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#44474d",
+                        "tertiary": "#000e21",
+                        "on-surface": "#191c1e",
+                        "primary": "#000d23",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#001c39",
+                        "on-primary-fixed": "#071b37",
+                        "on-primary-container": "#798bac",
+                        "surface-container-low": "#f2f4f6",
+                        "inverse-surface": "#2e3132",
+                        "on-background": "#191c1e",
+                        "inverse-primary": "#b5c7eb",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#adf2c3",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#b5c7eb",
+                        "outline-variant": "#c5c6ce",
+                        "surface-container": "#edeef0",
+                        "surface-bright": "#f8f9fb",
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "on-secondary-fixed-variant": "#065230",
+                        "pure-white": "#FFFFFF",
+                        "surface": "#f8f9fb",
+                        "secondary-fixed-dim": "#92d5a8",
+                        "on-tertiary-container": "#738cb1",
+                        "surface-tint": "#4d5f7e",
+                        "on-primary": "#ffffff",
+                        "outline": "#75777e",
+                        "secondary-container": "#adf2c3",
+                        "primary-container": "#10233f",
+                        "surface-container-high": "#e7e8ea",
+                        "background": "#f8f9fb",
+                        "surface-dim": "#d9dadc",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary": "#286a46",
+                        "success-green": "#2C6E49",
+                        "text-gray": "#5A6472",
+                        "surface-container-highest": "#e1e2e4",
+                        "surface-variant": "#e1e2e4",
+                        "on-secondary-container": "#2f704b",
+                        "tertiary-fixed": "#d4e3ff",
+                        "on-secondary-fixed": "#002110",
+                        "inverse-on-surface": "#f0f1f3",
+                        "tertiary-container": "#052443",
+                        "on-primary-fixed-variant": "#364765",
+                        "on-tertiary-fixed-variant": "#2e4869",
+                        "primary-fixed": "#d6e3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "8px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "stack-lg": "24px",
+                        "container-max": "1280px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Noto Serif"],
+                        "headline-lg": ["Noto Serif"],
+                        "headline-md": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "label-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden min-h-screen flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex bg-primary dark:bg-primary-container flex-col h-full p-stack-lg shadow-md fixed left-0 top-0 bottom-0 w-64 z-40 min-h-screen">
+<div class="mb-stack-lg">
+<div class="mb-1">
+  <h1 class="font-headline-md text-headline-md font-bold text-pure-white flex items-center">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAw5rGVgF4KrVc6kzbxLqT-I1UYF40kJWez78FbhLMjVLotKCuRsqTFtGtpVnALV1dB0KwpcfrWdoV7KtEiz1v6ZiOZV8RVyvl6MwIKQAiEd0ma1lHX9XcUK3unBnNA_SIWX12gBE57qJdgisLDDUIqRK_KfKjvH2YHOjvrjpl1egLICK6RyyHlunbT3kI23BK6VeGmLgS4p_vFUcPqTRunEgYaaRH-_ItEvDLzKqnQoq3-HRD1M2dK6M_SHGqOPlgQPU0" alt="Karwan Logo" class="inline-block w-10 h-10 mr-2 object-cover rounded-lg">
+    Karwan
+  </h1><p class="text-sm text-primary-fixed-dim opacity-80 font-body-md">Traveler Dashboard</p>
+  
+</div>
+
+</div>
+<ul class="flex flex-col gap-2 flex-grow mt-4">
+<li class="">
+<a class="flex items-center gap-3 p-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 p-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md text-label-md">LiveTrail</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 p-3 rounded-lg text-pure-white bg-on-primary-fixed-variant font-bold scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-md text-label-md">TrustRadar</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 p-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">rebase_edit</span>
+<span class="font-label-md text-label-md">Auto-heal</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 p-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-md text-label-md">Ground Truth</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 p-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto pt-stack-lg border-t border-on-primary-fixed-variant/30">
+<button class="w-full bg-success-green text-pure-white py-3 rounded-lg font-label-md text-label-md hover:bg-secondary transition-colors">
+                Plan New Trip
+            </button>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col md:ml-64 w-full min-h-screen">
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-container/80 backdrop-blur-md shadow-sm sticky top-0 z-30 flex justify-between items-center w-full px-margin-desktop py-stack-md">
+<div class="flex-1 flex items-center">
+<!-- Mobile menu button -->
+<button class="md:hidden mr-4 text-on-surface hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="relative w-full max-w-md hidden md:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-text-gray">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-full text-on-surface focus:outline-none focus:border-primary transition-colors font-body-md text-body-md" placeholder="Search places, guides, or vendors..." type="text">
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant dark:text-on-surface-variant/70 hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant dark:text-on-surface-variant/70 hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="Traveler Profile" class="w-10 h-10 rounded-full object-cover border border-outline-variant cursor-pointer" data-alt="A close up professional headshot of a person to be used as a profile picture. The lighting is bright and soft, typical of a modern application UI, highlighting their friendly expression against a clean, light off-white background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjvcEwZVN8q2NfReBOGvWaft-Qcrr02IDdW-gvR2mCPFcSOyyRzwfosaxixq5U9dSIVutg9RTfEy1vvf0nivQ3JK_ZOMlL4_28YES0xyHPrXHv6LgE4OtEfq2qY6Rt2RSvaGJUqQa8OX7mJWswogS4FLwQBiJqBJ36qns6OPG8tXPvguV42VZyjUpKumuxm2rV5wDfcgbEmErnpfXN8V8vcGA93VkObighifnb7YjPN2-1JccYkuowEQ">
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="p-margin-mobile md:p-margin-desktop flex-1 max-w-container-max mx-auto w-full">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-stack-lg gap-4">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Trust Scores Near You</h2>
+<div class="relative w-full md:w-auto md:min-w-[300px] md:hidden">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-text-gray">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-pure-white border border-outline-variant rounded-full text-on-surface focus:outline-none focus:border-primary transition-colors font-body-md text-body-md" placeholder="Search..." type="text">
+</div>
+</div>
+<!-- Filters -->
+<div class="flex overflow-x-auto pb-4 mb-stack-lg gap-3 hide-scrollbar">
+<button class="px-6 py-2 rounded-full bg-primary text-pure-white font-label-md text-label-md whitespace-nowrap">All</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">Vendors</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">Guides</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">Transit Stands</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors font-label-md text-label-md whitespace-nowrap">Stays</button>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter mb-section-gap">
+<!-- Card 1 -->
+<div class="bg-pure-white p-stack-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative">
+<div class="flex items-start gap-4 mb-4">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="A well lit photograph of a bustling city auto-rickshaw stand in India. Yellow and green auto-rickshaws are lined up under a clear blue sky. The scene conveys motion, local transport vibes, and a vibrant, authentic travel experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQcDe5MamsJbPZ1lMXpXzeMjXgGqW5FkwVSW6-T5_yzP4568F3HKUjhfGvjV4GLz65QHepAq5rNN5uZLGbf1Dcdd7Xu0DstBtMkxSnLjZlTQXsnvV92FiRKwKYfmBT-Ci3vhySlqxarF5lZqQnTp96kl4dLIdT_INS28ruMjiRMmYsQda5jBwAv1xLugNIhEL-67o4O4ngbifz5hqw4cdZ905z3x-VsXP50JJB2x9vtR8Xb9bdlln7JA">
+<div class="flex-1">
+<h3 class="font-label-md text-label-md text-primary mb-1">City Palace Auto Stand</h3>
+<span class="inline-block px-3 py-1 bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm rounded-full w-fit">Transit</span>
+</div>
+<div class="relative w-14 h-14 flex items-center justify-center rounded-full border-4 border-success-green">
+<span class="font-label-md text-label-md text-success-green font-bold">4.8</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-gray mb-4">3 verified incidents resolved, 0 open.</p>
+<a class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<!-- Card 2 -->
+<div class="bg-pure-white p-stack-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative">
+<div class="flex items-start gap-4 mb-4">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="A professional yet approachable portrait of an Indian male tour guide in his 40s. He is wearing a neat polo shirt and smiling warmly in front of a slightly blurred historical monument background. High-quality daylight lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx6ucslgo23gql2uB2v57AWpXpWoIfckFf4QZW_BXJkG-UMAJsl3Fxk71i0I1ON7H9xSM4ZlAu4G-nsG81by2fnNqKYEBn4zwRGhda52OpB09w65lKcQApKZR-897RSN3uLcl-B6ka9RxMYRJPrCqMRFkobi8DHvavG3uSJIC0rQBK74evU4xKQrtlfF2e5Ofx1AUvNF-Vu1MVeafUWkRQ8S6Pvx-jPkuCJhJcGRDXnYqEoViNemFFNA">
+<div class="flex-1">
+<h3 class="font-label-md text-label-md text-primary mb-1">Rajesh Gupta</h3>
+<span class="inline-block px-3 py-1 bg-surface-container-high text-on-surface-variant text-label-sm font-label-md rounded-full w-fit">LocalGuide</span>
+</div>
+<div class="relative w-14 h-14 flex items-center justify-center rounded-full border-4 border-success-green">
+<span class="font-label-md text-label-md text-success-green font-bold">4.9</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-gray mb-4">5 verified incidents resolved, 0 open.</p>
+<a class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<!-- Card 3 -->
+<div class="bg-pure-white p-stack-lg rounded-xl shadow-sm hover:shadow-md transition-shadow relative">
+<div class="flex items-start gap-4 mb-4">
+<img class="w-16 h-16 rounded-full object-cover" data-alt="A photo of a quaint souvenir shop in a busy market alley. The shop is filled with colorful local textiles and handicrafts. The lighting is warm, inviting, and captures the vibrant essence of exploring local markets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDKNqKsHQ1jii7SNcO4Hq1VEKTmKCKC39JaOVeOY0etriFFeWIwruhM_0G2ei34qm9tCr4dsNo3aDQvwE09a5EjJc1Ifzt74EydSIsj-867jjTgOWzazAudBAN4Oq3uvBl4P0AngNDAnxzQF-P1ktF5pgkXfIBId8m6LQcrYneVN-aSzDeuSeWuFdpMrc7mZuFxFGLHWeWL5azC6SQuKgQhgWPS5oRQw5Naxe6WOdCqNwS8Yj6lZu8XQ">
+<div class="flex-1">
+<h3 class="font-label-md text-label-md text-primary mb-1">Market Square Souvenirs</h3>
+<span class="inline-block px-3 py-1 bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm rounded-full w-fit">Vendor</span>
+</div>
+<div class="relative w-14 h-14 flex items-center justify-center rounded-full border-4 border-amber-500">
+<span class="font-label-md text-label-md text-amber-600 font-bold">3.2</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-text-gray mb-4">12 verified incidents resolved, 2 open (Overcharging).</p>
+<a class="text-primary font-label-md text-label-md hover:underline flex items-center gap-1" href="#">View Details <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+</div>
+<!-- Report Banner -->
+<div class="bg-secondary-fixed-dim/20 rounded-xl p-stack-lg flex flex-col md:flex-row items-center justify-between gap-4 border border-secondary-fixed-dim/30 shadow-sm">
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2">See something that needs flagging?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Help keep the community safe and informed. Report overcharging, safety concerns, or unprofessional behavior instantly.</p>
+</div>
+<button class="px-6 py-3 bg-success-green text-pure-white rounded-lg font-label-md text-label-md hover:bg-secondary transition-colors whitespace-nowrap shadow-sm" onclick="document.getElementById('reportModal').classList.remove('hidden')">
+                    Report Now
+                </button>
+</div>
+</main>
+</div>
+<!-- Modal Overlay -->
+<div class="hidden fixed inset-0 bg-primary/40 backdrop-blur-sm z-50 flex items-center justify-center p-margin-mobile" id="reportModal">
+<div class="bg-pure-white rounded-xl shadow-lg w-full max-w-lg overflow-hidden flex flex-col max-h-[90vh]">
+<div class="p-stack-lg border-b border-outline-variant flex justify-between items-center bg-surface-bright">
+<h2 class="font-headline-md text-headline-md text-primary">Report an Incident</h2>
+<button class="text-text-gray hover:text-primary transition-colors" onclick="document.getElementById('reportModal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-stack-lg overflow-y-auto flex-1">
+<div class="space-y-4">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Location / Vendor Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 transform -translate-y-1/2 text-text-gray text-sm">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary transition-colors font-body-md text-body-md" placeholder="Search for the entity..." type="text">
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Incident Type</label>
+<select class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary transition-colors font-body-md text-body-md appearance-none">
+<option>Select type...</option>
+<option>Overcharging</option>
+<option>Safety Concern</option>
+<option>Unfair Transaction</option>
+<option>Other</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Details</label>
+<textarea class="w-full px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary transition-colors font-body-md text-body-md resize-none" placeholder="Please describe what happened..." rows="4"></textarea>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-1">Photo Evidence (Optional)</label>
+<div class="border-2 border-dashed border-outline-variant rounded-lg p-6 flex flex-col items-center justify-center text-text-gray bg-surface hover:bg-surface-container-lowest cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-3xl mb-2">cloud_upload</span>
+<span class="font-label-md text-label-md">Click to upload or drag &amp; drop</span>
+</div>
+</div>
+</div>
+</div>
+<div class="p-stack-lg border-t border-outline-variant bg-surface-bright">
+<button class="w-full bg-success-green text-pure-white py-3 rounded-lg font-label-md text-label-md hover:bg-secondary transition-colors mb-3">
+                    Submit Report
+                </button>
+<p class="text-center font-label-sm text-label-sm text-text-gray">One report per user per incident helps keep this data reliable.</p>
+</div>
+</div>
+</div>
+
+
+
+
+</body></html>

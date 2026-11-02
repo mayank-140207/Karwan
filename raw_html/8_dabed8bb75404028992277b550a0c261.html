@@ -1,0 +1,324 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan - Sign Up Step 2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-bright": "#f8f9fb",
+                      "surface": "#f8f9fb",
+                      "on-tertiary-fixed-variant": "#2e4869",
+                      "secondary-fixed": "#adf2c3",
+                      "surface-container-low": "#f2f4f6",
+                      "secondary": "#286a46",
+                      "primary-fixed": "#d6e3ff",
+                      "on-error": "#ffffff",
+                      "secondary-container": "#adf2c3",
+                      "background": "#f8f9fb",
+                      "outline": "#75777e",
+                      "tertiary": "#000e21",
+                      "on-tertiary-fixed": "#001c39",
+                      "on-primary": "#ffffff",
+                      "on-primary-container": "#798bac",
+                      "outline-variant": "#c5c6ce",
+                      "on-error-container": "#93000a",
+                      "on-background": "#191c1e",
+                      "error": "#ba1a1a",
+                      "inverse-surface": "#2e3132",
+                      "inverse-primary": "#b5c7eb",
+                      "pure-white": "#FFFFFF",
+                      "on-primary-fixed-variant": "#364765",
+                      "on-tertiary-container": "#738cb1",
+                      "on-secondary": "#ffffff",
+                      "on-secondary-fixed": "#002110",
+                      "on-secondary-fixed-variant": "#065230",
+                      "error-container": "#ffdad6",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container-high": "#e7e8ea",
+                      "primary-fixed-dim": "#b5c7eb",
+                      "on-surface-variant": "#44474d",
+                      "surface-tint": "#4d5f7e",
+                      "surface-container": "#edeef0",
+                      "success-green": "#2C6E49",
+                      "on-tertiary": "#ffffff",
+                      "surface-dim": "#d9dadc",
+                      "on-secondary-container": "#2f704b",
+                      "surface-container-highest": "#e1e2e4",
+                      "tertiary-fixed-dim": "#afc8f0",
+                      "on-surface": "#191c1e",
+                      "surface-variant": "#e1e2e4",
+                      "inverse-on-surface": "#f0f1f3",
+                      "on-primary-fixed": "#071b37",
+                      "text-gray": "#5A6472",
+                      "secondary-fixed-dim": "#92d5a8",
+                      "primary-container": "#10233f",
+                      "tertiary-container": "#052443",
+                      "primary": "#000d23",
+                      "tertiary-fixed": "#d4e3ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "16px",
+                      "margin-desktop": "64px",
+                      "container-max": "1280px",
+                      "stack-lg": "24px",
+                      "gutter": "24px",
+                      "section-gap": "80px",
+                      "margin-mobile": "20px",
+                      "stack-sm": "8px"
+              },
+              "fontFamily": {
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Noto Serif"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Noto Serif"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Noto Serif"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Noto Serif"
+                      ]
+              },
+              "fontSize": {
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "48px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "56px",
+                              {
+                                      "lineHeight": "64px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input:focus + .eye-icon {
+            color: theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen overflow-hidden">
+<div class="flex min-h-screen w-full">
+<!-- Left Panel: Split Screen Image (Unchanged conceptually from step 1) -->
+<div class="hidden lg:flex lg:w-1/2 relative bg-primary-container items-center justify-center overflow-hidden">
+<div class="absolute inset-0 w-full h-full" data-alt="A high-quality, authentic photo of a solo traveler with a backpack, looking out over a scenic heritage site in India at sunrise." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCStxXi3NH1jCPiweJEePH0qdy2nQqHRr05M8cKtg5kJyNU9TzGCN2xenJhacBYP38FhdLiF9MWmTO5m2gLHhhEMWzCRu15de9OyWqVT_MOIaFA8jtN26hYcGB85NJK4sdgRI1RpG1LsOi8vcIOPV49lDWMPzb2ek_r6Kxcoih7_qBC_yUE_HaHrXJ91rZmvnAqQ6TSEr1RY7f8YXillMTvwMXpV-Ib4qhdhTx89vtKtLpXZuMMUakRVA&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; width: 100%; height: 100%;"></div>
+<!-- Overlay Gradient for text readability and brand aesthetic -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent w-full h-full" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCStxXi3NH1jCPiweJEePH0qdy2nQqHRr05M8cKtg5kJyNU9TzGCN2xenJhacBYP38FhdLiF9MWmTO5m2gLHhhEMWzCRu15de9OyWqVT_MOIaFA8jtN26hYcGB85NJK4sdgRI1RpG1LsOi8vcIOPV49lDWMPzb2ek_r6Kxcoih7_qBC_yUE_HaHrXJ91rZmvnAqQ6TSEr1RY7f8YXillMTvwMXpV-Ib4qhdhTx89vtKtLpXZuMMUakRVA&quot;); background-size: cover; background-position: center center; background-repeat: no-repeat; width: 100%; height: 100%;" data-alt="A high-quality, authentic photo of a solo traveler with a backpack, looking out over a scenic heritage site in India at sunrise."></div>
+<!-- Content Over Image -->
+<div class="relative z-10 p-margin-desktop text-left flex flex-col h-full w-full justify-end">
+
+<div class="max-w-md">
+<h2 class="font-headline-lg text-headline-lg text-pure-white mb-stack-md leading-tight">
+                        Your journey begins here.
+                    </h2>
+<p class="font-body-lg text-body-lg text-pure-white/90">
+                        Join an exclusive network of travelers and premium partners redefining how the world explores.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Right Panel: Form Content -->
+<div class="w-full lg:w-1/2 flex items-center justify-center p-margin-mobile md:p-margin-desktop bg-surface overflow-y-auto">
+<div class="w-full max-w-[420px]">
+<!-- Mobile Logo (Visible only on small screens) -->
+<div class="lg:hidden text-primary font-headline-md text-headline-md font-bold mb-stack-lg tracking-tight">
+                    Karwan
+                </div>
+<!-- Form Header -->
+<div class="mb-stack-lg">
+<h1 class="font-headline-md text-headline-md lg:font-headline-lg lg:text-headline-lg text-primary mb-stack-sm">
+                        Almost there.
+                    </h1>
+<p class="font-body-md text-body-md text-text-gray">
+                        Secure your account details below.
+                    </p>
+</div>
+<!-- Signup Form Step 2 -->
+<form action="#" class="space-y-stack-md" method="POST">
+<!-- Username Input -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-2" for="username">Username</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]">alternate_email</span>
+</div>
+<input class="block w-full pl-11 pr-4 py-3 bg-surface-bright border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface placeholder-text-gray/70 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" id="username" name="username" placeholder="Choose a username" required="" type="text">
+</div>
+</div>
+<!-- Password Input with Strength Indicator -->
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-2" for="password">Password</label>
+<div class="relative mb-2">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<input class="block w-full pl-11 pr-11 py-3 bg-surface-bright border border-outline-variant rounded-lg font-body-md text-body-md text-on-surface placeholder-text-gray/70 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-colors" id="password" name="password" placeholder="Create a password" required="" type="password">
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline hover:text-primary transition-colors eye-icon" onclick="togglePasswordVisibility()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="visibility-icon">visibility</span>
+</button>
+</div>
+<!-- Password Strength Bar -->
+<div class="flex items-center space-x-1 mt-2">
+<div class="h-1.5 w-1/4 rounded-full bg-success-green/30" id="strength-1"></div>
+<div class="h-1.5 w-1/4 rounded-full bg-surface-variant" id="strength-2"></div>
+<div class="h-1.5 w-1/4 rounded-full bg-surface-variant" id="strength-3"></div>
+<div class="h-1.5 w-1/4 rounded-full bg-surface-variant" id="strength-4"></div>
+</div>
+<p class="font-label-sm text-[11px] text-text-gray mt-1">Must be at least 8 characters.</p>
+</div>
+<!-- Terms & Conditions Text -->
+<div class="pt-stack-sm pb-stack-sm">
+<p class="font-label-sm text-[12px] text-text-gray leading-relaxed text-center">
+                            By joining, you agree to Karwan’s 
+                            <a class="text-success-green hover:text-secondary-fixed-variant transition-colors font-label-md text-[12px] underline-offset-2 hover:underline" href="#">Terms of Service</a> 
+                            and 
+                            <a class="text-success-green hover:text-secondary-fixed-variant transition-colors font-label-md text-[12px] underline-offset-2 hover:underline" href="#">Privacy Policy</a>.
+                        </p>
+</div>
+<!-- Submit Button -->
+<button class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-[20px] shadow-sm font-label-md text-label-md text-pure-white bg-success-green hover:bg-success-green/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-success-green transition-all hover:-translate-y-0.5 active:translate-y-0" type="submit">
+                        Join Karwan
+                    </button>
+</form>
+<!-- Navigation Back -->
+<div class="mt-stack-lg text-center">
+<a class="inline-flex items-center font-label-md text-label-md text-primary hover:text-secondary transition-colors group" href="#">
+<span class="material-symbols-outlined mr-1 text-[18px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
+                        Back to step 1
+                    </a>
+</div>
+</div>
+</div>
+</div>
+<script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const visibilityIcon = document.getElementById('visibility-icon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                visibilityIcon.textContent = 'visibility_off';
+            } else {
+                passwordInput.type = 'password';
+                visibilityIcon.textContent = 'visibility';
+            }
+        }
+
+        // Simple mock for password strength visual feedback
+        document.getElementById('password').addEventListener('input', function(e) {
+            const val = e.target.value;
+            const s1 = document.getElementById('strength-1');
+            const s2 = document.getElementById('strength-2');
+            const s3 = document.getElementById('strength-3');
+            const s4 = document.getElementById('strength-4');
+            
+            // Reset all
+            [s1, s2, s3, s4].forEach(el => {
+                el.className = 'h-1.5 w-1/4 rounded-full bg-surface-variant transition-colors duration-300';
+            });
+
+            if(val.length > 0) {
+                s1.className = 'h-1.5 w-1/4 rounded-full bg-error/70 transition-colors duration-300';
+            }
+            if(val.length >= 4) {
+                s1.className = 'h-1.5 w-1/4 rounded-full bg-[#f59e0b] transition-colors duration-300';
+                s2.className = 'h-1.5 w-1/4 rounded-full bg-[#f59e0b] transition-colors duration-300';
+            }
+            if(val.length >= 8) {
+                s1.className = 'h-1.5 w-1/4 rounded-full bg-success-green/70 transition-colors duration-300';
+                s2.className = 'h-1.5 w-1/4 rounded-full bg-success-green/70 transition-colors duration-300';
+                s3.className = 'h-1.5 w-1/4 rounded-full bg-success-green/70 transition-colors duration-300';
+            }
+            if(val.length >= 12 && /[A-Z]/.test(val) && /[0-9]/.test(val)) {
+                s1.className = 'h-1.5 w-1/4 rounded-full bg-success-green transition-colors duration-300';
+                s2.className = 'h-1.5 w-1/4 rounded-full bg-success-green transition-colors duration-300';
+                s3.className = 'h-1.5 w-1/4 rounded-full bg-success-green transition-colors duration-300';
+                s4.className = 'h-1.5 w-1/4 rounded-full bg-success-green transition-colors duration-300';
+            }
+        });
+    </script>
+
+
+</body></html>

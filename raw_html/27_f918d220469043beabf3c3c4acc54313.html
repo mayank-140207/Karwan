@@ -1,0 +1,312 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Privacy &amp; Verification - Karwan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed-variant": "#065230",
+                        "tertiary": "#000e21",
+                        "inverse-on-surface": "#f0f1f3",
+                        "tertiary-container": "#052443",
+                        "on-primary-fixed-variant": "#364765",
+                        "inverse-primary": "#b5c7eb",
+                        "secondary-fixed": "#adf2c3",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e7e8ea",
+                        "surface-container-highest": "#e1e2e4",
+                        "background": "#f8f9fb",
+                        "on-tertiary-container": "#738cb1",
+                        "secondary": "#286a46",
+                        "surface": "#f8f9fb",
+                        "success-green": "#2C6E49",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#2e4869",
+                        "surface-container": "#edeef0",
+                        "primary": "#000d23",
+                        "on-surface": "#191c1e",
+                        "pure-white": "#FFFFFF",
+                        "tertiary-fixed": "#d4e3ff",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-dim": "#d9dadc",
+                        "surface-container-lowest": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#adf2c3",
+                        "surface-variant": "#e1e2e4",
+                        "on-secondary-container": "#2f704b",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#001c39",
+                        "inverse-surface": "#2e3132",
+                        "primary-fixed-dim": "#b5c7eb",
+                        "on-primary-container": "#798bac",
+                        "surface-tint": "#4d5f7e",
+                        "outline-variant": "#c5c6ce",
+                        "on-primary-fixed": "#071b37",
+                        "secondary-fixed-dim": "#92d5a8",
+                        "primary-container": "#10233f",
+                        "outline": "#75777e",
+                        "on-secondary-fixed": "#002110",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "on-surface-variant": "#44474d",
+                        "on-error": "#ffffff",
+                        "text-gray": "#5A6472",
+                        "surface-bright": "#f8f9fb",
+                        "error-container": "#ffdad6",
+                        "on-background": "#191c1e"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "stack-md": "16px",
+                        "stack-lg": "24px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px",
+                        "section-gap": "80px",
+                        "container-max": "1280px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "64px"
+                    },
+                    fontFamily: {
+                        "headline-lg": ["Noto Serif"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Noto Serif"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Noto Serif"]
+                    },
+                    fontSize: {
+                        "headline-lg": ["40px", { lineHeight: "48px", fontWeight: "700" }],
+                        "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+                        "label-sm": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "500" }],
+                        "headline-md": ["28px", { lineHeight: "36px", fontWeight: "600" }],
+                        "headline-lg-mobile": ["32px", { lineHeight: "40px", fontWeight: "700" }],
+                        "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+                        "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+                        "display-lg": ["56px", { lineHeight: "64px", letterSpacing: "-0.02em", fontWeight: "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-header {
+            background-color: rgba(248, 249, 251, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        .soft-shadow {
+            box-shadow: 0 2px 8px rgba(0, 13, 35, 0.04);
+        }
+        .floating-shadow {
+            box-shadow: 0 12px 24px rgba(0, 13, 35, 0.08);
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #2C6E49;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #2C6E49;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar (Semantic Nav suppressed as per logic for Settings, but instruction says "Use the same desktop dashboard shell and settings sub-navigation", we will render a settings-specific shell or keep the main nav based on "Profile" being active if we consider settings under profile) -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-primary-container shadow-lg z-50 min-h-screen">
+<div class="flex flex-col h-full py-stack-lg">
+<!-- Header/Brand -->
+<div class="px-5 mb-8 flex items-center gap-3">
+<img alt="Karwan Logo" class="w-10 h-10 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUAaFSwtEU5g0lkiVhyXZnWodXNSfCCUq9zUded-wPBT7AEJkKRuXLNiPc6C55OJJEEF--Zu6STSZPZKcEgBSuWP40YSTZCBrQQBwDn5YSVN_ZXxB_PxWNrHf7Whdjx6hPvITcYLB0GzcC2t4uGXwfXckolV3b651GI6z9DaZ7bkNoE7fDYgraeEIGu9nIpS0tkguwVi-9GcKniLa09tXldeUh8ekPsexKbAkhWWg9kdUkaZcgkKZNBORSCesFYKkptJQ">
+<div>
+<h1 class="font-headline-md text-headline-md text-pure-white">Karwan</h1>
+<p class="font-label-sm text-label-sm text-on-primary-container opacity-80">Traveler Dashboard</p>
+</div>
+</div>
+<!-- Main Links -->
+<div class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-3 py-3 text-on-primary-container opacity-70 pl-5 hover:bg-primary hover:text-pure-white transition-colors duration-200" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-on-primary-container opacity-70 pl-5 hover:bg-primary hover:text-pure-white transition-colors duration-200" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">explore</span>
+<span class="font-label-md text-label-md">LiveTrail</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-on-primary-container opacity-70 pl-5 hover:bg-primary hover:text-pure-white transition-colors duration-200" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">verified_user</span>
+<span class="font-label-md text-label-md">TrustRadar</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-on-primary-container opacity-70 pl-5 hover:bg-primary hover:text-pure-white transition-colors duration-200" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">healing</span>
+<span class="font-label-md text-label-md">Auto-heal</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-on-primary-container opacity-70 pl-5 hover:bg-primary hover:text-pure-white transition-colors duration-200" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">visibility</span>
+<span class="font-label-md text-label-md">Ground Truth</span>
+</a>
+<a class="flex items-center gap-3 py-3 text-secondary-fixed font-bold border-l-4 border-secondary-fixed pl-4 hover:bg-primary hover:text-pure-white transition-colors duration-200 scale-95 transition-transform" href="#">
+<span aria-hidden="true" class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</div>
+<!-- CTA -->
+<div class="px-5 mt-auto">
+<button class="w-full bg-secondary text-on-secondary font-label-md text-label-md py-3 rounded-xl hover:bg-secondary-container hover:text-on-secondary-container transition-colors shadow-md">
+                    Plan New Trip
+                </button>
+</div>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="hidden md:flex justify-between items-center px-margin-desktop h-20 fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-surface/80 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-xl focus-within:ring-2 focus-within:ring-secondary w-96">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none outline-none w-full font-body-md text-on-surface placeholder-text-gray focus:ring-0" placeholder="Search..." type="text">
+</div>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="Traveler Profile" class="w-10 h-10 rounded-full object-cover border-2 border-surface-container-high" data-alt="A close up portrait of a modern traveler, smiling slightly, set against a blurred airport lounge background, evoking a premium travel lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNacNmjmvlK8RqgQQfoV0_lEn27eoGyVAXWljXMqtHtf7VXn2krPDAVtdrVbfsF5_80QOqLfVlpvufRgGXtSPTlaqB4q7VFmZc3RcXZqvROkUjwle6FX7R4QjW4aV4fb6xwf-deIVX1qyLcy-c1oxCBJohuYNzjY7IYhysMYiUK4OYdFCw8w0ZGCRigT43zEx5jiCkShzHPWHFvfQjsU26s6-VuukSRgyqsJXtdKjUJB0DBM0v0Ls_2A">
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 pt-20 px-margin-mobile md:px-margin-desktop pb-section-gap min-h-screen">
+<div class="max-w-4xl mx-auto pt-stack-lg">
+<!-- Settings Header & Sub-nav -->
+<div class="mb-stack-lg">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Settings</h2>
+<div class="flex gap-6 border-b border-surface-variant">
+<a class="pb-3 px-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Personal Info</a>
+<a class="pb-3 px-2 font-label-md text-label-md text-secondary border-b-2 border-secondary" href="#">Privacy &amp; Verification</a>
+<a class="pb-3 px-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Preferences</a>
+<a class="pb-3 px-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Notifications</a>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-stack-lg">
+<!-- Verification Status Card -->
+<section class="bg-pure-white rounded-xl p-stack-lg soft-shadow">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Verification Status</h3>
+<div class="flex flex-col gap-4">
+<!-- Phone Verified -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-surface-variant">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-success-green/10 flex items-center justify-center text-success-green">
+<span class="material-symbols-outlined">smartphone</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Phone Number</p>
+<p class="font-body-sm text-text-gray">+1 (555) ••• ••89</p>
+</div>
+</div>
+<div class="flex items-center gap-2 text-success-green bg-success-green/10 px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span class="font-label-sm text-label-sm">Verified</span>
+</div>
+</div>
+<!-- DigiLocker -->
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-surface-variant">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center text-outline">
+<span class="material-symbols-outlined">folder_shared</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface">DigiLocker</p>
+<p class="font-body-sm text-text-gray">Not Linked</p>
+</div>
+</div>
+<button class="bg-[#2C6E49] text-pure-white font-label-md text-label-md px-5 py-2 rounded-full hover:bg-secondary-container hover:text-on-secondary-container transition-colors">
+                                Link Now
+                            </button>
+</div>
+</div>
+</section>
+<!-- Data & Privacy Section -->
+<section class="bg-pure-white rounded-xl p-stack-lg soft-shadow">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Data &amp; Privacy</h3>
+<div class="flex flex-col gap-6">
+<!-- Toggle Row 1 -->
+<div class="flex items-start justify-between gap-4">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Show my trust score publicly</p>
+<p class="font-body-md text-text-gray mt-1">Allow other travelers and hosts to see your verified trust score on your profile.</p>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in mt-1">
+<input checked="" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-pure-white border-4 appearance-none cursor-pointer border-[#2C6E49]" id="toggle1" name="toggle" style="right: 0px; z-index: 1; border-color: rgb(44, 110, 73);" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-[#2C6E49] cursor-pointer" for="toggle1" style="background-color: rgb(44, 110, 73);"></label>
+</div>
+</div>
+<hr class="border-surface-variant">
+<!-- Toggle Row 2 -->
+<div class="flex items-start justify-between gap-4">
+<div>
+<p class="font-label-md text-label-md text-on-surface">Allow my trip data to improve Auto-heal for others</p>
+<p class="font-body-md text-text-gray mt-1">Share anonymized delay and disruption data to help us predict and solve issues faster.</p>
+</div>
+<div class="relative inline-block w-12 mr-2 align-middle select-none transition duration-200 ease-in mt-1">
+<input class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-pure-white border-4 appearance-none cursor-pointer border-outline-variant" id="toggle2" name="toggle" style="right: 24px; z-index: 1; border-color: rgb(197, 198, 206);" type="checkbox">
+<label class="toggle-label block overflow-hidden h-6 rounded-full bg-surface-variant cursor-pointer" for="toggle2" style="background-color: rgb(225, 226, 228);"></label>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Action -->
+<div class="flex justify-start mt-4">
+<button class="border-2 border-primary text-primary font-label-md text-label-md px-6 py-3 rounded-full hover:bg-primary/5 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">download</span>
+                        Download My Data
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<script>
+        // Simple toggle logic for the visual effect since tailwind classes alone for custom toggle can be tricky without extra css setup
+        const toggles = document.querySelectorAll('.toggle-checkbox');
+        toggles.forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                if(this.checked) {
+                    this.style.right = '0';
+                    this.style.borderColor = '#2C6E49';
+                    label.style.backgroundColor = '#2C6E49';
+                } else {
+                    this.style.right = '24px';
+                    this.style.borderColor = '#c5c6ce'; // outline-variant
+                    label.style.backgroundColor = '#e1e2e4'; // surface-variant
+                }
+            });
+            // Initial state
+            const label = toggle.nextElementSibling;
+            if(toggle.checked) {
+                toggle.style.right = '0';
+                toggle.style.borderColor = '#2C6E49';
+                label.style.backgroundColor = '#2C6E49';
+            } else {
+                toggle.style.right = '24px';
+                toggle.style.borderColor = '#c5c6ce';
+                label.style.backgroundColor = '#e1e2e4';
+            }
+        });
+    </script>
+
+
+
+
+</body></html>

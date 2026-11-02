@@ -1,0 +1,303 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan - LiveTrail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary": "#286a46",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#adf2c3",
+                        "surface-container-high": "#e7e8ea",
+                        "text-gray": "#5A6472",
+                        "success-green": "#2C6E49",
+                        "inverse-primary": "#b5c7eb",
+                        "on-secondary-container": "#2f704b",
+                        "on-surface": "#191c1e",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#d4e3ff",
+                        "on-tertiary-container": "#738cb1",
+                        "surface-tint": "#4d5f7e",
+                        "on-secondary-fixed-variant": "#065230",
+                        "on-error": "#ffffff",
+                        "primary-container": "#10233f",
+                        "secondary-fixed-dim": "#92d5a8",
+                        "tertiary-container": "#052443",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#002110",
+                        "surface-container": "#edeef0",
+                        "background": "#f8f9fb",
+                        "outline-variant": "#c5c6ce",
+                        "outline": "#75777e",
+                        "primary-fixed-dim": "#b5c7eb",
+                        "inverse-on-surface": "#f0f1f3",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#798bac",
+                        "on-primary-fixed-variant": "#364765",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#2e4869",
+                        "secondary-container": "#adf2c3",
+                        "surface-container-highest": "#e1e2e4",
+                        "pure-white": "#FFFFFF",
+                        "tertiary": "#000e21",
+                        "on-primary-fixed": "#071b37",
+                        "primary": "#000d23",
+                        "surface-variant": "#e1e2e4",
+                        "on-background": "#191c1e",
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "surface": "#f8f9fb",
+                        "surface-bright": "#f8f9fb",
+                        "on-tertiary-fixed": "#001c39",
+                        "on-surface-variant": "#44474d",
+                        "surface-dim": "#d9dadc",
+                        "on-primary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "section-gap": "80px",
+                        "stack-lg": "24px",
+                        "stack-md": "16px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Noto Serif"],
+                        "headline-lg": ["Noto Serif"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Noto Serif"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-screen w-64 bg-primary dark:bg-primary-container z-50 shadow-md flex flex-col p-stack-lg hidden md:flex min-h-screen">
+<div class="mb-section-gap flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center bg-pure-white"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqPOxx2b8bGvoJGZ8JRYBCAjzD7cVo6ypWso8vDBsG2w487kmD2t3HG_el_2WJXAabl5yknYffXOAZg2wKjQKWfVQ9y5ZlEh2NfWMdfXJMcnb8cMqiMp_tO2QvKyfUCPrVdi7ixMU1ELoKFKNNZ7qiB6JEUv2lLBhSXczoM7HPkS9-I4OZzc_Iw5O56u4BHl7oAL8nOIAr1fTcqKssc1-Gheidex1FnLdNSZ7wpvEHSE3OqP2c0VwKPBhIVdLADsPucYo" alt="Karwan Logo" class="w-full h-full object-contain"></div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-pure-white">Karwan</h1>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim">Traveler Dashboard</p>
+</div>
+</div>
+<div class="flex-1 space-y-2">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-pure-white bg-on-primary-fixed-variant rounded-lg font-bold scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">insights</span>
+<span class="font-label-md text-label-md">LiveTrail</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors" href="#">
+<span class="material-symbols-outlined">verified_user</span>
+<span class="font-label-md text-label-md">TrustRadar</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors" href="#">
+<span class="material-symbols-outlined">rebase_edit</span>
+<span class="font-label-md text-label-md">Auto-heal</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors" href="#">
+<span class="material-symbols-outlined">fact_check</span>
+<span class="font-label-md text-label-md">Ground Truth</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-primary-fixed-dim hover:text-pure-white hover:bg-on-primary-fixed-variant/50 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</div>
+<button class="w-full py-3 bg-secondary text-pure-white rounded-[20px] font-label-md text-label-md hover:bg-secondary/90 transition-colors mt-auto">
+            Plan New Trip
+        </button>
+</nav>
+<!-- TopAppBar & Main Content Wrapper -->
+<div class="flex-1 flex flex-col ml-0 md:ml-64 h-screen">
+<!-- TopAppBar -->
+<header class="h-20 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-md shadow-sm z-40 flex justify-between items-center w-full px-margin-desktop py-stack-md hidden md:flex sticky top-0">
+<div class="flex-1 max-w-md">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-gray">search</span>
+<input class="w-full pl-12 pr-4 py-2 rounded-full border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none text-on-surface font-body-md transition-colors" placeholder="Search routes, locations..." type="text">
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-on-surface-variant dark:text-on-surface-variant/70 hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant dark:text-on-surface-variant/70 hover:text-primary transition-colors opacity-80 active:opacity-100">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A portrait of a traveler in a modern light-mode setting with soft white lighting and deep navy accents, maintaining a corporate tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNF7VUSIQBLX1NApEfZk2o4wvWYqLn4wIo7uYDHu_Mj48OVn_lv2AgJvIXTPMq3AA1zmR5tv68teElb_093frhGHtPmpyXZiuhYH6ZzUUH74Txsa92iyo4CWiBGpP7L0UEV88-LHv8QXmwOO8SU-mNfaHSWU7OpaHcAqHwdQvHYFzc_1IY-Kq1Gn9IqwFqeDQCd9xSR0cVuEJxpnIzUM1kRuNgaHgxmCy93uetjeKrRiofSPSfH0Iiow">
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex overflow-hidden">
+<!-- Left Column: Map (~65%) -->
+<div class="w-[65%] h-full relative">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A detailed overhead map view of Jaipur in a crisp, modern light-mode style. The map uses soft off-white backgrounds, subtle navy blue road lines, and pops of green and amber for points of interest, fitting a corporate travel tech aesthetic." data-location="Jaipur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzt_jZV3VGud-a_99WdHt0lA1GoNhal2nFK9j7_-A04mfYAmNRcMETrhgvAZTu38kb7xlAyt4PKo1PY5inH_0tyy7x0eP7PQ6-eCx5BMBhtpvskDDExdgCnoWXt4jSxj2OP3_4vUFf2t1zxO6DpJpeo66paxvWeiwUqubLEvczdz7UeEv4vKTLQ1hINkoUlGPFz_eQi3O89XbFdNIXbN-Fyz24tiw5ApTfLH2eb2fG1WDLZhpWVtb3sA">
+<!-- Floating Search over Map -->
+<div class="absolute top-6 left-1/2 -translate-x-1/2 w-[80%] max-w-lg bg-pure-white rounded-full shadow-[0_12px_24px_rgba(16,35,63,0.08)] p-2 flex items-center z-10">
+<span class="material-symbols-outlined text-text-gray ml-3">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface font-body-md ml-2 outline-none" placeholder="Where to in Jaipur?" type="text">
+<button class="w-10 h-10 rounded-full bg-primary text-pure-white flex items-center justify-center hover:bg-primary/90 transition-colors">
+<span class="material-symbols-outlined">directions</span>
+</button>
+</div>
+<!-- Map Pins (Static for Demo) -->
+<div class="absolute top-[40%] left-[30%] flex flex-col items-center group cursor-pointer">
+<div class="bg-success-green text-pure-white px-2 py-1 rounded-md text-xs font-bold shadow-md mb-1 opacity-0 group-hover:opacity-100 transition-opacity">₹60 (Fair)</div>
+<span class="material-symbols-outlined text-success-green bg-pure-white rounded-full p-1 shadow-md" style="font-variation-settings: &quot;FILL&quot; 1;">local_taxi</span>
+</div>
+<div class="absolute top-[55%] left-[60%] flex flex-col items-center group cursor-pointer">
+<div class="bg-[#F59E0B] text-pure-white px-2 py-1 rounded-md text-xs font-bold shadow-md mb-1 opacity-0 group-hover:opacity-100 transition-opacity">Mod. Crowd</div>
+<span class="material-symbols-outlined text-[#F59E0B] bg-pure-white rounded-full p-1 shadow-md" style="font-variation-settings: &quot;FILL&quot; 1;">directions_bus</span>
+</div>
+<div class="absolute top-[20%] left-[70%] flex flex-col items-center group cursor-pointer">
+<div class="bg-primary-container text-pure-white px-2 py-1 rounded-md text-xs font-bold shadow-md mb-1 opacity-0 group-hover:opacity-100 transition-opacity">High Fare</div>
+<span class="material-symbols-outlined text-primary-container bg-pure-white rounded-full p-1 shadow-md" style="font-variation-settings: &quot;FILL&quot; 1;">subway</span>
+</div>
+</div>
+<!-- Right Column: Scrollable List (~35%) -->
+<div class="w-[35%] h-full bg-surface border-l border-outline-variant overflow-y-auto p-6 flex flex-col">
+<div class="mb-6">
+<h2 class="font-headline-md text-headline-md text-primary mb-4">Live Routes Near You</h2>
+<!-- Filter Row -->
+<div class="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-4 py-1.5 rounded-full bg-primary text-pure-white font-label-sm text-label-sm whitespace-nowrap">All</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm whitespace-nowrap transition-colors">Auto</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm whitespace-nowrap transition-colors">Bus</button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm whitespace-nowrap transition-colors">Metro</button>
+</div>
+</div>
+<!-- Report Button -->
+<button class="w-full mb-6 py-3 border-2 border-success-green text-success-green rounded-[20px] font-label-md text-label-md hover:bg-success-green/5 transition-colors flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="">Report a Fare</span>
+</button>
+<!-- Route Cards -->
+<div class="space-y-4 flex-1">
+<!-- Card 1 -->
+<div class="bg-pure-white rounded-[16px] p-stack-md shadow-[0_2px_8px_rgba(16,35,63,0.04)] border border-surface-container-highest hover:shadow-[0_8px_16px_rgba(16,35,63,0.08)] transition-shadow cursor-pointer">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-success-green/10 flex items-center justify-center text-success-green">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">local_taxi</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">City Palace to Johari Bazaar</h3>
+<p class="font-label-sm text-label-sm text-text-gray">Updated 4 min ago</p>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<span class="font-headline-md text-[20px] font-bold text-primary">₹80</span>
+<span class="font-label-sm text-label-sm text-text-gray ml-2">— verified by 12 riders today</span>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm text-text-gray mb-1">
+<span class="">Crowding</span>
+<span class="text-success-green font-medium">Low</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-success-green h-full w-1/4 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-pure-white rounded-[16px] p-stack-md shadow-[0_2px_8px_rgba(16,35,63,0.04)] border border-surface-container-highest hover:shadow-[0_8px_16px_rgba(16,35,63,0.08)] transition-shadow cursor-pointer">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-[#F59E0B]/10 flex items-center justify-center text-[#F59E0B]">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">directions_bus</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Route 12B - Hawa Mahal</h3>
+<p class="font-label-sm text-label-sm text-text-gray">Updated 10 min ago</p>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<span class="font-headline-md text-[20px] font-bold text-primary">₹15</span>
+<span class="font-label-sm text-label-sm text-text-gray ml-2">— standard fare</span>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm text-text-gray mb-1">
+<span class="">Crowding</span>
+<span class="text-[#F59E0B] font-medium">Moderate</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-[#F59E0B] h-full w-1/2 rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-pure-white rounded-[16px] p-stack-md shadow-[0_2px_8px_rgba(16,35,63,0.04)] border border-surface-container-highest hover:shadow-[0_8px_16px_rgba(16,35,63,0.08)] transition-shadow cursor-pointer">
+<div class="flex items-start justify-between mb-3">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">subway</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface">Pink Line - Chandpole to Mansarovar</h3>
+<p class="font-label-sm text-label-sm text-text-gray">Updated 2 min ago</p>
+</div>
+</div>
+</div>
+<div class="mb-3">
+<span class="font-headline-md text-[20px] font-bold text-primary">₹40</span>
+</div>
+<div>
+<div class="flex justify-between font-label-sm text-label-sm text-text-gray mb-1">
+<span class="">Crowding</span>
+<span class="text-primary-container font-medium">High</span>
+</div>
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[90%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+
+
+</body></html>

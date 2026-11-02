@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Heritage Haveli - Ground Truth Stay Details | Karwan</title>
+<!-- Tailwind CSS v3 with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            karwan: {
+              navy: '#10233f',
+              'navy-dark': '#0c1b30',
+              'navy-light': '#18365f',
+              green: '#2c6e49',
+              'green-hover': '#245a3c',
+              'green-light': '#e9f5ee',
+              gold: '#d4af37',
+              sand: '#fbf9f5',
+              surface: '#f4f6f9'
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Cambria', 'serif'],
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8f9fb] text-slate-800 font-sans antialiased min-h-screen">
+<!-- BEGIN: MainLayoutWrapper -->
+<div class="flex min-h-screen">
+<!-- BEGIN: LeftSidebar -->
+<!-- Fixed left sidebar navigation maintaining Karwan application shell -->
+<aside class="w-64 fixed top-0 bottom-0 left-0 bg-[#10233f] text-slate-200 z-50 flex flex-col justify-between shadow-xl" data-purpose="app-sidebar">
+<div>
+<!-- Logo & Brand Header -->
+<div class="h-16 flex items-center px-6 border-b border-slate-700/60 bg-[#0c1b30]">
+<div class="flex items-center gap-2.5">
+<span class="w-8 h-8 rounded-lg bg-[#2c6e49] flex items-center justify-center text-white font-bold text-lg shadow-sm">K</span>
+<div>
+<span class="text-white font-serif font-bold text-lg tracking-wide block leading-none">KARWAN</span>
+<span class="text-[10px] text-emerald-400 font-semibold tracking-wider uppercase">Ground Truth</span>
+</div>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav aria-label="Main Navigation" class="p-4 space-y-1.5 text-sm">
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Overview</span>
+</a>
+<!-- Active State: Ground Truth Directory -->
+<a aria-current="page" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-[#2c6e49] text-white font-medium shadow-sm" href="#">
+<div class="flex items-center gap-3">
+<svg class="w-5 h-5 text-emerald-200" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Ground Truth</span>
+</div>
+<span class="w-2 h-2 rounded-full bg-emerald-300 animate-pulse"></span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Telemetry Map</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>My Itineraries</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 transition-colors" href="#">
+<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Karma Rewards</span>
+<span class="ml-auto text-xs bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded-full font-medium">+420</span>
+</a>
+</nav>
+</div>
+<!-- Plan New Trip Action Button -->
+<div class="p-4 border-t border-slate-700/60 bg-[#0c1b30]/50 space-y-3">
+<div class="bg-white/5 p-3 rounded-xl border border-white/5 text-xs text-slate-300">
+<p class="font-medium text-white mb-0.5">Stay Telemetry Node #412</p>
+<p class="text-slate-400 text-[11px]">All systems reporting live.</p>
+</div>
+<button class="w-full bg-[#2c6e49] hover:bg-[#245a3c] text-white py-2.5 px-4 rounded-xl text-sm font-semibold transition-colors flex items-center justify-center gap-2 shadow-sm">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Plan New Trip</span>
+</button>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<!-- BEGIN: MainContentArea -->
+<!-- Content container offset by sidebar width (ml-64) with full width layout -->
+<div class="ml-64 flex-1 flex flex-col min-w-0 pb-32">
+<!-- BEGIN: StickyTopHeader -->
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200 h-16 flex items-center justify-between px-8" data-purpose="top-header">
+<!-- Global Search Bar -->
+<div class="w-full max-w-xl relative">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<input class="w-full pl-10 pr-4 py-2 text-sm bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#2c6e49] focus:bg-white transition-all text-slate-800 placeholder-gray-400" placeholder="Search Ground Truth verified stays, amenities or cities..." type="text"/>
+</div>
+<!-- Top Right Actions & User Profile -->
+<div class="flex items-center gap-4 pl-4">
+<!-- Notification Bell -->
+<button class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl relative transition-colors" title="Notifications">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="absolute top-1.5 right-1.5 w-2 h-2 bg-emerald-500 rounded-full ring-2 ring-white"></span>
+</button>
+<!-- Settings -->
+<button class="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-xl transition-colors" title="Settings">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<!-- Divider -->
+<div class="h-6 w-px bg-gray-200"></div>
+<!-- User Profile -->
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-[#10233f] text-emerald-300 font-bold text-sm flex items-center justify-center border-2 border-emerald-500/30 shadow-sm">
+              SK
+            </div>
+<div class="text-left hidden lg:block leading-tight">
+<p class="text-xs font-bold text-slate-800">Siddharth K.</p>
+<p class="text-[11px] text-[#2c6e49] font-medium flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#2c6e49]"></span> Verified Explorer
+              </p>
+</div>
+</div>
+</div>
+</header>
+<!-- END: StickyTopHeader -->
+<!-- Main Scrollable Page Content -->
+<main class="p-8 max-w-7xl mx-auto w-full space-y-8">
+<!-- BEGIN: Breadcrumbs -->
+<nav class="flex items-center gap-2 text-sm text-gray-500" data-purpose="breadcrumbs">
+<a class="inline-flex items-center gap-1.5 font-medium text-gray-600 hover:text-[#2c6e49] transition-colors" href="#">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            Ground Truth Directory
+          </a>
+<span>/</span>
+<span class="font-semibold text-slate-900">The Heritage Haveli (Bani Park, Jaipur)</span>
+<span class="ml-2 inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+            Node ID: #GT-JAI-409
+          </span>
+</nav>
+<!-- END: Breadcrumbs -->
+<!-- BEGIN: PropertyHeroCard -->
+<section class="bg-white rounded-2xl border border-gray-200 shadow-sm p-6 overflow-hidden" data-purpose="hero-property-card">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Hero Image Block with Live Badge -->
+<div class="lg:col-span-5 relative group">
+<div class="relative overflow-hidden rounded-2xl shadow-md aspect-[16/10] bg-slate-100">
+<img alt="The Heritage Haveli courtyard fountain in Jaipur Rajasthan" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1XgXPlCCuSP7Q8IuDwM4bDESfE2X46MwYg6qA3mNooV_dm_GaHaIFSOvIwdxPe5ekWD123piCeuRiTqWS5c-8X86nTif9hTV-IsSGs7adgrcQukxAWcxsvCwD_k_DXw0ubsMDr1TcYJ-kIGoHtZuaXguqiMcnUCcxYbZIgtJp6yUavcxXQKyhHDVmYuT0XkDW8EnB1DaMy2K323x1RfxkJmoM9oWJnLYOjv6zZCNqBbaAX15br6ZcVEAVem"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+<!-- Live Verification Floating Badge -->
+<div class="absolute top-3 left-3 bg-[#10233f]/90 backdrop-blur-md text-white text-xs px-3 py-1.5 rounded-full font-medium flex items-center gap-2 border border-white/20 shadow-lg">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+<span>Ground Truth Verified • 2 hrs ago</span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs text-white">
+<span class="bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded-lg">Jaipur Heritage Zone #8</span>
+<span class="bg-emerald-600/90 font-semibold px-2.5 py-1 rounded-lg">100% Inspection Passed</span>
+</div>
+</div>
+</div>
+<!-- Property Identification & Live Telemetry Details -->
+<div class="lg:col-span-7 flex flex-col justify-between h-full space-y-5">
+<div>
+<!-- Badges Row -->
+<div class="flex flex-wrap items-center gap-2 mb-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-bold bg-emerald-50 text-[#2c6e49] border border-emerald-200">
+<svg class="w-3.5 h-3.5 text-[#2c6e49]" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" fill-rule="evenodd"></path></svg>
+                    Verified Stay
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                    Ground Truth Active
+                  </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+                    ★ Super-Host Certified
+                  </span>
+<span class="text-xs text-gray-400 font-mono ml-auto">EST. 1892</span>
+</div>
+<!-- Property Title & Subhead -->
+<h1 class="text-3xl font-serif font-bold text-slate-900 tracking-tight leading-tight">
+                  The Heritage Haveli
+                </h1>
+<p class="text-sm text-gray-600 mt-1 flex items-center gap-1.5">
+<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+                  Bani Park, Jaipur, Rajasthan • Heritage Boutique Stay &amp; Courtyard Haven
+                </p>
+</div>
+<!-- Live Infrastructure Telemetry Cards Row -->
+<div>
+<p class="text-[11px] uppercase tracking-wider font-bold text-gray-500 mb-2.5">Live Verified Infrastructure Telemetry</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<!-- Wi-Fi Card -->
+<div class="bg-gray-50 hover:bg-emerald-50/40 p-3 rounded-xl border border-gray-200 transition-colors">
+<div class="flex items-center justify-between text-xs text-gray-500 mb-1">
+<span class="font-medium">Wi-Fi Speed</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<div class="text-lg font-bold text-slate-900">120 Mbps</div>
+<p class="text-[11px] text-emerald-700 font-medium mt-0.5">Ookla 2h ago • 14ms</p>
+</div>
+<!-- Water Card -->
+<div class="bg-gray-50 hover:bg-emerald-50/40 p-3 rounded-xl border border-gray-200 transition-colors">
+<div class="flex items-center justify-between text-xs text-gray-500 mb-1">
+<span class="font-medium">Water Supply</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<div class="text-lg font-bold text-slate-900">24/7 Hot</div>
+<p class="text-[11px] text-gray-600 font-medium mt-0.5">42°C constant flow</p>
+</div>
+<!-- Power Backup -->
+<div class="bg-gray-50 hover:bg-emerald-50/40 p-3 rounded-xl border border-gray-200 transition-colors">
+<div class="flex items-center justify-between text-xs text-gray-500 mb-1">
+<span class="font-medium">Power Backup</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<div class="text-lg font-bold text-slate-900">100% Backup</div>
+<p class="text-[11px] text-gray-600 font-medium mt-0.5">Dual Inverter + Genset</p>
+</div>
+<!-- Hygiene & Quiet Score -->
+<div class="bg-gray-50 hover:bg-emerald-50/40 p-3 rounded-xl border border-gray-200 transition-colors">
+<div class="flex items-center justify-between text-xs text-gray-500 mb-1">
+<span class="font-medium">Quiet Score</span>
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+</div>
+<div class="text-lg font-bold text-slate-900">4.9 <span class="text-xs font-normal text-gray-500">/ 5.0</span></div>
+<p class="text-[11px] text-emerald-700 font-medium mt-0.5">32 dB acoustic level</p>
+</div>
+</div>
+</div>
+<!-- Stats & Audit Status Row -->
+<div class="pt-3 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4 text-xs text-gray-600">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-slate-900">840</span> Verified Audits
+                </div>
+<div class="h-3 w-px bg-gray-200"></div>
+<div class="flex items-center gap-1.5">
+<span class="text-gray-400">Last Physical Check:</span>
+<span class="font-semibold text-slate-900">Today, 11:30 AM</span>
+</div>
+<div class="h-3 w-px bg-gray-200"></div>
+<div class="flex items-center gap-1.5 text-emerald-700">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="font-semibold">0 Active Discrepancies</span>
+</div>
+<div class="h-3 w-px bg-gray-200"></div>
+<div class="text-gray-500">
+                  Verified Node Since <span class="font-medium text-slate-700">Jan 2023</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: PropertyHeroCard -->
+<!-- BEGIN: MainTwoColumnContent -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column (w-7/12 desktop): Rolling 48-Hour Live Photo Feed -->
+<section class="lg:col-span-7 space-y-6" data-purpose="live-photo-feed">
+<!-- Feed Header with Counter Pill -->
+<div class="flex items-center justify-between border-b border-gray-200 pb-4">
+<div>
+<h2 class="text-xl font-serif font-bold text-slate-900">Rolling 48-Hour Live Photo Feed</h2>
+<p class="text-xs text-gray-500 mt-0.5">Real-time timestamped, geotagged photos submitted by past verified guests</p>
+</div>
+<span class="bg-[#2c6e49]/10 text-[#2c6e49] text-xs font-bold px-3 py-1.5 rounded-full border border-[#2c6e49]/20 shadow-xs flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#2c6e49]"></span>
+                12 Guest Photos in Last 48 hrs
+              </span>
+</div>
+<!-- Feed Items Grid / Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4"><article class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"><div class="relative aspect-[16/10] bg-slate-100 overflow-hidden"><img alt="Bathroom and geyser hot water audit test at The Heritage Haveli" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9t6J60kL-NaSHqhbG1NApBkKocy4DITun7x2wgguU-eRxEDTg0BMjdUHvXIguc8-9DsmytJ81USS-LtPBKJ2XdnTzQIhXHFwNipHYXi3wA7He426l_USyMkb0YDhWCLfoYaY4ArsGRqaNVqmJY4NfzotMcm0C3vr7KAJCXDjnKjEmR-xwbtWeJNFmcJS31KAfCYXM3QM8eMMQ4mXFch-X8wuEoehciAPLH3Wgpc6BCEUSzxQomjt3wA"/><div class="absolute top-3 right-3"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/95 backdrop-blur-md text-emerald-800 shadow-sm border border-emerald-200"><svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Water Temp: 42°C</span></div><div class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] px-2.5 py-1 rounded-md font-medium">Geyser: 42°C Instant Flow</div></div><div class="p-4 flex-1 flex flex-col justify-between space-y-3"><div class="flex items-start justify-between gap-2"><div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700 ring-2 ring-emerald-500/20">SM</div><div><p class="text-xs font-bold text-slate-900">Sarah M.</p><p class="text-[10px] text-gray-500">2 hours ago • <span class="text-emerald-700 font-medium">Verified Booking Room 204</span></p></div></div></div><p class="text-xs text-slate-700 leading-relaxed">"Bathroom pristine, hot water running instantly at 42°C. Water pressure is excellent and towels are brand fresh. Plugs &amp; geyser checked."</p><div class="pt-2 border-t border-gray-100 flex items-center gap-1.5 text-[11px] text-gray-500"><span class="font-semibold text-slate-700">Check:</span><span class="truncate">Geyser On-Demand • Flow 9.2 L/min • No blockage</span></div></div></article><article class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"><div class="relative aspect-[16/10] bg-slate-100 overflow-hidden"><img alt="Ookla speed test and work desk at The Heritage Haveli courtyard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB4sKd6FTkvRvLl63CTnB7pSp0_NSMiAmTpjhZxKqQwZyBA2HNXN1g3AVnUwAFCk57QQaW6dbA1I1cgqpLvPRz8GQrlaFuBgyAbGou-x6DHKtbc85qn29_xvld6GV2QYrMM1nSEFNZ2whT66hEFkeazQzRnJn3GAY-LjB9BzxMSkYN3Yg6dyz3R_u2YixYp46vOj3e603OIQXZrmD3I15mv3SAhOAnoliYhll7cqvwfPQnbiePBa6Jhw"/><div class="absolute top-3 right-3"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/95 backdrop-blur-md text-blue-800 shadow-sm border border-blue-200"><svg class="w-3 h-3 text-blue-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>Ookla: 120 Mbps • 14ms</span></div><div class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] px-2.5 py-1 rounded-md font-medium">Courtyard Wi-Fi 6 Mesh</div></div><div class="p-4 flex-1 flex flex-col justify-between space-y-3"><div class="flex items-start justify-between gap-2"><div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700 ring-2 ring-blue-500/20">AK</div><div><p class="text-xs font-bold text-slate-900">Arjun K.</p><p class="text-[10px] text-gray-500">5 hours ago • <span class="text-emerald-700 font-medium">Verified Stay • Remote Work</span></p></div></div></div><p class="text-xs text-slate-700 leading-relaxed">"120 Mbps Ookla verified at garden courtyard desk. Flawless video calls with seamless mesh Wi-Fi handover to my balcony."</p><div class="pt-2 border-t border-gray-100 flex items-center gap-1.5 text-[11px] text-gray-500"><span class="font-semibold text-slate-700">Speed:</span><span class="truncate">Down: 121.4 Mbps • Up: 84.1 Mbps • Jitter: 2ms</span></div></div></article><article class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"><div class="relative aspect-[16/10] bg-slate-100 overflow-hidden"><img alt="Bedroom acoustics and spotless linen audit at The Heritage Haveli" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEsedkKG7ec9lY6Eo_7YwfOHtfPVb1TjyuQ6E215NGeIAsbXNBGzb_AGUOIfA0152gh0-LL7qNqRpnY9iqK11I0BOZ3OH24ztADnK3bFAk99V6pz-M8-KGVqxtzIDa4PRYFXmhO8GdmHB0WLS7OGLmbD_Em-5jhpoJoiB6iWJom9xXGA0yQRBANPwT9CPp-SPHUXZa0iBx128zZdqKojUfRrqVQHUoXqRKptYvPpggE7T-uU-Na1K_8w"/><div class="absolute top-3 right-3"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/95 backdrop-blur-md text-purple-800 shadow-sm border border-purple-200">Acoustics: 32 dB (Ultra Quiet)</span></div><div class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] px-2.5 py-1 rounded-md font-medium">Deluxe Suite • Soundproofed</div></div><div class="p-4 flex-1 flex flex-col justify-between space-y-3"><div class="flex items-start justify-between gap-2"><div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700 ring-2 ring-purple-500/20">DL</div><div><p class="text-xs font-bold text-slate-900">David L.</p><p class="text-[10px] text-gray-500">14 hours ago • <span class="text-emerald-700 font-medium">Heritage Deluxe Suite</span></p></div></div></div><p class="text-xs text-slate-700 leading-relaxed">"Fresh linen, spotless mattress audit, and noise level measured at 32 dB during midnight. Double sandstone walls block street noise."</p><div class="pt-2 border-t border-gray-100 flex items-center gap-1.5 text-[11px] text-gray-500"><span class="font-semibold text-slate-700">Check:</span><span class="truncate">Ambient 32 dB • Street Rejection: -24 dB</span></div></div></article><article class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"><div class="relative aspect-[16/10] bg-slate-100 overflow-hidden"><img alt="Dining courtyard and generator routine test at The Heritage Haveli" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDplaKcnehvj3fCD5B502KVBJUjZbxz6Q_LuU6F2PhWMSwbiNXA7ydmm4ODRfOJKNb_Cqo_hDpFsXSQO_jIKw-5bCwYaKO6JixVTnF4YuL13cLuVIsN9Uj_ZKA5m5IgVmqSUHD-8BBQgi-SkW3F4O7kmFW0Yy3PCyI6U4yAWiPKdNyAvMfiiuFce9OlzhP5o7ac9q-qaBqmAyysgbWtY-G9g7J_xWEnQquvunwAjIQxCUIKPzmmdPAX1A"/><div class="absolute top-3 right-3"><span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold bg-white/95 backdrop-blur-md text-emerald-800 shadow-sm border border-emerald-200">Generator Test: PASSED</span></div><div class="absolute bottom-2.5 left-2.5 bg-black/60 backdrop-blur-sm text-white text-[11px] px-2.5 py-1 rounded-md font-medium">Breakfast Courtyard • Genset</div></div><div class="p-4 flex-1 flex flex-col justify-between space-y-3"><div class="flex items-start justify-between gap-2"><div class="flex items-center gap-2.5"><div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs text-slate-700 ring-2 ring-emerald-500/20">PR</div><div><p class="text-xs font-bold text-slate-900">Pooja R.</p><p class="text-[10px] text-gray-500">Yesterday • <span class="text-emerald-700 font-medium">Breakfast &amp; Dining Courtyard</span></p></div></div></div><p class="text-xs text-slate-700 leading-relaxed">"Fresh breakfast spread and witnessed standard generator switchover routine. Cutover took under 1.5s without dropping AC or Wi-Fi."</p><div class="pt-2 border-t border-gray-100 flex items-center gap-1.5 text-[11px] text-gray-500"><span class="font-semibold text-slate-700">Auto-heal:</span><span class="truncate">Voltage 230V steady • Zero dropped packets</span></div></div></article></div>
+<!-- Interactive Upload Snapshot Box -->
+<div class="bg-gradient-to-br from-[#10233f] to-[#18365f] rounded-2xl p-6 text-white shadow-md relative overflow-hidden" data-purpose="guest-upload-cta">
+<div class="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="space-y-1">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+<h3 class="font-serif font-bold text-lg">Are you currently at The Heritage Haveli?</h3>
+</div>
+<p class="text-xs text-slate-300 max-w-md">
+                    Submit an amenities photo, Ookla speed screenshot, or hot water test to assist fellow travelers.
+                  </p>
+</div>
+<button class="bg-[#2c6e49] hover:bg-[#245a3c] text-white font-medium text-xs px-4 py-2.5 rounded-xl transition-colors shrink-0 shadow-sm flex items-center gap-2">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Upload Snapshot (+50 Karma Points)</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Right Column (w-5/12 desktop): Location & Amenities Truth -->
+<aside class="lg:col-span-5 space-y-6" data-purpose="amenities-truth-sidebar">
+<!-- Location & Map Preview Card -->
+<div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<h3 class="font-serif font-bold text-slate-900 text-base">Location &amp; Geotag Truth</h3>
+<span class="text-xs bg-gray-100 text-gray-700 px-2 py-0.5 rounded-md font-mono">26.9260° N, 75.7937° E</span>
+</div>
+<!-- Map Visual Mockup -->
+<div class="h-44 rounded-xl bg-slate-100 border border-gray-200 overflow-hidden relative flex flex-col justify-between p-3">
+<!-- Visual Map Grid Graphic -->
+<div class="absolute inset-0 opacity-15 bg-[radial-gradient(#10233f_1px,transparent_1px)] [background-size:12px_12px]"></div>
+<div class="relative z-10 flex justify-between items-start">
+<span class="bg-white/90 backdrop-blur-sm text-[11px] font-semibold text-slate-800 px-2.5 py-1 rounded-md shadow-xs">
+                    Bani Park Heritage Zone
+                  </span>
+<span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
+                    GPS Geofence: Active
+                  </span>
+</div>
+<!-- Center Haveli Map Marker -->
+<div class="relative z-10 mx-auto text-center flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-[#10233f] text-white flex items-center justify-center shadow-lg border-2 border-white animate-bounce">
+<svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path></svg>
+</div>
+<span class="bg-slate-900 text-white text-[10px] px-2 py-0.5 rounded-md font-medium mt-1">The Heritage Haveli</span>
+</div>
+<div class="relative z-10 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-lg text-[11px] text-gray-600 flex justify-between">
+<span>Sindhi Camp Metro: <strong>1.2 km</strong></span>
+<span>Jaipur Junction: <strong>2.1 km</strong></span>
+</div>
+</div>
+<p class="text-xs text-gray-600 leading-relaxed">
+                Quiet residential lane inside Bani Park. Verified zero construction within a 250m radius as of this morning's acoustic audit.
+              </p>
+</div>
+<!-- Physical Amenities Live Check -->
+<div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm space-y-4">
+<div class="flex items-center justify-between border-b border-gray-100 pb-3">
+<h3 class="font-serif font-bold text-slate-900 text-base">Physical Amenities Live Status</h3>
+<span class="text-xs font-semibold text-emerald-700 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span> 4 / 4 Live Checked
+                </span>
+</div>
+<ul class="space-y-3 text-xs">
+<li class="flex items-start justify-between gap-3 p-2.5 rounded-xl bg-gray-50 border border-gray-100">
+<div class="flex items-center gap-2">
+<svg class="w-4 h-4 text-[#2c6e49]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div>
+<p class="font-semibold text-slate-900">Wi-Fi 6 Routers in Each Room</p>
+<p class="text-gray-500 text-[11px]">Uncapped high-priority optical fiber</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Active</span>
+</li>
+<li class="flex items-start justify-between gap-3 p-2.5 rounded-xl bg-gray-50 border border-gray-100">
+<div class="flex items-center gap-2">
+<svg class="w-4 h-4 text-[#2c6e49]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div>
+<p class="font-semibold text-slate-900">Dedicated 15A Laptop Ports at Desk</p>
+<p class="text-gray-500 text-[11px]">Surge protected universal sockets</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Verified</span>
+</li>
+<li class="flex items-start justify-between gap-3 p-2.5 rounded-xl bg-gray-50 border border-gray-100">
+<div class="flex items-center gap-2">
+<svg class="w-4 h-4 text-[#2c6e49]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div>
+<p class="font-semibold text-slate-900">Courtyard Acoustic Double-Glazing</p>
+<p class="text-gray-500 text-[11px]">Sealed silence during morning meditation</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Verified</span>
+</li>
+<li class="flex items-start justify-between gap-3 p-2.5 rounded-xl bg-gray-50 border border-gray-100">
+<div class="flex items-center gap-2">
+<svg class="w-4 h-4 text-[#2c6e49]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<div>
+<p class="font-semibold text-slate-900">Lift &amp; Ground Wheelchair Access</p>
+<p class="text-gray-500 text-[11px]">Ramp to dining courtyard verified</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-semibold text-[10px]">Verified</span>
+</li>
+</ul>
+</div>
+<!-- On-Site Host Profile Card -->
+<div class="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
+<div class="flex items-center gap-3.5">
+<div class="w-12 h-12 rounded-full bg-[#10233f] text-white flex items-center justify-center font-serif text-lg font-bold">
+                  MS
+                </div>
+<div>
+<h4 class="text-sm font-bold text-slate-900">Mahendra Singh</h4>
+<p class="text-xs text-gray-500">On-Site Host &amp; General Manager</p>
+<p class="text-[11px] text-[#2c6e49] font-medium mt-0.5">ID: #KRW-HST-781 • Direct Ground Contact</p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+<span class="text-gray-500">Avg Response Time: <strong>&lt; 5 mins</strong></span>
+<button class="text-[#2c6e49] hover:text-[#245a3c] font-semibold flex items-center gap-1">
+<span>Host Logs</span>
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</aside>
+</div>
+<!-- END: MainTwoColumnContent -->
+</main>
+<!-- BEGIN: FixedBottomCtaBanner -->
+<!-- Clean prominent bottom guarantee banner anchored above viewport edge -->
+<footer class="fixed bottom-0 right-0 left-64 bg-white/95 backdrop-blur-md border-t border-gray-200 py-3.5 px-8 shadow-2xl z-40" data-purpose="guarantee-cta-banner">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+<!-- Left side: Guarantee Statement -->
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-[#2c6e49] shrink-0">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<p class="text-xs uppercase tracking-wider font-bold text-[#10233f]">Karwan Stay Guarantee Active</p>
+<p class="text-xs text-gray-600 max-w-2xl line-clamp-1">
+                Book with confidence backed by real-time telemetry. If Wi-Fi speed or essential amenities deviate from verified logs, Karwan Auto-heal provides instant hotel rebooking guarantee.
+              </p>
+</div>
+</div>
+<!-- Right side: Actions -->
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-4 py-2 border border-gray-300 hover:border-gray-400 text-gray-700 text-xs font-semibold rounded-xl bg-white transition-colors">
+              Report Facility Discrepancy
+            </button>
+<button class="px-6 py-2 bg-[#2c6e49] hover:bg-[#245a3c] text-white text-xs font-bold rounded-xl shadow-md transition-colors flex items-center gap-1.5">
+<span>Proceed to Booking</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+</div>
+</div>
+</footer>
+<!-- END: FixedBottomCtaBanner -->
+</div>
+<!-- END: MainContentArea -->
+</div>
+<!-- END: MainLayoutWrapper -->
+</body></html>

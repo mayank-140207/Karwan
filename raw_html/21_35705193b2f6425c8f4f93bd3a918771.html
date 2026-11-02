@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karwan - Rajesh Gupta (Guide Details)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            karwanNavy: '#10233f',
+            karwanNavyDark: '#0a1628',
+            karwanGreen: '#2C6E49',
+            karwanGreenLight: '#E8F5E9',
+            karwanGold: '#c9a13b',
+            karwanBg: '#f8f9fb',
+          },
+          fontFamily: {
+            serif: ['"Noto Serif"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8f9fb] font-sans antialiased text-gray-800 min-h-screen flex">
+
+  <!-- Full-Height Persistent Sidebar Shell -->
+  <aside class="w-64 fixed left-0 top-0 bottom-0 min-h-screen bg-[#10233f] text-white flex flex-col justify-between z-50 shadow-xl">
+    <div>
+      <!-- Brand Logo Header -->
+      <div class="h-20 flex items-center px-6 border-b border-white/10">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg overflow-hidden flex items-center justify-center bg-white shadow-md">
+  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoxdYj6WzYT7GCy8uXswp7P_JGWDo5rCMWyVilPwcVLXAoocqjnF0vyRITC27KDPN35q0VzGD_wMpiwg70HvwEPPW4h3nFevc8KphnztEv9bUaHGgxkWD2zNQtRJAP14PnEXnKOh1yhk_nPaY1l5331AGBNMWvIxW5KUtEuV4Q4ssN8cneP1hCPLiaqn21mQWmfX6cAo4rWI9PoAk_whq53e1v1SlGx4Q-1DGyZQqRMvTJ6z4FuueebU1QKlr-QJxJrsE" alt="Karwan Logo" class="w-full h-full object-contain p-0.5">
+</div>
+          <div>
+            <h1 class="font-serif font-bold text-lg text-white tracking-wide">Karwan</h1>
+            <p class="text-[10px] text-white/60 tracking-wider uppercase font-medium">Traveler Dashboard</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="mt-6 px-3 space-y-1.5">
+        <a href="#" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition">
+          <span class="material-symbols-outlined text-[20px]">home</span>
+          <span class="text-sm font-medium">Home</span>
+        </a>
+        <a href="#" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition">
+          <span class="material-symbols-outlined text-[20px]">insights</span>
+          <span class="text-sm font-medium">LiveTrail</span>
+        </a>
+        <!-- Active: TrustRadar -->
+        <a href="#" class="flex items-center gap-3.5 px-4 py-3 rounded-xl bg-white/15 text-white font-semibold shadow-inner border-l-4 border-emerald-400">
+          <span class="material-symbols-outlined text-[20px] text-emerald-400">verified_user</span>
+          <span class="text-sm">TrustRadar</span>
+        </a>
+        <a href="#" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition">
+          <span class="material-symbols-outlined text-[20px]">rebase_edit</span>
+          <span class="text-sm font-medium">Auto-heal</span>
+        </a>
+        <a href="#" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition">
+          <span class="material-symbols-outlined text-[20px]">fact_check</span>
+          <span class="text-sm font-medium">Ground Truth</span>
+        </a>
+        <a href="#" class="flex items-center gap-3.5 px-4 py-3 rounded-xl text-white/70 hover:text-white hover:bg-white/10 transition">
+          <span class="material-symbols-outlined text-[20px]">person</span>
+          <span class="text-sm font-medium">Profile</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Bottom Action Button -->
+    <div class="p-4 border-t border-white/10">
+      <button class="w-full py-3 px-4 rounded-xl bg-[#2C6E49] hover:bg-[#23583a] text-white font-medium text-sm flex items-center justify-center gap-2 shadow-md transition active:scale-[0.98]">
+        <span class="material-symbols-outlined text-[18px]">add_location_alt</span>
+        Plan New Trip
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content Layout Area with ml-64 to match fixed sidebar -->
+  <div class="flex-1 ml-64 min-h-screen flex flex-col">
+    <!-- Top Bar -->
+    <header class="h-20 bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-100 flex items-center justify-between px-8">
+      <div class="relative w-96">
+        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-[20px]">search</span>
+        <input type="text" placeholder="Search TrustRadar..." value="Rajesh Gupta" class="w-full pl-11 pr-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C6E49] focus:bg-white transition">
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-100 transition relative">
+          <span class="material-symbols-outlined text-[22px]">notifications</span>
+          <span class="w-2 h-2 rounded-full bg-emerald-500 absolute top-2.5 right-2.5"></span>
+        </button>
+        <button class="w-10 h-10 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-100 transition">
+          <span class="material-symbols-outlined text-[22px]">settings</span>
+        </button>
+        <div class="flex items-center gap-3 pl-2 border-l border-gray-200">
+          <img src="https://lh3.googleusercontent.com/aida/AEtjO1Vmz2q-OiObYv3rVtEdg9K6BDToIphETa4cffTQeP6y2i4Kgm4Zj-STSDGJapH5Rf79oeglx1ldlK8NtjBFUULgIRESlC8VPk1nLQC3VA7dDz9tUn4JvTkdtiSGqpOyxxzQHCtMkcoX4NVrfIpXY7xPLg-DkK3gFbyEvhGL62VIOGwXE1lSdjjYGpE9tL8dg_ejqNyXDX3K7k8d_hScwXEfK_cXRA18TgkTI70GUfVeH5ditdBTlmJYgOko" alt="User Avatar" class="w-9 h-9 rounded-full object-cover border border-gray-200 shadow-sm">
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Body Content -->
+    <main class="flex-1 p-8 max-w-6xl w-full mx-auto space-y-6">
+
+      <!-- Breadcrumb / Back Link -->
+      <div class="flex items-center gap-2 text-xs text-gray-500 font-medium">
+        <a href="#" class="hover:text-[#10233f] flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">arrow_back</span>
+          TrustRadar Directory
+        </a>
+        <span class="">/</span>
+        <span class="text-[#10233f] font-semibold">Rajesh Gupta (Local Guide)</span>
+      </div>
+
+      <!-- Header Card: Exact structure as City Palace Auto Stand -->
+      <section class="bg-white rounded-2xl border border-gray-200/80 shadow-sm p-6 overflow-hidden">
+        <div class="flex flex-col md:flex-row gap-6 items-start md:items-center">
+          <!-- Guide Photo -->
+          <div class="w-full md:w-80 h-52 rounded-xl overflow-hidden relative shadow-sm flex-shrink-0 bg-gray-100">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjJTaOHli2p3Fk0JJQ59FMYJtFF0e0bG_Pl7TUWSa7ZO69vQrSIOl4t1O8KWTVr2E387kENECAfXislIavbK7GRq9N2z5psCfyjJam3NXWtV6hO4uCsekeL9NRwsRbZPS_i62_Hxr0h5NGINRWNllvzekw-XkXYH5qxUVfOF2ADFEUWBsikSKx-NlY6Mzstbankhfj6qsfDxEEihU1YoWEHMteb3a3vxFM00Cbc_ejecfjKVOUt_fIEQ" alt="Rajesh Gupta" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-[#10233f]/85 backdrop-blur-md text-white text-[11px] font-semibold px-2.5 py-1 rounded-md flex items-center gap-1">
+              <span class="material-symbols-outlined text-[13px] text-emerald-400">badge</span>
+              Govt. Certified Guide
+            </span>
+          </div>
+
+          <!-- Guide Info & Trust Score -->
+          <div class="flex-1 flex flex-col justify-between w-full h-full py-1">
+            <div class="flex items-start justify-between">
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="bg-[#E8F5E9] text-[#2C6E49] text-xs font-semibold px-2.5 py-1 rounded-md">Guide</span>
+                  <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-md flex items-center gap-1 border border-emerald-200">
+                    <span class="material-symbols-outlined text-[13px]">check_circle</span> Verified
+                  </span>
+                  <span class="bg-amber-50 text-amber-800 text-xs font-medium px-2.5 py-1 rounded-md">Heritage &amp; Architecture</span>
+                </div>
+                <h2 class="font-serif text-3xl font-bold text-[#10233f] tracking-tight">Rajesh Gupta</h2>
+                <p class="text-sm text-gray-500 mt-1 flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px] text-gray-400">location_on</span>
+                  Jaipur &amp; Amber Fort Circuit, Rajasthan
+                </p>
+              </div>
+
+              <!-- Circular Trust Score Badge (4.9 / Green Ring) -->
+              <div class="flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full border-4 border-emerald-500 bg-white shadow-sm flex items-center justify-center text-center">
+                  <span class="text-xl font-bold text-[#10233f]">4.9</span>
+                </div>
+                <span class="text-[11px] font-semibold text-gray-500 mt-1 uppercase tracking-wider">Trust Score</span>
+              </div>
+            </div>
+
+            <!-- Stats Row: 4 key metrics -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6 pt-5 border-t border-gray-100 text-left">
+              <div>
+                <span class="text-xs text-gray-400 block uppercase font-medium">Total Tours</span>
+                <span class="text-xl font-bold text-[#10233f]">1,850</span>
+              </div>
+              <div>
+                <span class="text-xs text-gray-400 block uppercase font-medium">Verifications</span>
+                <span class="text-xl font-bold text-emerald-600">58 Verified</span>
+              </div>
+              <div>
+                <span class="text-xs text-gray-400 block uppercase font-medium">Open Reports</span>
+                <span class="text-xl font-bold text-gray-900">0</span>
+              </div>
+              <div>
+                <span class="text-xs text-gray-400 block uppercase font-medium">Member Since</span>
+                <span class="text-xl font-bold text-gray-800">Mar 2023</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Two-Column Layout: Incident History (Left) + Location Map (Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+        <!-- Left Column: Incident & Verification History -->
+        <section class="lg:col-span-2 space-y-4">
+          <div class="flex items-center justify-between">
+            <h3 class="font-serif text-xl font-bold text-[#10233f]">Trust &amp; Activity History</h3>
+            <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+              Zero Unresolved Incidents
+            </span>
+          </div>
+
+          <div class="space-y-3">
+            <!-- Item 1: Verified Experience -->
+            <div class="bg-white p-4 rounded-xl border border-gray-200/80 shadow-sm flex items-start gap-4">
+              <div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="material-symbols-outlined text-[18px]">verified</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-emerald-800 uppercase tracking-wide">Fair Fare &amp; Knowledge Verified</span>
+                  <span class="text-xs text-gray-400">Nov 14, 2024</span>
+                </div>
+                <p class="text-sm text-gray-700 mt-1 leading-relaxed">
+                  Transparent guided tour at Amber Fort with pre-agreed pricing verified through Karwan ID QR. Historical explanations highly rated by 4 travelers.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2: Resolved Anomaly -->
+            <div class="bg-white p-4 rounded-xl border border-gray-200/80 shadow-sm flex items-start gap-4">
+              <div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="material-symbols-outlined text-[18px]">check_circle</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-emerald-800 uppercase tracking-wide">Resolved • Schedule Discrepancy</span>
+                  <span class="text-xs text-gray-400">Sep 28, 2024</span>
+                </div>
+                <p class="text-sm text-gray-700 mt-1 leading-relaxed">
+                  Amber Fort light-show timing conflict reported; guide accommodated traveler with alternative City Palace evening walk at no extra fee.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3: Verified Review -->
+            <div class="bg-white p-4 rounded-xl border border-gray-200/80 shadow-sm flex items-start gap-4">
+              <div class="w-9 h-9 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <span class="material-symbols-outlined text-[18px]">shield_person</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold text-blue-800 uppercase tracking-wide">Anti-Scam Protection Acknowledged</span>
+                  <span class="text-xs text-gray-400">Aug 10, 2024</span>
+                </div>
+                <p class="text-sm text-gray-700 mt-1 leading-relaxed">
+                  Helped a solo foreign traveler avoid commission-based gem stores in Johari Bazaar and guided them to certified authentic cooperative markets.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Right Column: Location & Stand Information -->
+        <section class="space-y-4">
+          <h3 class="font-serif text-xl font-bold text-[#10233f]">Operating Location</h3>
+          
+          <div class="bg-white rounded-xl border border-gray-200/80 shadow-sm overflow-hidden">
+            <!-- Interactive Map Graphic Mockup -->
+            <div class="h-52 bg-slate-100 relative overflow-hidden flex items-center justify-center">
+              <!-- Styled Map Background SVG -->
+              <svg class="w-full h-full object-cover opacity-80" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+                <rect width="300" height="200" fill="#e9eff5"></rect>
+                <!-- Roads -->
+                <path d="M0,60 Q120,70 180,40 T300,50" stroke="#ffffff" stroke-width="8" fill="none"></path>
+                <path d="M50,0 Q60,100 120,200" stroke="#ffffff" stroke-width="6" fill="none"></path>
+                <path d="M140,20 Q160,110 260,180" stroke="#ffffff" stroke-width="7" fill="none"></path>
+                <path d="M20,130 L280,140" stroke="#f0d59e" stroke-width="5" fill="none"></path>
+                <!-- Heritage Area Polygon -->
+                <polygon points="120,60 190,45 220,110 140,120" fill="#dbe7d4" opacity="0.7"></polygon>
+                <circle cx="165" cy="85" r="32" fill="#2C6E49" opacity="0.12"></circle>
+              </svg>
+              
+              <!-- Map Pin on Amber Fort Hub -->
+              <div class="absolute flex flex-col items-center animate-bounce">
+                <div class="w-8 h-8 rounded-full bg-[#2C6E49] text-white flex items-center justify-center shadow-lg border-2 border-white">
+                  <span class="material-symbols-outlined text-[18px]">person_pin_circle</span>
+                </div>
+                <div class="w-2 h-2 rounded-full bg-black/30 mt-1 blur-[1px]"></div>
+              </div>
+
+              <div class="absolute bottom-2 left-2 bg-white/90 backdrop-blur-sm text-[10px] font-semibold text-gray-700 px-2 py-0.5 rounded shadow-sm">
+                Jaipur Heritage Zone
+              </div>
+            </div>
+
+            <!-- Address Details -->
+            <div class="p-4 border-t border-gray-100">
+              <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-gray-500 text-[20px] mt-0.5">signpost</span>
+                <div>
+                  <h4 class="text-sm font-bold text-[#10233f]">Primary Meeting Point</h4>
+                  <p class="text-xs text-gray-600 mt-0.5">Jaleb Chowk, Near Ticket Window, Amber Fort</p>
+                  <p class="text-xs text-gray-400 mt-0.5">Jaipur, Rajasthan, 302001</p>
+                </div>
+              </div>
+              <div class="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                <span class="text-gray-500">Official Badge #</span>
+                <span class="font-mono font-semibold text-[#10233f]">RTDC-JPR-4892</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Bottom Flagging / Report Banner (Matching exact dark-navy style) -->
+      <section class="bg-[#10233f] text-white rounded-2xl p-6 sm:p-7 shadow-lg flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="space-y-1 text-center sm:text-left">
+          <h4 class="font-serif text-xl font-bold tracking-wide">See something that needs flagging?</h4>
+          <p class="text-xs sm:text-sm text-gray-300 max-w-xl">
+            Help keep the Karwan community safe by reporting suspicious activity, fare disputes, or verifying good experiences with this guide.
+          </p>
+        </div>
+        <button class="px-5 py-2.5 rounded-xl bg-white hover:bg-gray-100 text-[#10233f] font-bold text-sm flex items-center gap-2 shadow-md transition active:scale-95 flex-shrink-0">
+          <span class="material-symbols-outlined text-[18px]">flag</span>
+          Report Now
+        </button>
+      </section>
+
+    </main>
+  </div>
+
+
+
+
+</body></html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan - Partner Verification (KYC) - Review</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "#f8f9fb",
+                        "on-tertiary-container": "#738cb1",
+                        "surface-bright": "#f8f9fb",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-dim": "#d9dadc",
+                        "text-gray": "#5A6472",
+                        "on-error": "#ffffff",
+                        "surface-container": "#edeef0",
+                        "on-secondary-fixed": "#002110",
+                        "on-primary-fixed-variant": "#364765",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#065230",
+                        "inverse-primary": "#b5c7eb",
+                        "on-tertiary-fixed-variant": "#2e4869",
+                        "on-background": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#44474d",
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "on-tertiary-fixed": "#001c39",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#e1e2e4",
+                        "secondary-container": "#adf2c3",
+                        "primary-fixed-dim": "#b5c7eb",
+                        "inverse-surface": "#2e3132",
+                        "tertiary-fixed": "#d4e3ff",
+                        "surface-container-highest": "#e1e2e4",
+                        "secondary": "#286a46",
+                        "secondary-fixed-dim": "#92d5a8",
+                        "primary": "#000d23",
+                        "on-secondary-container": "#2f704b",
+                        "on-primary-container": "#798bac",
+                        "tertiary": "#000e21",
+                        "primary-container": "#10233f",
+                        "outline-variant": "#c5c6ce",
+                        "error": "#ba1a1a",
+                        "surface": "#f8f9fb",
+                        "secondary-fixed": "#adf2c3",
+                        "surface-container-lowest": "#ffffff",
+                        "pure-white": "#FFFFFF",
+                        "success-green": "#2C6E49",
+                        "tertiary-container": "#052443",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed": "#d6e3ff",
+                        "on-surface": "#191c1e",
+                        "outline": "#75777e",
+                        "surface-tint": "#4d5f7e",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#071b37",
+                        "error-container": "#ffdad6"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    spacing: {
+                        "stack-lg": "24px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "section-gap": "80px",
+                        "gutter": "24px"
+                    },
+                    fontFamily: {
+                        "display-lg": ["Noto Serif"],
+                        "headline-lg": ["Noto Serif"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Noto Serif"],
+                        "label-sm": ["Inter"]
+                    },
+                    fontSize: {
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col font-body-md text-on-surface">
+<!-- Header (Suppressed main nav for transactional flow, just logo) -->
+<header class="w-full py-6 px-margin-mobile md:px-margin-desktop bg-pure-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-surface-container-high">
+<div class="max-w-container-max mx-auto flex justify-center items-center">
+<div class="flex items-center">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF3TtEhbFQN4Tq22Nt6cFSIoEVC8QDdyRA2wkbpQCluPTfLAia2yrneI5DmTLU60S8If7FRlnln-jBNOotQ--GfaU-DS9MPfzr8ddbS-aJT2AzEf-LRONnTavTqjkm3-IcIb5tUqVm0E7bAnYctWbPzbsemMFLj3dKnc0mKil8391s2Bezhb0G3zBRFCL1RaFYL0eQMRy7S0uWbpBEwBGyMIPQIqcHbXZwW1iQOeSRQ708F7hFLYvhEh04vEVpaq_JAjA" alt="Karwan Logo" class="h-8 mr-3">
+    <span class="font-headline-md text-headline-md font-bold text-primary">Karwan</span>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex items-center justify-center py-section-gap px-margin-mobile">
+<div class="w-full max-w-2xl bg-pure-white rounded-[20px] shadow-[0_12px_24px_rgba(0,13,35,0.08)] overflow-hidden relative border border-surface-container">
+<!-- Top Green Accent Bar -->
+<div class="absolute top-0 left-0 w-full h-2 bg-success-green"></div>
+<div class="p-stack-lg md:p-8 pt-10">
+<!-- Step Indicator -->
+<div class="flex items-center justify-center mb-10 space-x-4">
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-success-green text-pure-white flex items-center justify-center font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined filled text-[18px]">check</span>
+</div>
+<span class="mt-2 font-label-sm text-label-sm text-success-green">Details</span>
+</div>
+<div class="w-12 h-[2px] bg-success-green -mt-6"></div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-success-green text-pure-white flex items-center justify-center font-label-md text-label-md shadow-sm">
+<span class="material-symbols-outlined filled text-[18px]">check</span>
+</div>
+<span class="mt-2 font-label-sm text-label-sm text-success-green">Documents</span>
+</div>
+<div class="w-12 h-[2px] bg-surface-container-high -mt-6"></div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-primary text-pure-white flex items-center justify-center font-label-md text-label-md shadow-sm border-2 border-primary ring-4 ring-primary/10">
+                            3
+                        </div>
+<span class="mt-2 font-label-sm text-label-sm text-primary font-bold">Review</span>
+</div>
+</div>
+<!-- Heading -->
+<div class="text-center mb-stack-lg">
+<h1 class="font-headline-md text-headline-md text-primary mb-2 hidden md:block">Review Your Application</h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-2 md:hidden">Review Application</h1>
+<p class="font-body-md text-body-md text-text-gray">Please review your submitted information before final approval.</p>
+</div>
+<!-- Summary Section -->
+<div class="space-y-stack-md mb-stack-lg">
+<!-- Business Details Recap -->
+<div class="bg-surface p-stack-md rounded-xl border border-surface-container-highest">
+<div class="flex justify-between items-center mb-4 border-b border-surface-container pb-2">
+<h3 class="font-label-md text-label-md text-primary">Business Details</h3>
+<button class="font-label-sm text-label-sm text-success-green hover:text-success-green/80 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit</span> Edit
+                            </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
+<div>
+<p class="font-label-sm text-label-sm text-text-gray mb-1">Business Type</p>
+<p class="font-body-md text-body-md text-primary">Tour Operator</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-text-gray mb-1">Business Name</p>
+<p class="font-body-md text-body-md text-primary">Highland Treks Ltd.</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-text-gray mb-1">Location</p>
+<p class="font-body-md text-body-md text-primary">Kathmandu, Nepal</p>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-text-gray mb-1">Experience</p>
+<p class="font-body-md text-body-md text-primary">5-10 Years</p>
+</div>
+</div>
+</div>
+<!-- Documents Recap -->
+<div class="bg-surface p-stack-md rounded-xl border border-surface-container-highest">
+<div class="flex justify-between items-center mb-4 border-b border-surface-container pb-2">
+<h3 class="font-label-md text-label-md text-primary">Documents Submitted</h3>
+<button class="font-label-sm text-label-sm text-success-green hover:text-success-green/80 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">edit</span> Edit
+                            </button>
+</div>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success-green filled">check_circle</span>
+<span class="font-body-md text-body-md text-primary truncate flex-grow">Business_Registration_Certificate.pdf</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success-green filled">check_circle</span>
+<span class="font-body-md text-body-md text-primary truncate flex-grow">Director_ID_Scan.jpg</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-success-green filled">check_circle</span>
+<span class="font-body-md text-body-md text-primary truncate flex-grow">Liability_Insurance_Policy.pdf</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Terms Confirmation -->
+<div class="mb-stack-lg flex items-start gap-3">
+<div class="flex items-center h-6">
+<input class="w-5 h-5 rounded border-outline-variant text-success-green focus:ring-success-green bg-pure-white transition-colors cursor-pointer" id="terms" type="checkbox">
+</div>
+<label class="font-body-md text-body-md text-text-gray cursor-pointer" for="terms">
+                        I confirm this information is accurate and I agree to Karwan's Partner Terms of Service.
+                    </label>
+</div>
+<!-- Actions -->
+<div class="flex flex-col-reverse md:flex-row gap-4 mb-4">
+<button class="w-full md:w-auto px-6 py-3 rounded-[20px] border border-primary text-primary font-label-md text-label-md hover:bg-surface-container-low transition-colors flex items-center justify-center">
+                        Back
+                    </button>
+<button class="w-full md:flex-1 px-6 py-3 rounded-[20px] bg-success-green text-pure-white font-label-md text-label-md hover:bg-[#23583a] transition-colors shadow-sm flex items-center justify-center">
+                        Submit for Verification
+                    </button>
+</div>
+<!-- Footer Note -->
+<p class="font-label-sm text-label-sm text-text-gray text-center max-w-sm mx-auto">
+                    You'll be notified once your verification is complete — usually within 24-48 hours.
+                </p>
+</div>
+</div>
+</main>
+
+
+</body></html>

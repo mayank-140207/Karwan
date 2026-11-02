@@ -1,0 +1,182 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan - Select Your Role</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f8f9fb",
+                        "surface": "#f8f9fb",
+                        "on-tertiary-fixed-variant": "#2e4869",
+                        "secondary-fixed": "#adf2c3",
+                        "surface-container-low": "#f2f4f6",
+                        "secondary": "#286a46",
+                        "primary-fixed": "#d6e3ff",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#adf2c3",
+                        "background": "#f8f9fb",
+                        "outline": "#75777e",
+                        "tertiary": "#000e21",
+                        "on-tertiary-fixed": "#001c39",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#798bac",
+                        "outline-variant": "#c5c6ce",
+                        "on-error-container": "#93000a",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#2e3132",
+                        "inverse-primary": "#b5c7eb",
+                        "pure-white": "#FFFFFF",
+                        "on-primary-fixed-variant": "#364765",
+                        "on-tertiary-container": "#738cb1",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#002110",
+                        "on-secondary-fixed-variant": "#065230",
+                        "error-container": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed-dim": "#b5c7eb",
+                        "on-surface-variant": "#44474d",
+                        "surface-tint": "#4d5f7e",
+                        "surface-container": "#edeef0",
+                        "success-green": "#2C6E49",
+                        "on-tertiary": "#ffffff",
+                        "surface-dim": "#d9dadc",
+                        "on-secondary-container": "#2f704b",
+                        "surface-container-highest": "#e1e2e4",
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e1e2e4",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-primary-fixed": "#071b37",
+                        "text-gray": "#5A6472",
+                        "secondary-fixed-dim": "#92d5a8",
+                        "primary-container": "#10233f",
+                        "tertiary-container": "#052443",
+                        "primary": "#000d23",
+                        "tertiary-fixed": "#d4e3ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "16px",
+                        "margin-desktop": "64px",
+                        "container-max": "1280px",
+                        "stack-lg": "24px",
+                        "gutter": "24px",
+                        "section-gap": "80px",
+                        "margin-mobile": "20px",
+                        "stack-sm": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "label-md": ["Inter"],
+                        "display-lg": ["Noto Serif"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .role-card {
+            transition: all 0.2s ease-in-out;
+        }
+        .role-card.selected {
+            border-color: #286a46; /* success-green / secondary */
+            background-color: #f2f4f6; /* surface-container-low slightly tinted */
+            box-shadow: 0 4px 12px rgba(0, 13, 35, 0.08); /* Primary navy soft shadow */
+        }
+        .role-card:hover:not(.selected) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 13, 35, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-surface min-h-screen flex items-center justify-center font-body-md text-on-surface antialiased p-margin-mobile md:p-margin-desktop">
+<main class="w-full max-w-[800px] flex flex-col items-center">
+<!-- Header -->
+<div class="text-center mb-stack-lg">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-stack-sm">
+                How will you use Karwan?
+            </h1>
+<p class="font-body-lg text-body-lg text-text-gray">
+                Select your primary role to get started.
+            </p>
+</div>
+<!-- Role Selection Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter w-full mb-stack-lg">
+<!-- Card 1: Traveller -->
+<button aria-pressed="false" class="role-card flex flex-col items-start p-stack-lg rounded-xl border border-outline-variant bg-pure-white text-left focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2" onclick="selectRole(this)">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md text-primary">
+<span class="material-symbols-outlined" style="font-size: 28px;">explore</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-sm">Traveller</h2>
+<p class="font-body-md text-body-md text-text-gray">
+                    Get live fares, trust scores, and adaptive trip plans.
+                </p>
+</button>
+<!-- Card 2: Service Provider -->
+<button aria-pressed="false" class="role-card flex flex-col items-start p-stack-lg rounded-xl border border-outline-variant bg-pure-white text-left focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2" onclick="selectRole(this)">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center mb-stack-md text-primary">
+<span class="material-symbols-outlined" style="font-size: 28px;">verified_user</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary mb-stack-sm">Service Provider</h2>
+<p class="font-body-md text-body-md text-text-gray">
+                    Build a verified reputation as a guide, vendor, or driver.
+                </p>
+</button>
+</div>
+<!-- Action Area -->
+<div class="flex flex-col items-center w-full max-w-[400px]">
+<button class="w-full py-3 px-6 rounded-xl bg-success-green text-pure-white font-label-md text-label-md disabled:opacity-50 disabled:cursor-not-allowed transition-opacity focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 mb-stack-md" disabled="" id="continue-btn">
+                Continue
+            </button>
+<p class="font-label-sm text-label-sm text-text-gray text-center">
+                You can add the other role anytime from your profile.
+            </p>
+</div>
+</main>
+<script>
+        function selectRole(selectedCard) {
+            // Remove selection from all cards
+            document.querySelectorAll('.role-card').forEach(card => {
+                card.classList.remove('selected');
+                card.setAttribute('aria-pressed', 'false');
+            });
+            
+            // Add selection to clicked card
+            selectedCard.classList.add('selected');
+            selectedCard.setAttribute('aria-pressed', 'true');
+            
+            // Enable continue button
+            const continueBtn = document.getElementById('continue-btn');
+            continueBtn.disabled = false;
+        }
+    </script>
+</body></html>

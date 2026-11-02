@@ -1,0 +1,1070 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Karwan - Travel with the trust of a local</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Noto+Serif:wght@600;700&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#10233F",
+                        "secondary": "#2C6E49",
+                        "tertiary-container": "#052443",
+                        "tertiary-fixed-dim": "#afc8f0",
+                        "surface-container-low": "#f2f4f6",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e7e8ea",
+                        "primary-fixed-dim": "#b5c7eb",
+                        "primary-container": "#10233f",
+                        "surface-tint": "#4d5f7e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f8f9fb",
+                        "on-secondary-fixed-variant": "#065230",
+                        "pure-white": "#FFFFFF",
+                        "secondary-fixed-dim": "#92d5a8",
+                        "surface-dim": "#d9dadc",
+                        "on-error": "#ffffff",
+                        "text-gray": "#5A6472",
+                        "on-background": "#191c1e",
+                        "on-tertiary-fixed": "#001c39",
+                        "surface-container-highest": "#e1e2e4",
+                        "on-primary-fixed-variant": "#364765",
+                        "inverse-surface": "#2e3132",
+                        "secondary-fixed": "#adf2c3",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#2e4869",
+                        "inverse-primary": "#b5c7eb",
+                        "success-green": "#2C6E49",
+                        "surface-bright": "#f8f9fb",
+                        "error": "#ba1a1a",
+                        "tertiary": "#000e21",
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e1e2e4",
+                        "outline": "#75777e",
+                        "on-secondary-container": "#2f704b",
+                        "outline-variant": "#c5c6ce",
+                        "inverse-on-surface": "#f0f1f3",
+                        "primary-fixed": "#d6e3ff",
+                        "on-primary-fixed": "#071b37",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#798bac",
+                        "tertiary-fixed": "#d4e3ff",
+                        "on-secondary-fixed": "#002110",
+                        "secondary-container": "#adf2c3",
+                        "background": "#f8f9fb",
+                        "on-tertiary-container": "#738cb1",
+                        "on-surface-variant": "#44474d",
+                        "surface-container": "#edeef0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.25rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "section-gap": "80px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "container-max": "1280px",
+                        "stack-md": "16px",
+                        "stack-sm": "8px",
+                        "stack-lg": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Noto Serif"],
+                        "headline-lg-mobile": ["Noto Serif"],
+                        "headline-lg": ["Noto Serif"],
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Noto Serif"],
+                        "label-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "headline-lg": ["40px", { "lineHeight": "48px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "headline-md": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .shadow-ambient {
+            box-shadow: 0 4px 24px -2px rgba(16, 35, 63, 0.06), 0 2px 8px -1px rgba(16, 35, 63, 0.04);
+        }
+        .shadow-floating {
+            box-shadow: 0 12px 32px -4px rgba(16, 35, 63, 0.08), 0 4px 16px -2px rgba(16, 35, 63, 0.04);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .carousel-avatar {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .carousel-avatar.active {
+            transform: scale(1.3);
+            z-index: 20;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            border: 4px solid white;
+        }
+        .carousel-avatar.active img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        .carousel-avatar:not(.active) img {
+            filter: grayscale(100%);
+            opacity: 0.6;
+        }
+        .carousel-avatar:hover:not(.active) {
+            transform: scale(1.1);
+        }
+        .carousel-avatar:hover:not(.active) img {
+            opacity: 0.8;
+        }
+        
+        #testimonial-container {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .fade-out {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased overflow-x-hidden">
+<!-- 1. Navigation bar -->
+<header class="fixed top-0 w-full z-50 bg-transparent transition-all duration-300">
+<div class="flex justify-between items-center h-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-white overflow-hidden shadow-sm flex items-center justify-center p-1">
+<img alt="Karwan Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9MbUVPpNYGZpYP3VsQtTUXGmX96eH0RFewYW0qfCP7Ypk9dMr3xnwc3Z0J42d_pL-dASbxNPUDCiPgRtKV9082dduobQxvmPxn-4kfIJKoX13FWK8Hp8F42YJ5D2jXSmMLKMMCz2RmJToiPSAtJp7UG7ak_lgmjXL56W8wSLWooDxXkiEHzIXfue0LsiBgNYUH3mftdKMKGANY3Zkgorqcb9Q27EkQ4vA0Mz4tY2RVH151K5Cj6Wd5Sspo-jU0P0qHWA">
+</div>
+<span class="font-headline-md text-headline-md font-bold text-white tracking-tight drop-shadow-md">KARWAN</span>
+</div>
+<nav class="hidden md:flex gap-8">
+<a class="text-white font-bold border-b-2 border-white font-label-md text-label-md hover:opacity-90 transition-all drop-shadow-md" href="#">Home</a>
+<a class="text-white/80 hover:text-white transition-colors font-label-md text-label-md drop-shadow-md" href="#">How It Works</a>
+<a class="text-white/80 hover:text-white transition-colors font-label-md text-label-md drop-shadow-md" href="#">Modules</a>
+<a class="text-white/80 hover:text-white transition-colors font-label-md text-label-md drop-shadow-md" href="#">For Travellers</a>
+<a class="text-white/80 hover:text-white transition-colors font-label-md text-label-md drop-shadow-md" href="#">For Partners</a>
+</nav>
+<div class="hidden md:flex items-center gap-4">
+<button class="px-6 py-2.5 rounded-[20px] border border-white text-white font-label-md text-label-md hover:bg-white/10 transition-colors drop-shadow-md">Log In</button>
+<button class="px-6 py-2.5 rounded-[20px] bg-secondary text-pure-white font-label-md text-label-md hover:bg-success-green transition-colors shadow-ambient">Get Started</button>
+</div>
+<button class="md:hidden text-white drop-shadow-md">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</header>
+<main>
+<!-- 2. Hero Full Width Photo -->
+<section class="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-primary">
+<!-- Background Image -->
+<div class="absolute inset-0 z-0">
+<img alt="A high-quality, bright, and vibrant daytime photo of a modern traveler at the Amber Fort in India." class="object-cover w-full h-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl7JC2P1-D2t1mwTLX17RIuSyEGjSdmSXWnfO-Yo65V1Mn2en6haPLbrhQTrGLfcVeO7UII3s06BKTL76kyDzueGXwtxltyj94IjNew3-PyJ3ite0x6lVmhsNOyyJR8WANv-uPWzPkN_KK9RFvfc1ZZVlvFL7A9kr8eGzUG9EksHbm2LqmvD9Fd7n8JEavRgD9e2nHoOlXKtMG41Agmk2hVtcRMy9zAdYQ0LD7ebO-8sMXUM8qVqFBYw">
+<!-- Dark Gradient Overlay for text readability -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-transparent"></div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-center">
+<div class="flex flex-col gap-stack-lg">
+<h1 class="font-display-lg text-display-lg text-white max-w-2xl drop-shadow-lg leading-tight">
+                            Travel with the trust of a local who's already been there.
+                        </h1>
+<p class="font-body-lg text-body-lg text-white/90 max-w-xl drop-shadow-md">
+                            Karwan connects you to real-time ground truth. Access live fares, verified trust scores, and self-healing itineraries that adapt when things go wrong—so you can explore India with absolute confidence.
+                        </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="px-8 py-3.5 rounded-[20px] bg-secondary text-pure-white font-label-md text-label-md hover:bg-success-green transition-colors shadow-ambient">Start Your Trip</button>
+<button class="px-8 py-3.5 rounded-[20px] border-2 border-white/30 text-white font-label-md text-label-md hover:bg-white/10 transition-colors backdrop-blur-sm">Become a Verified Partner</button>
+</div>
+</div>
+<div class="relative h-[500px] w-full hidden lg:block">
+<!-- Floating Cards over Hero Image -->
+<div class="absolute right-12 top-1/4 bg-white/90 backdrop-blur-md rounded-xl p-4 shadow-floating flex items-center gap-3 animate-[float_4s_ease-in-out_infinite]">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">local_taxi</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-text-gray">Live Fare Alert</p>
+<p class="font-label-md text-label-md text-primary">Auto fare to Fort Gate: ₹80</p>
+</div>
+</div>
+<div class="absolute right-32 top-1/2 bg-white/90 backdrop-blur-md rounded-xl p-4 shadow-floating flex items-center gap-3 animate-[float_5s_ease-in-out_infinite_1s]">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 1;">verified_user</span>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Rambaba Guides</p>
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: &quot;FILL&quot; 1;">star</span>
+<span class="font-label-sm text-label-sm">Trust Score 4.8</span>
+</div>
+</div>
+</div>
+<div class="absolute right-0 bottom-24 bg-white/90 backdrop-blur-md rounded-xl p-4 shadow-floating flex items-center gap-3 animate-[float_4.5s_ease-in-out_infinite_0.5s]">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">sync_alt</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-text-gray">Auto-Heal Active</p>
+<p class="font-label-md text-label-md text-primary">Route updated - Fort closes early</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Stats strip -->
+<section class="bg-primary py-8 px-margin-mobile md:px-margin-desktop border-t border-white/10">
+<div class="max-w-container-max mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-secondary text-3xl mb-1" style="font-variation-settings: &quot;FILL&quot; 1;">currency_rupee</span>
+<p class="font-headline-md text-[22px] font-semibold text-pure-white">Real-Time</p>
+<p class="font-label-sm text-label-sm text-white/60 uppercase tracking-wider">Fare Data</p>
+</div>
+<div class="flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-secondary text-3xl mb-1" style="font-variation-settings: &quot;FILL&quot; 1;">radar</span>
+<p class="font-headline-md text-[22px] font-semibold text-pure-white">Live</p>
+<p class="font-label-sm text-label-sm text-white/60 uppercase tracking-wider">Trust Scores</p>
+</div>
+<div class="flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-secondary text-3xl mb-1" style="font-variation-settings: &quot;FILL&quot; 1;">route</span>
+<p class="font-headline-md text-[22px] font-semibold text-pure-white">Self-Healing</p>
+<p class="font-label-sm text-label-sm text-white/60 uppercase tracking-wider">Itineraries</p>
+</div>
+<div class="flex flex-col items-center text-center gap-2">
+<span class="material-symbols-outlined text-secondary text-3xl mb-1" style="font-variation-settings: &quot;FILL&quot; 1;">hotel</span>
+<p class="font-headline-md text-[22px] font-semibold text-pure-white">Verified</p>
+<p class="font-label-sm text-label-sm text-white/60 uppercase tracking-wider">Local Stays</p>
+</div>
+</div>
+</section>
+<!-- 4. Problem -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
+<div class="rounded-2xl overflow-hidden shadow-ambient h-[500px]">
+<img class="object-cover w-full h-full grayscale-[80%] opacity-90 hover:grayscale-[30%] transition-all duration-700" data-alt="A desaturated candid photo of a confused tourist holding a paper map at a chaotic Indian bus stand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZCQ46m6foOiVieM67_xXmWJAq9MXZX2v_k-BEV7M724cGYwAlntLO5smD6RZ04utTwReJTxIF2vpu0Zl5mFiI9UMyThpaBwz4xsTALP0WH0tqVzy0oTl8VttgRTASudSVG7nILJNb7rvIjT_ExVOqn6t1CwgagA5GqEhmuke5smDCbi3Ci8ui8pAQqNmNf7M9yGfE3lZGQuvvbe5LHyptTOLTQyyiBfDJHqdmPCOjJgS07LZiubZdOgHHr3QA-muW9jQ">
+</div>
+<div class="flex flex-col gap-stack-lg md:pl-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight">
+                        Every trip starts from zero.
+                    </h2>
+<p class="font-body-lg text-body-lg text-text-gray">
+                        Star ratings are slow and easy to game. What one traveller learns about an overcharging stand or a jammed road never reaches the next person who needs it — until now.
+                    </p>
+<div class="border-l-4 border-secondary pl-6 py-4 bg-primary/5 rounded-r-xl">
+<p class="font-body-md text-body-md text-primary italic">
+                            Karwan captures the live pulse of the ground, turning fleeting local knowledge into a persistent, protective layer for everyone.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 5. Features -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-surface-container-lowest to-transparent"></div>
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="text-center mb-16 max-w-2xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">
+                        One trust layer. Four ways it protects you.
+                    </h2>
+<p class="font-body-lg text-body-lg text-text-gray">Everything you need to navigate the real world, seamlessly integrated.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Feature 1 -->
+<div class="bg-white/70 backdrop-blur-md rounded-[24px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 hover:shadow-floating transition-all duration-300 flex flex-col gap-5">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/10 flex items-center justify-center text-primary mb-2 shadow-inner">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: &quot;FILL&quot; 1;">insights</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-primary">LiveTrail</h3>
+<p class="font-body-md text-body-md text-text-gray flex-grow leading-relaxed">
+                            Stop guessing. See live auto and cab fares based on real recent trips, plus real-time crowding data for monuments and transit hubs.
+                        </p>
+<a class="text-secondary font-label-md text-label-md flex items-center gap-1 hover:gap-2 transition-all mt-2 font-semibold" href="#">
+                            See it in action <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Feature 2 -->
+<div class="bg-white/70 backdrop-blur-md rounded-[24px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 hover:shadow-floating transition-all duration-300 flex flex-col gap-5">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/10 flex items-center justify-center text-primary mb-2 shadow-inner">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: &quot;FILL&quot; 1;">policy</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-primary">TrustRadar</h3>
+<p class="font-body-md text-body-md text-text-gray flex-grow leading-relaxed">
+                            Go beyond basic stars. We assign dynamic trust scores to vendors, guides, and stays based on verified recent interactions and anomaly detection.
+                        </p>
+<a class="text-secondary font-label-md text-label-md flex items-center gap-1 hover:gap-2 transition-all mt-2 font-semibold" href="#">
+                            See it in action <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Feature 3 -->
+<div class="bg-white/70 backdrop-blur-md rounded-[24px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 hover:shadow-floating transition-all duration-300 flex flex-col gap-5">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/10 flex items-center justify-center text-primary mb-2 shadow-inner">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: &quot;FILL&quot; 1;">healing</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-primary">Auto-heal</h3>
+<p class="font-body-md text-body-md text-text-gray flex-grow leading-relaxed">
+                            When a train is late or a site closes early, your itinerary doesn't break. It instantly self-repairs, offering the best immediate alternatives.
+                        </p>
+<a class="text-secondary font-label-md text-label-md flex items-center gap-1 hover:gap-2 transition-all mt-2 font-semibold" href="#">
+                            See it in action <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<!-- Feature 4 -->
+<div class="bg-white/70 backdrop-blur-md rounded-[24px] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-white/50 hover:shadow-floating transition-all duration-300 flex flex-col gap-5">
+<div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary/20 to-primary/10 flex items-center justify-center text-primary mb-2 shadow-inner">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: &quot;FILL&quot; 1;">where_to_vote</span>
+</div>
+<h3 class="font-headline-md text-[24px] text-primary">Ground Truth</h3>
+<p class="font-body-md text-body-md text-text-gray flex-grow leading-relaxed">
+                            No more outdated glossy photos. Access verified snapshots from the last 48 hours and live status updates on amenities like Wi-Fi and power.
+                        </p>
+<a class="text-secondary font-label-md text-label-md flex items-center gap-1 hover:gap-2 transition-all mt-2 font-semibold" href="#">
+                            See it in action <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section><section class="bg-primary py-section-gap px-margin-mobile md:px-margin-desktop overflow-hidden border-t border-white/5">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-stack-lg z-10 text-pure-white">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest text-secondary">For Vendors &amp; Guides</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg leading-tight">
+                        Your reputation, finally worth something.
+                    </h2>
+<p class="font-body-lg text-body-lg text-white/70">
+                        Stop competing on a race to the bottom. Karwan's TrustRadar rewards consistent, honest service. Whether you're a local guide, a homestay host, or an auto driver, we verify your good work and connect you directly with travellers who value trust over the cheapest price.
+                    </p>
+<div class="pt-6">
+<button class="px-8 py-3.5 rounded-[20px] bg-secondary text-pure-white font-label-md text-label-md hover:bg-success-green transition-all shadow-ambient hover:shadow-floating">Register as a Partner</button>
+</div>
+</div>
+<div class="relative h-[550px] mt-8 md:mt-0 rounded-[32px] overflow-hidden shadow-floating">
+<div class="absolute inset-0 bg-primary/20 z-10 mix-blend-multiply"></div>
+<img class="object-cover w-full h-full" data-alt="A warm, engaging portrait of an authentic Indian local guide." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOJQSLOIUTUCe75TfNaXGDHsHDRx1RLtSKuGfp5c7RY_Xn2CuGk_SIZre-UHba5GWZZli29NET6EfX7BV24Wx6oGvhEECiHnLsbvybaTERiVpPvxnqgPZgh30gZkG2iXm25zEoEZWtsv8gRKiyL5PNTjbD3suu-A8Tqy5ule2qyHqgUXWme-vdPu4PiymKjAb9h8guoUv8l7hEKQzOBZOrICoTe9_5s_5q5fL04JeVFwFU1qY07ANb2w">
+<div class="absolute bottom-8 left-8 right-8 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-ambient">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary text-2xl" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+</div>
+<div>
+<p class="font-label-md text-[16px] text-primary font-bold">Verified Partner Status</p>
+<p class="font-label-sm text-sm text-text-gray mt-0.5">+40% booking consistency</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. How It Works -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">
+                        How It Works
+                    </h2>
+</div>
+<div class="relative mt-12">
+<!-- Connector line -->
+<div class="hidden md:block absolute top-8 left-[12%] right-[12%] h-[2px] bg-gradient-to-r from-secondary/10 via-secondary/50 to-secondary/10 z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+<div class="flex flex-col items-center text-center gap-4">
+<div class="w-16 h-16 rounded-full bg-secondary text-pure-white flex items-center justify-center font-headline-md text-headline-md font-bold shadow-lg border-4 border-white z-10">1</div>
+<h4 class="font-label-md text-[18px] text-primary font-bold mt-2">Verify your ID</h4>
+<p class="font-body-sm text-sm text-text-gray px-4">Secure onboard process to unlock premium trust layers.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4">
+<div class="w-16 h-16 rounded-full bg-secondary text-pure-white flex items-center justify-center font-headline-md text-headline-md font-bold shadow-lg border-4 border-white z-10">2</div>
+<h4 class="font-label-md text-[18px] text-primary font-bold mt-2">Plan your trip</h4>
+<p class="font-body-sm text-sm text-text-gray px-4">Build your itinerary with verified data and live insights.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4">
+<div class="w-16 h-16 rounded-full bg-secondary text-pure-white flex items-center justify-center font-headline-md text-headline-md font-bold shadow-lg border-4 border-white z-10">3</div>
+<h4 class="font-label-md text-[18px] text-primary font-bold mt-2">Travel with guidance</h4>
+<p class="font-body-sm text-sm text-text-gray px-4">Get real-time alerts on fares, crowding, and route changes.</p>
+</div>
+<div class="flex flex-col items-center text-center gap-4">
+<div class="w-16 h-16 rounded-full bg-secondary text-pure-white flex items-center justify-center font-headline-md text-headline-md font-bold shadow-lg border-4 border-white z-10">4</div>
+<h4 class="font-label-md text-[18px] text-primary font-bold mt-2">Let Auto-heal handle</h4>
+<p class="font-body-sm text-sm text-text-gray px-4">Relax as your plan self-repairs when disruptions occur.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Traveller-type selector -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background">
+<div class="max-w-container-max mx-auto flex flex-col items-center gap-8">
+<span class="bg-primary/10 text-primary px-4 py-1.5 rounded-full font-label-sm text-label-sm font-semibold tracking-wide">Built for Every Traveller</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary text-center">Guidance That Adapts to How You Travel</h2>
+<div class="flex flex-wrap justify-center gap-4 mb-4">
+<button class="px-6 py-2.5 rounded-full bg-white text-text-gray hover:bg-surface-container-low font-label-md border border-outline-variant shadow-sm transition-colors tab-btn" onclick="switchTravelerTab(0)">Solo Explorer</button>
+<button class="px-6 py-2.5 rounded-full bg-white text-text-gray hover:bg-surface-container-low font-label-md border border-outline-variant shadow-sm transition-colors tab-btn" onclick="switchTravelerTab(1)">Family Traveller</button>
+<button class="px-6 py-2.5 rounded-full bg-white text-text-gray hover:bg-surface-container-low font-label-md border border-outline-variant shadow-sm transition-colors tab-btn" onclick="switchTravelerTab(2)">Backpacker</button>
+<button class="px-6 py-2.5 rounded-full bg-secondary text-white font-label-md shadow-md tab-btn transition-colors border border-transparent" onclick="switchTravelerTab(3)">Business Traveller</button>
+</div>
+<div class="relative w-full rounded-2xl overflow-hidden shadow-floating aspect-video max-h-[600px]">
+<img alt="Solo traveller exploring India" class="w-full h-full object-cover transition-opacity duration-300" id="traveller-tab-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_m9wXiX9-KzAEodqDqfkLklr-hRoQg7XUhN2M18wEyTA4Zs7U7jimcIR43GgzHaEhQMCKQMUJiN77hvm_t_qP7BE4jF86JKiSieG9QuWGJWJQ5LiZwYbDuUI2U0RCa5iax90D-cuPL5Et_dIGYKT4-fZLu3_9-vFVTi3WTTKFwHUvAgKNEwdpEMDNlQZdRQ1lCroIGO1X9x6CVBYTCAVR6cX1bocgbxep0RXnpK0dSJSzYzwWnbR99w" style="opacity: 1;">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 flex flex-col gap-2">
+<p class="text-white/90 font-body-lg transition-opacity duration-300" id="traveller-tab-caption" style="opacity: 1;">Never miss a meeting with auto-healing transit and high-speed Wi-Fi verification for all stays.</p>
+<p class="text-white font-headline-md font-bold transition-opacity duration-300" id="traveller-tab-stat" style="opacity: 1;">99% On-Time Arrival Rate</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Social proof carousel -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto flex flex-col items-center gap-12">
+<div class="flex flex-col items-center gap-4 text-center">
+<span class="bg-primary/10 text-primary px-4 py-1.5 rounded-full font-label-sm text-label-sm font-semibold tracking-wide">Real Travellers</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Trusted by Travellers Across India</h2>
+</div>
+<div class="flex items-center justify-center gap-4 md:gap-8 w-full overflow-hidden py-8 relative">
+<button class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors z-30" id="carousel-prev" onclick="prevTraveler()"><span class="material-symbols-outlined">chevron_left</span></button>
+<div class="flex items-center justify-center gap-4 md:gap-6 w-full max-w-3xl overflow-hidden" id="avatar-container"><div class="carousel-avatar relative rounded-full overflow-hidden w-12 h-12 md:w-16 md:h-16 hidden md:block ">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbtqDj1fkZMG4TQIdwivFrdgTpkwak83a_D2zKNzN-xKUwy2gFl4LEKAktjGiQRPy4Ri3-xcpuvlw5hnQ0LFfGibviSct4snDlCMc1ne7G3XVSEVJPLVGAF68OANA6cFaLr5JA-mG6kw1yUsPi7Hyu9ArFp5IFnnECWd8r35b4KXYdQsDw2MlS8R5CqzFNxIQD2A2XtRRQ6V1WBdsuns3rc7zLuJSP44sq6ZMOXllQ1R8Bm-NAGkGsOA" alt="Meera K." class="w-full h-full object-cover">
+                
+            </div><div class="carousel-avatar relative rounded-full overflow-hidden w-16 h-16 md:w-20 md:h-20 ">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcZvRfWXS-uS6iUpsc3pAM-eqPu0k2thH4LLt_hSrUe7KrS9CYtklSkFUcVTQlUmuZ9B0n3VMF3cHBxHeekqPY_A6H5FWhLmPleV6_NMJOKsAgVm8M0z-bfer6v7jGXdU7gPkrr_ms57Q_J7_6ual-VcWyCxjrvt1SgilBrq5m6XA5IRY4grIlj_WupyAFDprMUdxxO-yJHDKUEjoQoay83Ctj3smPVDZvuxkQzCNmuZDnfHTAxXUIew" alt="Arjun V." class="w-full h-full object-cover">
+                
+            </div><div class="carousel-avatar relative rounded-full overflow-hidden w-24 h-24 md:w-32 md:h-32 active">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8joQxQ-T5hfs89UcvXpu7JbxdOa2pmuosXWTE3xjXVY_sF0eSQWW-AVW2SjW-ef4q_GYJSxdU79IkAX2_Hl1_j2P8oa9YzUbLCN0cd2qGcmAA7RND3rKjwpKuy--lfVJ1ED8e1XOvsSeSTMctYFXajvf1qZzcEAbwvaY7I2tnN8UOlb_IZDcLLgQPBbQO9w57DBd5J25pAZ1UX9oEeS4Ud3iC5w2DhzSdkH7gTuBos66KxWRWbJ-MEg" alt="Priya S." class="w-full h-full object-cover">
+                
+                <div class="absolute bottom-0 inset-x-0 bg-black/60 p-1 md:p-2 text-center opacity-0 hover:opacity-100 transition-opacity">
+                    <p class="text-white text-[10px] md:text-xs font-bold truncate">Priya S.</p>
+                </div>
+            </div><div class="carousel-avatar relative rounded-full overflow-hidden w-16 h-16 md:w-20 md:h-20 ">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7SoaoK-ob2zDyopOQq7cJWl1M3Q2hjdxbKBnMLxJnxLOF1NugOY-3jC_YmIZouiged1NNMyWT7rGYzI_dir7O-UCgrsf_oPKAymBwn_HvLT1ult7Ygz_AlkD16ejDIazlsinn96sJIFC2yZEjcOG8Zt69TWjmOirJruA2ABy8tQ95YKZvGwHO2PreSkMtNsSxPGbBhp58ufKYSkXAeZe1hKtb0pb4L-xN2Q_5qWewxB7Z3Y11E_vCyw" alt="Rahul M." class="w-full h-full object-cover">
+                
+            </div><div class="carousel-avatar relative rounded-full overflow-hidden w-12 h-12 md:w-16 md:h-16 hidden md:block ">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ9ycSofy2xc56-X2ZJXlV15u0W9qsC1C8LLq7h4mSdMyJXJ6D_l6j9_HbtyNQz8lpXWK-2i9m2DeG0syz5EWC38JON6tK3ivtjq6WoV2aSWd7f9ClpWkb23o-4HPHpwER1kumxrlrOYrqMFUNhGfGJ5Zd-4X-0tzpxvR_r1tZ7EUycpZEYTzV0fzNwWxV6QpJQmhZW8zRCqtDHq4U3tyZywrfm5ddEGvoSu3bsvVZElH6vdWBafL6Rg" alt="Ayesha K." class="w-full h-full object-cover">
+                
+            </div></div>
+<button class="w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors z-30" id="carousel-next" onclick="nextTraveler()"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+<div class="flex justify-center w-full max-w-2xl">
+<div class="bg-white/80 backdrop-blur-md p-8 rounded-[20px] shadow-floating border border-white/50 flex flex-col gap-6 w-full fade-in" id="testimonial-container">
+                <div class="flex items-center gap-4">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8joQxQ-T5hfs89UcvXpu7JbxdOa2pmuosXWTE3xjXVY_sF0eSQWW-AVW2SjW-ef4q_GYJSxdU79IkAX2_Hl1_j2P8oa9YzUbLCN0cd2qGcmAA7RND3rKjwpKuy--lfVJ1ED8e1XOvsSeSTMctYFXajvf1qZzcEAbwvaY7I2tnN8UOlb_IZDcLLgQPBbQO9w57DBd5J25pAZ1UX9oEeS4Ud3iC5w2DhzSdkH7gTuBos66KxWRWbJ-MEg" alt="Priya S." class="w-16 h-16 rounded-full object-cover border-2 border-secondary/20">
+                    <div>
+                        <p class="font-headline-md font-bold text-[20px] text-primary">Priya S.</p>
+                        <p class="font-label-sm text-secondary tracking-wide uppercase mt-1">Solo Traveller, Jaipur</p>
+                    </div>
+                </div>
+                <p class="font-body-lg text-text-gray italic leading-relaxed">"I used to get scammed on auto fares constantly. Karwan's LiveTrail feature gave me the exact amount I should be paying. Total game changer."</p>
+                <div class="mt-auto pt-4 border-t border-outline-variant/50 flex justify-end">
+                    <p class="font-label-sm text-outline">Oct 12, 2025</p>
+                </div>
+            </div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-12">
+<div class="md:col-span-5 flex flex-col gap-6">
+<span class="bg-primary/10 text-primary px-4 py-1.5 rounded-full font-label-sm text-label-sm font-semibold tracking-wide w-max">FAQ</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Common Questions, Quick Answers</h2>
+<p class="font-body-lg text-text-gray mb-6">Everything you need to know about using Karwan for your next adventure.</p>
+<div class="bg-primary-fixed p-6 rounded-2xl flex flex-col gap-4 items-start shadow-sm mt-auto">
+<h4 class="font-headline-md text-primary text-[20px]">Still have questions?</h4>
+<p class="font-body-sm text-on-primary-container">Our team is here to help you navigate your journey.</p>
+<button class="px-6 py-2.5 rounded-[20px] bg-primary text-white font-label-md hover:bg-tertiary transition-colors mt-2">Contact Us</button>
+</div>
+</div>
+<div class="md:col-span-7 flex flex-col gap-4">
+<div class="bg-white rounded-2xl border border-outline-variant flex flex-col overflow-hidden faq-item transition-all duration-300 shadow-sm">
+<button class="p-5 flex justify-between items-center w-full text-left hover:bg-surface-container-lowest transition-colors focus:outline-none" onclick="toggleFaq(this)">
+<h4 class="font-label-md text-primary font-bold text-[16px]">How does Auto-heal work?</h4>
+<span class="material-symbols-outlined text-text-gray transition-transform duration-300 faq-icon" style="transform: rotate(180deg);">expand_more</span>
+</button>
+<div class="faq-content px-5 pb-5 pt-0">
+<p class="font-body-sm text-text-gray">Auto-heal monitors your itinerary in real-time. If a train is delayed or a site closes early, it automatically suggests the best immediate alternatives like bus routes or nearby stays.</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-outline-variant flex flex-col overflow-hidden faq-item transition-all duration-300 shadow-sm">
+<button class="p-5 flex justify-between items-center w-full text-left hover:bg-surface-container-lowest transition-colors focus:outline-none" onclick="toggleFaq(this)">
+<h4 class="font-label-md text-primary font-bold text-[16px]">What makes TrustRadar different from standard reviews?</h4>
+<span class="material-symbols-outlined text-text-gray transition-transform duration-300 faq-icon" style="transform: rotate(0deg);">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0">
+<p class="font-body-sm text-text-gray">Unlike static stars, TrustRadar uses a dynamic score based on verified recent interactions, GPS-verified visits, and anomaly detection to prevent fake reviews.</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-outline-variant flex flex-col overflow-hidden faq-item transition-all duration-300 shadow-sm">
+<button class="p-5 flex justify-between items-center w-full text-left hover:bg-surface-container-lowest transition-colors focus:outline-none" onclick="toggleFaq(this)">
+<h4 class="font-label-md text-primary font-bold text-[16px]">Does the app work offline?</h4>
+<span class="material-symbols-outlined text-text-gray transition-transform duration-300 faq-icon" style="transform: rotate(0deg);">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0">
+<p class="font-body-sm text-text-gray">Yes! You can download your verified itinerary, trust scores for your route, and essential safety maps to use without an active data connection.</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-outline-variant flex flex-col overflow-hidden faq-item transition-all duration-300 shadow-sm">
+<button class="p-5 flex justify-between items-center w-full text-left hover:bg-surface-container-lowest transition-colors focus:outline-none" onclick="toggleFaq(this)">
+<h4 class="font-label-md text-primary font-bold text-[16px]">How do I verify my ID with DigiLocker?</h4>
+<span class="material-symbols-outlined text-text-gray transition-transform duration-300 faq-icon" style="transform: rotate(0deg);">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0">
+<p class="font-body-sm text-text-gray">Simply connect your DigiLocker account through the app. We verify your identity instantly to unlock premium trust layers and verified traveller status.</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-outline-variant flex flex-col overflow-hidden faq-item transition-all duration-300 shadow-sm">
+<button class="p-5 flex justify-between items-center w-full text-left hover:bg-surface-container-lowest transition-colors focus:outline-none" onclick="toggleFaq(this)">
+<h4 class="font-label-md text-primary font-bold text-[16px]">Are live fares available in all cities?</h4>
+<span class="material-symbols-outlined text-text-gray transition-transform duration-300 faq-icon" style="transform: rotate(0deg);">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0">
+<p class="font-body-sm text-text-gray">Live fares for autos and cabs are currently available in all major Indian metros and 50+ heritage cities, with more being added weekly.</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-outline-variant flex flex-col overflow-hidden faq-item transition-all duration-300 shadow-sm">
+<button class="p-5 flex justify-between items-center w-full text-left hover:bg-surface-container-lowest transition-colors focus:outline-none" onclick="toggleFaq(this)">
+<h4 class="font-label-md text-primary font-bold text-[16px]">Can I book stays directly through Karwan?</h4>
+<span class="material-symbols-outlined text-text-gray transition-transform duration-300 faq-icon" style="transform: rotate(0deg);">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0">
+<p class="font-body-sm text-text-gray">Karwan connects you with verified homestays and hotels. You can view their trust scores and book through our partners while keeping your safety data synced.</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-outline-variant flex flex-col overflow-hidden faq-item transition-all duration-300 shadow-sm">
+<button class="p-5 flex justify-between items-center w-full text-left hover:bg-surface-container-lowest transition-colors focus:outline-none" onclick="toggleFaq(this)">
+<h4 class="font-label-md text-primary font-bold text-[16px]">Is there a premium subscription?</h4>
+<span class="material-symbols-outlined text-text-gray transition-transform duration-300 faq-icon" style="transform: rotate(0deg);">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0">
+<p class="font-body-sm text-text-gray">Karwan is free for essential safety. Our 'Explorer Pro' plan offers advanced features like 24/7 human concierge, multi-user collaboration, and offline map packs.</p>
+</div>
+</div>
+<div class="bg-white rounded-2xl border border-outline-variant flex flex-col overflow-hidden faq-item transition-all duration-300 shadow-sm">
+<button class="p-5 flex justify-between items-center w-full text-left hover:bg-surface-container-lowest transition-colors focus:outline-none" onclick="toggleFaq(this)">
+<h4 class="font-label-md text-primary font-bold text-[16px]">How do I report a scam or issue?</h4>
+<span class="material-symbols-outlined text-text-gray transition-transform duration-300 faq-icon" style="transform: rotate(0deg);">expand_more</span>
+</button>
+<div class="faq-content hidden px-5 pb-5 pt-0">
+<p class="font-body-sm text-text-gray">Use the 'SOS' or 'Report' button in the app. This instantly alerts our community team and updates the TrustRadar score for that location to warn other travellers.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Get the app (3-step) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto flex flex-col items-center gap-12">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+<div class="bg-white rounded-2xl shadow-sm border border-outline-variant overflow-hidden flex flex-col text-center">
+<div class="h-48 bg-surface-container flex items-center justify-center p-4">
+<img alt="Destination collage" class="w-full h-full object-cover rounded-xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPzVEp7ZFCc1J-j6vBgja6rWeWyC94zX7DOYwKi-wuxt1gS3slP3jYSfGdAxvBrE-gKDCSmeXd-WgtzjUrsW3GkKlIOmfEoMBPaD3fnqKuFbxRU_InZFZcliEtAGyBuKr2GyquHvGx1KfVuuWrIc5HiImeN_bSPyDRxfEZb_sCJeIMNj1sNodpCxshXXUtXBkl1n4NyBHlFV0rLD-bFsAhKfVC3MZyN8U7ydqxkuQym8GSVwWtcdDN2g">
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-[20px] text-primary">1. Set Your Route</h4>
+</div>
+</div>
+<div class="bg-white rounded-2xl shadow-sm border border-outline-variant overflow-hidden flex flex-col text-center">
+<div class="h-48 bg-surface-container flex items-center justify-center p-4">
+<div class="w-32 h-40 bg-white rounded-xl shadow-lg border-4 border-gray-100 flex flex-col p-2 gap-2">
+<div class="h-8 bg-gray-100 rounded"></div>
+<div class="h-16 bg-primary-fixed rounded"></div>
+<div class="h-4 bg-gray-100 rounded w-2/3"></div>
+</div>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-[20px] text-primary">2. Get Verified Data Instantly</h4>
+</div>
+</div>
+<div class="bg-white rounded-2xl shadow-sm border border-outline-variant overflow-hidden flex flex-col text-center">
+<div class="h-48 bg-surface-container flex items-center justify-center p-4">
+<div class="w-32 h-40 bg-white rounded-xl shadow-lg border-4 border-gray-100 flex flex-col p-2 gap-2 relative">
+<div class="absolute -top-3 -right-3 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-white"><span class="material-symbols-outlined text-sm">notifications</span></div>
+<div class="h-12 bg-secondary/20 rounded mt-4"></div>
+<div class="h-8 bg-gray-100 rounded mt-auto"></div>
+</div>
+</div>
+<div class="p-6">
+<h4 class="font-headline-md text-[20px] text-primary">3. Travel with Live Alerts</h4>
+</div>
+</div>
+</div>
+<div class="flex justify-center w-full mt-8">
+    <button class="px-10 py-4 rounded-[20px] bg-secondary text-pure-white font-label-md shadow-md hover:shadow-lg hover:scale-105 hover:brightness-110 transition-all duration-300 flex items-center gap-3">
+        <span class="material-symbols-outlined">download</span>
+        Download Application
+    </button>
+</div>
+</div>
+</section>
+<!-- Field notes / blog carousel -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background">
+<div class="max-w-container-max mx-auto flex flex-col items-center gap-12">
+<div class="flex flex-col items-center gap-4 text-center">
+<span class="bg-primary/10 text-primary px-4 py-1.5 rounded-full font-label-sm text-label-sm font-semibold tracking-wide">Field Notes</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary">Stories from the Road</h2>
+</div>
+<div class="w-full relative">
+<div class="flex gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4" id="blog-carousel">
+<div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1.33rem)] bg-white rounded-2xl shadow-sm border border-outline-variant overflow-hidden flex flex-col group cursor-pointer hover:shadow-floating transition-all">
+<div class="h-48 overflow-hidden relative">
+<img alt="Train travel in India" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV5IRmPdWReWswJcjioO7dYT3glk-G5y4L8UPEoRGX-EdUyZjvHd1Q0SLE3UW9lXI12GJHgsc7e8r_p-1KqjH5Qi0VpchfiMO1tKSie8joRF9xb0Fi5DVsZAIcRIbn0-BskSjGP_3NC4Olf5dGj3v1DdD1buoQPv6nL2vOmlQlrbASTeQuPJmcd1IFRqmnC7hq0G3qGsSiIe1xZDgjmOkuYVoc8y5ReZrKcTqs-EbK5416iJUCGunNug">
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-secondary text-white px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">Safety</span>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-3 flex-grow">
+<h4 class="font-headline-md text-[20px] text-primary group-hover:text-secondary transition-colors leading-tight">Navigating Indian Railways Like a Pro: 5 Essential Tips</h4>
+<div class="flex items-center gap-2 text-text-gray font-label-sm mt-auto pt-4">
+<span class="">Jan 12, 2026</span>
+<span class="">•</span>
+<span class="">5 min read</span>
+</div>
+</div>
+</div>
+<div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1.33rem)] bg-white rounded-2xl shadow-sm border border-outline-variant overflow-hidden flex flex-col group cursor-pointer hover:shadow-floating transition-all">
+<div class="h-48 overflow-hidden relative">
+<img alt="Local market in India" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIWOfRxnteOdFsyGUR1XTY2hrJDRTEXrS21ZG9EXN3k8yQ8Q6fkM4F2DcwYpZvt0v2CSQJOux5OOUfPasIIQySYVMvQYDktjs4nDvptmqJI6klEY20mKTToSLB2IRiD01cOh3BW4KowHYNA0sWOfyNlXS5l94hgwtSsDU0xnMgEQHpo5gnqY_Z0U4gx22vfTG7a0GXctK98Yikpq7gOR9J2G4BZqZiO07B0NCRbkK_lcFhPSFcJog4Ng">
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-tertiary-container text-white px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">Local Tips</span>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-3 flex-grow">
+<h4 class="font-headline-md text-[20px] text-primary group-hover:text-secondary transition-colors leading-tight">The Art of Bargaining: When to Push and When to Pay</h4>
+<div class="flex items-center gap-2 text-text-gray font-label-sm mt-auto pt-4">
+<span class="">Jan 05, 2026</span>
+<span class="">•</span>
+<span class="">4 min read</span>
+</div>
+</div>
+</div>
+<div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1.33rem)] bg-white rounded-2xl shadow-sm border border-outline-variant overflow-hidden flex flex-col group cursor-pointer hover:shadow-floating transition-all">
+<div class="h-48 overflow-hidden relative">
+<img alt="Taj Mahal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhA9I2j_rpjcAPX6I7iOj3L-OqLEm_dNmTO-w0Eh5aryWAt_7jtj2qUu0Pp9C5ca0q3AMyIitkubL9BP-l2cxw3Au0J_1LAdfT0pFjhPZj1-jY-OhlU6l0CJdJW2vPgK7zFhF0xgp7quyDsXuJujtAMS-lfhOMRifZjCXKb18Tx_XBEPiFAc3DIUG8XcDk-CmvTqKHkCUZiGTUerDh26CpC8axZQtRwIt738eVHY7mIlj_JRF6SCTzTA">
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-primary-fixed text-primary px-2 py-1 rounded text-xs font-bold uppercase tracking-wider">First-Timer</span>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-3 flex-grow">
+<h4 class="font-headline-md text-[20px] text-primary group-hover:text-secondary transition-colors leading-tight">Golden Triangle Guide: Avoiding the Common Tourist Traps</h4>
+<div class="flex items-center gap-2 text-text-gray font-label-sm mt-auto pt-4">
+<span class="">Dec 28, 2025</span>
+<span class="">•</span>
+<span class="">7 min read</span>
+</div>
+</div>
+</div>
+<div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1.33rem)] bg-white rounded-2xl shadow-sm border border-outline-variant overflow-hidden flex flex-col group cursor-pointer hover:shadow-floating transition-all">
+<div class="h-48 overflow-hidden relative">
+<img alt="Ancient Indian stepwell" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDiS9iMQSSqki-JompTNfWl3IJ7x49eIxgOUXWd-u4CT0EtvPUooRKfXrkH6SBcJeQQLI5UY1J8YMFeMsihRDwMc1imOplYxFvzEAtr7d_iSddrsR6BN5TrKR5mDhTOPlFdW3BTpz2m9HITE5u-oHqa97br55nxLhzfpQut6BNs9YiCkcDBbFPGrgLZdREYI-pqpJR794DYbCJBKUYr2VR_f8MI2WsNx2c9fijERp_5BKulCQ_Hm0uDQ">
+<img alt="Ancient Indian stepwell" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDiS9iMQSSqki-JompTNfWl3IJ7x49eIxgOUXWd-u4CT0EtvPUooRKfXrkH6SBcJeQQLI5UY1J8YMFeMsihRDwMc1imOplYxFvzEAtr7d_iSddrsR6BN5TrKR5mDhTOPlFdW3BTpz2m9HITE5u-oHqa97br55nxLhzfpQut6BNs9YiCkcDBbFPGrgLZdREYI-pqpJR794DYbCJBKUYr2VR_f8MI2WsNx2c9fijERp_5BKulCQ_Hm0uDQ">
+</div>
+<div class="p-6 flex flex-col gap-3 flex-grow">
+<h4 class="font-headline-md text-[20px] text-primary group-hover:text-secondary transition-colors leading-tight">The Secret Stepwells of Ahmedabad</h4>
+<div class="flex items-center gap-2 text-text-gray font-label-sm mt-auto pt-4">
+<span class="">Jan 20, 2026</span>
+<span class="">•</span>
+<span class="">6 min read</span>
+</div>
+</div>
+</div>
+<div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1.33rem)] bg-white rounded-2xl shadow-sm border border-outline-variant overflow-hidden flex flex-col group cursor-pointer hover:shadow-floating transition-all">
+<div class="h-48 overflow-hidden relative">
+<img alt="Old Delhi street food" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwTsj1n1tfSCu89fDa7jtSee8Hsb5msmyyWMiXiFHRDU_tylhpncSdVqkintVzGpwEK_Vrk19TdTWIUs10jhlmL8CVJhEXqWSq84HSyQlitGm6IFJb_1COZETXr1hTJjW6lFSUJUhNfS5T5xuE-jND9b7v6cNVghof_Y89UdrLtVI_Mp1V7O3APyGCsIpkizpTRvz5WJePd2xHy1_GIDT0AGT1UdGfXKMRuPwa_Ip0UfU_ZZbhD5c8lQ">
+<img alt="Old Delhi street food" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwTsj1n1tfSCu89fDa7jtSee8Hsb5msmyyWMiXiFHRDU_tylhpncSdVqkintVzGpwEK_Vrk19TdTWIUs10jhlmL8CVJhEXqWSq84HSyQlitGm6IFJb_1COZETXr1hTJjW6lFSUJUhNfS5T5xuE-jND9b7v6cNVghof_Y89UdrLtVI_Mp1V7O3APyGCsIpkizpTRvz5WJePd2xHy1_GIDT0AGT1UdGfXKMRuPwa_Ip0UfU_ZZbhD5c8lQ">
+</div>
+<div class="p-6 flex flex-col gap-3 flex-grow">
+<h4 class="font-headline-md text-[20px] text-primary group-hover:text-secondary transition-colors leading-tight">Old Delhi Street Food Survival Guide</h4>
+<div class="flex items-center gap-2 text-text-gray font-label-sm mt-auto pt-4">
+<span class="">Feb 02, 2026</span>
+<span class="">•</span>
+<span class="">8 min read</span>
+</div>
+</div>
+</div>
+<div class="snap-start shrink-0 w-full md:w-[calc(33.333%-1.33rem)] bg-white rounded-2xl shadow-sm border border-outline-variant overflow-hidden flex flex-col group cursor-pointer hover:shadow-floating transition-all">
+<div class="h-48 overflow-hidden relative">
+<img alt="Traveler using smartphone in rural India" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYWYnTudFhpCRs4wE-Gy8Nh-iO3C0xRUGqU0ZFPT2YtbzmvIgiPxILZnVdmfUYGv1X5rEckLaKc0npVad2dZjPK1DAuWnul3Sg4eiP3mNpLvQzUGoCYIBh7HMxkCmQhqw1tK3dgutQQrkgJHHwT1Tz0XXn_wi3EW3f_kP8J7uKNkXikgWESc3FKajQxBU125gu_MbSRBkzX5dk5V-otnENZDVJDSJyK_Wj8QTEbyPLK0KsazASfYDPQ">
+<img alt="Traveler using smartphone in rural India" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYWYnTudFhpCRs4wE-Gy8Nh-iO3C0xRUGqU0ZFPT2YtbzmvIgiPxILZnVdmfUYGv1X5rEckLaKc0npVad2dZjPK1DAuWnul3Sg4eiP3mNpLvQzUGoCYIBh7HMxkCmQhqw1tK3dgutQQrkgJHHwT1Tz0XXn_wi3EW3f_kP8J7uKNkXikgWESc3FKajQxBU125gu_MbSRBkzX5dk5V-otnENZDVJDSJyK_Wj8QTEbyPLK0KsazASfYDPQ">
+</div>
+<div class="p-6 flex flex-col gap-3 flex-grow">
+<h4 class="font-headline-md text-[20px] text-primary group-hover:text-secondary transition-colors leading-tight">Best Offline Apps for Rural Travel</h4>
+<div class="flex items-center gap-2 text-text-gray font-label-sm mt-auto pt-4">
+<span class="">Feb 15, 2026</span>
+<span class="">•</span>
+<span class="">5 min read</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-white shadow-md border border-outline-variant flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors" onclick="scrollBlogCarousel(-1)"><span class="material-symbols-outlined">arrow_left</span></button>
+<button class="w-10 h-10 rounded-full bg-white shadow-md border border-outline-variant flex items-center justify-center text-primary hover:bg-surface-container-low transition-colors" onclick="scrollBlogCarousel(1)"><span class="material-symbols-outlined">arrow_right</span></button>
+</div>
+</div>
+</section>
+<!-- Personal guide CTA -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background pb-32">
+<div class="max-w-container-max mx-auto">
+<div class="bg-primary-fixed rounded-[32px] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden relative shadow-ambient">
+<div class="md:w-1/2 flex flex-col gap-6 z-10">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary leading-tight">Carry Karwan With You, Everywhere</h2>
+<p class="font-body-lg text-on-primary-container">Get live alerts, access verified trust scores offline, and let Auto-heal watch your back while you explore.</p>
+<div class="flex flex-wrap gap-4 pt-4"><button class="px-8 py-3.5 rounded-[20px] bg-primary text-white font-label-md shadow-lg hover:bg-tertiary transition-all duration-300 hover:scale-105 flex items-center gap-2">
+    <span class="material-symbols-outlined">download</span>
+    Download Application
+</button></div>
+</div>
+<div class="md:w-1/2 relative h-[300px] md:h-[400px] w-full flex justify-center items-center z-10">
+<!-- Placeholder for tilted phone mockup -->
+<div class="w-[200px] h-[400px] bg-white rounded-[30px] shadow-2xl border-8 border-gray-800 rotate-12 absolute transform translate-y-10 flex flex-col overflow-hidden">
+<div class="bg-primary h-16 w-full flex items-center justify-center"><span class="text-white font-bold text-sm">KARWAN</span></div>
+<div class="p-4 flex flex-col gap-3 flex-grow bg-surface-container-lowest">
+<div class="bg-surface-container rounded-lg p-3">
+<p class="text-xs text-text-gray">Current Route</p>
+<p class="text-sm font-bold">Delhi to Agra</p>
+</div>
+<div class="bg-secondary/10 border border-secondary/30 rounded-lg p-3">
+<p class="text-xs text-secondary font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">warning</span> Live Alert</p>
+<p class="text-sm text-primary">Heavy traffic ahead. Route updated to save 45 mins.</p>
+</div>
+<div class="bg-surface-container rounded-lg p-3 mt-auto">
+<p class="text-xs text-text-gray">Verified Guide</p>
+<p class="text-sm font-bold">Anil Sharma (4.9★)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative background circle -->
+<div class="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/4 w-[500px] h-[500px] bg-white/40 rounded-full blur-3xl z-0 pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- 7. For Partners -->
+
+<!-- Footer Rebuild -->
+<footer class="bg-primary w-full pt-20 pb-8 border-t border-white/5">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Col 1 -->
+<div class="md:col-span-3 flex flex-col gap-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-white rounded flex items-center justify-center p-1">
+<img alt="Karwan Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD9NBlgo54q18hiNeDgmlY2GtWY9yoPx8emr0DoVGkymieQLZMwCn4chzPYAJ0ynvtdlijlKHUls-yAC_jtKNspFTviMLQuWVxEG4l4a_0FiO4_jeUtt3uRk9dKfPXzJmjLiJtCRcL_gUY6vE4t8xtu6WmckdzRSC3NWo-s0FK4IpnU862PjECDSIoymdXH1tgjdjD9FSI9nhb5rbMvTNV8XbkNlqThe5NqXn70POdHB7RMcBer3FAyDDB7PlH9kkdt3Q">
+</div>
+<span class="font-headline-md text-headline-md font-bold text-pure-white">KARWAN</span>
+</div>
+<p class="text-white/70 font-body-sm">Travel with the trust of a local who's already been there. Empowering smarter, safer journeys across India.</p>
+<div class="flex gap-4 mt-2">
+<!-- Placeholder social icons -->
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">public</span></a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">photo_camera</span></a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[20px]">chat</span></a>
+</div>
+</div>
+<!-- Col 2 -->
+<div class="md:col-span-2 flex flex-col gap-4">
+<h4 class="font-label-md text-[18px] text-pure-white font-bold mb-2">Pages</h4>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">Home</a>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">Features</a>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">Pricing</a>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">Blog</a>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">Contact</a>
+</div>
+<!-- Col 3 -->
+<div class="md:col-span-3 flex flex-col gap-4">
+<h4 class="font-label-md text-[18px] text-pure-white font-bold mb-2">Utility</h4>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">Style Guide</a>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">404 Page</a>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">Change Log</a>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-white/60 hover:text-secondary-fixed transition-colors" href="#">Terms &amp; Conditions</a>
+</div>
+<!-- Col 4 -->
+<div class="md:col-span-4">
+<div class="bg-primary-fixed rounded-2xl p-6 flex flex-col gap-4 shadow-sm">
+<h4 class="font-headline-md text-primary text-[20px]">Subscribe to Our Weekly Updates</h4>
+<p class="font-body-sm text-on-primary-container">Get the latest travel tips, local insights, and platform updates delivered straight to your inbox.</p>
+<form class="flex flex-col gap-3 mt-2">
+<input class="w-full px-4 py-3 rounded-lg bg-white border-0 text-primary placeholder:text-text-gray focus:ring-2 focus:ring-secondary" placeholder="Enter your email" required="" type="email">
+<button class="w-full px-6 py-3 rounded-[20px] bg-secondary text-white font-label-md hover:bg-success-green transition-colors" type="submit">Subscribe</button>
+</form>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-sm text-sm text-white/40">
+                    © 2026 Karwan. All rights reserved.
+                </p>
+<p class="font-label-sm text-sm text-white/40">
+                    Built for Smart India Hackathon
+                </p>
+</div>
+</footer>
+</main>
+<script>
+    const travelers = [
+        {
+            name: "Priya S.",
+            type: "Solo Traveller, Jaipur",
+            quote: "\"I used to get scammed on auto fares constantly. Karwan's LiveTrail feature gave me the exact amount I should be paying. Total game changer.\"",
+            date: "Oct 12, 2025",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8joQxQ-T5hfs89UcvXpu7JbxdOa2pmuosXWTE3xjXVY_sF0eSQWW-AVW2SjW-ef4q_GYJSxdU79IkAX2_Hl1_j2P8oa9YzUbLCN0cd2qGcmAA7RND3rKjwpKuy--lfVJ1ED8e1XOvsSeSTMctYFXajvf1qZzcEAbwvaY7I2tnN8UOlb_IZDcLLgQPBbQO9w57DBd5J25pAZ1UX9oEeS4Ud3iC5w2DhzSdkH7gTuBos66KxWRWbJ-MEg"
+        },
+        {
+            name: "Rahul M.",
+            type: "Family Trip, Kerala",
+            quote: "\"When our train got delayed by 4 hours, Auto-heal instantly suggested alternative bus routes and a highly-rated nearby homestay for the wait.\"",
+            date: "Nov 04, 2025",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuA7SoaoK-ob2zDyopOQq7cJWl1M3Q2hjdxbKBnMLxJnxLOF1NugOY-3jC_YmIZouiged1NNMyWT7rGYzI_dir7O-UCgrsf_oPKAymBwn_HvLT1ult7Ygz_AlkD16ejDIazlsinn96sJIFC2yZEjcOG8Zt69TWjmOirJruA2ABy8tQ95YKZvGwHO2PreSkMtNsSxPGbBhp58ufKYSkXAeZe1hKtb0pb4L-xN2Q_5qWewxB7Z3Y11E_vCyw"
+        },
+        {
+            name: "Ayesha K.",
+            type: "Backpacker, Varanasi",
+            quote: "\"TrustRadar helped me find a guide who was actually knowledgeable, not just trying to take me to his cousin's shop. The verified status means something.\"",
+            date: "Dec 18, 2025",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAZ9ycSofy2xc56-X2ZJXlV15u0W9qsC1C8LLq7h4mSdMyJXJ6D_l6j9_HbtyNQz8lpXWK-2i9m2DeG0syz5EWC38JON6tK3ivtjq6WoV2aSWd7f9ClpWkb23o-4HPHpwER1kumxrlrOYrqMFUNhGfGJ5Zd-4X-0tzpxvR_r1tZ7EUycpZEYTzV0fzNwWxV6QpJQmhZW8zRCqtDHq4U3tyZywrfm5ddEGvoSu3bsvVZElH6vdWBafL6Rg"
+        },
+        {
+            name: "Vikram L.",
+            type: "Business, Delhi",
+            quote: "\"The DigiLocker integration gave me peace of mind instantly. Knowing that vendors are identity-verified makes corporate travel much less stressful.\"",
+            date: "Jan 02, 2026",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAInFf4--NoBPtyOYeH0TtrtzAbChfTbJn76SNXuEHtmpPKiPCbRr_wtsolcPh94SpocqXUN0p3zLkeOKzajLHKegTFg93N5qfQKEjL-ZVYAbDei2eiGYRDo_sAHr5rARswgGeBsFTLuSkL8elIEtOohZjiOFxrxztqsHDz-OsWf6Kkaz96F8JmJ0oLYnMednE3p9Gsppza2_RIzRbPJ1-k0W9A-oig4Zyyo1M6FTq-BEF5LgZIxM3KOg"
+        },
+        {
+            name: "Sneha P.",
+            type: "Solo Traveller, Mumbai",
+            quote: "\"Live crowding data for the caves saved me from a 3-hour line. I rescheduled for the afternoon right through the app when things cleared up.\"",
+            date: "Feb 14, 2026",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDG6eCcOcOs7QIhIbjV_xkx804ZihRuuER7fPkIXT0lzcMy220JeYRGxCuGyBx62GyQjZqC1NwVtaSDW4op2pSy12OZQa4zAeFyRcgh-h8UBJR_c9m3oK76-djorSVxTg3zVP4CBn2D2CShpQRY7oB6vyRZ_kuUruPdRcWE60nbM5yAB2AjH-LrmBWJp6rlziTUgnIVgXHYiDDbc5V-iQP3WlcJr_SbDYedArvT7uutifNQMs7J42GAVA"
+        },
+        {
+            name: "Rohan D.",
+            type: "Road Trip, Bangalore",
+            quote: "\"Ground Truth updates on highway amenities are incredibly accurate. We knew exactly which dhabas actually had clean washrooms before arriving.\"",
+            date: "Mar 05, 2026",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAf0fBpI8PLzlQnbwnKq8yt80NGqrn3EY4nEXD3OPuBRcfDstA70pslkxsPOukgsL5EXBq313WeFzdhmMjCLjI5M7guzuh8jEVPWgEENLrJ1zn0ClnpUZ0kZO_LMoOJ6RJDVfki6YScRxG8WnLtKG4a4o0BguEqEvqazE5ptHMA5g2MzedSntdYpUQo5rjpPwSrx1vEaUA1QSEXdOupbzdscf4VkwUcQ4Lf8gUVWkEACC6xUZ7aKq95sA"
+        },
+        {
+            name: "Meera K.",
+            type: "Family Trip, Kolkata",
+            quote: "\"Booking local stays used to be a gamble. TrustRadar scores reflect recent reality, not five-year-old reviews. Our homestay was perfect.\"",
+            date: "Apr 11, 2026",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBbtqDj1fkZMG4TQIdwivFrdgTpkwak83a_D2zKNzN-xKUwy2gFl4LEKAktjGiQRPy4Ri3-xcpuvlw5hnQ0LFfGibviSct4snDlCMc1ne7G3XVSEVJPLVGAF68OANA6cFaLr5JA-mG6kw1yUsPi7Hyu9ArFp5IFnnECWd8r35b4KXYdQsDw2MlS8R5CqzFNxIQD2A2XtRRQ6V1WBdsuns3rc7zLuJSP44sq6ZMOXllQ1R8Bm-NAGkGsOA"
+        },
+        {
+            name: "Arjun V.",
+            type: "Backpacker, Pune",
+            quote: "\"Auto-heal rerouted my entire multi-city bus journey when the main highway flooded. I didn't have to lift a finger or panic.\"",
+            date: "May 22, 2026",
+            img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDcZvRfWXS-uS6iUpsc3pAM-eqPu0k2thH4LLt_hSrUe7KrS9CYtklSkFUcVTQlUmuZ9B0n3VMF3cHBxHeekqPY_A6H5FWhLmPleV6_NMJOKsAgVm8M0z-bfer6v7jGXdU7gPkrr_ms57Q_J7_6ual-VcWyCxjrvt1SgilBrq5m6XA5IRY4grIlj_WupyAFDprMUdxxO-yJHDKUEjoQoay83Ctj3smPVDZvuxkQzCNmuZDnfHTAxXUIew"
+        }
+    ];
+
+    let currentIndex = 0;
+    const avatarContainer = document.getElementById('avatar-container');
+    const testimonialContainer = document.getElementById('testimonial-container');
+
+    function renderAvatars() {
+        avatarContainer.innerHTML = '';
+        
+        const numVisible = window.innerWidth < 768 ? 3 : 5;
+        const halfVisible = Math.floor(numVisible / 2);
+        
+        for (let i = -halfVisible; i <= halfVisible; i++) {
+            let index = (currentIndex + i) % travelers.length;
+            if (index < 0) index += travelers.length;
+            
+            const isCenter = i === 0;
+            const sizeClass = isCenter ? 'w-24 h-24 md:w-32 md:h-32' : (Math.abs(i) === 1 ? 'w-16 h-16 md:w-20 md:h-20' : 'w-12 h-12 md:w-16 md:h-16 hidden md:block');
+            
+            const t = travelers[index];
+            const div = document.createElement('div');
+            div.className = `carousel-avatar relative rounded-full overflow-hidden ${sizeClass} ${isCenter ? 'active' : ''}`;
+            div.onclick = () => setTraveler(index);
+            
+            div.innerHTML = `
+                <img src="${t.img}" alt="${t.name}" class="w-full h-full object-cover">
+                ${isCenter ? `
+                <div class="absolute bottom-0 inset-x-0 bg-black/60 p-1 md:p-2 text-center opacity-0 hover:opacity-100 transition-opacity">
+                    <p class="text-white text-[10px] md:text-xs font-bold truncate">${t.name}</p>
+                </div>` : ''}
+            `;
+            
+            avatarContainer.appendChild(div);
+        }
+    }
+
+    function renderTestimonial() {
+        const t = travelers[currentIndex];
+        
+        testimonialContainer.classList.remove('fade-in');
+        testimonialContainer.classList.add('fade-out');
+        
+        setTimeout(() => {
+            testimonialContainer.innerHTML = `
+                <div class="flex items-center gap-4">
+                    <img src="${t.img}" alt="${t.name}" class="w-16 h-16 rounded-full object-cover border-2 border-secondary/20">
+                    <div>
+                        <p class="font-headline-md font-bold text-[20px] text-primary">${t.name}</p>
+                        <p class="font-label-sm text-secondary tracking-wide uppercase mt-1">${t.type}</p>
+                    </div>
+                </div>
+                <p class="font-body-lg text-text-gray italic leading-relaxed">${t.quote}</p>
+                <div class="mt-auto pt-4 border-t border-outline-variant/50 flex justify-end">
+                    <p class="font-label-sm text-outline">${t.date}</p>
+                </div>
+            `;
+            
+            testimonialContainer.classList.remove('fade-out');
+            testimonialContainer.classList.add('fade-in');
+        }, 300);
+    }
+
+    function setTraveler(index) {
+        if (index === currentIndex) return;
+        currentIndex = index;
+        renderAvatars();
+        renderTestimonial();
+    }
+
+    function prevTraveler() {
+        currentIndex = (currentIndex - 1 + travelers.length) % travelers.length;
+        renderAvatars();
+        renderTestimonial();
+    }
+
+    function nextTraveler() {
+        currentIndex = (currentIndex + 1) % travelers.length;
+        renderAvatars();
+        renderTestimonial();
+    }
+
+    // Init
+    window.addEventListener('resize', renderAvatars);
+    renderAvatars();
+    renderTestimonial();
+
+    function scrollBlogCarousel(direction) {
+        const carousel = document.getElementById('blog-carousel');
+        const cardWidth = carousel.firstElementChild.offsetWidth;
+        const gap = 32; // gap-8 = 2rem = 32px
+        carousel.scrollBy({ left: direction * (cardWidth + gap), behavior: 'smooth' });
+    }
+    
+    function toggleFaq(button) {
+        const item = button.closest('.faq-item');
+        const content = item.querySelector('.faq-content');
+        const icon = item.querySelector('.faq-icon');
+        const isExpanded = !content.classList.contains('hidden');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(el => {
+            el.querySelector('.faq-content').classList.add('hidden');
+            el.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+        });
+
+        // Toggle current
+        if (!isExpanded) {
+            content.classList.remove('hidden');
+            icon.style.transform = 'rotate(180deg)';
+        }
+    }
+
+    // Traveller Tabs functionality
+    const travelerTabsData = [
+        {
+            image: "https://lh3.googleusercontent.com/aida/AEtjO1XNqGnFX6Irmu2pOYIvh90BKxL6duERYDApYL4x06TaYop9NB0P3w-akjZxLnM7-vFRwVq_Qmepy81IGac7nfGuHadp4FcSXmLYUO4hyPsPam7vK6SQX1g3EsezVWYZV7Gx5PUxrQAYBWWSMlnsdc3GwlAgxXIjJxBk_F9BeC5VAzsfFfj5-tg-vU9Tbl87W5HTz92PMgS5JKiUaaArwGpIMidW2YCf62PN6sXczZReChqpISMsSMwZS-5d",
+            caption: "Navigate chaotic streets and hidden alleys with confidence, knowing verified data has your back.",
+            stat: "10,000+ Verified Fares Checked This Month"
+        },
+        {
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAqZ6KHhLS7K9kkHYf141AKxC-nRNtrF97aO2azbwf4FRa6bKKqZIfpG3jAJ4XwbVnJ79ZHYBH27hJGoKdM6euk8WwUzDkuzKLSekAgUa5yjO3rLdranZP-LNsn5llI1ETwB0UQmpl4O8CFe73T0VVGu0ymRVlnFxeau2-eOqVmrE17e6cUPtkPuc1T9Ft4taFiUqUa5QdCMqYCW21XXbSrM2SMjCG6r4PW2WdousWGpOyw8oTdxFTZrg",
+            caption: "Keep your family safe and comfortable with verified homestays and self-healing itineraries.",
+            stat: "5,000+ Safe Stays Verified"
+        },
+        {
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCZvyi7uXs_3weYkJp4FlukUKk3R_cZzt4bcEvtROIcjSCflkq8jpxsEAG7Prky_hyWQ3cpWAU924bOGEx_2zKLtAxwuvutHOqjmssVBHQFbgw6rIxU1aawu9cNiefkdYTPI3nuaHbyxIt77IBUx7BpXQCXemPErxNqlcC8XkEqtpSHM2nPEVGIRfcq-XYK4OB8h0UTzpqkitUUAZjIwHYX0bBrrPPUwvNshGAdwRXUsMrogDPDSQ__sA",
+            caption: "Explore the hidden gems of India with real-time crowd alerts and verified low-cost transport.",
+            stat: "15,000+ Hidden Gems Mapped"
+        },
+        {
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_m9wXiX9-KzAEodqDqfkLklr-hRoQg7XUhN2M18wEyTA4Zs7U7jimcIR43GgzHaEhQMCKQMUJiN77hvm_t_qP7BE4jF86JKiSieG9QuWGJWJQ5LiZwYbDuUI2U0RCa5iax90D-cuPL5Et_dIGYKT4-fZLu3_9-vFVTi3WTTKFwHUvAgKNEwdpEMDNlQZdRQ1lCroIGO1X9x6CVBYTCAVR6cX1bocgbxep0RXnpK0dSJSzYzwWnbR99w",
+            caption: "Never miss a meeting with auto-healing transit and high-speed Wi-Fi verification for all stays.",
+            stat: "99% On-Time Arrival Rate"
+        }
+    ];
+
+    function switchTravelerTab(index) {
+        const btns = document.querySelectorAll('.tab-btn');
+        const img = document.getElementById('traveller-tab-img');
+        const caption = document.getElementById('traveller-tab-caption');
+        const stat = document.getElementById('traveller-tab-stat');
+        const data = travelerTabsData[index];
+
+        // Update Buttons
+        btns.forEach((btn, i) => {
+            if (i === index) {
+                btn.className = "px-6 py-2.5 rounded-full bg-secondary text-white font-label-md shadow-md tab-btn transition-colors border border-transparent";
+            } else {
+                btn.className = "px-6 py-2.5 rounded-full bg-white text-text-gray hover:bg-surface-container-low font-label-md border border-outline-variant shadow-sm transition-colors tab-btn";
+            }
+        });
+
+        // Smooth transition
+        img.style.opacity = 0;
+        caption.style.opacity = 0;
+        stat.style.opacity = 0;
+
+        setTimeout(() => {
+            img.src = data.image;
+            caption.textContent = data.caption;
+            stat.textContent = data.stat;
+            
+            img.style.opacity = 1;
+            caption.style.opacity = 1;
+            stat.style.opacity = 1;
+        }, 300);
+    }
+</script>
+
+
+</body></html>
