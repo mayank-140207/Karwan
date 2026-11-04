@@ -91,6 +91,7 @@ export default function App() {
 
           {/* Directory (7) */}
           <Route path="/directory" element={<GroundTruthDirectoryPage />} />
+          <Route path="/explore/:city" element={<GroundTruthDirectoryPage />} />
           <Route path="/directory/stays/pine-ridge-cabin" element={<PineRidgeCabinPage />} />
           <Route path="/directory/stays/heritage-haveli" element={<HeritageHaveliPage />} />
           <Route path="/directory/stays/mewar-palace-villa" element={<MewarPalaceVillaPage />} />

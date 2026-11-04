@@ -1,0 +1,14 @@
+{
+  "url": "http://localhost:5173/",
+  "title": "KARWAN - Travel with the trust of a local",
+  "allButtons": 22,
+  "allLinks": 35,
+  "consoleErrors": [],
+  "pageErrors": [],
+  "passed": true,
+  "screenshots": {
+    "desktop_1280": "frontend/screenshots/landing-rebuild/landing_1280px.png",
+    "tablet_768": "frontend/screenshots/landing-rebuild/landing_768px.png",
+    "mobile_375": "frontend/screenshots/landing-rebuild/landing_375px.png"
+  }
+}
