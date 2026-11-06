@@ -8,7 +8,7 @@ import LandingNav from '../components/landing/LandingNav';
 import HeroSection from '../components/landing/HeroSection';
 import LiveProductDemo from '../components/landing/LiveProductDemo';
 import StatsRow from '../components/landing/StatsRow';
-import ScreensCatalogModal from '../components/landing/ScreensCatalogModal';
+import CommandPaletteModal from '../components/landing/CommandPaletteModal';
 
 // Lazy-load sections below the fold for optimal Lighthouse Performance (>85)
 const ScrollStorySection = lazy(() => import('../components/landing/ScrollStorySection'));
@@ -35,8 +35,10 @@ function SectionLoadingFallback({ height = 'h-64' }) {
 }
 
 export default function LandingPage() {
-  const [screensModalOpen, setScreensModalOpen] = useState(false);
+  const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
   const [selectedDemoTab, setSelectedDemoTab] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Initialize Lenis Smooth Scroll with GSAP ScrollTrigger Synchronization
   useEffect(() => {
@@ -68,10 +70,65 @@ export default function LandingPage() {
     };
   }, []);
 
+  // Call ScrollTrigger.refresh() after images load to ensure exact trigger positions
+  useEffect(() => {
+    const handleImageLoad = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener('load', handleImageLoad);
+    return () => window.removeEventListener('load', handleImageLoad);
+  }, []);
+
+  // Track scroll progress for 2px top bar and Back-To-Top button (>600px)
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll > 0) {
+        setScrollProgress(Math.min(1, Math.max(0, currentScroll / totalScroll)));
+      }
+      setShowBackToTop(currentScroll > 600);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Global keyboard shortcut for Command Palette (Cmd+K / Ctrl+K)
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setCommandPaletteOpen((prev) => !prev);
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <div className="min-h-screen bg-background text-on-surface antialiased font-sans selection:bg-secondary/20 selection:text-primary">
-      {/* 1. Nav (Fixed, with Modules mega-menu, logo, login, get started) */}
-      <LandingNav onOpenScreensModal={() => setScreensModalOpen(true)} />
+    <div className="min-h-screen bg-background text-on-surface antialiased font-sans selection:bg-secondary/20 selection:text-primary relative">
+      {/* 3. 2px green scroll-progress line along the top edge of the page */}
+      <div
+        className="fixed top-0 left-0 right-0 h-[2px] bg-transparent z-[60] pointer-events-none"
+        role="progressbar"
+        aria-label="Page scroll progress"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(scrollProgress * 100)}
+      >
+        <div
+          className="h-full bg-secondary origin-left transition-transform duration-75 ease-out"
+          style={{ transform: `scaleX(${scrollProgress})` }}
+        />
+      </div>
+
+      {/* 1. Nav (Fixed, with real --header-h, Modules mega-menu, logo, search button with ⌘K, login, get started) */}
+      <LandingNav onOpenSearchPalette={() => setCommandPaletteOpen(true)} />
 
       <main>
         {/* 2. Hero Section: Editorial headline, italic accent phrase, city search, faint grid background, module chips */}
@@ -111,7 +168,7 @@ export default function LandingPage() {
           <OrbitTrustLayer />
         </Suspense>
 
-        {/* 10. How It Works: Pinned horizontal scroll / responsive cards (01 Plan, 02 Travel with live data, 03 Auto-heal, 04 Verify and give back) */}
+        {/* 10. How It Works: Pinned horizontal scroll / responsive cards with one-line green benefits */}
         <Suspense fallback={<SectionLoadingFallback height="h-[500px]" />}>
           <HowItWorksSection />
         </Suspense>
@@ -123,14 +180,27 @@ export default function LandingPage() {
 
         {/* 12. Final Dark CTA Card ("See it running on your route.") + Footer with oversized faded Karwan wordmark */}
         <Suspense fallback={<SectionLoadingFallback height="h-[600px]" />}>
-          <FinalCtaFooter onOpenScreensModal={() => setScreensModalOpen(true)} />
+          <FinalCtaFooter />
         </Suspense>
       </main>
 
-      {/* 35 Screens Catalog Modal */}
-      <ScreensCatalogModal
-        isOpen={screensModalOpen}
-        onClose={() => setScreensModalOpen(false)}
+      {/* 7. Back-to-top button, bottom-right, appearing after 600px of scroll */}
+      <button
+        type="button"
+        onClick={handleScrollToTop}
+        className={`fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary text-white border border-white/20 shadow-floating flex items-center justify-center transition-all duration-300 hover:bg-secondary hover:scale-105 active:scale-95 ${
+          showBackToTop ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+        aria-label="Back to top"
+        title="Back to top"
+      >
+        <span className="material-symbols-outlined text-xl">arrow_upward</span>
+      </button>
+
+      {/* 2. Command Palette Modal (⌘K / Ctrl+K) */}
+      <CommandPaletteModal
+        isOpen={commandPaletteOpen}
+        onClose={() => setCommandPaletteOpen(false)}
       />
     </div>
   );

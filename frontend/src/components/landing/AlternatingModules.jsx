@@ -1,198 +1,198 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function AlternatingModules() {
+  const sectionRef = useRef(null);
+
   const modules = [
     {
       id: 'livetrail',
       step: '01',
       name: 'LiveTrail',
-      tagline: 'Real-Time Transit & Actual Going-Fares',
-      desc: 'Eliminate transit anxiety and unverified tourist markups. LiveTrail collects verified going-fares directly from recent riders, showing real crowd levels and dynamic arrival estimates across local transit corridors.',
-      bullets: [
-        'Verified going-fare rates crowdsourced from recent riders (last 2 hours)',
-        'Live passenger crowding meters before boarding local buses, autos, or ferries',
-        'Corridor progress tracking with proactive transfer notifications'
-      ],
+      tagline: 'Real-Time Transit & Fares',
+      desc: 'Crowdsourced going-fare intelligence and live passenger crowding for local transit corridors.',
+      chips: ['Going-fares', 'Live Crowding', 'Zero Tout Markup'],
       link: '/trip/livetrail',
-      linkText: 'Explore LiveTrail',
-      reversed: false,
-      mockup: {
-        badge: 'CORRIDOR TELEMETRY',
-        title: 'Mathura Junction → Vrindavan',
-        statLabel: 'Rider Verified Going-Rate',
-        statValue: '₹20 – ₹25',
-        crowd: 'Moderate Crowding (42%)',
-        meta: 'Reported by 14 recent passengers today',
-        accentColor: 'border-emerald-500/30 bg-emerald-50/50'
-      }
+      image: '/images/tab_solo_explorer.webp',
+      badgeColor: 'bg-emerald-500/20 text-emerald-300 border-emerald-400/30'
     },
     {
       id: 'trustradar',
       step: '02',
       name: 'TrustRadar',
-      tagline: 'Community Safety & Local Guide Discovery',
-      desc: 'Navigate unfamiliar streets and heritage quarters with confidence. TrustRadar scores street-level safety indicators and connects you with accredited local cultural guides who pledge zero commission kickbacks.',
-      bullets: [
-        'Real-time neighborhood safety confidence index and street-lighting telemetry',
-        'Discovery of accredited cultural guides with verified KARWAN IDs',
-        'Fair-trade artisan vendor directory protected from inflated commission markups'
-      ],
+      tagline: 'Community Safety & Guides',
+      desc: 'Real-time safety confidence scoring, street-lighting telemetry, and accredited cultural guides.',
+      chips: ['Safety Radar', 'Accredited Guides', 'Artisan Guilds'],
       link: '/trip/trustradar',
-      linkText: 'Explore TrustRadar',
-      reversed: true,
-      mockup: {
-        badge: 'COMMUNITY SAFETY RADAR',
-        title: 'Vidyapeeth Marg & Temple Quarter',
-        statLabel: 'Safety Confidence Score',
-        statValue: '94 / 100',
-        crowd: 'Solo Traveller Friendly Presence',
-        meta: 'Verified Cultural Guide: Rajesh Gupta (#UP-9821)',
-        accentColor: 'border-blue-500/30 bg-blue-50/50'
-      }
+      image: '/images/tab_family_traveller.webp',
+      badgeColor: 'bg-blue-500/20 text-blue-300 border-blue-400/30'
     },
     {
       id: 'autoheal',
       step: '03',
       name: 'Auto-heal',
       tagline: 'Dynamic Itinerary Recalibration',
-      desc: 'Domestic travel in India is dynamic. When roads, ghats, or temples close for festivals or weather events, Auto-heal instantly suggests verified detour routes and alternate stays so your journey stays on schedule.',
-      bullets: [
-        'Instant detour calculation bypassing roadblocks and religious processions',
-        'Alternate verified stay recommendations within your chosen budget',
-        'Seamless schedule synchronization without requiring manual replanning from scratch'
-      ],
+      desc: 'Automatic detour suggestions and stay rebalancing when unexpected temple or road closures strike.',
+      chips: ['Dynamic Detours', 'Timeline Sync', 'Stay Fallbacks'],
       link: '/trip/itinerary',
-      linkText: 'Explore Auto-heal',
-      reversed: false,
-      mockup: {
-        badge: 'ADAPTIVE RE-ROUTE',
-        title: 'Chhatikara Obstruction Bypassed',
-        statLabel: 'Delay Averted',
-        statValue: '34 Minutes',
-        crowd: 'Gandhi Marg Alternative Route Active',
-        meta: 'Seamlessly updated across all daily waypoints',
-        accentColor: 'border-amber-500/30 bg-amber-50/50'
-      }
+      image: '/images/tab_business_traveller.webp',
+      badgeColor: 'bg-amber-500/20 text-amber-300 border-amber-400/30'
     },
     {
       id: 'groundtruth',
       step: '04',
       name: 'Ground Truth',
-      tagline: 'Stay Utility Telemetry & Guest Audits',
-      desc: 'Never arrive to cold water or dead power. Ground Truth tracks live sensors for continuous water, Wi-Fi speed, and electricity backup, backed by recent geotagged guest photographs captured on-site.',
-      bullets: [
-        'Recent geotagged guest photographs captured within the past 48 hours',
-        'Live telemetry confirming continuous water, Wi-Fi speed, and power backup',
-        '100% objective accommodation audits independent of sponsored placement'
-      ],
+      tagline: 'Stay Utility Telemetry',
+      desc: 'Evidence-based stay verification: continuous water, backup power, Wi-Fi speed, and guest photos.',
+      chips: ['Continuous Water', 'Dual Genset', 'Geotagged Audits'],
       link: '/directory',
-      linkText: 'Explore Ground Truth',
-      reversed: true,
-      mockup: {
-        badge: 'LIVE SENSOR TELEMETRY',
-        title: 'The Heritage Haveli Stay',
-        statLabel: 'Utility Continuity Score',
-        statValue: '100% Operational',
-        crowd: 'Fiber Wi-Fi: 78 Mbps · Solar Water Active',
-        meta: 'Dual generator backup standing by on grid drop',
-        accentColor: 'border-purple-500/30 bg-purple-50/50'
-      }
+      image: '/images/pine_ridge_cabin_exterior.webp',
+      badgeColor: 'bg-purple-500/20 text-purple-300 border-purple-400/30'
     }
   ];
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.innerWidth < 768;
+
+    if (prefersReducedMotion || isMobile || !sectionRef.current) {
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      // 5. Four tall photo cards with initial rotateY of -12°, -4°, 4°, 12°
+      // Straighten to 0 as section scrolls into view (scrub)
+      const angles = [-12, -4, 4, 12];
+      const cardEls = gsap.utils.toArray('.module-perspective-card');
+
+      cardEls.forEach((card, idx) => {
+        gsap.fromTo(
+          card,
+          {
+            rotateY: angles[idx],
+            transformPerspective: 1200
+          },
+          {
+            rotateY: 0,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 85%',
+              end: 'center 45%',
+              scrub: 0.8,
+              invalidateOnRefresh: true
+            }
+          }
+        );
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="py-20 px-margin-mobile md:px-margin-desktop bg-surface-container-low/40">
-      <div className="max-w-6xl mx-auto space-y-24">
-        {modules.map((m) => (
-          <div
-            key={m.id}
-            className={`grid grid-cols-1 lg:grid-cols-12 gap-12 items-center ${
-              m.reversed ? 'lg:flex-row-reverse' : ''
-            }`}
-          >
-            {/* Text Side */}
-            <div className={`lg:col-span-6 space-y-5 ${m.reversed ? 'lg:order-2' : 'lg:order-1'}`}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-surface-container-high text-xs font-mono font-bold text-secondary">
-                <span>MODULE {m.step}</span>
-              </div>
-              <h3 className="font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight">
-                {m.name}: <span className="text-secondary">{m.tagline}</span>
-              </h3>
-              <p className="font-sans text-base text-text-gray leading-relaxed">
-                {m.desc}
-              </p>
-
-              {/* 3 Check Bullets */}
-              <ul className="space-y-3 pt-2">
-                {m.bullets.map((bullet, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-primary">
-                    <span className="w-5 h-5 rounded-full bg-secondary/15 text-secondary flex items-center justify-center shrink-0 mt-0.5">
-                      <span className="material-symbols-outlined text-sm font-bold">check</span>
-                    </span>
-                    <span className="leading-snug">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="pt-4">
-                <Link
-                  to={m.link}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary hover:bg-primary-container text-white text-sm font-semibold transition-colors shadow-ambient"
-                >
-                  <span>{m.linkText}</span>
-                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                </Link>
-              </div>
-            </div>
-
-            {/* Device Mockup Side */}
-            <div className={`lg:col-span-6 ${m.reversed ? 'lg:order-1' : 'lg:order-2'}`}>
-              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-floating border border-surface-container-high relative overflow-hidden group hover:border-secondary/40 transition-colors">
-                <div className="flex items-center justify-between pb-4 border-b border-surface-container-high/60 text-xs text-text-gray">
-                  <span className="font-mono font-semibold uppercase tracking-wider text-secondary">
-                    {m.mockup.badge}
-                  </span>
-                  <span className="flex items-center gap-1 text-emerald-700 font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    Verified Live
-                  </span>
-                </div>
-
-                <div className="my-6 space-y-4">
-                  <h4 className="font-serif text-2xl font-bold text-primary">
-                    {m.mockup.title}
-                  </h4>
-
-                  <div className={`p-5 rounded-2xl border ${m.mockup.accentColor}`}>
-                    <div className="text-xs text-text-gray">{m.mockup.statLabel}</div>
-                    <div className="text-3xl font-serif font-bold text-primary mt-1">
-                      {m.mockup.statValue}
-                    </div>
-                    <div className="text-xs text-secondary font-semibold mt-2">
-                      {m.mockup.crowd}
-                    </div>
-                  </div>
-
-                  <div className="text-xs text-text-gray flex items-center gap-2">
-                    <span className="material-symbols-outlined text-base text-secondary">info</span>
-                    <span>{m.mockup.meta}</span>
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-surface-container-high/60 flex items-center justify-between text-xs">
-                  <span className="text-text-gray font-mono">KARWAN ID PROTOCOL</span>
-                  <Link to={m.link} className="text-secondary font-semibold hover:underline flex items-center gap-1">
-                    <span>Inspect screen</span>
-                    <span className="material-symbols-outlined text-xs">open_in_new</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
+    <section
+      ref={sectionRef}
+      className="pt-16 md:pt-24 pb-2 md:pb-4 bg-surface-container-low/40 overflow-hidden"
+    >
+      <div className="max-w-[1280px] mx-auto px-5 md:px-16">
+        {/* Section Header - Left Aligned to match container & logo */}
+        <div className="text-left mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-surface-container-high text-xs font-semibold text-secondary mb-3">
+            <span className="material-symbols-outlined text-sm">view_quilt</span>
+            <span>MODULAR ARCHITECTURE</span>
           </div>
-        ))}
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight [text-wrap:balance] max-w-[18ch]">
+            Four core engines for{' '}
+            <span className="italic font-normal text-secondary inline-block">
+              total journey&nbsp;trust.
+            </span>
+          </h2>
+          <p className="font-sans text-base sm:text-lg text-text-gray mt-2 max-w-2xl">
+            Each engine solves an essential vulnerability in domestic travel across local transit, street safety, route continuity, and accommodations.
+          </p>
+        </div>
+
+        {/* 5. Four tall photo cards in 3D perspective (straighten to 0 on scroll scrub, hover lifts 8px) */}
+        <div className="perspective-1200 preserve-3d grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
+          {modules.map((m) => (
+            <div
+              key={m.id}
+              className="module-perspective-card relative h-[480px] sm:h-[530px] rounded-3xl overflow-hidden shadow-floating border border-surface-container-high/80 flex flex-col justify-between p-6 sm:p-7 transition-transform duration-300 ease-out hover:-translate-y-2 group cursor-pointer will-change-transform"
+            >
+              {/* Background Photo */}
+              <img
+                src={m.image}
+                alt={m.name}
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+
+              {/* Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/75 to-transparent/30 z-10" />
+
+              {/* Card Top: Step Badge */}
+              <div className="relative z-20 flex items-center justify-between">
+                <span
+                  className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold tracking-wider uppercase border backdrop-blur-md ${m.badgeColor}`}
+                >
+                  MODULE {m.step}
+                </span>
+                <span className="w-2.5 h-2.5 rounded-full bg-secondary-fixed opacity-75" />
+              </div>
+
+              {/* Card Bottom: Content, Chips, and Explore Link */}
+              <div className="relative z-20 space-y-3.5">
+                <div>
+                  <h3 className="font-serif font-bold text-2xl text-pure-white group-hover:text-secondary-fixed transition-colors">
+                    {m.name}
+                  </h3>
+                  <div className="text-xs font-medium text-secondary-fixed mt-0.5">
+                    {m.tagline}
+                  </div>
+                </div>
+
+                <p className="font-sans text-xs sm:text-sm text-white/80 leading-relaxed line-clamp-2">
+                  {m.desc}
+                </p>
+
+                {/* Chips */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {m.chips.map((chip, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-white/10 text-white/90 border border-white/15 backdrop-blur-sm"
+                    >
+                      {chip}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Explore Link */}
+                <div className="pt-2 border-t border-white/15 flex items-center justify-between">
+                  <Link
+                    to={m.link}
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-secondary-fixed group-hover:text-white transition-colors"
+                  >
+                    <span>Explore module</span>
+                    <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">
+                      arrow_forward
+                    </span>
+                  </Link>
+                  <span className="text-[10px] font-mono text-white/50">KARWAN PROTOCOL</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-

@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Logo from '../common/Logo';
 
-export default function LandingNav({ onOpenScreensModal }) {
+export default function LandingNav({ onOpenSearchPalette }) {
   const [modulesMenuOpen, setModulesMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const menuRef = useRef(null);
-  const location = useLocation();
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -62,9 +61,9 @@ export default function LandingNav({ onOpenScreensModal }) {
   ];
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-b border-surface-container-high/80 shadow-sm transition-all h-20">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-full flex items-center justify-between">
-        {/* Karwan Logo on SAME LINE */}
+    <header className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-b border-surface-container-high/80 shadow-sm transition-all h-[var(--header-h)]">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-16 h-full flex items-center justify-between">
+        {/* Karwan Logo - left edge aligns with container */}
         <Logo variant="color" size="md" to="/" />
 
         {/* Desktop Nav Links */}
@@ -156,20 +155,23 @@ export default function LandingNav({ onOpenScreensModal }) {
         </nav>
 
         {/* Right Action Buttons */}
-        <div className="flex items-center gap-2.5">
-          {/* 35 Screens Catalog Trigger Button */}
-          {onOpenScreensModal && (
-            <button
-              onClick={onOpenScreensModal}
-              className="px-3.5 py-1.5 rounded-full bg-surface-container hover:bg-secondary/15 text-primary text-xs font-semibold flex items-center gap-1.5 transition-colors border border-outline-variant/60"
-              title="Click to view all 35 screens catalog"
-            >
-              <span className="material-symbols-outlined text-sm text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                apps
-              </span>
-              <span className="hidden sm:inline">35 Screens</span>
-            </button>
-          )}
+        <div className="flex items-center gap-3">
+          {/* Search button showing ⌘K (replaces "35 Screens" pill) */}
+          <button
+            type="button"
+            onClick={onOpenSearchPalette}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-container-high text-xs font-medium text-text-gray hover:text-primary transition-all group"
+            aria-label="Search destination (⌘K)"
+            title="Search destinations (⌘K)"
+          >
+            <span className="material-symbols-outlined text-sm text-secondary group-hover:scale-110 transition-transform">
+              search
+            </span>
+            <span className="hidden sm:inline font-sans text-xs text-text-gray">Search</span>
+            <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-white border border-surface-container-high text-primary shadow-xs">
+              ⌘K
+            </kbd>
+          </button>
 
           {/* Log In = outline button */}
           <Link
@@ -202,7 +204,27 @@ export default function LandingNav({ onOpenScreensModal }) {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-20 bg-white border-b border-surface-container-high shadow-floating max-h-[calc(100vh-5rem)] overflow-y-auto p-6 space-y-6">
+        <div className="lg:hidden fixed inset-x-0 top-[var(--header-h)] bg-white border-b border-surface-container-high shadow-floating max-h-[calc(100vh-var(--header-h))] overflow-y-auto p-6 space-y-6">
+          {/* Mobile Search Action */}
+          <div>
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                if (onOpenSearchPalette) onOpenSearchPalette();
+              }}
+              className="w-full flex items-center justify-between p-3 rounded-xl bg-surface-container hover:bg-surface-container-high border border-surface-container-high text-sm font-medium text-text-gray text-left"
+            >
+              <div className="flex items-center gap-2.5">
+                <span className="material-symbols-outlined text-secondary">search</span>
+                <span>Search destination corridors...</span>
+              </div>
+              <kbd className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-white border border-surface-container-high text-primary">
+                ⌘K
+              </kbd>
+            </button>
+          </div>
+
           <div>
             <span className="text-xs font-semibold tracking-wider text-text-gray uppercase">Core Modules</span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
@@ -270,4 +292,3 @@ export default function LandingNav({ onOpenScreensModal }) {
     </header>
   );
 }
-

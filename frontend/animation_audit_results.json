@@ -1,0 +1,16 @@
+{
+  "desktop": {
+    "scrollWidth": 1280,
+    "innerWidth": 1280,
+    "hasHorizontalScroll": false,
+    "cls": 1.8534762642118663
+  },
+  "mobile": {
+    "scrollWidth": 375,
+    "innerWidth": 375,
+    "hasHorizontalScroll": false,
+    "cls": 0.1923053738513836
+  },
+  "consoleErrors": [],
+  "pageErrors": []
+}

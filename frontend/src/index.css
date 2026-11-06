@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --header-h: 80px;
+}
+
+html {
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
 @layer base {
   body {
     @apply bg-background text-on-surface font-body antialiased;
@@ -14,6 +22,15 @@
 
 .shadow-floating {
   box-shadow: 0 12px 32px -4px rgba(16, 35, 63, 0.08), 0 4px 16px -2px rgba(16, 35, 63, 0.04);
+}
+
+/* Self-hosted Material Symbols Font */
+@font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 100 700;
+  src: url('/fonts/material-symbols-outlined.woff2') format('woff2');
+  font-display: block;
 }
 
 /* Material Symbols Outlined custom styling */
@@ -29,6 +46,10 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  vertical-align: middle;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
@@ -49,11 +70,28 @@
 .perspective-1200 {
   perspective: 1200px;
 }
+.perspective-1600 {
+  perspective: 1600px;
+}
 .preserve-3d {
   transform-style: preserve-3d;
 }
 
-/* Marquee infinite loop */
+/* 70px Faint Grid Background */
+.bg-grid-70 {
+  background-size: 70px 70px;
+  background-image: 
+    linear-gradient(to right, rgba(25, 28, 30, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(25, 28, 30, 0.05) 1px, transparent 1px);
+}
+
+/* Faded Edges Mask */
+.mask-faded-edges {
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+/* Marquee infinite loop - 40s */
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -62,16 +100,16 @@
     transform: translateX(-50%);
   }
 }
-.animate-marquee {
+.animate-marquee-40 {
   display: flex;
   width: max-content;
-  animation: marquee 35s linear infinite;
+  animation: marquee 40s linear infinite;
 }
-.animate-marquee:hover {
+.animate-marquee-40:hover {
   animation-play-state: paused;
 }
 
-/* Concentric rings orbit animations */
+/* Concentric rings orbit animations (20s, 30s, 40s) */
 @keyframes orbit-cw {
   from {
     transform: rotate(0deg);
@@ -88,17 +126,96 @@
     transform: rotate(-360deg);
   }
 }
+
 .animate-orbit-ring-1 {
-  animation: orbit-cw 24s linear infinite;
-}
-.animate-orbit-ring-2 {
-  animation: orbit-ccw 36s linear infinite;
+  animation: orbit-cw 20s linear infinite;
 }
 .animate-counter-rotate-1 {
-  animation: orbit-ccw 24s linear infinite;
+  animation: orbit-ccw 20s linear infinite;
+}
+
+.animate-orbit-ring-2 {
+  animation: orbit-cw 30s linear infinite;
 }
 .animate-counter-rotate-2 {
-  animation: orbit-cw 36s linear infinite;
+  animation: orbit-ccw 30s linear infinite;
+}
+
+.animate-orbit-ring-3 {
+  animation: orbit-cw 40s linear infinite;
+}
+.animate-counter-rotate-3 {
+  animation: orbit-ccw 40s linear infinite;
+}
+
+/* Subtle Slow Pulse */
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+.animate-pulse-subtle {
+  animation: pulse-subtle 3.6s ease-in-out infinite;
+}
+
+/* Floating Toasts Slide and Float animations */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float-gentle-1 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes float-gentle-2 {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-in-left 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-right {
+  animation: slide-in-right 400ms cubic-bezier(0.16, 1, 0.3, 1) 100ms forwards;
+}
+
+.animate-float-1 {
+  animation: float-gentle-1 3s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-gentle-2 3.4s ease-in-out infinite 0.5s;
 }
 
 /* Lenis smooth scroll */

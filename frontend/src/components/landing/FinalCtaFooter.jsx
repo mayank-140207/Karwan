@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../common/Logo';
 import { searchCities, FALLBACK_CITIES } from '../../lib/supabase';
 
-export default function FinalCtaFooter({ onOpenScreensModal }) {
+export default function FinalCtaFooter() {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
   const [suggestions, setSuggestions] = useState(FALLBACK_CITIES.slice(0, 5));
@@ -50,9 +50,21 @@ export default function FinalCtaFooter({ onOpenScreensModal }) {
 
   return (
     <footer className="bg-white border-t border-surface-container-high relative overflow-hidden">
+      {/* Oversized Faded Karwan Wordmark across the bottom as a background element */}
+      <div className="absolute bottom-0 inset-x-0 pointer-events-none select-none overflow-hidden flex items-end justify-center z-0">
+        <span className="font-serif font-bold text-[22vw] text-primary/[0.035] tracking-tighter leading-none translate-y-[24%] whitespace-nowrap">
+          Karwan
+        </span>
+      </div>
+
       {/* Dark CTA Card Container */}
-      <div className="max-w-6xl mx-auto px-margin-mobile md:px-margin-desktop pt-16 pb-20">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-16 pt-16 md:pt-24 pb-16 relative z-10">
         <div className="bg-primary text-white rounded-3xl p-8 sm:p-14 shadow-2xl relative overflow-hidden">
+          {/* 9. Giant Faded K Watermark inside card */}
+          <span className="absolute -right-8 -bottom-16 text-[32vw] md:text-[22vw] font-serif font-black text-white/[0.04] pointer-events-none select-none leading-none z-0">
+            K
+          </span>
+
           {/* Subtle Glow Accents */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/15 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary-container/40 rounded-full blur-2xl pointer-events-none" />
@@ -63,8 +75,11 @@ export default function FinalCtaFooter({ onOpenScreensModal }) {
               READY FOR YOUR NEXT JOURNEY
             </span>
 
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-pure-white leading-tight">
-              See it running on your route.
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-pure-white leading-tight [text-wrap:balance] max-w-[18ch] mx-auto">
+              See it running on{' '}
+              <span className="italic font-normal text-secondary-fixed inline-block">
+                your&nbsp;route.
+              </span>
             </h2>
 
             <p className="font-sans text-sm sm:text-base text-white/70 max-w-lg mx-auto">
@@ -127,28 +142,20 @@ export default function FinalCtaFooter({ onOpenScreensModal }) {
             </div>
 
             {/* Actions */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="pt-4 flex items-center justify-center">
               <Link
                 to="/trip/plan/route"
-                className="w-full sm:w-auto px-7 py-3 rounded-full bg-secondary text-white font-semibold text-sm hover:bg-success-green transition-colors shadow-ambient"
+                className="px-8 py-3.5 rounded-full bg-secondary text-white font-semibold text-sm hover:bg-success-green transition-colors shadow-ambient"
               >
                 Launch Route Planner
               </Link>
-              {onOpenScreensModal && (
-                <button
-                  onClick={onOpenScreensModal}
-                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-white/10 hover:bg-white/15 text-pure-white border border-white/20 font-semibold text-sm transition-colors"
-                >
-                  Explore 35 Screens Catalog
-                </button>
-              )}
             </div>
           </div>
         </div>
       </div>
 
       {/* Main Footer Links */}
-      <div className="max-w-6xl mx-auto px-margin-mobile md:px-margin-desktop py-12 border-t border-surface-container-high/60 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-16 py-12 border-t border-surface-container-high/60 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Brand Col */}
           <div className="col-span-2 space-y-3">
@@ -195,13 +202,6 @@ export default function FinalCtaFooter({ onOpenScreensModal }) {
           </div>
         </div>
 
-        {/* Oversized Faded Karwan Wordmark in Background */}
-        <div className="relative py-8 select-none pointer-events-none text-center overflow-hidden">
-          <span className="font-serif font-bold text-[12vw] text-primary/[0.04] tracking-tighter leading-none inline-block">
-            Karwan
-          </span>
-        </div>
-
         {/* Bottom Legal / Copyright Bar */}
         <div className="pt-6 border-t border-surface-container-high/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-gray">
           <span>© 2026 Karwan Travel Technologies. All rights reserved.</span>
@@ -215,4 +215,3 @@ export default function FinalCtaFooter({ onOpenScreensModal }) {
     </footer>
   );
 }
-

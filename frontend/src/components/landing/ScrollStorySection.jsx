@@ -2,29 +2,30 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// Register ScrollTrigger plugin
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
 export default function ScrollStorySection() {
   const [activeStep, setActiveStep] = useState(0);
+  const [storyProgress, setStoryProgress] = useState(0);
   const sectionRef = useRef(null);
   const deviceRef = useRef(null);
   const triggerRef = useRef(null);
 
+  // Exactly 4 steps matching "01 / 04" specification
   const steps = [
     {
       num: '01',
       title: 'Plan the Corridor',
       subtitle: 'Mathura Junction → Vrindavan Bankey Bihari',
-      desc: 'Set your domestic route and customize your transit pace. Karwan identifies active corridors, transfer waypoints, and verified travel stops before departure.',
+      desc: 'Set your domestic route and transit pace. Karwan identifies active corridors, transfer waypoints, and verified travel stops before departure.',
       screen: {
         badge: 'CORRIDOR INITIATION',
         badgeColor: 'text-emerald-400 bg-emerald-950/80 border-emerald-800',
-        title: 'Braj Heritage Circuit',
-        highlight: '14.2 km · Estimated: 32 mins',
-        detail1: 'Mathura Jn. (Platform 1 Exit) → Chhatikara → Vidyapeeth Marg',
+        title: 'Braj Heritage Corridor',
+        highlight: '14.2 km · 32 mins est.',
+        detail1: 'Mathura Jn. (Gate 1 Exit) → Chhatikara → Vidyapeeth Marg',
         detail2: '3 local transit options available · 100% verified corridor safety score',
         icon: 'map'
       }
@@ -32,280 +33,294 @@ export default function ScrollStorySection() {
     {
       num: '02',
       title: 'Check the Going-Fare',
-      subtitle: 'Eliminate arbitrary tourist markup with rider data',
-      desc: 'Before boarding an e-rickshaw or shared auto, check actual rates crowdsourced from recent verified riders in the last 2 hours. Pay the exact fair going-rate.',
+      subtitle: 'Eliminate tourist markups with verified rider data',
+      desc: 'Before boarding an e-rickshaw or shared auto, check actual rates crowdsourced from recent riders in the last 2 hours. Pay the fair rate.',
       screen: {
         badge: 'FARE BENCHMARK VERIFIED',
         badgeColor: 'text-amber-400 bg-amber-950/80 border-amber-800',
         title: 'Prepaid E-Rickshaw Fare',
         highlight: '₹20 – ₹25 per seat',
-        detail1: 'Reported by 18 riders today · Standard quote to tourists: ₹100-150',
-        detail2: 'Auto Stand: Mathura Jn. Gate 2 · Registered Driver Union #42',
+        detail1: 'Reported by 18 riders today · Tourist quote without Karwan: ₹120',
+        detail2: 'Auto Stand: Mathura Jn. Gate 2 · Union #42 registered',
         icon: 'payments'
       }
     },
     {
       num: '03',
       title: 'Trust the Local Vendor',
-      subtitle: 'Discover verified artisans and heritage confectioners',
-      desc: 'Avoid aggressive commercial commissions. TrustRadar maps independent local vendors and cultural guides authenticated by local community consensus.',
+      subtitle: 'Discover verified artisans and heritage guides',
+      desc: 'Avoid commission emporiums. TrustRadar maps independent local vendors and cultural guides authenticated by community consensus.',
       screen: {
         badge: 'COMMUNITY ACCREDITATION',
         badgeColor: 'text-blue-400 bg-blue-950/80 border-blue-800',
         title: 'Radhe Shyam Peda Bhandar',
         highlight: 'KARWAN ID #VN-2041 · 4.9★',
         detail1: 'Chowk Bazaar, Mathura · Traditional pure khoya sweets since 1968',
-        detail2: 'Verified pricing transparency · Zero tour bus commission kickbacks',
+        detail2: 'Guide: Rajesh Gupta (#UP-9821) · Zero tour bus commission kickbacks',
         icon: 'storefront'
       }
     },
     {
       num: '04',
-      title: 'Auto-heal the Route',
-      subtitle: 'Instant dynamic bypass when gridlock strikes',
-      desc: 'A spontaneous religious sankirtan procession blocks Chhatikara crossing. Auto-heal alerts you instantly and rebalances your itinerary via Gandhi Marg bypass.',
+      title: 'Auto-heal & Stay Telemetry',
+      subtitle: 'Dynamic bypass and verified utility continuity',
+      desc: 'A spontaneous procession blocks Chhatikara. Auto-heal alerts you and rebalances route via Gandhi Marg, while stay sensors confirm water & power.',
       screen: {
-        badge: 'AUTO-HEAL ADAPTIVE BYPASS',
-        badgeColor: 'text-rose-400 bg-rose-950/80 border-rose-800',
-        title: '38-Min Gridlock Averted',
-        highlight: 'Re-routed via Bhaktivedanta Marg',
-        detail1: 'Procession detected 4 mins ago by 6 transit logs',
-        detail2: 'Alternative transit corridor clear · Arrival delay: +4 mins only',
-        icon: 'alt_route'
-      }
-    },
-    {
-      num: '05',
-      title: 'Verify the Stay on Arrival',
-      subtitle: 'Continuous water, power backup, and fiber Wi-Fi',
-      desc: 'Check in with zero surprises. Ground Truth sensors and recent geotagged guest photos confirm that hot water, power backup, and Wi-Fi are fully operational.',
-      screen: {
-        badge: 'GROUND TRUTH TELEMETRY',
+        badge: 'AUTO-HEAL & STAY AUDIT',
         badgeColor: 'text-purple-400 bg-purple-950/80 border-purple-800',
-        title: 'The Heritage Haveli Stay',
-        highlight: '100% Utility Score · Verified Live',
-        detail1: 'Solar water running continuous · 25kVA generator on standby',
-        detail2: '78 Mbps verified fiber · Guest audit by Priya S. 4h ago',
-        icon: 'hotel'
+        title: 'Bypass Active & Stay Ready',
+        highlight: '38-Min Gridlock Averted · 100% Stay Score',
+        detail1: 'Procession detected 4m ago · Re-routed via Bhaktivedanta Marg',
+        detail2: 'The Heritage Haveli: 100% solar water running & dual genset standby',
+        icon: 'alt_route'
       }
     }
   ];
 
   useEffect(() => {
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = window.innerWidth < 1024;
+    const isMobile = window.innerWidth < 768;
 
-    if (prefersReducedMotion || isMobile) {
-      // Static / normal stacked layout without pin
+    if (prefersReducedMotion || isMobile || !triggerRef.current || !deviceRef.current) {
       return;
     }
 
     const ctx = gsap.context(() => {
-      // GSAP ScrollTrigger timeline to pin and flatten 3D perspective
+      // 3. Pin with end: "+=300%", scrub 0.6
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: triggerRef.current,
           start: 'top top+=80',
-          end: '+=2400',
+          end: '+=300%',
           pin: true,
           scrub: 0.6,
+          invalidateOnRefresh: true,
           onUpdate: (self) => {
-            const stepIndex = Math.min(
-              steps.length - 1,
-              Math.floor(self.progress * steps.length)
-            );
+            const stepIndex = Math.min(3, Math.floor(self.progress * 4));
             setActiveStep(stepIndex);
+            setStoryProgress(self.progress);
           }
         }
       });
 
-      // Animate device from tilted 3D to flat perspective
-      if (deviceRef.current) {
-        tl.fromTo(
-          deviceRef.current,
-          {
-            rotateX: 18,
-            rotateY: -12,
-            scale: 0.94,
-            transformPerspective: 1200
-          },
-          {
-            rotateX: 0,
-            rotateY: 0,
-            scale: 1,
-            ease: 'none'
-          }
-        );
-      }
+      // Starting at perspective(1600px) rotateX(18deg) rotateY(-14deg) rotateZ(2deg) scale(.9)
+      // Flattening to about rotateX(4deg) rotateY(-4deg) scale(1) by 15% progress (0.15)
+      tl.fromTo(
+        deviceRef.current,
+        {
+          rotateX: 18,
+          rotateY: -14,
+          rotateZ: 2,
+          scale: 0.9,
+          transformPerspective: 1600
+        },
+        {
+          rotateX: 4,
+          rotateY: -4,
+          rotateZ: 0,
+          scale: 1,
+          ease: 'none',
+          duration: 0.15
+        },
+        0
+      );
+
+      // Keep flattened for the rest of scrub (0.15 to 1.0)
+      tl.to(
+        deviceRef.current,
+        {
+          rotateX: 2,
+          rotateY: -2,
+          scale: 1,
+          ease: 'none',
+          duration: 0.85
+        },
+        0.15
+      );
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [steps.length]);
+  }, []);
 
   const active = steps[activeStep];
+  const stepFormatted = `0${activeStep + 1} / 04`;
 
   return (
     <section
       id="trip-story"
       ref={sectionRef}
-      className="bg-primary text-white py-24 px-margin-mobile md:px-margin-desktop relative overflow-hidden"
+      className="bg-[#000918] text-white pt-16 md:pt-24 pb-2 md:pb-4 relative overflow-hidden"
     >
-      {/* Background Ambience */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#2C6E49_1px,transparent_1px)] [background-size:24px_24px]" />
+      {/* Background: Near-black with subtle grid and soft green + navy radial glow behind device */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#2C6E49_1px,transparent_1px)] [background-size:28px_28px]" />
 
-      <div ref={triggerRef} className="max-w-6xl mx-auto relative z-10">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-semibold text-secondary-fixed mb-4">
-            <span className="material-symbols-outlined text-sm">route</span>
-            <span>SCROLL-DRIVEN JOURNEY</span>
-          </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-pure-white leading-tight">
-            A trip, played by your scroll.
-          </h2>
-          <p className="font-sans text-base sm:text-lg text-white/70 mt-3 leading-relaxed">
-            Follow a real journey from Mathura Junction to Vrindavan to see how Karwan’s trust engines keep domestic travellers secure, informed, and on track.
-          </p>
-        </div>
+      <div
+        ref={triggerRef}
+        className="max-w-[1280px] mx-auto px-5 md:px-16 relative z-10 lg:h-[calc(100vh-var(--header-h))] lg:min-h-[calc(100vh-var(--header-h))] flex flex-col justify-center"
+      >
+        {/* Soft green and navy radial glow positioned behind the device */}
+        <div className="hidden lg:block absolute right-16 top-1/2 -translate-y-1/2 w-[540px] h-[540px] rounded-full bg-[radial-gradient(circle,rgba(40,106,70,0.22)_0%,rgba(5,36,67,0.38)_45%,transparent_70%)] pointer-events-none blur-3xl z-0" />
 
-        {/* Desktop 2-Column Story View with 3D Perspective Device */}
-        <div className="hidden lg:grid grid-cols-12 gap-12 items-center">
-          {/* Left Column: Interactive Step Selector */}
-          <div className="col-span-5 space-y-4">
-            {steps.map((step, idx) => {
-              const isCurrent = idx === activeStep;
-              return (
-                <div
-                  key={step.num}
-                  onClick={() => setActiveStep(idx)}
-                  className={`p-5 rounded-2xl border transition-all cursor-pointer ${
-                    isCurrent
-                      ? 'bg-white/10 border-secondary shadow-lg translate-x-1'
-                      : 'bg-white/5 border-white/10 hover:bg-white/[0.07] opacity-60'
-                  }`}
-                >
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className={`text-xs font-mono font-bold ${isCurrent ? 'text-secondary-fixed' : 'text-white/50'}`}>
-                      STEP {step.num}
-                    </span>
-                    {isCurrent && (
-                      <span className="px-2 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase bg-secondary/30 text-secondary-fixed border border-secondary/40">
-                        Active In Transit
+        {/* 2-Column Layout: Text and Device Vertically Centered */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative z-10">
+          {/* Left Column: Mono label, Headline, and Plain Step List (No Boxes) */}
+          <div className="lg:col-span-6 text-left space-y-6">
+            {/* Small mono label that updates */}
+            <div className="flex items-center gap-2 text-xs font-mono tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse" />
+              <span className="text-secondary-fixed font-semibold uppercase">
+                Scroll to play · {stepFormatted}
+              </span>
+            </div>
+
+            {/* Headline with Noto Serif & italic accent */}
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-pure-white leading-tight [text-wrap:balance] max-w-[18ch]">
+              A trip, played by{' '}
+              <span className="italic font-normal text-secondary-fixed inline-block">
+                your&nbsp;scroll.
+              </span>
+            </h2>
+
+            <p className="font-sans text-sm sm:text-base text-white/70 leading-relaxed max-w-xl">
+              Follow a real journey from Mathura Junction to Vrindavan to see how Karwan’s trust engines keep domestic travellers secure, informed, and on track.
+            </p>
+
+            {/* Plain Step List (Active step in green at full opacity, others at 35% opacity, NO BOXES) */}
+            <div className="space-y-4 pt-4 border-t border-white/10 max-w-lg">
+              {steps.map((step, idx) => {
+                const isActive = idx === activeStep;
+                return (
+                  <div
+                    key={step.num}
+                    onClick={() => setActiveStep(idx)}
+                    className={`transition-all duration-300 cursor-pointer ${
+                      isActive ? 'opacity-100' : 'opacity-35 hover:opacity-60'
+                    }`}
+                  >
+                    <div className="flex items-baseline gap-3">
+                      <span
+                        className={`text-xs font-mono font-bold tracking-wider ${
+                          isActive ? 'text-secondary-fixed' : 'text-white/60'
+                        }`}
+                      >
+                        {step.num}
                       </span>
-                    )}
+                      <div>
+                        <h4
+                          className={`font-serif text-base sm:text-lg transition-colors ${
+                            isActive
+                              ? 'text-pure-white font-bold text-secondary-fixed'
+                              : 'text-white/80 font-medium'
+                          }`}
+                        >
+                          {step.title}
+                        </h4>
+                        {isActive && (
+                          <p className="text-xs text-white/70 mt-1 leading-relaxed animate-fadeIn">
+                            {step.desc}
+                          </p>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <h4 className="font-serif font-bold text-lg text-pure-white">
-                    {step.title}
-                  </h4>
-                  <p className="text-xs text-white/70 mt-1 line-clamp-2">
-                    {step.subtitle}
-                  </p>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
 
-          {/* Right Column: Perspective-Tilted Device Container */}
-          <div className="col-span-7 flex justify-center">
+          {/* Right Column: Whole Device, Never Cropped, Starting in 3D Perspective */}
+          <div className="lg:col-span-6 flex flex-col items-center justify-center">
             <div
               ref={deviceRef}
-              className="w-full max-w-md bg-[#001438] rounded-[32px] p-4 border border-white/20 shadow-2xl transition-transform duration-300 preserve-3d"
-              style={{
-                perspective: '1200px',
-                transformStyle: 'preserve-3d'
-              }}
+              className="w-full max-w-[340px] sm:max-w-[380px] bg-primary-container/90 rounded-[38px] p-4 border border-white/20 shadow-2xl backdrop-blur-md transition-transform will-change-transform preserve-3d"
             >
-              {/* Device Bezel & Notch */}
-              <div className="bg-[#051a3d] rounded-[24px] p-6 border border-white/10 min-h-[460px] flex flex-col justify-between relative overflow-hidden">
-                {/* Device Speaker & Camera Notch */}
-                <div className="flex items-center justify-between pb-4 border-b border-white/10 text-[11px] font-mono text-white/50">
-                  <span>11:24 AM</span>
-                  <div className="w-20 h-3 rounded-full bg-black/60 flex items-center justify-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                  </div>
-                  <span>5G · 98%</span>
+              {/* Device Bezel Header (Speaker & Camera) */}
+              <div className="flex items-center justify-between px-4 pb-3 pt-1 border-b border-white/10">
+                <span className="text-[11px] font-mono text-white/60">09:41</span>
+                <div className="w-16 h-3 rounded-full bg-primary flex items-center justify-center">
+                  <div className="w-2.5 h-2.5 rounded-full bg-black/60" />
                 </div>
+                <div className="flex items-center gap-1 text-white/60">
+                  <span className="material-symbols-outlined text-xs">signal_cellular_alt</span>
+                  <span className="material-symbols-outlined text-xs">wifi</span>
+                  <span className="material-symbols-outlined text-xs">battery_full</span>
+                </div>
+              </div>
 
-                {/* Animated Screen Details for Active Step */}
-                <div className="py-6 space-y-5 my-auto">
-                  <div className="flex items-center justify-between">
-                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase border ${active.screen.badgeColor}`}>
+              {/* Screen Content Container with 300ms Crossfade */}
+              <div
+                key={activeStep}
+                className="bg-primary/95 rounded-[26px] p-5 my-2 min-h-[380px] sm:min-h-[420px] flex flex-col justify-between border border-white/10 transition-opacity duration-300 ease-in-out opacity-100 shadow-inner"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span
+                      className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase border ${active.screen.badgeColor}`}
+                    >
                       {active.screen.badge}
                     </span>
-                    <span className="material-symbols-outlined text-white/40 text-xl">
+                    <span className="text-xs font-mono text-white/50">
+                      STEP {active.num}
+                    </span>
+                  </div>
+
+                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-secondary-fixed mb-4">
+                    <span className="material-symbols-outlined text-2xl">
                       {active.screen.icon}
                     </span>
                   </div>
 
-                  <div>
-                    <h3 className="font-serif font-bold text-2xl text-pure-white">
-                      {active.screen.title}
-                    </h3>
-                    <div className="text-xl font-mono font-bold text-secondary-fixed mt-1">
+                  <h3 className="font-serif font-bold text-xl text-pure-white mb-2">
+                    {active.screen.title}
+                  </h3>
+
+                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 mb-4">
+                    <div className="text-xs font-semibold text-secondary-fixed">
                       {active.screen.highlight}
                     </div>
                   </div>
 
-                  <div className="space-y-2.5 pt-4 border-t border-white/10 text-xs">
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-start gap-2.5">
-                      <span className="material-symbols-outlined text-secondary-fixed text-base shrink-0 mt-0.5">
+                  <div className="space-y-2 text-xs text-white/70">
+                    <div className="flex items-start gap-2">
+                      <span className="material-symbols-outlined text-sm text-secondary-fixed shrink-0 mt-0.5">
                         check_circle
                       </span>
-                      <span className="text-white/80">{active.screen.detail1}</span>
+                      <span>{active.screen.detail1}</span>
                     </div>
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/10 flex items-start gap-2.5">
-                      <span className="material-symbols-outlined text-secondary-fixed text-base shrink-0 mt-0.5">
-                        verified_user
+                    <div className="flex items-start gap-2">
+                      <span className="material-symbols-outlined text-sm text-secondary-fixed shrink-0 mt-0.5">
+                        verified
                       </span>
-                      <span className="text-white/80">{active.screen.detail2}</span>
+                      <span>{active.screen.detail2}</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Device Bottom Bar */}
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/50">
-                  <span className="flex items-center gap-1.5 text-secondary-fixed font-semibold">
-                    <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-ping" />
-                    Corridor Synced
-                  </span>
-                  <span>Step {active.num} of 05</span>
+                {/* Micro Telemetry Footer inside phone */}
+                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-white/50 font-mono">
+                  <span>KARWAN OS 2.4</span>
+                  <span className="text-secondary-fixed">ENCRYPTED FEED</span>
                 </div>
               </div>
+
+              {/* Bottom Phone Bar */}
+              <div className="w-28 h-1 rounded-full bg-white/30 mx-auto mt-2" />
+            </div>
+
+            {/* Hairline Progress Bar Under Device */}
+            <div className="w-full max-w-[340px] sm:max-w-[380px] h-[2px] bg-white/15 rounded-full mt-4 overflow-hidden">
+              <div
+                className="h-full bg-secondary-fixed transition-all duration-75 ease-out"
+                style={{ width: `${Math.min(100, Math.max(0, storyProgress * 100))}%` }}
+              />
+            </div>
+            <div className="flex items-center justify-between w-full max-w-[340px] sm:max-w-[380px] text-[10px] font-mono text-white/50 mt-1.5 px-0.5">
+              <span>TRIP INITIATION</span>
+              <span>VERIFIED ARRIVAL</span>
             </div>
           </div>
-        </div>
-
-        {/* Mobile / Reduced Motion: Clean Stacked Reveal Layout */}
-        <div className="lg:hidden space-y-6">
-          {steps.map((step) => (
-            <div
-              key={step.num}
-              className="p-6 rounded-2xl bg-white/10 border border-white/15 space-y-4"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-secondary-fixed">
-                  STEP {step.num}
-                </span>
-                <span className={`px-2.5 py-0.5 rounded text-[10px] font-bold tracking-wider uppercase border ${step.screen.badgeColor}`}>
-                  {step.screen.badge}
-                </span>
-              </div>
-              <div>
-                <h4 className="font-serif font-bold text-xl text-pure-white">{step.title}</h4>
-                <p className="text-sm text-secondary-fixed font-medium mt-0.5">{step.subtitle}</p>
-                <p className="text-xs text-white/70 mt-2 leading-relaxed">{step.desc}</p>
-              </div>
-              <div className="p-4 rounded-xl bg-black/40 border border-white/10 space-y-2 text-xs">
-                <div className="font-serif font-bold text-base text-white">{step.screen.title}</div>
-                <div className="font-mono text-secondary-fixed font-bold">{step.screen.highlight}</div>
-                <div className="text-white/70">{step.screen.detail1}</div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>
   );
 }
-

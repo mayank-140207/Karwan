@@ -34,11 +34,11 @@ export default function StatsRow() {
   if (items.length === 0) return null;
 
   return (
-    <section className="py-12 bg-white border-y border-surface-container-high/70 px-margin-mobile md:px-margin-desktop">
-      <div className="max-w-6xl mx-auto">
+    <section className="pt-16 md:pt-24 pb-2 md:pb-4 bg-white border-y border-surface-container-high/70">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-16">
         <div className={`grid grid-cols-1 sm:grid-cols-2 ${items.length >= 4 ? 'lg:grid-cols-4' : items.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'} gap-8 divide-y sm:divide-y-0 sm:divide-x divide-surface-container-high/80`}>
           {items.map((item, idx) => (
-            <div key={item.id} className={`${idx > 0 ? 'pt-6 sm:pt-0 sm:pl-8' : ''} text-center sm:text-left`}>
+            <div key={item.id} className={`${idx > 0 ? 'pt-6 sm:pt-0 sm:pl-8' : ''} text-left`}>
               <div className="font-serif text-3xl sm:text-4xl font-bold text-primary tracking-tight">
                 {typeof item.value === 'number' ? item.value.toLocaleString() : item.value}
                 <span className="text-secondary text-2xl ml-0.5">+</span>

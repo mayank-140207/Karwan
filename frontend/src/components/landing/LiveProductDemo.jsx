@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export default function LiveProductDemo({ activeTab, onTabChange }) {
   const [currentTab, setCurrentTab] = useState(activeTab || 0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
   const [progress, setProgress] = useState(0);
   const DURATION_MS = 6000;
   const INTERVAL_MS = 60;
@@ -16,16 +17,16 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
     }
   }, [activeTab]);
 
-  // Tab auto-play timer and progress bar
+  // Tab auto-play timer and progress bar (paused on hover or when paused by user)
   useEffect(() => {
-    if (!isPlaying) return;
+    if (!isPlaying || isHovered) return;
 
     const interval = setInterval(() => {
       setProgress((prev) => prev + (INTERVAL_MS / DURATION_MS) * 100);
     }, INTERVAL_MS);
 
     return () => clearInterval(interval);
-  }, [isPlaying]);
+  }, [isPlaying, isHovered]);
 
   // When progress completes, cleanly advance to next tab
   useEffect(() => {
@@ -57,10 +58,16 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
       name: 'LiveTrail',
       tagline: 'Transit & Fares',
       icon: 'navigation',
-      toast: {
+      toastRight: {
         title: 'Fare verified by 12 riders',
         sub: 'Mathura Jn. → Vrindavan: ₹20-25',
         icon: 'verified',
+        color: 'text-emerald-700 bg-emerald-50 border-emerald-200'
+      },
+      toastLeft: {
+        title: 'Crowding: 42% (Seats Open)',
+        sub: 'Gate 2 stand dispatching every 4m',
+        icon: 'navigation',
         color: 'text-emerald-700 bg-emerald-50 border-emerald-200'
       },
       link: '/trip/livetrail'
@@ -70,10 +77,16 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
       name: 'TrustRadar',
       tagline: 'Safety Scores',
       icon: 'shield_with_heart',
-      toast: {
+      toastRight: {
         title: 'Trust score updated: 94/100',
         sub: 'Well-lit corridor verified on Vidyapeeth Marg',
         icon: 'security',
+        color: 'text-blue-700 bg-blue-50 border-blue-200'
+      },
+      toastLeft: {
+        title: 'Accredited Guide: Rajesh Gupta',
+        sub: 'ASI License #UP-9821 · Zero Commission',
+        icon: 'verified_user',
         color: 'text-blue-700 bg-blue-50 border-blue-200'
       },
       link: '/trip/trustradar'
@@ -83,10 +96,16 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
       name: 'Auto-heal',
       tagline: 'Itinerary Sync',
       icon: 'auto_fix_high',
-      toast: {
+      toastRight: {
         title: 'Plan re-routed: stop closed',
         sub: 'Parikrama Marg bypassed · +4 mins only',
         icon: 'alt_route',
+        color: 'text-amber-700 bg-amber-50 border-amber-200'
+      },
+      toastLeft: {
+        title: 'Roadblock detected 4m ago',
+        sub: 'Religious procession on Chhatikara bypass',
+        icon: 'warning',
         color: 'text-amber-700 bg-amber-50 border-amber-200'
       },
       link: '/trip/itinerary'
@@ -96,10 +115,16 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
       name: 'Ground Truth',
       tagline: 'Verified Stays',
       icon: 'verified_user',
-      toast: {
-        title: 'Water: working · Power: on',
+      toastRight: {
+        title: 'Water: continuous · Power: on',
         sub: 'Live sensor telemetry confirmed 14m ago',
         icon: 'sensors',
+        color: 'text-purple-700 bg-purple-50 border-purple-200'
+      },
+      toastLeft: {
+        title: 'Guest Audit: Priya S. (4h ago)',
+        sub: 'Geotagged photos match room specs 100%',
+        icon: 'photo_camera',
         color: 'text-purple-700 bg-purple-50 border-purple-200'
       },
       link: '/directory'
@@ -109,24 +134,31 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
   const activeTabData = tabs[currentTab];
 
   return (
-    <section id="live-demo" className="py-20 px-margin-mobile md:px-margin-desktop bg-surface-container-low/60 border-t border-surface-container-high/60">
-      <div className="max-w-6xl mx-auto">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+    <section id="live-demo" className="pt-16 md:pt-24 pb-2 md:pb-4 bg-surface-container-low/60 border-t border-surface-container-high/60">
+      <div className="max-w-[1280px] mx-auto px-5 md:px-16">
+        {/* Section Header - Left Aligned to match container & logo */}
+        <div className="text-left mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-surface-container-high text-xs font-semibold text-secondary mb-3">
             <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
             <span>INTERACTIVE PRODUCT SIMULATION</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight">
-            The Karwan protocol in action.
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight [text-wrap:balance] max-w-[18ch]">
+            The Karwan protocol in{' '}
+            <span className="italic font-normal text-secondary inline-block">
+              verified&nbsp;action.
+            </span>
           </h2>
-          <p className="font-sans text-base sm:text-lg text-text-gray mt-3">
+          <p className="font-sans text-base sm:text-lg text-text-gray mt-3 max-w-2xl">
             Four interconnected engines working simultaneously to verify every mile of your journey.
           </p>
         </div>
 
-        {/* Browser Frame Mockup */}
-        <div className="bg-white rounded-2xl md:rounded-3xl shadow-floating border border-surface-container-high overflow-hidden">
+        {/* Browser Frame Mockup with Pause on Hover */}
+        <div
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="bg-white rounded-2xl md:rounded-3xl shadow-floating border border-surface-container-high overflow-hidden transition-all group"
+        >
           {/* Browser Header Bar */}
           <div className="px-5 py-3.5 bg-surface-container-lowest border-b border-surface-container-high flex items-center justify-between gap-4">
             {/* macOS Window Controls */}
@@ -144,6 +176,11 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
 
             {/* Play / Pause Toggle Button */}
             <div className="flex items-center gap-3">
+              {isHovered && (
+                <span className="text-[11px] font-mono text-secondary hidden md:inline">
+                  (Paused on hover)
+                </span>
+              )}
               <button
                 onClick={() => setIsPlaying(!isPlaying)}
                 className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-primary transition-colors"
@@ -157,7 +194,7 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
             </div>
           </div>
 
-          {/* Tab Navigation with Progress Bars */}
+          {/* Tab Navigation with Progress Bars under label */}
           <div className="grid grid-cols-2 md:grid-cols-4 border-b border-surface-container-high bg-surface-container-low/40">
             {tabs.map((tab, idx) => {
               const isSelected = idx === currentTab;
@@ -181,9 +218,9 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
                     {tab.tagline}
                   </div>
 
-                  {/* Active Progress Bar */}
+                  {/* Active Progress Bar under label */}
                   {isSelected && (
-                    <div className="absolute bottom-0 inset-x-0 h-0.5 bg-surface-container-high overflow-hidden">
+                    <div className="absolute bottom-0 inset-x-0 h-[2.5px] bg-surface-container-high overflow-hidden">
                       <div
                         className="h-full bg-secondary transition-all"
                         style={{ width: `${progress}%` }}
@@ -195,24 +232,58 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
             })}
           </div>
 
-          {/* Screen Content Container with Relative Toast Placement */}
-          <div className="relative min-h-[460px] p-6 md:p-10 bg-background/50 flex flex-col justify-between">
-            {/* Dynamic Floating Toast Card */}
-            <div className="absolute top-6 right-6 z-20 transition-all duration-300 animate-fadeIn">
-              <div className={`p-3.5 rounded-xl border shadow-ambient backdrop-blur-md flex items-center gap-3 bg-white/95 ${activeTabData.toast.color}`}>
-                <span className="material-symbols-outlined text-xl shrink-0">
-                  {activeTabData.toast.icon}
-                </span>
-                <div>
-                  <div className="font-serif font-bold text-xs text-primary">
-                    {activeTabData.toast.title}
-                  </div>
-                  <div className="text-[11px] text-text-gray">
-                    {activeTabData.toast.sub}
+          {/* Screen Content Container with Relative Toast Placement & 300ms Crossfade */}
+          <div className="relative min-h-[460px] p-6 md:p-10 bg-background/50 flex flex-col justify-between overflow-hidden">
+            {/* Left Floating Toast (Slides in from left 400ms, floats gently) */}
+            {activeTabData.toastLeft && (
+              <div
+                key={`toast-l-${currentTab}`}
+                className="absolute top-6 left-6 z-20 pointer-events-none hidden sm:block animate-slide-left"
+              >
+                <div className="animate-float-1">
+                  <div className={`p-3 rounded-xl border shadow-ambient backdrop-blur-md flex items-center gap-2.5 bg-white/95 max-w-xs ${activeTabData.toastLeft.color}`}>
+                    <span className="material-symbols-outlined text-lg shrink-0">
+                      {activeTabData.toastLeft.icon}
+                    </span>
+                    <div>
+                      <div className="font-serif font-bold text-xs text-primary leading-tight">
+                        {activeTabData.toastLeft.title}
+                      </div>
+                      <div className="text-[10px] text-text-gray leading-tight mt-0.5">
+                        {activeTabData.toastLeft.sub}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
+
+            {/* Right Floating Toast (Slides in from right 400ms staggered, floats gently) */}
+            {activeTabData.toastRight && (
+              <div
+                key={`toast-r-${currentTab}`}
+                className="absolute top-6 right-6 z-20 pointer-events-none animate-slide-right"
+              >
+                <div className="animate-float-2">
+                  <div className={`p-3.5 rounded-xl border shadow-ambient backdrop-blur-md flex items-center gap-3 bg-white/95 max-w-sm ${activeTabData.toastRight.color}`}>
+                    <span className="material-symbols-outlined text-xl shrink-0">
+                      {activeTabData.toastRight.icon}
+                    </span>
+                    <div>
+                      <div className="font-serif font-bold text-xs text-primary">
+                        {activeTabData.toastRight.title}
+                      </div>
+                      <div className="text-[11px] text-text-gray">
+                        {activeTabData.toastRight.sub}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Screen Content with 300ms Crossfade */}
+            <div key={currentTab} className="transition-opacity duration-300 ease-in-out opacity-100 flex-1 flex flex-col justify-between">
 
             {/* TAB 0: LiveTrail Real Screen Mockup */}
             {currentTab === 0 && (
@@ -506,6 +577,7 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
                 <span>Launch {activeTabData.name} in App</span>
                 <span className="material-symbols-outlined text-sm">open_in_new</span>
               </Link>
+            </div>
             </div>
           </div>
         </div>
