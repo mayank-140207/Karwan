@@ -75,37 +75,37 @@ export default function PartnersSection() {
 
   const current = partners[activeTab];
 
-  // Tab change 3D tilt crossfade animation
+  // Tab change crossfade animation
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = window.innerWidth < 768;
+    const isMobile = window.innerWidth < 1024;
 
     if (prefersReducedMotion || isMobile || !mockupRef.current) return;
 
     gsap.fromTo(
       mockupRef.current,
-      { opacity: 0, rotateY: -14, rotateX: 8, scale: 0.96 },
-      { opacity: 1, rotateY: -8, rotateX: 6, scale: 1, duration: 0.35, ease: 'power2.out' }
+      { opacity: 0, rotateY: -8, scale: 0.98 },
+      { opacity: 1, rotateY: 0, scale: 1, duration: 0.35, ease: 'power2.out' }
     );
   }, [activeTab]);
 
   return (
-    <section id="for-partners" className="pt-16 md:pt-24 pb-2 md:pb-4 bg-background">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-16">
-        {/* Section Header - Left Aligned to match container & logo */}
+    <section id="for-partners" className="py-20 md:py-28 bg-background border-b border-surface-container-high/60 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div className="text-left max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-surface-container-high text-xs font-semibold text-secondary mb-3">
               <span className="material-symbols-outlined text-sm">handshake</span>
               <span>LOCAL ECONOMIC EMPOWERMENT</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight [text-wrap:balance] max-w-[18ch]">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight [text-wrap:balance]">
               Built for genuine{' '}
               <span className="italic font-normal text-secondary inline-block">
                 local&nbsp;providers.
               </span>
             </h2>
-            <p className="font-sans text-base sm:text-lg text-text-gray mt-2">
+            <p className="font-sans text-base sm:text-lg text-text-gray mt-2 leading-relaxed">
               Rewarding honest drivers, accredited guides, heritage stays, and artisan vendors who uphold real standards.
             </p>
           </div>
@@ -119,15 +119,16 @@ export default function PartnersSection() {
           </Link>
         </div>
 
-        {/* 8. SHOWCASE Layout: Tab List on Left, Browser + Phone Mockup on Right */}
+        {/* Showcase Layout: Tab List on Left, Browser + Phone Mockup on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column: Tab list & Details */}
+          {/* Left Column (5 cols): Tab list & Details */}
           <div className="lg:col-span-5 space-y-6">
             {/* Tab Buttons */}
             <div className="flex flex-wrap gap-2 pb-2 border-b border-surface-container-high">
               {partners.map((p, idx) => (
                 <button
                   key={p.id}
+                  type="button"
                   onClick={() => setActiveTab(idx)}
                   className={`px-4 py-2 rounded-full font-serif font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5 ${
                     activeTab === idx
@@ -141,7 +142,7 @@ export default function PartnersSection() {
             </div>
 
             {/* Active Partner Details Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-floating border border-surface-container-high space-y-5">
+            <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-floating border border-surface-container-high space-y-5 text-left">
               <div className="flex items-center justify-between">
                 <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-secondary/10 text-secondary border border-secondary/20">
                   {current.badge}
@@ -180,18 +181,14 @@ export default function PartnersSection() {
             </div>
           </div>
 
-          {/* Right Column: Browser Plus Phone Mockup (Crossfade with slight 3D tilt) */}
-          <div className="lg:col-span-7 flex items-center justify-center pt-2">
+          {/* Right Column (7 cols): Browser Plus Phone Mockup (Contained without bleeding) */}
+          <div className="lg:col-span-7 flex flex-col items-center justify-center pt-2">
             <div
               ref={mockupRef}
-              className="showcase-mockup-wrap relative w-full max-w-xl preserve-3d transition-all duration-300"
-              style={{
-                perspective: '1200px',
-                transform: 'rotateY(-8deg) rotateX(6deg)'
-              }}
+              className="relative w-full max-w-xl transition-all duration-300"
             >
               {/* Back Mockup: Browser Window */}
-              <div className="bg-white rounded-2xl shadow-2xl border border-surface-container-high overflow-hidden">
+              <div className="bg-white rounded-2xl shadow-floating border border-surface-container-high overflow-hidden text-left">
                 {/* Browser Top Bar */}
                 <div className="px-4 py-2.5 bg-surface-container-low border-b border-surface-container-high flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
@@ -239,8 +236,8 @@ export default function PartnersSection() {
                 </div>
               </div>
 
-              {/* Front Mockup: Overlapping Mobile Phone with 3D Offset */}
-              <div className="absolute -bottom-8 -right-4 sm:-right-8 w-56 sm:w-64 bg-primary text-white rounded-3xl p-3 shadow-2xl border-2 border-white/20 z-20 backdrop-blur-md">
+              {/* Overlapping Mobile Phone with Clean Bounds */}
+              <div className="mt-4 lg:mt-0 lg:absolute lg:-bottom-6 lg:right-4 w-full sm:w-72 bg-primary text-white rounded-3xl p-3 shadow-2xl border-2 border-white/20 z-20 backdrop-blur-md text-left">
                 <div className="flex items-center justify-between px-2 pb-2 pt-0.5 border-b border-white/10 text-[9px] font-mono text-white/50">
                   <span>KARWAN PASS</span>
                   <span className="text-secondary-fixed">LIVE AUDIT</span>

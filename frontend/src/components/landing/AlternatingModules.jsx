@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,6 +9,7 @@ if (typeof window !== 'undefined') {
 
 export default function AlternatingModules() {
   const sectionRef = useRef(null);
+  const cardsRef = useRef([]);
 
   const modules = [
     {
@@ -59,33 +60,38 @@ export default function AlternatingModules() {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = window.innerWidth < 768;
+    const isMobile = window.innerWidth < 1024;
 
     if (prefersReducedMotion || isMobile || !sectionRef.current) {
       return;
     }
 
     const ctx = gsap.context(() => {
-      // 5. Four tall photo cards with initial rotateY of -12°, -4°, 4°, 12°
-      // Straighten to 0 as section scrolls into view (scrub)
-      const angles = [-12, -4, 4, 12];
-      const cardEls = gsap.utils.toArray('.module-perspective-card');
+      // Controlled stagger & coordinated 3D rolling reveal
+      const initialAngles = [-10, -3, 3, 10];
+      const cardEls = cardsRef.current.filter(Boolean);
 
       cardEls.forEach((card, idx) => {
         gsap.fromTo(
           card,
           {
-            rotateY: angles[idx],
+            rotateY: initialAngles[idx],
+            rotateX: 8,
+            y: 40,
+            opacity: 0.8,
             transformPerspective: 1200
           },
           {
             rotateY: 0,
-            ease: 'none',
+            rotateX: 0,
+            y: 0,
+            opacity: 1,
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: sectionRef.current,
-              start: 'top 85%',
+              start: 'top 80%',
               end: 'center 45%',
-              scrub: 0.8,
+              scrub: 0.6,
               invalidateOnRefresh: true
             }
           }
@@ -96,35 +102,57 @@ export default function AlternatingModules() {
     return () => ctx.revert();
   }, []);
 
+  // Interactive 3D mouse tilt handlers per card
+  const handleMouseMove = (e, idx) => {
+    const card = cardsRef.current[idx];
+    if (!card || window.innerWidth < 1024) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+    // Subtle natural tilt: max 9 degrees rotation, subtle lift
+    card.style.transform = `perspective(1000px) rotateX(${-y * 9}deg) rotateY(${x * 9}deg) translateY(-8px) translateZ(10px)`;
+  };
+
+  const handleMouseLeave = (idx) => {
+    const card = cardsRef.current[idx];
+    if (!card) return;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) translateZ(0px)';
+  };
+
   return (
     <section
       ref={sectionRef}
-      className="pt-16 md:pt-24 pb-2 md:pb-4 bg-surface-container-low/40 overflow-hidden"
+      className="py-20 md:py-28 bg-surface-container-low/40 border-b border-surface-container-high/60 overflow-hidden"
     >
-      <div className="max-w-[1280px] mx-auto px-5 md:px-16">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
         {/* Section Header - Left Aligned to match container & logo */}
-        <div className="text-left mb-14">
+        <div className="text-left mb-12 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-surface-container-high text-xs font-semibold text-secondary mb-3">
             <span className="material-symbols-outlined text-sm">view_quilt</span>
             <span>MODULAR ARCHITECTURE</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight [text-wrap:balance] max-w-[18ch]">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight [text-wrap:balance]">
             Four core engines for{' '}
             <span className="italic font-normal text-secondary inline-block">
               total journey&nbsp;trust.
             </span>
           </h2>
-          <p className="font-sans text-base sm:text-lg text-text-gray mt-2 max-w-2xl">
-            Each engine solves an essential vulnerability in domestic travel across local transit, street safety, route continuity, and accommodations.
+          <p className="font-sans text-base sm:text-lg text-text-gray mt-2 leading-relaxed">
+            Each engine addresses a critical point of vulnerability in domestic travel across transit, street safety, route continuity, and accommodations.
           </p>
         </div>
 
-        {/* 5. Four tall photo cards in 3D perspective (straighten to 0 on scroll scrub, hover lifts 8px) */}
-        <div className="perspective-1200 preserve-3d grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-6">
-          {modules.map((m) => (
+        {/* Four tall photo cards in 3D perspective with interactive tilt */}
+        <div className="perspective-1200 preserve-3d grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-4">
+          {modules.map((m, idx) => (
             <div
               key={m.id}
-              className="module-perspective-card relative h-[480px] sm:h-[530px] rounded-3xl overflow-hidden shadow-floating border border-surface-container-high/80 flex flex-col justify-between p-6 sm:p-7 transition-transform duration-300 ease-out hover:-translate-y-2 group cursor-pointer will-change-transform"
+              ref={(el) => (cardsRef.current[idx] = el)}
+              onMouseMove={(e) => handleMouseMove(e, idx)}
+              onMouseLeave={() => handleMouseLeave(idx)}
+              className="relative h-[480px] sm:h-[520px] rounded-3xl overflow-hidden shadow-floating border border-surface-container-high/80 flex flex-col justify-between p-6 sm:p-7 transition-all duration-200 ease-out group cursor-pointer will-change-transform"
             >
               {/* Background Photo */}
               <img
@@ -135,7 +163,7 @@ export default function AlternatingModules() {
                 className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
-              {/* Dark Gradient Overlay */}
+              {/* Dark Gradient Overlay for Readability */}
               <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/75 to-transparent/30 z-10" />
 
               {/* Card Top: Step Badge */}
@@ -165,9 +193,9 @@ export default function AlternatingModules() {
 
                 {/* Chips */}
                 <div className="flex flex-wrap gap-1.5 pt-1">
-                  {m.chips.map((chip, idx) => (
+                  {m.chips.map((chip, chipIdx) => (
                     <span
-                      key={idx}
+                      key={chipIdx}
                       className="px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-white/10 text-white/90 border border-white/15 backdrop-blur-sm"
                     >
                       {chip}

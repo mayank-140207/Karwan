@@ -79,14 +79,14 @@ export default function ScrollStorySection() {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = window.innerWidth < 768;
+    const isMobile = window.innerWidth < 1024;
 
     if (prefersReducedMotion || isMobile || !triggerRef.current || !deviceRef.current) {
       return;
     }
 
     const ctx = gsap.context(() => {
-      // 3. Pin with end: "+=300%", scrub 0.6
+      // Pin with end: "+=300%", scrub 0.6
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: triggerRef.current,
@@ -103,21 +103,19 @@ export default function ScrollStorySection() {
         }
       });
 
-      // Starting at perspective(1600px) rotateX(18deg) rotateY(-14deg) rotateZ(2deg) scale(.9)
-      // Flattening to about rotateX(4deg) rotateY(-4deg) scale(1) by 15% progress (0.15)
+      // Starting at perspective(1400px) rotateX(14deg) rotateY(-10deg) scale(.95)
+      // Flattening smoothly to rotateX(2deg) rotateY(-2deg) scale(1) by 15% progress
       tl.fromTo(
         deviceRef.current,
         {
-          rotateX: 18,
-          rotateY: -14,
-          rotateZ: 2,
-          scale: 0.9,
-          transformPerspective: 1600
+          rotateX: 14,
+          rotateY: -10,
+          scale: 0.95,
+          transformPerspective: 1400
         },
         {
-          rotateX: 4,
-          rotateY: -4,
-          rotateZ: 0,
+          rotateX: 2,
+          rotateY: -2,
           scale: 1,
           ease: 'none',
           duration: 0.15
@@ -125,12 +123,12 @@ export default function ScrollStorySection() {
         0
       );
 
-      // Keep flattened for the rest of scrub (0.15 to 1.0)
+      // Keep flattened and stable for remainder of scrub
       tl.to(
         deviceRef.current,
         {
-          rotateX: 2,
-          rotateY: -2,
+          rotateX: 0,
+          rotateY: 0,
           scale: 1,
           ease: 'none',
           duration: 0.85
@@ -149,22 +147,19 @@ export default function ScrollStorySection() {
     <section
       id="trip-story"
       ref={sectionRef}
-      className="bg-[#000918] text-white pt-16 md:pt-24 pb-2 md:pb-4 relative overflow-hidden"
+      className="bg-[#000918] text-white py-16 md:py-24 relative overflow-hidden"
     >
-      {/* Background: Near-black with subtle grid and soft green + navy radial glow behind device */}
+      {/* Background: Near-black with subtle grid and soft green + navy radial glow */}
       <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#2C6E49_1px,transparent_1px)] [background-size:28px_28px]" />
 
       <div
         ref={triggerRef}
-        className="max-w-[1280px] mx-auto px-5 md:px-16 relative z-10 lg:h-[calc(100vh-var(--header-h))] lg:min-h-[calc(100vh-var(--header-h))] flex flex-col justify-center"
+        className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative z-10 w-full"
       >
-        {/* Soft green and navy radial glow positioned behind the device */}
-        <div className="hidden lg:block absolute right-16 top-1/2 -translate-y-1/2 w-[540px] h-[540px] rounded-full bg-[radial-gradient(circle,rgba(40,106,70,0.22)_0%,rgba(5,36,67,0.38)_45%,transparent_70%)] pointer-events-none blur-3xl z-0" />
-
-        {/* 2-Column Layout: Text and Device Vertically Centered */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center relative z-10">
-          {/* Left Column: Mono label, Headline, and Plain Step List (No Boxes) */}
-          <div className="lg:col-span-6 text-left space-y-6">
+        {/* DESKTOP PINNED VIEW (1024px and up) */}
+        <div className="hidden lg:grid grid-cols-12 gap-12 items-center min-h-[calc(100vh-var(--header-h)-4rem)] py-6">
+          {/* Left Column: Mono label, Headline, and Plain Step List */}
+          <div className="col-span-6 text-left space-y-6">
             {/* Small mono label that updates */}
             <div className="flex items-center gap-2 text-xs font-mono tracking-wider">
               <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse" />
@@ -174,14 +169,14 @@ export default function ScrollStorySection() {
             </div>
 
             {/* Headline with Noto Serif & italic accent */}
-            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-pure-white leading-tight [text-wrap:balance] max-w-[18ch]">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-pure-white leading-tight [text-wrap:balance]">
               A trip, played by{' '}
               <span className="italic font-normal text-secondary-fixed inline-block">
                 your&nbsp;scroll.
               </span>
             </h2>
 
-            <p className="font-sans text-sm sm:text-base text-white/70 leading-relaxed max-w-xl">
+            <p className="font-sans text-base text-white/70 leading-relaxed max-w-lg">
               Follow a real journey from Mathura Junction to Vrindavan to see how Karwan’s trust engines keep domestic travellers secure, informed, and on track.
             </p>
 
@@ -199,7 +194,7 @@ export default function ScrollStorySection() {
                   >
                     <div className="flex items-baseline gap-3">
                       <span
-                        className={`text-xs font-mono font-bold tracking-wider ${
+                        className={`font-mono text-sm font-bold ${
                           isActive ? 'text-secondary-fixed' : 'text-white/60'
                         }`}
                       >
@@ -207,16 +202,17 @@ export default function ScrollStorySection() {
                       </span>
                       <div>
                         <h4
-                          className={`font-serif text-base sm:text-lg transition-colors ${
-                            isActive
-                              ? 'text-pure-white font-bold text-secondary-fixed'
-                              : 'text-white/80 font-medium'
+                          className={`font-serif text-base sm:text-lg font-bold transition-colors ${
+                            isActive ? 'text-white' : 'text-white/70'
                           }`}
                         >
                           {step.title}
                         </h4>
+                        <div className="text-xs text-secondary-fixed mt-0.5">
+                          {step.subtitle}
+                        </div>
                         {isActive && (
-                          <p className="text-xs text-white/70 mt-1 leading-relaxed animate-fadeIn">
+                          <p className="text-xs text-white/80 mt-1.5 leading-relaxed animate-fadeIn">
                             {step.desc}
                           </p>
                         )}
@@ -228,96 +224,151 @@ export default function ScrollStorySection() {
             </div>
           </div>
 
-          {/* Right Column: Whole Device, Never Cropped, Starting in 3D Perspective */}
-          <div className="lg:col-span-6 flex flex-col items-center justify-center">
+          {/* Right Column: Whole Device, Never Cropped */}
+          <div className="col-span-6 flex flex-col items-center justify-center relative">
+            {/* Soft radial glow behind device */}
+            <div className="absolute w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(40,106,70,0.25)_0%,rgba(5,36,67,0.35)_50%,transparent_75%)] pointer-events-none blur-2xl z-0" />
+
+            {/* Device Frame: strictly proportioned so it never overflows */}
             <div
               ref={deviceRef}
-              className="w-full max-w-[340px] sm:max-w-[380px] bg-primary-container/90 rounded-[38px] p-4 border border-white/20 shadow-2xl backdrop-blur-md transition-transform will-change-transform preserve-3d"
+              className="relative z-10 w-[300px] sm:w-[320px] max-h-[500px] aspect-[9/18.5] bg-[#0c121e] rounded-[36px] p-3 shadow-2xl border-4 border-[#1f293d] flex flex-col justify-between overflow-hidden"
             >
-              {/* Device Bezel Header (Speaker & Camera) */}
-              <div className="flex items-center justify-between px-4 pb-3 pt-1 border-b border-white/10">
-                <span className="text-[11px] font-mono text-white/60">09:41</span>
-                <div className="w-16 h-3 rounded-full bg-primary flex items-center justify-center">
-                  <div className="w-2.5 h-2.5 rounded-full bg-black/60" />
-                </div>
-                <div className="flex items-center gap-1 text-white/60">
-                  <span className="material-symbols-outlined text-xs">signal_cellular_alt</span>
-                  <span className="material-symbols-outlined text-xs">wifi</span>
-                  <span className="material-symbols-outlined text-xs">battery_full</span>
-                </div>
+              {/* Phone Speaker Notch */}
+              <div className="w-20 h-4 bg-[#1f293d] rounded-full mx-auto mb-2 shrink-0 flex items-center justify-center">
+                <div className="w-2 h-2 rounded-full bg-black/60 mr-2" />
+                <div className="w-8 h-1 rounded-full bg-black/60" />
               </div>
 
-              {/* Screen Content Container with 300ms Crossfade */}
+              {/* Screen Content: Crossfade over 300ms */}
               <div
                 key={activeStep}
-                className="bg-primary/95 rounded-[26px] p-5 my-2 min-h-[380px] sm:min-h-[420px] flex flex-col justify-between border border-white/10 transition-opacity duration-300 ease-in-out opacity-100 shadow-inner"
+                className="flex-1 bg-gradient-to-b from-[#141e30] to-[#0f172a] rounded-[26px] p-4 flex flex-col justify-between text-left overflow-hidden transition-all duration-300 animate-fadeIn"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
+                {/* Top Telemetry Header */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-[10px] font-mono">
                     <span
-                      className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase border ${active.screen.badgeColor}`}
+                      className={`px-2 py-0.5 rounded-full font-bold uppercase border ${active.screen.badgeColor}`}
                     >
                       {active.screen.badge}
                     </span>
-                    <span className="text-xs font-mono text-white/50">
-                      STEP {active.num}
-                    </span>
+                    <span className="text-white/60">LIVE FEED</span>
                   </div>
 
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-secondary-fixed mb-4">
-                    <span className="material-symbols-outlined text-2xl">
-                      {active.screen.icon}
-                    </span>
-                  </div>
-
-                  <h3 className="font-serif font-bold text-xl text-pure-white mb-2">
-                    {active.screen.title}
-                  </h3>
-
-                  <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 mb-4">
-                    <div className="text-xs font-semibold text-secondary-fixed">
+                  <div>
+                    <h5 className="font-serif font-bold text-base text-white mt-1">
+                      {active.screen.title}
+                    </h5>
+                    <div className="text-xs font-semibold text-secondary-fixed mt-0.5">
                       {active.screen.highlight}
                     </div>
                   </div>
+                </div>
 
-                  <div className="space-y-2 text-xs text-white/70">
-                    <div className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-sm text-secondary-fixed shrink-0 mt-0.5">
-                        check_circle
-                      </span>
-                      <span>{active.screen.detail1}</span>
+                {/* Central Screen Graphic/Detail Box */}
+                <div className="my-auto py-3 space-y-2.5">
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
+                    <div className="text-[10px] text-white/50 font-mono">PRIMARY TELEMETRY</div>
+                    <div className="text-white/90 text-xs mt-0.5 leading-snug">
+                      {active.screen.detail1}
                     </div>
-                    <div className="flex items-start gap-2">
-                      <span className="material-symbols-outlined text-sm text-secondary-fixed shrink-0 mt-0.5">
-                        verified
-                      </span>
-                      <span>{active.screen.detail2}</span>
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
+                    <div className="text-[10px] text-white/50 font-mono">GROUND TRUTH AUDIT</div>
+                    <div className="text-secondary-fixed text-xs mt-0.5 leading-snug">
+                      {active.screen.detail2}
                     </div>
                   </div>
                 </div>
 
-                {/* Micro Telemetry Footer inside phone */}
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-white/50 font-mono">
-                  <span>KARWAN OS 2.4</span>
-                  <span className="text-secondary-fixed">ENCRYPTED FEED</span>
+                {/* Bottom Screen Bar */}
+                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-white/60">
+                  <span>KARWAN PASS #ST-0{activeStep + 1}</span>
+                  <span className="text-secondary-fixed flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary-fixed animate-pulse" />
+                    Verified
+                  </span>
                 </div>
               </div>
 
-              {/* Bottom Phone Bar */}
-              <div className="w-28 h-1 rounded-full bg-white/30 mx-auto mt-2" />
+              {/* Phone Home Bar */}
+              <div className="w-24 h-1 bg-white/20 rounded-full mx-auto mt-2 shrink-0" />
             </div>
 
             {/* Hairline Progress Bar Under Device */}
-            <div className="w-full max-w-[340px] sm:max-w-[380px] h-[2px] bg-white/15 rounded-full mt-4 overflow-hidden">
+            <div className="w-[300px] mt-4">
+              <div className="h-[2px] bg-white/10 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-secondary-fixed transition-all duration-75 ease-out"
+                  style={{ width: `${Math.min(100, Math.max(0, storyProgress * 100))}%` }}
+                />
+              </div>
+              <div className="flex items-center justify-between text-[10px] font-mono text-white/40 mt-1">
+                <span>01 PLAN</span>
+                <span>04 AUTO-HEAL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* MOBILE & TABLET STACKED VIEW (< 1024px) */}
+        <div className="lg:hidden space-y-12">
+          <div className="text-left space-y-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-mono font-semibold text-secondary-fixed">
+              <span>01 TO 04 · END-TO-END JOURNEY</span>
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
+              A trip, played by{' '}
+              <span className="italic font-normal text-secondary-fixed inline-block">
+                your&nbsp;journey.
+              </span>
+            </h2>
+            <p className="text-sm text-white/70 leading-relaxed">
+              How Karwan keeps domestic travellers secure, informed, and on track across every corridor.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {steps.map((step) => (
               <div
-                className="h-full bg-secondary-fixed transition-all duration-75 ease-out"
-                style={{ width: `${Math.min(100, Math.max(0, storyProgress * 100))}%` }}
-              />
-            </div>
-            <div className="flex items-center justify-between w-full max-w-[340px] sm:max-w-[380px] text-[10px] font-mono text-white/50 mt-1.5 px-0.5">
-              <span>TRIP INITIATION</span>
-              <span>VERIFIED ARRIVAL</span>
-            </div>
+                key={step.num}
+                className="bg-[#0f172a] rounded-2xl p-6 border border-white/10 space-y-4"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-secondary-fixed font-bold text-sm">
+                    STEP {step.num}
+                  </span>
+                  <span
+                    className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase border ${step.screen.badgeColor}`}
+                  >
+                    {step.screen.badge}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 className="font-serif font-bold text-xl text-white">
+                    {step.title}
+                  </h3>
+                  <div className="text-xs text-secondary-fixed mt-0.5 font-medium">
+                    {step.subtitle}
+                  </div>
+                  <p className="text-xs sm:text-sm text-white/80 mt-2 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-2 text-xs">
+                  <div className="text-white/90 font-medium">
+                    {step.screen.detail1}
+                  </div>
+                  <div className="text-secondary-fixed text-[11px]">
+                    ✓ {step.screen.detail2}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

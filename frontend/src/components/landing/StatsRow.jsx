@@ -34,8 +34,8 @@ export default function StatsRow() {
   if (items.length === 0) return null;
 
   return (
-    <section className="pt-16 md:pt-24 pb-2 md:pb-4 bg-white border-y border-surface-container-high/70">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-16">
+    <section className="py-14 md:py-18 bg-white border-y border-surface-container-high/70">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
         <div className={`grid grid-cols-1 sm:grid-cols-2 ${items.length >= 4 ? 'lg:grid-cols-4' : items.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'} gap-8 divide-y sm:divide-y-0 sm:divide-x divide-surface-container-high/80`}>
           {items.map((item, idx) => (
             <div key={item.id} className={`${idx > 0 ? 'pt-6 sm:pt-0 sm:pl-8' : ''} text-left`}>

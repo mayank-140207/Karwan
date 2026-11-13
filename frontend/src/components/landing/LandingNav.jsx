@@ -156,7 +156,7 @@ export default function LandingNav({ onOpenSearchPalette }) {
 
         {/* Right Action Buttons */}
         <div className="flex items-center gap-3">
-          {/* Search button showing ⌘K (replaces "35 Screens" pill) */}
+          {/* Search button showing ⌘K */}
           <button
             type="button"
             onClick={onOpenSearchPalette}

@@ -41,8 +41,8 @@ export default function OrbitTrustLayer() {
   };
 
   return (
-    <section className="pt-16 md:pt-24 pb-2 md:pb-4 bg-white border-y border-surface-container-high/80 relative overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-16">
+    <section className="py-20 md:py-28 bg-white border-y border-surface-container-high/80 relative overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-6">
           {/* Text Side - Left Aligned to match container & logo */}
           <div className="lg:col-span-6 text-left space-y-5">

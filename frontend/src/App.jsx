@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 const LandingPage = lazy(() => import('./pages/LandingPage'));
 const HomePage = lazy(() => import('./pages/HomePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const ScreensCatalogPage = lazy(() => import('./pages/ScreensCatalogPage'));
 
 // 2. Auth Flow (6)
 const ImmersiveLoginPage = lazy(() => import('./pages/auth/ImmersiveLoginPage'));
@@ -69,6 +70,8 @@ export default function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/404" element={<NotFoundPage />} />
+          <Route path="/screens" element={<ScreensCatalogPage />} />
+          <Route path="/screens-catalog" element={<ScreensCatalogPage />} />
 
           {/* Auth Flow (6 screens with primary & alias routes) */}
           <Route path="/login" element={<ImmersiveLoginPage />} />

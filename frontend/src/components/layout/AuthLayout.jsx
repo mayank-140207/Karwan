@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../common/Logo';
-import { mockData } from '../../data/mockData';
 
 /**
  * Shared AuthLayout for Login, Immersive Login, Signup 1, Signup 2, and OTP.
@@ -17,7 +16,6 @@ export default function AuthLayout({
   imageAlt = "Taj Mahal at sunrise in golden hour"
 }) {
   const navigate = useNavigate();
-  const [screenSwitcherOpen, setScreenSwitcherOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-on-surface">
@@ -68,21 +66,12 @@ export default function AuthLayout({
             </div>
 
             <div className="flex items-center gap-3 ml-auto">
-              <button
-                type="button"
-                onClick={() => setScreenSwitcherOpen(true)}
-                className="px-3 py-1.5 rounded-full bg-surface-container hover:bg-secondary/15 text-primary text-xs font-semibold flex items-center gap-1.5 transition-colors border border-outline-variant/60"
-                title="Browse all 35 project screens"
-              >
-                <span className="material-symbols-outlined text-xs text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>apps</span>
-                <span>35 Screens</span>
-              </button>
-
               <Link
                 to="/"
-                className="text-xs font-semibold text-text-gray hover:text-primary transition-colors hidden sm:inline"
+                className="text-xs font-semibold text-text-gray hover:text-primary transition-colors inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:bg-surface-container"
               >
-                Exit to Home
+                <span className="material-symbols-outlined text-sm">home</span>
+                <span>Exit to Home</span>
               </Link>
             </div>
           </div>
@@ -102,67 +91,6 @@ export default function AuthLayout({
           </div>
         </section>
       </div>
-
-      {/* Screen Switcher Modal */}
-      {screenSwitcherOpen && (
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-pure-white rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-hidden flex flex-col shadow-2xl">
-            <div className="px-6 py-4 border-b border-surface-container flex items-center justify-between bg-surface-container-low">
-              <div>
-                <h3 className="font-serif font-bold text-lg text-primary flex items-center gap-2">
-                  <span className="material-symbols-outlined text-secondary" style={{ fontVariationSettings: "'FILL' 1" }}>dashboard</span>
-                  <span>Karwan Project - Complete 35 Screen Index</span>
-                </h3>
-                <p className="text-xs text-text-gray mt-0.5">Click any screen to navigate directly</p>
-              </div>
-              <button
-                type="button"
-                onClick={() => setScreenSwitcherOpen(false)}
-                className="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-text-gray hover:text-primary transition-colors"
-              >
-                <span className="material-symbols-outlined text-lg">close</span>
-              </button>
-            </div>
-
-            <div className="p-6 overflow-y-auto space-y-6">
-              {mockData.routesCatalog.map((cat, idx) => (
-                <div key={idx} className="space-y-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-secondary border-b border-surface-container pb-1">
-                    {cat.category} ({cat.items.length})
-                  </h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-                    {cat.items.map((item, i) => (
-                      <Link
-                        key={i}
-                        to={item.path}
-                        onClick={() => setScreenSwitcherOpen(false)}
-                        className="p-2.5 rounded-xl border text-left flex flex-col justify-between transition-all bg-surface-container-lowest border-outline-variant/60 hover:border-secondary hover:bg-surface"
-                      >
-                        <span className="text-xs font-medium text-primary line-clamp-1">{item.name}</span>
-                        <div className="flex items-center justify-between text-[10px] text-text-gray mt-1">
-                          <code className="text-secondary/80 font-mono">{item.path}</code>
-                          <span className="text-[9px] text-text-gray/60">{item.id.slice(0, 6)}...</span>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="px-6 py-3 border-t border-surface-container bg-surface flex items-center justify-between text-xs text-text-gray">
-              <span>Total screens verified: <strong>35 / 35</strong></span>
-              <button
-                type="button"
-                onClick={() => setScreenSwitcherOpen(false)}
-                className="px-4 py-1.5 rounded-full bg-primary text-white text-xs font-medium hover:bg-primary/90"
-              >
-                Close Switcher
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

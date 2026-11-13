@@ -9,6 +9,7 @@ import HeroSection from '../components/landing/HeroSection';
 import LiveProductDemo from '../components/landing/LiveProductDemo';
 import StatsRow from '../components/landing/StatsRow';
 import CommandPaletteModal from '../components/landing/CommandPaletteModal';
+import SnakeCursor from '../components/common/SnakeCursor';
 
 // Lazy-load sections below the fold for optimal Lighthouse Performance (>85)
 const ScrollStorySection = lazy(() => import('../components/landing/ScrollStorySection'));
@@ -126,6 +127,9 @@ export default function LandingPage() {
           style={{ transform: `scaleX(${scrollProgress})` }}
         />
       </div>
+
+      {/* Interactive Snake-Like Cursor Animation */}
+      <SnakeCursor />
 
       {/* 1. Nav (Fixed, with real --header-h, Modules mega-menu, logo, search button with ⌘K, login, get started) */}
       <LandingNav onOpenSearchPalette={() => setCommandPaletteOpen(true)} />

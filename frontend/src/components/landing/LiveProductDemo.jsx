@@ -134,8 +134,8 @@ export default function LiveProductDemo({ activeTab, onTabChange }) {
   const activeTabData = tabs[currentTab];
 
   return (
-    <section id="live-demo" className="pt-16 md:pt-24 pb-2 md:pb-4 bg-surface-container-low/60 border-t border-surface-container-high/60">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-16">
+    <section id="live-demo" className="py-20 md:py-28 bg-surface-container-low/60 border-t border-surface-container-high/60">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
         {/* Section Header - Left Aligned to match container & logo */}
         <div className="text-left mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-surface-container-high text-xs font-semibold text-secondary mb-3">
