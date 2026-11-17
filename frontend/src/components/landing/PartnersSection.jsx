@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
+import { Icons } from '../common/Icons';
 
 export default function PartnersSection() {
   const [activeTab, setActiveTab] = useState(0);
@@ -9,63 +10,63 @@ export default function PartnersSection() {
   const partners = [
     {
       id: 'autostand',
-      name: 'Auto Stand',
+      name: 'Prepaid Auto Union',
       category: 'Transit Partner',
       title: 'Mathura Junction Prepaid Auto Union',
       badge: 'UNION #42 ACCREDITED',
-      rating: '4.8★ (1,240 verified trips)',
+      rating: '4.8 ★ (1,240 verified trips)',
       desc: 'Registered union of 42 electric and CNG auto-rickshaw drivers committing to transparent, meter-aligned going-fares with zero tourist price gouging.',
       metrics: [
         { label: 'Active Drivers', val: '42 Registered' },
         { label: 'Fare Compliance', val: '99.4%' },
-        { label: 'Trip Dispute Rate', val: '< 0.2%' }
+        { label: 'Dispute Rate', val: '< 0.2%' }
       ],
       credentials: 'KARWAN ID #AU-2841 · Municipal Counter Gate 2',
       quote: '"Before Karwan, tourists were wary and negotiations caused friction. Now everyone knows the fair going-rate upfront, and our trips have doubled."'
     },
     {
       id: 'guide',
-      name: 'Guide',
+      name: 'Heritage Guide',
       category: 'Cultural Guide Partner',
       title: 'Rajesh Gupta — Heritage & History Guide',
       badge: 'ASI LICENSED GUIDE',
-      rating: '4.9★ (340 verified audits)',
+      rating: '4.9 ★ (340 verified audits)',
       desc: 'Master of Arts in Ancient Indian History. 14 years introducing travelers to the temples, ghats, and hidden architectural treasures of Braj without commissions.',
       metrics: [
         { label: 'Languages', val: 'Hindi, English, Sanskrit' },
         { label: 'Direct Booking', val: 'Zero Commission' },
-        { label: 'Audit Rating', val: '4.9 / 5.0' }
+        { label: 'Audit Score', val: '4.9 / 5.0' }
       ],
       credentials: 'KARWAN ID #UP-9821 · Ministry of Tourism Accredited',
       quote: '"I do not take visitors to commission emporiums. Karwan connects me directly with travelers who value real history and authentic storytelling."'
     },
     {
       id: 'homestay',
-      name: 'Homestay',
+      name: 'Heritage Haveli',
       category: 'Hospitality Partner',
       title: 'The Heritage Haveli — Mathura-Vrindavan Road',
       badge: 'TELEMETRICALLY VERIFIED',
-      rating: '4.9★ (510 verified stays)',
+      rating: '4.9 ★ (510 verified stays)',
       desc: 'Restored 120-year-old courtyard residence. Automated IoT sensors monitor continuous hot water, solar power, and 25kVA generator backup.',
       metrics: [
         { label: 'Water Continuity', val: '100% Running' },
         { label: 'Power Backup', val: 'Dual Genset' },
-        { label: 'Wi-Fi Speed', val: '78 Mbps Fiber' }
+        { label: 'Fiber Wi-Fi', val: '78 Mbps Fiber' }
       ],
       credentials: 'KARWAN ID #HS-4012 · Host: Brajraj Sharma',
       quote: '"Our guests know exactly what to expect before stepping through the doors. Ground Truth eliminates false complaints and rewards real hospitality."'
     },
     {
       id: 'vendor',
-      name: 'Vendor',
-      category: 'Artisan Partner',
+      name: 'Brass Handicrafts',
+      category: 'Artisan Guild Partner',
       title: 'Market Square Souvenirs & Brass Handicrafts',
       badge: 'ARTISAN GUILD CERTIFIED',
-      rating: '4.8★ (890 community audits)',
+      rating: '4.8 ★ (890 community audits)',
       desc: 'Traditional family foundry producing hand-carved bell-metal idols and brass lamps. Dedicated to authentic craft preservation with fixed artisan pricing.',
       metrics: [
         { label: 'Purity Guarantee', val: 'Certified Brass' },
-        { label: 'Fixed Pricing', val: 'No Tour Kickbacks' },
+        { label: 'Fixed Pricing', val: 'No Tour Cuts' },
         { label: 'Artisan Lineage', val: 'Est. 1974' }
       ],
       credentials: 'KARWAN ID #VN-1092 · Chowk Bazaar, Mathura',
@@ -84,19 +85,19 @@ export default function PartnersSection() {
 
     gsap.fromTo(
       mockupRef.current,
-      { opacity: 0, rotateY: -8, scale: 0.98 },
+      { opacity: 0, rotateY: -6, scale: 0.98 },
       { opacity: 1, rotateY: 0, scale: 1, duration: 0.35, ease: 'power2.out' }
     );
   }, [activeTab]);
 
   return (
-    <section id="for-partners" className="py-20 md:py-28 bg-background border-b border-surface-container-high/60 overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
+    <section id="for-partners" className="py-20 md:py-32 bg-background border-b border-surface-container-high/60 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full space-y-12">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div className="text-left max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-surface-container-high text-xs font-semibold text-secondary mb-3">
-              <span className="material-symbols-outlined text-sm">handshake</span>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div className="text-left max-w-2xl space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-surface-container-high text-xs font-semibold text-secondary">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
               <span>LOCAL ECONOMIC EMPOWERMENT</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight [text-wrap:balance]">
@@ -105,25 +106,25 @@ export default function PartnersSection() {
                 local&nbsp;providers.
               </span>
             </h2>
-            <p className="font-sans text-base sm:text-lg text-text-gray mt-2 leading-relaxed">
+            <p className="font-sans text-base sm:text-lg text-text-gray leading-relaxed">
               Rewarding honest drivers, accredited guides, heritage stays, and artisan vendors who uphold real standards.
             </p>
           </div>
 
           <Link
             to="/partner/kyc/step-1"
-            className="px-6 py-3 rounded-full bg-secondary text-white font-semibold text-sm hover:bg-success-green transition-colors shadow-ambient shrink-0 flex items-center gap-2 self-start md:self-auto"
+            className="px-6 py-3.5 rounded-full bg-primary text-white font-semibold text-sm hover:bg-secondary transition-all shadow-ambient shrink-0 flex items-center gap-2 self-start md:self-auto group"
           >
             <span>Become a verified partner</span>
-            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            <Icons.ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        {/* Showcase Layout: Tab List on Left, Browser + Phone Mockup on Right */}
+        {/* Showcase Layout: Vertical Tabs & Details on Left, Browser + Companion Card on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Left Column (5 cols): Tab list & Details */}
-          <div className="lg:col-span-5 space-y-6">
-            {/* Tab Buttons */}
+          {/* Left Column (5 cols): Tabs and Partner Details */}
+          <div className="lg:col-span-5 space-y-6 text-left">
+            {/* Tab Pill Buttons */}
             <div className="flex flex-wrap gap-2 pb-2 border-b border-surface-container-high">
               {partners.map((p, idx) => (
                 <button
@@ -142,7 +143,7 @@ export default function PartnersSection() {
             </div>
 
             {/* Active Partner Details Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-floating border border-surface-container-high space-y-5 text-left">
+            <div className="bg-white rounded-3xl p-6 sm:p-7 shadow-floating border border-surface-container-high space-y-5">
               <div className="flex items-center justify-between">
                 <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-secondary/10 text-secondary border border-secondary/20">
                   {current.badge}
@@ -181,13 +182,13 @@ export default function PartnersSection() {
             </div>
           </div>
 
-          {/* Right Column (7 cols): Browser Plus Phone Mockup (Contained without bleeding) */}
+          {/* Right Column (7 cols): Realistic Browser + Floating Mobile Preview */}
           <div className="lg:col-span-7 flex flex-col items-center justify-center pt-2">
             <div
               ref={mockupRef}
               className="relative w-full max-w-xl transition-all duration-300"
             >
-              {/* Back Mockup: Browser Window */}
+              {/* Browser Window Mockup */}
               <div className="bg-white rounded-2xl shadow-floating border border-surface-container-high overflow-hidden text-left">
                 {/* Browser Top Bar */}
                 <div className="px-4 py-2.5 bg-surface-container-low border-b border-surface-container-high flex items-center justify-between">
@@ -213,30 +214,34 @@ export default function PartnersSection() {
                         {current.title}
                       </h4>
                     </div>
-                    <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200">
-                      Live Telemetry Active
+                    <span className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200 flex items-center gap-1">
+                      <Icons.CheckCircle className="w-3 h-3 text-emerald-600" />
+                      <span>Live Telemetry Active</span>
                     </span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
                     <div className="p-3 rounded-xl bg-surface-container-low border border-surface-container-high">
-                      <div className="text-[10px] text-text-gray">Verified Passenger Trips</div>
-                      <div className="font-serif font-bold text-base text-primary mt-0.5">1,240 Trips</div>
+                      <div className="text-[10px] text-text-gray font-mono uppercase">Verified Passenger Trips</div>
+                      <div className="font-serif font-bold text-base text-primary mt-0.5">1,240 Completed</div>
                     </div>
                     <div className="p-3 rounded-xl bg-surface-container-low border border-surface-container-high">
-                      <div className="text-[10px] text-text-gray">Rider Trust Rating</div>
+                      <div className="text-[10px] text-text-gray font-mono uppercase">Rider Trust Rating</div>
                       <div className="font-serif font-bold text-base text-secondary mt-0.5">4.9 / 5.0 (100% genuine)</div>
                     </div>
                   </div>
 
                   <div className="p-3.5 rounded-xl border border-surface-container-high bg-white text-xs text-text-gray flex items-center justify-between">
                     <span>Cryptographic Credential: <strong>{current.credentials}</strong></span>
-                    <span className="text-secondary font-semibold">Verified ✓</span>
+                    <span className="text-secondary font-semibold flex items-center gap-1">
+                      <Icons.Check className="w-3 h-3" />
+                      <span>Audited</span>
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* Overlapping Mobile Phone with Clean Bounds */}
+              {/* Overlapping Mobile Card */}
               <div className="mt-4 lg:mt-0 lg:absolute lg:-bottom-6 lg:right-4 w-full sm:w-72 bg-primary text-white rounded-3xl p-3 shadow-2xl border-2 border-white/20 z-20 backdrop-blur-md text-left">
                 <div className="flex items-center justify-between px-2 pb-2 pt-0.5 border-b border-white/10 text-[9px] font-mono text-white/50">
                   <span>KARWAN PASS</span>

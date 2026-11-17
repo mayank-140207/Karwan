@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Icons } from '../common/Icons';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -18,53 +19,49 @@ export default function HowItWorksSection() {
       title: 'Plan the Route',
       tagline: 'Set corridor, pace & priorities',
       desc: 'Define your journey waypoints and customize transit preferences. Karwan instantly identifies active transit corridors, verified homestays, and community-audited stops along the way.',
-      icon: 'map',
       badge: 'PRE-TRIP PLANNING',
-      color: 'border-emerald-500/30 bg-emerald-50/40 text-emerald-800',
-      benefit: 'No tout markups'
+      color: 'border-emerald-500/30 bg-emerald-50/50 text-emerald-800',
+      benefit: 'No tout markups',
+      icon: <Icons.Location className="w-5 h-5 text-emerald-600" />
     },
     {
       step: '02',
       title: 'Travel with Live Data',
       tagline: 'Real going-fares & crowding',
       desc: 'Before stepping into an auto or bus, check real going-fares reported by recent riders. Avoid tourist markups and board with confidence, backed by live street-lighting and safety alerts.',
-      icon: 'navigation',
       badge: 'ACTIVE TRANSIT',
-      color: 'border-blue-500/30 bg-blue-50/40 text-blue-800',
-      benefit: 'Fare shown before you ride'
+      color: 'border-blue-500/30 bg-blue-50/50 text-blue-800',
+      benefit: 'Fare shown before you ride',
+      icon: <Icons.ArrowRight className="w-5 h-5 text-blue-600" />
     },
     {
       step: '03',
       title: 'Auto-heal Recalibration',
       tagline: 'Instant detours when disruptions strike',
       desc: 'Unexpected roadblocks, temple crowds, or transit strikes? Auto-heal rebalances your timeline in seconds, proposing verified alternate bypasses and stays so your day stays on track.',
-      icon: 'auto_fix_high',
       badge: 'RESILIENCE ENGINE',
-      color: 'border-amber-500/30 bg-amber-50/40 text-amber-800',
-      benefit: 'Plan fixes itself'
+      color: 'border-amber-500/30 bg-amber-50/50 text-amber-800',
+      benefit: 'Plan fixes itself',
+      icon: <Icons.Refresh className="w-5 h-5 text-amber-600" />
     },
     {
       step: '04',
       title: 'Verify & Give Back',
       tagline: 'Quick audits for the next traveller',
       desc: 'Take 15 seconds to log a paid fare or verify a homestay’s hot water and backup power. Your ground-level audit strengthens community trust and earns KARWAN ID contributor credentials.',
-      icon: 'verified',
       badge: 'COMMUNITY AUDIT',
-      color: 'border-purple-500/30 bg-purple-50/40 text-purple-800',
-      benefit: 'Every report counts'
+      color: 'border-purple-500/30 bg-purple-50/50 text-purple-800',
+      benefit: 'Every report counts',
+      icon: <Icons.CheckCircle className="w-5 h-5 text-purple-600" />
     }
   ];
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = window.innerWidth < 1024;
+    if (!containerRef.current || !trackRef.current) return;
 
-    if (prefersReducedMotion || isMobile || !trackRef.current || !containerRef.current) {
-      return;
-    }
+    const mm = gsap.matchMedia();
 
-    const ctx = gsap.context(() => {
-      // Calculate scroll distance based on container bounds to ensure Card 04 & 05 are 100% visible
+    mm.add('(min-width: 1024px)', () => {
       const getScrollDistance = () => {
         if (!trackRef.current || !containerRef.current) return 0;
         return trackRef.current.scrollWidth - containerRef.current.clientWidth + 64;
@@ -76,7 +73,7 @@ export default function HowItWorksSection() {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top+=80',
-          end: () => `+=${getScrollDistance() + 600}`,
+          end: () => `+=${getScrollDistance() + 400}`,
           pin: true,
           scrub: 0.5,
           invalidateOnRefresh: true,
@@ -85,9 +82,9 @@ export default function HowItWorksSection() {
           }
         }
       });
-    }, containerRef);
+    });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   return (
@@ -97,24 +94,24 @@ export default function HowItWorksSection() {
       className="py-20 md:py-28 bg-surface-container-low/60 border-t border-surface-container-high/80 overflow-hidden"
     >
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 w-full">
-        {/* Section Header - Left Aligned to match container & logo */}
-        <div className="text-left mb-10 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-surface-container-high text-xs font-semibold text-secondary mb-3">
-            <span className="material-symbols-outlined text-sm">linear_scale</span>
-            <span>END-TO-END WORKFLOW</span>
+        {/* Section Header */}
+        <div className="text-left mb-10 max-w-2xl space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-surface-container-high text-xs font-semibold text-secondary">
+            <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+            <span>HOW WE WORK</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary tracking-tight [text-wrap:balance]">
-            How Karwan works on{' '}
+            From planning departure to{' '}
             <span className="italic font-normal text-secondary inline-block">
-              your&nbsp;trip.
+              verified&nbsp;arrival.
             </span>
           </h2>
-          <p className="font-sans text-base sm:text-lg text-text-gray mt-2 leading-relaxed">
-            Four seamless phases that transform travel uncertainty into verifiable confidence.
+          <p className="font-sans text-base sm:text-lg text-text-gray leading-relaxed">
+            Four seamless phases that transform domestic travel friction into verifiable certainty.
           </p>
         </div>
 
-        {/* Horizontal Track (Desktop) / Stacked List (Mobile/Tablet) */}
+        {/* Horizontal Track (Desktop) / Stacked Grid (Mobile/Tablet) */}
         <div className="overflow-visible">
           <div
             ref={trackRef}
@@ -124,22 +121,22 @@ export default function HowItWorksSection() {
             {cards.map((card) => (
               <div
                 key={card.step}
-                className="w-full lg:w-[350px] bg-white rounded-3xl p-7 shadow-floating border border-surface-container-high flex flex-col justify-between shrink-0 transition-transform duration-300 hover:-translate-y-1"
+                className="w-full lg:w-[350px] bg-white rounded-3xl p-7 shadow-floating border border-surface-container-high flex flex-col justify-between shrink-0 transition-transform duration-300 hover:-translate-y-1 text-left"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <span className="text-2xl font-serif font-bold text-secondary">
+                    <span className="text-3xl font-serif font-bold text-text-gray/40">
                       {card.step}
                     </span>
                     <span
-                      className={`px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase border ${card.color}`}
+                      className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase border ${card.color}`}
                     >
                       {card.badge}
                     </span>
                   </div>
 
-                  <div className="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center text-primary mb-4">
-                    <span className="material-symbols-outlined text-2xl">{card.icon}</span>
+                  <div className="w-12 h-12 rounded-2xl bg-surface-container flex items-center justify-center mb-4">
+                    {card.icon}
                   </div>
 
                   <h3 className="font-serif font-bold text-xl text-primary mb-1">
@@ -156,23 +153,23 @@ export default function HowItWorksSection() {
                 {/* Clear user benefit in green at the bottom of each card */}
                 <div className="pt-4 border-t border-surface-container-high/60 mt-6 flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-secondary/15 text-secondary flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-xs font-bold">check</span>
+                    <Icons.Check className="w-2.5 h-2.5" />
                   </span>
-                  <span className="font-medium text-xs sm:text-sm text-secondary">
+                  <span className="font-semibold text-xs sm:text-sm text-secondary">
                     {card.benefit}
                   </span>
                 </div>
               </div>
             ))}
 
-            {/* Card 05: Final Dark Card ("Your trip, verified." with working CTA) */}
-            <div className="w-full lg:w-[370px] bg-primary text-white rounded-3xl p-8 shadow-2xl border border-white/10 flex flex-col justify-between shrink-0 relative overflow-hidden">
+            {/* Card 05: Final Dark Card ("Your trip, verified.") */}
+            <div className="w-full lg:w-[360px] bg-primary text-white rounded-3xl p-8 shadow-2xl border border-white/10 flex flex-col justify-between shrink-0 relative overflow-hidden text-left">
               {/* Subtle Ambient Glow */}
               <div className="absolute top-0 right-0 w-48 h-48 bg-secondary/20 rounded-full blur-2xl pointer-events-none" />
 
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-5">
-                  <span className="text-2xl font-serif font-bold text-secondary-fixed">
+                  <span className="text-3xl font-serif font-bold text-white/30">
                     05
                   </span>
                   <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-white/10 text-secondary-fixed border border-white/15">
@@ -181,7 +178,7 @@ export default function HowItWorksSection() {
                 </div>
 
                 <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-secondary-fixed mb-4">
-                  <span className="material-symbols-outlined text-2xl">verified_user</span>
+                  <Icons.ShieldCheck className="w-6 h-6" />
                 </div>
 
                 <h3 className="font-serif font-bold text-2xl text-pure-white mb-2 leading-tight">
@@ -195,10 +192,10 @@ export default function HowItWorksSection() {
               <div className="relative z-10 pt-4 border-t border-white/15 mt-6 space-y-3">
                 <Link
                   to="/trip/plan/route"
-                  className="w-full py-3 rounded-full bg-secondary text-white font-semibold text-xs sm:text-sm hover:bg-success-green transition-colors shadow-ambient flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded-full bg-secondary text-white font-semibold text-xs sm:text-sm hover:bg-success-green transition-colors shadow-ambient flex items-center justify-center gap-2"
                 >
                   <span>Launch Route Planner</span>
-                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  <Icons.ArrowRight className="w-3.5 h-3.5" />
                 </Link>
                 <div className="text-[11px] text-center text-white/50 font-mono">
                   ZERO TOUT COMMISSIONS GUARANTEE

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Icons } from '../common/Icons';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -11,12 +12,13 @@ export default function ScrollStorySection() {
   const [storyProgress, setStoryProgress] = useState(0);
   const sectionRef = useRef(null);
   const deviceRef = useRef(null);
-  const triggerRef = useRef(null);
+  const contentRef = useRef(null);
 
   // Exactly 4 steps matching "01 / 04" specification
   const steps = [
     {
       num: '01',
+      phase: 'DEPARTURE',
       title: 'Plan the Corridor',
       subtitle: 'Mathura Junction → Vrindavan Bankey Bihari',
       desc: 'Set your domestic route and transit pace. Karwan identifies active corridors, transfer waypoints, and verified travel stops before departure.',
@@ -24,29 +26,39 @@ export default function ScrollStorySection() {
         badge: 'CORRIDOR INITIATION',
         badgeColor: 'text-emerald-400 bg-emerald-950/80 border-emerald-800',
         title: 'Braj Heritage Corridor',
-        highlight: '14.2 km · 32 mins est.',
-        detail1: 'Mathura Jn. (Gate 1 Exit) → Chhatikara → Vidyapeeth Marg',
-        detail2: '3 local transit options available · 100% verified corridor safety score',
-        icon: 'map'
+        route: 'Mathura Jn. (Gate 1 Exit) → Chhatikara → Vidyapeeth Marg',
+        metric1: '14.2 km',
+        metric1Label: 'Total Distance',
+        metric2: '32 mins',
+        metric2Label: 'Estimated Transit',
+        metric3: '99/100',
+        metric3Label: 'Safety Telemetry',
+        telemetry: '3 verified transit modes available · Continuous street-lighting audited'
       }
     },
     {
       num: '02',
+      phase: 'TRANSIT',
       title: 'Check the Going-Fare',
       subtitle: 'Eliminate tourist markups with verified rider data',
       desc: 'Before boarding an e-rickshaw or shared auto, check actual rates crowdsourced from recent riders in the last 2 hours. Pay the fair rate.',
       screen: {
         badge: 'FARE BENCHMARK VERIFIED',
         badgeColor: 'text-amber-400 bg-amber-950/80 border-amber-800',
-        title: 'Prepaid E-Rickshaw Fare',
-        highlight: '₹20 – ₹25 per seat',
-        detail1: 'Reported by 18 riders today · Tourist quote without Karwan: ₹120',
-        detail2: 'Auto Stand: Mathura Jn. Gate 2 · Union #42 registered',
-        icon: 'payments'
+        title: 'Prepaid E-Rickshaw Going-Fare',
+        route: 'Mathura Junction Gate 2 → Vrindavan Chhatikara Stand',
+        metric1: '₹20 – ₹25',
+        metric1Label: 'Verified Seat Rate',
+        metric2: '₹120',
+        metric2Label: 'Standard Tout Quote',
+        metric3: '18 Riders',
+        metric3Label: 'Logged Today',
+        telemetry: 'Auto Union #42 registered · Municipal tariff rate locked · Zero markup'
       }
     },
     {
       num: '03',
+      phase: 'LOCAL COMMERCE',
       title: 'Trust the Local Vendor',
       subtitle: 'Discover verified artisans and heritage guides',
       desc: 'Avoid commission emporiums. TrustRadar maps independent local vendors and cultural guides authenticated by community consensus.',
@@ -54,14 +66,19 @@ export default function ScrollStorySection() {
         badge: 'COMMUNITY ACCREDITATION',
         badgeColor: 'text-blue-400 bg-blue-950/80 border-blue-800',
         title: 'Radhe Shyam Peda Bhandar',
-        highlight: 'KARWAN ID #VN-2041 · 4.9★',
-        detail1: 'Chowk Bazaar, Mathura · Traditional pure khoya sweets since 1968',
-        detail2: 'Guide: Rajesh Gupta (#UP-9821) · Zero tour bus commission kickbacks',
-        icon: 'storefront'
+        route: 'Chowk Bazaar, Mathura · Traditional sweets since 1968',
+        metric1: '4.9 ★',
+        metric1Label: 'Audit Rating',
+        metric2: '0%',
+        metric2Label: 'Bus Kickbacks',
+        metric3: '#VN-2041',
+        metric3Label: 'KARWAN Trust ID',
+        telemetry: 'Accredited Guide: Rajesh Gupta (#UP-9821) · Certified pure khoya'
       }
     },
     {
       num: '04',
+      phase: 'ADAPTATION',
       title: 'Auto-heal & Stay Telemetry',
       subtitle: 'Dynamic bypass and verified utility continuity',
       desc: 'A spontaneous procession blocks Chhatikara. Auto-heal alerts you and rebalances route via Gandhi Marg, while stay sensors confirm water & power.',
@@ -69,29 +86,31 @@ export default function ScrollStorySection() {
         badge: 'AUTO-HEAL & STAY AUDIT',
         badgeColor: 'text-purple-400 bg-purple-950/80 border-purple-800',
         title: 'Bypass Active & Stay Ready',
-        highlight: '38-Min Gridlock Averted · 100% Stay Score',
-        detail1: 'Procession detected 4m ago · Re-routed via Bhaktivedanta Marg',
-        detail2: 'The Heritage Haveli: 100% solar water running & dual genset standby',
-        icon: 'alt_route'
+        route: 'Spontaneous procession averted via Bhaktivedanta Marg',
+        metric1: '38 mins',
+        metric1Label: 'Gridlock Saved',
+        metric2: '100%',
+        metric2Label: 'Hot Water Running',
+        metric3: '25 kVA',
+        metric3Label: 'Genset Standby',
+        telemetry: 'The Heritage Haveli: 100% solar water running · 78 Mbps verified fiber'
       }
     }
   ];
 
   useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isMobile = window.innerWidth < 1024;
+    if (!sectionRef.current) return;
 
-    if (prefersReducedMotion || isMobile || !triggerRef.current || !deviceRef.current) {
-      return;
-    }
+    const mm = gsap.matchMedia();
 
-    const ctx = gsap.context(() => {
-      // Pin with end: "+=300%", scrub 0.6
+    mm.add('(min-width: 1024px)', () => {
+      if (!contentRef.current || !deviceRef.current) return;
+
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: triggerRef.current,
-          start: 'top top+=80',
-          end: '+=300%',
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: '+=180%',
           pin: true,
           scrub: 0.6,
           invalidateOnRefresh: true,
@@ -103,27 +122,26 @@ export default function ScrollStorySection() {
         }
       });
 
-      // Starting at perspective(1400px) rotateX(14deg) rotateY(-10deg) scale(.95)
-      // Flattening smoothly to rotateX(2deg) rotateY(-2deg) scale(1) by 15% progress
+      // Starting at perspective(1600px) rotateX(14deg) rotateY(-10deg) scale(.95)
+      // Flattening smoothly to rotateX(0deg) rotateY(0deg) scale(1)
       tl.fromTo(
         deviceRef.current,
         {
           rotateX: 14,
           rotateY: -10,
           scale: 0.95,
-          transformPerspective: 1400
+          transformPerspective: 1600
         },
         {
-          rotateX: 2,
-          rotateY: -2,
+          rotateX: 0,
+          rotateY: 0,
           scale: 1,
-          ease: 'none',
-          duration: 0.15
+          ease: 'power2.out',
+          duration: 0.25
         },
         0
       );
 
-      // Keep flattened and stable for remainder of scrub
       tl.to(
         deviceRef.current,
         {
@@ -131,13 +149,13 @@ export default function ScrollStorySection() {
           rotateY: 0,
           scale: 1,
           ease: 'none',
-          duration: 0.85
+          duration: 0.75
         },
-        0.15
+        0.25
       );
-    }, sectionRef);
+    });
 
-    return () => ctx.revert();
+    return () => mm.revert();
   }, []);
 
   const active = steps[activeStep];
@@ -147,40 +165,39 @@ export default function ScrollStorySection() {
     <section
       id="trip-story"
       ref={sectionRef}
-      className="bg-[#000918] text-white py-16 md:py-24 relative overflow-hidden"
+      className="bg-[#080d14] text-white py-16 md:py-20 relative overflow-hidden"
     >
-      {/* Background: Near-black with subtle grid and soft green + navy radial glow */}
+      {/* Background: Near-black with subtle 28px grid and soft green + navy radial glow */}
       <div className="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#2C6E49_1px,transparent_1px)] [background-size:28px_28px]" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(44,110,73,0.22)_0%,rgba(14,40,75,0.30)_50%,transparent_75%)] pointer-events-none blur-3xl z-0" />
 
       <div
-        ref={triggerRef}
+        ref={contentRef}
         className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 relative z-10 w-full"
       >
         {/* DESKTOP PINNED VIEW (1024px and up) */}
-        <div className="hidden lg:grid grid-cols-12 gap-12 items-center min-h-[calc(100vh-var(--header-h)-4rem)] py-6">
+        <div className="hidden lg:grid grid-cols-12 gap-12 items-center min-h-[calc(100vh-var(--header-h)-2rem)] py-4">
           {/* Left Column: Mono label, Headline, and Plain Step List */}
-          <div className="col-span-6 text-left space-y-6">
-            {/* Small mono label that updates */}
+          <div className="col-span-5 text-left space-y-6">
             <div className="flex items-center gap-2 text-xs font-mono tracking-wider">
-              <span className="w-2 h-2 rounded-full bg-secondary-fixed animate-pulse" />
-              <span className="text-secondary-fixed font-semibold uppercase">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-emerald-400 font-semibold uppercase tracking-widest">
                 Scroll to play · {stepFormatted}
               </span>
             </div>
 
-            {/* Headline with Noto Serif & italic accent */}
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-pure-white leading-tight [text-wrap:balance]">
-              A trip, played by{' '}
-              <span className="italic font-normal text-secondary-fixed inline-block">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight [text-wrap:balance]">
+              A journey, played by{' '}
+              <span className="italic font-normal text-emerald-400 inline-block">
                 your&nbsp;scroll.
               </span>
             </h2>
 
             <p className="font-sans text-base text-white/70 leading-relaxed max-w-lg">
-              Follow a real journey from Mathura Junction to Vrindavan to see how Karwan’s trust engines keep domestic travellers secure, informed, and on track.
+              Follow a real journey along the Mathura–Vrindavan corridor to see how Karwan’s trust engines keep domestic travellers secure, informed, and on track.
             </p>
 
-            {/* Plain Step List (Active step in green at full opacity, others at 35% opacity, NO BOXES) */}
+            {/* Plain Step List */}
             <div className="space-y-4 pt-4 border-t border-white/10 max-w-lg">
               {steps.map((step, idx) => {
                 const isActive = idx === activeStep;
@@ -189,13 +206,13 @@ export default function ScrollStorySection() {
                     key={step.num}
                     onClick={() => setActiveStep(idx)}
                     className={`transition-all duration-300 cursor-pointer ${
-                      isActive ? 'opacity-100' : 'opacity-35 hover:opacity-60'
+                      isActive ? 'opacity-100' : 'opacity-35 hover:opacity-70'
                     }`}
                   >
                     <div className="flex items-baseline gap-3">
                       <span
                         className={`font-mono text-sm font-bold ${
-                          isActive ? 'text-secondary-fixed' : 'text-white/60'
+                          isActive ? 'text-emerald-400' : 'text-white/60'
                         }`}
                       >
                         {step.num}
@@ -208,7 +225,7 @@ export default function ScrollStorySection() {
                         >
                           {step.title}
                         </h4>
-                        <div className="text-xs text-secondary-fixed mt-0.5">
+                        <div className="text-xs text-emerald-400/90 mt-0.5 font-medium">
                           {step.subtitle}
                         </div>
                         {isActive && (
@@ -224,89 +241,112 @@ export default function ScrollStorySection() {
             </div>
           </div>
 
-          {/* Right Column: Whole Device, Never Cropped */}
-          <div className="col-span-6 flex flex-col items-center justify-center relative">
-            {/* Soft radial glow behind device */}
-            <div className="absolute w-[420px] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(40,106,70,0.25)_0%,rgba(5,36,67,0.35)_50%,transparent_75%)] pointer-events-none blur-2xl z-0" />
-
-            {/* Device Frame: strictly proportioned so it never overflows */}
+          {/* Right Column: Wide Landscape Device Mockup */}
+          <div className="col-span-7 flex flex-col items-center justify-center relative">
             <div
               ref={deviceRef}
-              className="relative z-10 w-[300px] sm:w-[320px] max-h-[500px] aspect-[9/18.5] bg-[#0c121e] rounded-[36px] p-3 shadow-2xl border-4 border-[#1f293d] flex flex-col justify-between overflow-hidden"
+              className="relative z-10 w-full max-w-[620px] aspect-[16/10] bg-[#0c121e] rounded-3xl p-3 shadow-2xl border-2 border-white/15 flex flex-col justify-between overflow-hidden"
+              style={{ transformStyle: 'preserve-3d' }}
             >
-              {/* Phone Speaker Notch */}
-              <div className="w-20 h-4 bg-[#1f293d] rounded-full mx-auto mb-2 shrink-0 flex items-center justify-center">
-                <div className="w-2 h-2 rounded-full bg-black/60 mr-2" />
-                <div className="w-8 h-1 rounded-full bg-black/60" />
-              </div>
-
-              {/* Screen Content: Crossfade over 300ms */}
-              <div
-                key={activeStep}
-                className="flex-1 bg-gradient-to-b from-[#141e30] to-[#0f172a] rounded-[26px] p-4 flex flex-col justify-between text-left overflow-hidden transition-all duration-300 animate-fadeIn"
-              >
-                {/* Top Telemetry Header */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-[10px] font-mono">
-                    <span
-                      className={`px-2 py-0.5 rounded-full font-bold uppercase border ${active.screen.badgeColor}`}
-                    >
-                      {active.screen.badge}
-                    </span>
-                    <span className="text-white/60">LIVE FEED</span>
-                  </div>
-
-                  <div>
-                    <h5 className="font-serif font-bold text-base text-white mt-1">
-                      {active.screen.title}
-                    </h5>
-                    <div className="text-xs font-semibold text-secondary-fixed mt-0.5">
-                      {active.screen.highlight}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Central Screen Graphic/Detail Box */}
-                <div className="my-auto py-3 space-y-2.5">
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
-                    <div className="text-[10px] text-white/50 font-mono">PRIMARY TELEMETRY</div>
-                    <div className="text-white/90 text-xs mt-0.5 leading-snug">
-                      {active.screen.detail1}
-                    </div>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
-                    <div className="text-[10px] text-white/50 font-mono">GROUND TRUTH AUDIT</div>
-                    <div className="text-secondary-fixed text-xs mt-0.5 leading-snug">
-                      {active.screen.detail2}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Screen Bar */}
-                <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-white/60">
-                  <span>KARWAN PASS #ST-0{activeStep + 1}</span>
-                  <span className="text-secondary-fixed flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary-fixed animate-pulse" />
-                    Verified
+              {/* Tablet Top Hardware Bar */}
+              <div className="px-3 py-1 flex items-center justify-between text-[11px] font-mono text-white/40 shrink-0">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-emerald-400 font-bold uppercase tracking-wider">
+                    KARWAN COCKPIT OS
                   </span>
                 </div>
+                <div className="w-10 h-1.5 bg-white/20 rounded-full" />
+                <div className="flex items-center gap-2">
+                  <span>STEP {stepFormatted}</span>
+                  <span className="text-white/30">|</span>
+                  <span>99% SIGNAL</span>
+                </div>
               </div>
 
-              {/* Phone Home Bar */}
-              <div className="w-24 h-1 bg-white/20 rounded-full mx-auto mt-2 shrink-0" />
+              {/* Screen Content: Crossfade */}
+              <div
+                key={activeStep}
+                className="flex-1 bg-gradient-to-b from-[#111927] to-[#0a0f18] rounded-2xl p-5 sm:p-6 flex flex-col justify-between text-left overflow-hidden transition-all duration-300 animate-fadeIn border border-white/10"
+              >
+                {/* Top Status Row */}
+                <div className="flex items-center justify-between">
+                  <span
+                    className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase border ${active.screen.badgeColor}`}
+                  >
+                    {active.screen.badge}
+                  </span>
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-emerald-400">
+                    <Icons.CheckCircle className="w-3.5 h-3.5" />
+                    <span className="font-semibold">TELEMETRY VERIFIED</span>
+                  </div>
+                </div>
+
+                {/* Primary Card Title & Route */}
+                <div className="my-auto py-2 space-y-1">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-white/50">
+                    PHASE {active.num} · {active.phase}
+                  </span>
+                  <h3 className="font-serif font-bold text-xl sm:text-2xl text-white">
+                    {active.screen.title}
+                  </h3>
+                  <div className="flex items-center gap-2 text-xs text-white/70">
+                    <Icons.Location className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                    <span className="truncate">{active.screen.route}</span>
+                  </div>
+                </div>
+
+                {/* 3 Prominent Metrics Bar */}
+                <div className="grid grid-cols-3 gap-3 p-3.5 rounded-xl bg-white/5 border border-white/10 my-1">
+                  <div>
+                    <div className="font-mono text-[10px] text-white/50 uppercase">
+                      {active.screen.metric1Label}
+                    </div>
+                    <div className="font-serif font-bold text-base sm:text-lg text-emerald-400 mt-0.5">
+                      {active.screen.metric1}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-mono text-[10px] text-white/50 uppercase">
+                      {active.screen.metric2Label}
+                    </div>
+                    <div className="font-serif font-bold text-base sm:text-lg text-white mt-0.5">
+                      {active.screen.metric2}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-mono text-[10px] text-white/50 uppercase">
+                      {active.screen.metric3Label}
+                    </div>
+                    <div className="font-serif font-bold text-base sm:text-lg text-white mt-0.5">
+                      {active.screen.metric3}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Live Audit Status */}
+                <div className="pt-2.5 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-white/60">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <span className="text-white/80">{active.screen.telemetry}</span>
+                  </div>
+                  <span className="text-emerald-400 font-bold shrink-0">LIVE FEED</span>
+                </div>
+              </div>
             </div>
 
             {/* Hairline Progress Bar Under Device */}
-            <div className="w-[300px] mt-4">
-              <div className="h-[2px] bg-white/10 rounded-full overflow-hidden">
+            <div className="w-full max-w-[620px] mt-4">
+              <div className="h-[2px] bg-white/15 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-secondary-fixed transition-all duration-75 ease-out"
+                  className="h-full bg-emerald-400 transition-all duration-75 ease-out"
                   style={{ width: `${Math.min(100, Math.max(0, storyProgress * 100))}%` }}
                 />
               </div>
-              <div className="flex items-center justify-between text-[10px] font-mono text-white/40 mt-1">
-                <span>01 PLAN</span>
+              <div className="flex items-center justify-between text-[10px] font-mono text-white/50 mt-1.5">
+                <span>01 DEPARTURE</span>
+                <span>02 TRANSIT</span>
+                <span>03 VENDOR</span>
                 <span>04 AUTO-HEAL</span>
               </div>
             </div>
@@ -314,14 +354,15 @@ export default function ScrollStorySection() {
         </div>
 
         {/* MOBILE & TABLET STACKED VIEW (< 1024px) */}
-        <div className="lg:hidden space-y-12">
-          <div className="text-left space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-mono font-semibold text-secondary-fixed">
+        <div className="lg:hidden space-y-10">
+          <div className="text-left space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-mono font-semibold text-emerald-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
               <span>01 TO 04 · END-TO-END JOURNEY</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
-              A trip, played by{' '}
-              <span className="italic font-normal text-secondary-fixed inline-block">
+              A journey, played by{' '}
+              <span className="italic font-normal text-emerald-400 inline-block">
                 your&nbsp;journey.
               </span>
             </h2>
@@ -330,15 +371,15 @@ export default function ScrollStorySection() {
             </p>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             {steps.map((step) => (
               <div
                 key={step.num}
                 className="bg-[#0f172a] rounded-2xl p-6 border border-white/10 space-y-4"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-secondary-fixed font-bold text-sm">
-                    STEP {step.num}
+                  <span className="font-mono text-emerald-400 font-bold text-sm">
+                    STEP {step.num} · {step.phase}
                   </span>
                   <span
                     className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase border ${step.screen.badgeColor}`}
@@ -351,7 +392,7 @@ export default function ScrollStorySection() {
                   <h3 className="font-serif font-bold text-xl text-white">
                     {step.title}
                   </h3>
-                  <div className="text-xs text-secondary-fixed mt-0.5 font-medium">
+                  <div className="text-xs text-emerald-400 mt-0.5 font-medium">
                     {step.subtitle}
                   </div>
                   <p className="text-xs sm:text-sm text-white/80 mt-2 leading-relaxed">
@@ -360,11 +401,12 @@ export default function ScrollStorySection() {
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-white/5 border border-white/10 space-y-2 text-xs">
-                  <div className="text-white/90 font-medium">
-                    {step.screen.detail1}
+                  <div className="flex items-center justify-between text-white font-medium">
+                    <span>{step.screen.metric1Label}: <strong className="text-emerald-400">{step.screen.metric1}</strong></span>
+                    <span>{step.screen.metric2Label}: <strong>{step.screen.metric2}</strong></span>
                   </div>
-                  <div className="text-secondary-fixed text-[11px]">
-                    ✓ {step.screen.detail2}
+                  <div className="text-emerald-400 text-[11px] pt-1 border-t border-white/10">
+                    ✓ {step.screen.telemetry}
                   </div>
                 </div>
               </div>

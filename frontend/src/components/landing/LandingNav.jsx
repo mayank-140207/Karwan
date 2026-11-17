@@ -1,11 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../common/Logo';
+import { SearchIcon, ChevronDownIcon, ArrowRightIcon, CloseIcon } from '../common/Icons';
 
 export default function LandingNav({ onOpenSearchPalette }) {
   const [modulesMenuOpen, setModulesMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(e) {
@@ -20,271 +30,254 @@ export default function LandingNav({ onOpenSearchPalette }) {
   const modules = [
     {
       id: 'livetrail',
-      name: 'LiveTrail',
-      tagline: 'Real-time transit & actual going-fares',
-      desc: 'Crowdsourced going-fare intelligence and live passenger crowding for local autos, buses, and ferries.',
-      icon: 'navigation',
-      color: 'bg-emerald-50 text-emerald-700 border-emerald-200',
-      to: '/trip/livetrail',
-      badge: 'Live Telemetry'
+      title: 'LiveTrail',
+      tagline: 'Real-time transit fares & rider crowding consensus',
+      badge: 'Transit Telemetry',
+      badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+      iconBg: 'bg-emerald-600 text-white',
+      letter: 'LT',
+      link: '/trip/livetrail'
     },
     {
       id: 'trustradar',
-      name: 'TrustRadar',
-      tagline: 'Community safety & verified guides',
-      desc: 'Real-time safety confidence scoring, localized advisories, and accredited cultural guides.',
-      icon: 'shield_with_heart',
-      color: 'bg-blue-50 text-blue-700 border-blue-200',
-      to: '/trip/trustradar',
-      badge: 'Safety Layer'
+      title: 'TrustRadar',
+      tagline: 'Community safety scores & verified local guides',
+      badge: 'Street Safety',
+      badgeColor: 'bg-teal-50 text-teal-700 border-teal-200',
+      iconBg: 'bg-teal-700 text-white',
+      letter: 'TR',
+      link: '/trip/trustradar'
     },
     {
       id: 'autoheal',
-      name: 'Auto-heal',
-      tagline: 'Dynamic itinerary recalibration',
-      desc: 'Automatic detour suggestions and stay rebalancing when unexpected road or temple closures strike.',
-      icon: 'auto_fix_high',
-      color: 'bg-amber-50 text-amber-700 border-amber-200',
-      to: '/trip/itinerary',
-      badge: 'Resilience'
+      title: 'Auto-heal',
+      tagline: 'Adaptive itinerary recalibration & instant detours',
+      badge: 'Resilience Engine',
+      badgeColor: 'bg-amber-50 text-amber-700 border-amber-200',
+      iconBg: 'bg-amber-600 text-white',
+      letter: 'AH',
+      link: '/trip/itinerary'
     },
     {
       id: 'groundtruth',
-      name: 'Ground Truth',
-      tagline: 'Stay utility telemetry & audits',
-      desc: 'Evidence-based stay verification: continuous water, backup power, Wi-Fi speed, and geotagged guest photos.',
-      icon: 'verified_user',
-      color: 'bg-purple-50 text-purple-700 border-purple-200',
-      to: '/directory',
-      badge: 'Utility Sensor'
+      title: 'Ground Truth',
+      tagline: 'Telemetry-audited heritage homestays & utilities',
+      badge: 'Stay Verification',
+      badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+      iconBg: 'bg-indigo-700 text-white',
+      letter: 'GT',
+      link: '/directory'
     }
   ];
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-b border-surface-container-high/80 shadow-sm transition-all h-[var(--header-h)]">
-      <div className="max-w-[1280px] mx-auto px-5 md:px-16 h-full flex items-center justify-between">
-        {/* Karwan Logo - left edge aligns with container */}
-        <Logo variant="color" size="md" to="/" />
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${
+        scrolled
+          ? 'bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs'
+          : 'bg-white/90 backdrop-blur-sm border-b border-slate-200/60'
+      } h-[var(--header-h,72px)]`}
+    >
+      <div className="max-w-[1280px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 h-full flex items-center justify-between">
+        {/* Karwan Brand Logo */}
+        <div className="flex items-center gap-8">
+          <Logo variant="color" size="md" to="/" />
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden lg:flex items-center gap-7 font-medium text-sm">
-          {/* Modules Mega Menu Trigger */}
-          <div 
-            className="relative" 
-            ref={menuRef}
-            onMouseEnter={() => setModulesMenuOpen(true)}
-            onMouseLeave={() => setModulesMenuOpen(false)}
-          >
-            <button
-              type="button"
-              onClick={() => setModulesMenuOpen(!modulesMenuOpen)}
-              className={`inline-flex items-center gap-1.5 py-2 px-3 rounded-lg transition-colors ${
-                modulesMenuOpen ? 'text-secondary bg-surface-container' : 'text-text-gray hover:text-primary hover:bg-surface-container-low'
-              }`}
-              aria-expanded={modulesMenuOpen}
-              aria-haspopup="true"
+          {/* Desktop Nav Links */}
+          <nav className="hidden lg:flex items-center gap-6 font-medium text-[13px] text-slate-600">
+            {/* Engines Dropdown */}
+            <div
+              className="relative"
+              ref={menuRef}
+              onMouseEnter={() => setModulesMenuOpen(true)}
+              onMouseLeave={() => setModulesMenuOpen(false)}
             >
-              <span>Modules</span>
-              <span className={`material-symbols-outlined text-base transition-transform duration-200 ${modulesMenuOpen ? 'rotate-180' : ''}`}>
-                expand_more
-              </span>
-            </button>
-
-            {/* Mega Menu Dropdown */}
-            {modulesMenuOpen && (
-              <div 
-                className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[680px]"
+              <button
+                type="button"
+                onClick={() => setModulesMenuOpen(!modulesMenuOpen)}
+                className={`inline-flex items-center gap-1.5 py-1.5 px-2.5 rounded-lg transition-colors ${
+                  modulesMenuOpen ? 'text-slate-900 bg-slate-100' : 'hover:text-slate-900 hover:bg-slate-50'
+                }`}
+                aria-expanded={modulesMenuOpen}
               >
-                <div className="bg-white rounded-2xl shadow-floating border border-surface-container-high p-5 grid grid-cols-2 gap-4">
-                  {modules.map((m) => (
-                    <Link
-                      key={m.id}
-                      to={m.to}
-                      onClick={() => setModulesMenuOpen(false)}
-                      className="group p-3.5 rounded-xl border border-surface-container-high/70 hover:border-secondary/50 hover:bg-surface-container-lowest transition-all flex flex-col justify-between"
-                    >
-                      <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <span className={`w-8 h-8 rounded-lg flex items-center justify-center border ${m.color}`}>
-                            <span className="material-symbols-outlined text-lg">{m.icon}</span>
-                          </span>
-                          <span className="text-[11px] font-semibold tracking-wider uppercase text-text-gray px-2 py-0.5 rounded-full bg-surface-container">
-                            {m.badge}
-                          </span>
+                <span>Engines</span>
+                <ChevronDownIcon
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    modulesMenuOpen ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {/* Mega Menu Dropdown */}
+              {modulesMenuOpen && (
+                <div className="absolute top-full left-0 pt-2 w-[580px]">
+                  <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-4 grid grid-cols-2 gap-3 animate-fadeIn">
+                    {modules.map((m) => (
+                      <Link
+                        key={m.id}
+                        to={m.link}
+                        onClick={() => setModulesMenuOpen(false)}
+                        className="p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all group flex flex-col justify-between"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between mb-1.5">
+                            <span className="font-semibold text-sm text-slate-900 group-hover:text-primary transition-colors flex items-center gap-2">
+                              <span className={`w-6 h-6 rounded-md ${m.iconBg} font-mono text-[10px] font-bold flex items-center justify-center shrink-0`}>
+                                {m.letter}
+                              </span>
+                              <span>{m.title}</span>
+                            </span>
+                            <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${m.badgeColor}`}>
+                              {m.badge}
+                            </span>
+                          </div>
+                          <p className="text-xs text-slate-500 line-clamp-2 leading-relaxed pl-8">
+                            {m.tagline}
+                          </p>
                         </div>
-                        <h4 className="font-serif font-bold text-base text-primary group-hover:text-secondary transition-colors">
-                          {m.name}
-                        </h4>
-                        <p className="text-xs text-text-gray leading-relaxed mt-1 line-clamp-2">
-                          {m.desc}
-                        </p>
-                      </div>
-                      <div className="flex items-center gap-1 text-xs font-semibold text-secondary mt-3">
-                        <span>Open module</span>
-                        <span className="material-symbols-outlined text-sm group-hover:translate-x-0.5 transition-transform">
-                          arrow_forward
-                        </span>
-                      </div>
-                    </Link>
-                  ))}
-                  <div className="col-span-2 pt-2 border-t border-surface-container-high/60 flex items-center justify-between text-xs text-text-gray px-1">
-                    <span>Protocol anchored by verified KARWAN ID credentials</span>
-                    <Link 
-                      to="/directory" 
-                      onClick={() => setModulesMenuOpen(false)} 
-                      className="text-primary font-semibold hover:text-secondary inline-flex items-center gap-1"
-                    >
-                      View Ground Truth Directory
-                      <span className="material-symbols-outlined text-xs">open_in_new</span>
-                    </Link>
+                        <div className="flex items-center gap-1 text-[11px] font-semibold text-primary mt-2 pl-8">
+                          <span>Open engine</span>
+                          <ArrowRightIcon className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                        </div>
+                      </Link>
+                    ))}
+                    <div className="col-span-2 pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 px-1">
+                      <span>Cryptographic verification protocol</span>
+                      <Link
+                        to="/directory"
+                        onClick={() => setModulesMenuOpen(false)}
+                        className="text-primary font-semibold hover:underline inline-flex items-center gap-1"
+                      >
+                        <span>Browse directory</span>
+                        <ArrowRightIcon className="w-3 h-3" />
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
 
-          <a href="#how-it-works" className="text-text-gray hover:text-primary transition-colors py-1">
-            How It Works
-          </a>
-          <a href="#trip-story" className="text-text-gray hover:text-primary transition-colors py-1">
-            Trip Story
-          </a>
-          <a href="#for-partners" className="text-text-gray hover:text-primary transition-colors py-1">
-            For Partners
-          </a>
-        </nav>
+            <a href="#how-it-works" className="hover:text-slate-900 transition-colors py-1.5 px-2">
+              How It Works
+            </a>
+            <a href="#trip-story" className="hover:text-slate-900 transition-colors py-1.5 px-2">
+              Braj Story
+            </a>
+            <a href="#directory" className="hover:text-slate-900 transition-colors py-1.5 px-2">
+              Ground Truth
+            </a>
+            <a href="#for-partners" className="hover:text-slate-900 transition-colors py-1.5 px-2">
+              For Partners
+            </a>
+          </nav>
+        </div>
 
-        {/* Right Action Buttons */}
+        {/* Right Action Controls */}
         <div className="flex items-center gap-3">
-          {/* Search button showing ⌘K */}
+          {/* Search Button with ⌘K */}
           <button
             type="button"
             onClick={onOpenSearchPalette}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-surface-container-high text-xs font-medium text-text-gray hover:text-primary transition-all group"
-            aria-label="Search destination (⌘K)"
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200/80 border border-slate-200/80 text-xs font-medium text-slate-600 hover:text-slate-900 transition-all group"
+            aria-label="Search destinations (⌘K)"
             title="Search destinations (⌘K)"
           >
-            <span className="material-symbols-outlined text-sm text-secondary group-hover:scale-110 transition-transform">
-              search
-            </span>
-            <span className="hidden sm:inline font-sans text-xs text-text-gray">Search</span>
-            <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold bg-white border border-surface-container-high text-primary shadow-xs">
+            <SearchIcon className="w-3.5 h-3.5 text-slate-500 group-hover:text-slate-800" />
+            <span className="hidden sm:inline text-xs">Search</span>
+            <kbd className="hidden sm:inline font-mono text-[10px] text-slate-400 bg-white px-1.5 py-0.5 rounded border border-slate-200">
               ⌘K
             </kbd>
           </button>
 
-          {/* Log In = outline button */}
+          {/* Secondary Ghost Button */}
           <Link
-            to="/login"
-            className="hidden sm:inline-flex px-5 py-2 rounded-[20px] border border-primary text-primary hover:bg-primary/5 font-label-md text-sm font-semibold transition-colors"
+            to="/directory"
+            className="hidden sm:inline-flex items-center text-xs font-semibold text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-lg hover:bg-slate-100 transition-colors"
           >
-            Log In
+            Explore Corridors
           </Link>
 
-          {/* Get Started = solid green button */}
+          {/* Primary Action Button (Concilio-style dark pill) */}
           <Link
-            to="/auth/signup-step-1"
-            className="inline-flex px-5 py-2 rounded-[20px] bg-secondary text-pure-white font-label-md text-sm font-semibold hover:bg-success-green transition-colors shadow-ambient"
+            to="/auth/role-selection"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs hover:shadow transition-all group active:scale-95"
           >
-            Get Started
+            <span>Get Started</span>
+            <ArrowRightIcon className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
           </Link>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Menu Hamburger */}
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary"
-            aria-label="Toggle Navigation Menu"
+            className="lg:hidden w-9 h-9 rounded-lg border border-slate-200 flex items-center justify-center text-slate-700 hover:bg-slate-100 transition-colors ml-1"
+            aria-label="Toggle navigation menu"
           >
-            <span className="material-symbols-outlined">
-              {mobileMenuOpen ? 'close' : 'menu'}
-            </span>
+            {mobileMenuOpen ? (
+              <CloseIcon className="w-5 h-5" />
+            ) : (
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[var(--header-h)] bg-white border-b border-surface-container-high shadow-floating max-h-[calc(100vh-var(--header-h))] overflow-y-auto p-6 space-y-6">
-          {/* Mobile Search Action */}
-          <div>
-            <button
-              type="button"
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (onOpenSearchPalette) onOpenSearchPalette();
-              }}
-              className="w-full flex items-center justify-between p-3 rounded-xl bg-surface-container hover:bg-surface-container-high border border-surface-container-high text-sm font-medium text-text-gray text-left"
-            >
-              <div className="flex items-center gap-2.5">
-                <span className="material-symbols-outlined text-secondary">search</span>
-                <span>Search destination corridors...</span>
-              </div>
-              <kbd className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-white border border-surface-container-high text-primary">
-                ⌘K
-              </kbd>
-            </button>
-          </div>
-
-          <div>
-            <span className="text-xs font-semibold tracking-wider text-text-gray uppercase">Core Modules</span>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-3">
-              {modules.map((m) => (
-                <Link
-                  key={m.id}
-                  to={m.to}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="p-3 rounded-xl border border-surface-container-high flex items-center gap-3 hover:bg-surface-container-low transition-colors"
-                >
-                  <span className={`w-9 h-9 rounded-lg flex items-center justify-center border shrink-0 ${m.color}`}>
-                    <span className="material-symbols-outlined text-lg">{m.icon}</span>
+        <div className="lg:hidden bg-white border-b border-slate-200 px-6 py-6 shadow-xl animate-fadeIn space-y-5">
+          <div className="grid grid-cols-2 gap-2 pb-4 border-b border-slate-100">
+            {modules.map((m) => (
+              <Link
+                key={m.id}
+                to={m.link}
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex flex-col gap-1"
+              >
+                <span className="font-semibold text-xs text-slate-900 flex items-center gap-1.5">
+                  <span className={`w-5 h-5 rounded ${m.iconBg} font-mono text-[9px] font-bold flex items-center justify-center`}>
+                    {m.letter}
                   </span>
-                  <div>
-                    <h5 className="font-serif font-bold text-sm text-primary">{m.name}</h5>
-                    <p className="text-xs text-text-gray">{m.tagline}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+                  <span>{m.title}</span>
+                </span>
+                <span className="text-[10px] text-slate-500">{m.badge}</span>
+              </Link>
+            ))}
           </div>
 
-          <div className="space-y-3 pt-3 border-t border-surface-container-high text-base font-medium">
-            <a
-              href="#how-it-works"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-primary hover:text-secondary transition-colors"
-            >
+          <nav className="flex flex-col gap-3 text-sm font-medium text-slate-700">
+            <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="py-1">
               How It Works
             </a>
-            <a
-              href="#trip-story"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-primary hover:text-secondary transition-colors"
-            >
-              Trip Story
+            <a href="#trip-story" onClick={() => setMobileMenuOpen(false)} className="py-1">
+              Braj Trip Story
             </a>
-            <a
-              href="#for-partners"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-primary hover:text-secondary transition-colors"
-            >
+            <a href="#directory" onClick={() => setMobileMenuOpen(false)} className="py-1">
+              Ground Truth Directory
+            </a>
+            <a href="#for-partners" onClick={() => setMobileMenuOpen(false)} className="py-1">
               For Partners
             </a>
-          </div>
+            <Link to="/screens" onClick={() => setMobileMenuOpen(false)} className="py-1 text-slate-500">
+              35 Screens Index
+            </Link>
+          </nav>
 
-          <div className="pt-4 border-t border-surface-container-high flex flex-col sm:flex-row gap-3">
+          <div className="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
             <Link
               to="/login"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-2.5 rounded-[20px] border border-primary text-primary font-semibold text-sm"
+              className="w-full py-2.5 rounded-xl border border-slate-200 text-center text-xs font-semibold text-slate-700"
             >
               Log In
             </Link>
             <Link
-              to="/auth/signup-step-1"
+              to="/auth/role-selection"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center py-2.5 rounded-[20px] bg-secondary text-white font-semibold text-sm shadow-ambient"
+              className="w-full py-2.5 rounded-xl bg-slate-900 text-white text-center text-xs font-semibold"
             >
-              Get Started
+              Get Started Free →
             </Link>
           </div>
         </div>

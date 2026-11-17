@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { searchCities, FALLBACK_CITIES } from '../../lib/supabase';
+import { Icons } from '../common/Icons';
 
 export default function CommandPaletteModal({ isOpen, onClose }) {
   const navigate = useNavigate();
@@ -94,7 +95,7 @@ export default function CommandPaletteModal({ isOpen, onClose }) {
       >
         {/* Search Input Bar */}
         <div className="flex items-center px-4 py-3.5 border-b border-surface-container-high gap-3 bg-surface-container-lowest">
-          <span className="material-symbols-outlined text-secondary text-xl">search</span>
+          <Icons.Search className="w-5 h-5 text-secondary shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -125,15 +126,16 @@ export default function CommandPaletteModal({ isOpen, onClose }) {
           </div>
 
           {results.length === 0 ? (
-            <div className="py-8 text-center text-text-gray text-sm">
-              <span className="material-symbols-outlined text-3xl mb-1 text-text-gray/40">location_off</span>
+            <div className="py-8 text-center text-text-gray text-sm space-y-2">
+              <Icons.Location className="w-8 h-8 mx-auto text-text-gray/40" />
               <p>No verified corridors matching "{query}"</p>
               <button
                 type="button"
                 onClick={() => handleSelectCity(query.trim())}
-                className="mt-3 text-xs font-semibold text-secondary hover:underline"
+                className="mt-2 text-xs font-semibold text-secondary hover:underline inline-flex items-center gap-1"
               >
-                Explore "{query.trim()}" anyway →
+                <span>Explore "{query.trim()}" anyway</span>
+                <Icons.ArrowRight className="w-3 h-3" />
               </button>
             </div>
           ) : (
@@ -160,9 +162,7 @@ export default function CommandPaletteModal({ isOpen, onClose }) {
                               : 'bg-surface-container text-secondary'
                           }`}
                         >
-                          <span className="material-symbols-outlined text-base">
-                            {city.icon || 'location_on'}
-                          </span>
+                          <Icons.Location className="w-4 h-4" />
                         </span>
                         <div className="min-w-0">
                           <div className="font-serif font-bold text-sm text-primary truncate">
@@ -179,13 +179,11 @@ export default function CommandPaletteModal({ isOpen, onClose }) {
                             Go to /explore
                           </span>
                         )}
-                        <span
-                          className={`material-symbols-outlined text-sm ${
+                        <Icons.ArrowRight
+                          className={`w-3.5 h-3.5 ${
                             isSelected ? 'text-secondary translate-x-0.5' : 'text-text-gray/40'
                           } transition-transform`}
-                        >
-                          arrow_forward
-                        </span>
+                        />
                       </div>
                     </button>
                   </li>
@@ -206,4 +204,3 @@ export default function CommandPaletteModal({ isOpen, onClose }) {
     </div>
   );
 }
-

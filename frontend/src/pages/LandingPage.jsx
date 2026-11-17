@@ -10,6 +10,7 @@ import LiveProductDemo from '../components/landing/LiveProductDemo';
 import StatsRow from '../components/landing/StatsRow';
 import CommandPaletteModal from '../components/landing/CommandPaletteModal';
 import SnakeCursor from '../components/common/SnakeCursor';
+import { Icons } from '../components/common/Icons';
 
 // Lazy-load sections below the fold for optimal Lighthouse Performance (>85)
 const ScrollStorySection = lazy(() => import('../components/landing/ScrollStorySection'));
@@ -19,6 +20,7 @@ const AlternatingModules = lazy(() => import('../components/landing/AlternatingM
 const OrbitTrustLayer = lazy(() => import('../components/landing/OrbitTrustLayer'));
 const HowItWorksSection = lazy(() => import('../components/landing/HowItWorksSection'));
 const PartnersSection = lazy(() => import('../components/landing/PartnersSection'));
+const DispatchesSection = lazy(() => import('../components/landing/DispatchesSection'));
 const FinalCtaFooter = lazy(() => import('../components/landing/FinalCtaFooter'));
 
 // Register ScrollTrigger
@@ -113,7 +115,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-background text-on-surface antialiased font-sans selection:bg-secondary/20 selection:text-primary relative">
-      {/* 3. 2px green scroll-progress line along the top edge of the page */}
+      {/* 2px green scroll-progress line along the top edge of the page */}
       <div
         className="fixed top-0 left-0 right-0 h-[2px] bg-transparent z-[60] pointer-events-none"
         role="progressbar"
@@ -128,14 +130,14 @@ export default function LandingPage() {
         />
       </div>
 
-      {/* Interactive Snake-Like Cursor Animation */}
+      {/* Refined Magnetic Cursor */}
       <SnakeCursor />
 
-      {/* 1. Nav (Fixed, with real --header-h, Modules mega-menu, logo, search button with ⌘K, login, get started) */}
+      {/* 1. Nav (Fixed, with real --header-h, Engines mega-menu, logo, search button with ⌘K, login, get started) */}
       <LandingNav onOpenSearchPalette={() => setCommandPaletteOpen(true)} />
 
       <main>
-        {/* 2. Hero Section: Editorial headline, italic accent phrase, city search, faint grid background, module chips */}
+        {/* 2. Hero Section: Editorial headline, italic accent phrase, city search, faint grid background, module dock */}
         <HeroSection onSelectDemoTab={(idx) => setSelectedDemoTab(idx)} />
 
         {/* 3. Live Product Demo: Browser-frame mockup, 4 tabs (LiveTrail, TrustRadar, Auto-heal, Ground Truth), progress bar, toast cards */}
@@ -144,10 +146,10 @@ export default function LandingPage() {
           onTabChange={(idx) => setSelectedDemoTab(idx)}
         />
 
-        {/* 4. Stats Row: 4 counters read from Supabase (cities, places, fare reports, modules). Hides counter if 0 */}
+        {/* 4. Stats Row: 4 counters read from Supabase (cities, places, fare reports, modules) */}
         <StatsRow />
 
-        {/* 5. Pinned Scroll Story (Dark section): Mathura to Vrindavan trip with perspective-tilted device flattening on scroll */}
+        {/* 5. Pinned Scroll Story (Dark section): Mathura to Vrindavan trip with perspective-tilted landscape cockpit flattening on scroll */}
         <Suspense fallback={<SectionLoadingFallback height="h-[600px]" />}>
           <ScrollStorySection />
         </Suspense>
@@ -162,7 +164,7 @@ export default function LandingPage() {
           <EditorialQuote />
         </Suspense>
 
-        {/* 8. Four Alternating Rows: Text on one side, mockup on the other, 3 check bullets & explore links */}
+        {/* 8. Four Alternating Rows: Text on one side, realistic software mockup on the other */}
         <Suspense fallback={<SectionLoadingFallback height="h-[800px]" />}>
           <AlternatingModules />
         </Suspense>
@@ -182,13 +184,18 @@ export default function LandingPage() {
           <PartnersSection />
         </Suspense>
 
-        {/* 12. Final Dark CTA Card ("See it running on your route.") + Footer with oversized faded Karwan wordmark */}
+        {/* 12. Notes from the Ground Truth Network: Technical field dispatches */}
+        <Suspense fallback={<SectionLoadingFallback height="h-[500px]" />}>
+          <DispatchesSection />
+        </Suspense>
+
+        {/* 13. Final Dark CTA Card ("Experience India with total journey trust.") + 5-column white footer with oversized faded Karwan wordmark */}
         <Suspense fallback={<SectionLoadingFallback height="h-[600px]" />}>
           <FinalCtaFooter />
         </Suspense>
       </main>
 
-      {/* 7. Back-to-top button, bottom-right, appearing after 600px of scroll */}
+      {/* Back-to-top button, bottom-right, appearing after 600px of scroll */}
       <button
         type="button"
         onClick={handleScrollToTop}
@@ -198,10 +205,10 @@ export default function LandingPage() {
         aria-label="Back to top"
         title="Back to top"
       >
-        <span className="material-symbols-outlined text-xl">arrow_upward</span>
+        <Icons.ArrowUp className="w-5 h-5 text-white" />
       </button>
 
-      {/* 2. Command Palette Modal (⌘K / Ctrl+K) */}
+      {/* Command Palette Modal (⌘K / Ctrl+K) */}
       <CommandPaletteModal
         isOpen={commandPaletteOpen}
         onClose={() => setCommandPaletteOpen(false)}
