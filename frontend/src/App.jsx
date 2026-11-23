@@ -6,6 +6,8 @@ const LandingPage = lazy(() => import('./pages/LandingPage'));
 const HomePage = lazy(() => import('./pages/HomePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 const ScreensCatalogPage = lazy(() => import('./pages/ScreensCatalogPage'));
+const StyleguidePage = lazy(() => import('./pages/StyleguidePage'));
+import { ToastProvider } from './components/common/Toast';
 
 // 2. Auth Flow (6)
 const ImmersiveLoginPage = lazy(() => import('./pages/auth/ImmersiveLoginPage'));
@@ -64,14 +66,16 @@ function RouteLoadingFallback() {
 export default function App() {
   return (
     <BrowserRouter>
-      <Suspense fallback={<RouteLoadingFallback />}>
-        <Routes>
-          {/* Landing / Core (3) */}
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<HomePage />} />
-          <Route path="/404" element={<NotFoundPage />} />
-          <Route path="/screens" element={<ScreensCatalogPage />} />
-          <Route path="/screens-catalog" element={<ScreensCatalogPage />} />
+      <ToastProvider>
+        <Suspense fallback={<RouteLoadingFallback />}>
+          <Routes>
+            {/* Landing / Core (3) */}
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/404" element={<NotFoundPage />} />
+            <Route path="/screens" element={<ScreensCatalogPage />} />
+            <Route path="/screens-catalog" element={<ScreensCatalogPage />} />
+            <Route path="/styleguide" element={<StyleguidePage />} />
 
           {/* Auth Flow (6 screens with primary & alias routes) */}
           <Route path="/login" element={<ImmersiveLoginPage />} />
@@ -122,6 +126,7 @@ export default function App() {
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Routes>
       </Suspense>
+      </ToastProvider>
     </BrowserRouter>
   );
 }
